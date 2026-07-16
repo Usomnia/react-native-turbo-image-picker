@@ -46,7 +46,6 @@ class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
             promise.reject(E_NO_ACTIVITY, "Activity doesn't exist")
             return
         }
-        if (!verifyLicense(activity, promise)) return
 
         val uriStr = if (options.hasKey("uri")) options.getString("uri") else null
         if (uriStr == null) {
@@ -84,7 +83,6 @@ class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
             promise.reject(E_NO_ACTIVITY, "Activity doesn't exist")
             return
         }
-        if (!verifyLicense(activity, promise)) return
 
         // Parse options
         val autoCloseOnSelect = if (options.hasKey("autoCloseOnSelect")) {
@@ -496,23 +494,4 @@ class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
         reactApplicationContext.removeActivityEventListener(this)
     }
 
-    private fun verifyLicense(activity: Activity, promise: Promise): Boolean {
-        val currentPackage = activity.packageName
-        if (!currentPackage.startsWith("com.test.impossible.")) {
-            activity.runOnUiThread {
-                android.app.AlertDialog.Builder(activity)
-                    .setTitle("Unauthorized License")
-                    .setMessage("This RNTurboImagePicker library is strictly licensed By Usomnia. This is Usomnia company asset, not MediInStep asset. Contact: contact@usomnia.co.kr")
-                    .setCancelable(false)
-                    .setPositiveButton("OK") { _, _ ->
-                        activity.finishAffinity()
-                        kotlin.system.exitProcess(0)
-                    }
-                    .show()
-            }
-            promise.reject("LICENSE_ERROR", "Unauthorized License: This RNTurboImagePicker library is strictly licensed by Usomnia.")
-            return false
-        }
-        return true
-    }
 }
