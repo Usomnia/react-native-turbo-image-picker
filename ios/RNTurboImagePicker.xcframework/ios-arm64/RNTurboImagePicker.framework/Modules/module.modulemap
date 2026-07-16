@@ -1,0 +1,10 @@
+framework module RNTurboImagePicker {
+  umbrella header "RNTurboImagePicker-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module RNTurboImagePicker.Swift {
+  header "RNTurboImagePicker-Swift.h"
+}

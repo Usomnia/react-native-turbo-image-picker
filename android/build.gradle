@@ -1,0 +1,15 @@
+apply plugin: 'com.android.library'
+
+android {
+    namespace "com.rnturboimagepicker"
+    compileSdkVersion 34
+    
+    defaultConfig {
+        minSdkVersion 24
+        targetSdkVersion 34
+    }
+}
+
+dependencies {
+    implementation files('src/main/libs/rnturboimagepicker-release.aar')
+}
