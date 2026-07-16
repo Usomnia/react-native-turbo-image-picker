@@ -4,176 +4,473 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>Assets.car</key>
+		<data>
+		CQLy60OSncRgr6e10HGbOlEXFT8=
+		</data>
+		<key>Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
+		<data>
+		12k3zu8SDvW0usgIazlDLOBg5Zk=
+		</data>
+		<key>Base.lproj/LaunchScreen.storyboardc/Info.plist</key>
+		<data>
+		n2t8gsDpfE6XkhG31p7IQJRxTxU=
+		</data>
+		<key>Base.lproj/LaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib</key>
+		<data>
+		ZVgM1+KwZcZnwhgaI0F7Bt1ba2c=
+		</data>
 		<key>Headers/RNTurboImagePicker-Swift.h</key>
 		<data>
-		Nye8DdXvanDgBarJUZCRhado6dI=
-		</data>
-		<key>Headers/RNTurboImagePicker-umbrella.h</key>
-		<data>
-		8gHrpzZ30S/sdRjXHzgU4iwJV14=
+		GwsDz4mQlpo8gKPSF8XmT5DX7io=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		rY6hUHdLCiBB+5svV1ymPkiZeac=
-		</data>
-		<key>Modules/RNTurboImagePicker.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo</key>
-		<data>
-		SY4AvwJI8R0NJhnqjECtWrL+LUA=
-		</data>
-		<key>Modules/RNTurboImagePicker.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
-		<data>
-		GUjfhR0bTF1ovBj/DIx/sL1ROjw=
+		Rf4b/2tQldGhNpH72DzCRG6W/v8=
 		</data>
 		<key>Modules/RNTurboImagePicker.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		Vl1ktawq7rOcm6WwZ4vWxcLmJsU=
+		yUFektleUCKIUSY6Q6xaapovKLo=
 		</data>
 		<key>Modules/RNTurboImagePicker.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		8/PSwmfydASLVf7mXER8C3U7xPI=
+		2EzepiyOPPzwgpNIbgrEJhJ7ljk=
 		</data>
 		<key>Modules/RNTurboImagePicker.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		ADRUwLw7/oxzK9NTXn721FGdp3A=
+		znaxKwaYt5891DcGfqrLHaYVMQc=
 		</data>
 		<key>Modules/RNTurboImagePicker.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		8/PSwmfydASLVf7mXER8C3U7xPI=
+		2EzepiyOPPzwgpNIbgrEJhJ7ljk=
 		</data>
 		<key>Modules/RNTurboImagePicker.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		5EAr1joQ8Xhq2Qb5YuHSOkDGr1Y=
+		E5HuL96vGwzDXRtY1kaSbPJAsIY=
 		</data>
 		<key>Modules/RNTurboImagePicker.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		Vl1ktawq7rOcm6WwZ4vWxcLmJsU=
+		yUFektleUCKIUSY6Q6xaapovKLo=
 		</data>
 		<key>Modules/RNTurboImagePicker.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		OxYLCKJGZODAq6d1wW0q1pg2e7Q=
+		tK4cgvzhKXDWbZzWwWA0L2zYBeo=
 		</data>
 		<key>Modules/RNTurboImagePicker.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		BFHO34IfNKWFXZ+SZf2TZvAXb9s=
+		McICd5X8DHCzU/qsLPdZ1CCOy2I=
 		</data>
 		<key>Modules/RNTurboImagePicker.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		OxYLCKJGZODAq6d1wW0q1pg2e7Q=
+		tK4cgvzhKXDWbZzWwWA0L2zYBeo=
 		</data>
 		<key>Modules/RNTurboImagePicker.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		5cbGnCXS0pUkBXcuof2VoddKxxQ=
+		HN7HnHQILYwsjnhriM06Un6gvBw=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
-		K0OmV4D7n8Jx/sxj+wjqML78B9A=
+		bc5DUWczhj6t5FLbiS+UoTxESFc=
+		</data>
+		<key>Pretendard-SemiBold.otf</key>
+		<data>
+		kWpiFSt/0I/0PSOd4EMDpGVSH+Y=
+		</data>
+		<key>ToolbarIcons/ic_crop_reflect~dark.webp</key>
+		<data>
+		uhN5IuKnjO1ikuRBV3YabBlzSjM=
+		</data>
+		<key>ToolbarIcons/ic_crop_reflect~light.webp</key>
+		<data>
+		S9k8cMBucUhXxIfRK7CTMZeQby4=
+		</data>
+		<key>ToolbarIcons/ic_crop_rotate~dark.webp</key>
+		<data>
+		X8aiv7yfBKfKOdSZ7ixkqPOOTns=
+		</data>
+		<key>ToolbarIcons/ic_crop_rotate~light.webp</key>
+		<data>
+		Mw/SU9w0IYZX/Vko01Ii/b5223M=
+		</data>
+		<key>ToolbarIcons/ic_drawing_delete~dark.webp</key>
+		<data>
+		8Nmb2b9POBjtIgTBmA6b3tpY5E8=
+		</data>
+		<key>ToolbarIcons/ic_drawing_delete~light.webp</key>
+		<data>
+		t2OBOMDMC/Yj3+1Mt5kABsZPxbQ=
+		</data>
+		<key>ToolbarIcons/ic_drawing_forward~dark.webp</key>
+		<data>
+		OEfWim8IWUUolQCDPZVDiCC4Ros=
+		</data>
+		<key>ToolbarIcons/ic_drawing_forward~light.webp</key>
+		<data>
+		w+EZAeE/RCSqzPTbYdwxPnIuX1Q=
+		</data>
+		<key>ToolbarIcons/ic_drawing_reward~dark.webp</key>
+		<data>
+		A/LDFctmOavSaP3n77jhsR4iXVk=
+		</data>
+		<key>ToolbarIcons/ic_drawing_reward~light.webp</key>
+		<data>
+		uJBfI3rz71SnX1qZJxSFfbiVYu4=
+		</data>
+		<key>ToolbarIcons/ic_editor_crop~dark.webp</key>
+		<data>
+		vkE/t9hE8QsShCAt5Rv0kzmU9qw=
+		</data>
+		<key>ToolbarIcons/ic_editor_crop~light.webp</key>
+		<data>
+		7MLR5M3sHUtGEIyloV/E2B4rxIE=
+		</data>
+		<key>ToolbarIcons/ic_editor_drawing~dark.webp</key>
+		<data>
+		JXwGXPwUyUpsR+3mF9G5tthmPgA=
+		</data>
+		<key>ToolbarIcons/ic_editor_drawing~light.webp</key>
+		<data>
+		XZBip505Y2S20mwhWH+6iwReHBA=
+		</data>
+		<key>ToolbarIcons/ic_editor_effect~dark.webp</key>
+		<data>
+		2BH2x79ITaCyk0K0UbqHTYp+Jt4=
+		</data>
+		<key>ToolbarIcons/ic_editor_effect~light.webp</key>
+		<data>
+		MZ6aBrS9VPAKhd033nhjhdwzgqM=
+		</data>
+		<key>ToolbarIcons/ic_editor_emoji~dark.webp</key>
+		<data>
+		LY1e6UckPj+dowJmDvAmhKSI9EA=
+		</data>
+		<key>ToolbarIcons/ic_editor_emoji~light.webp</key>
+		<data>
+		WxRvHB2EQdKjN+mIiyXE4ahqFD8=
+		</data>
+		<key>ToolbarIcons/ic_editor_eraser~dark.webp</key>
+		<data>
+		zWYdZ8FLiLu9Bk5m3OQqLSFh8ts=
+		</data>
+		<key>ToolbarIcons/ic_editor_eraser~light.webp</key>
+		<data>
+		Kaprq8lKq2RbrluIHRui+0UIRAY=
+		</data>
+		<key>ToolbarIcons/ic_editor_mosaic~dark.webp</key>
+		<data>
+		qG4ohaN7IVT9memfUWmjf1Rsimw=
+		</data>
+		<key>ToolbarIcons/ic_editor_mosaic~light.webp</key>
+		<data>
+		nYopLAZ0/0Z1H2cBqQZNH/B1mVA=
+		</data>
+		<key>ToolbarIcons/ic_editor_text~dark.webp</key>
+		<data>
+		HgtXySmkyU4gV3cVplfDR/El8yg=
+		</data>
+		<key>ToolbarIcons/ic_editor_text~light.webp</key>
+		<data>
+		a7IGrSlvI5bkv4dMccicecREZzQ=
+		</data>
+		<key>TossFaceFontMac.ttf</key>
+		<data>
+		+XjQ8tGLT60AePxjwqueIoARRjU=
 		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
+		<key>Assets.car</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			lXLZ0ckZu/wS5p/8PsGhu6oThgnPHtnb/+F6Q5jGzEI=
+			</data>
+		</dict>
+		<key>Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			i7qpj2wO5dfrpabHW/vXa8Z0kxUlhos+mFSVvAWJMhI=
+			</data>
+		</dict>
+		<key>Base.lproj/LaunchScreen.storyboardc/Info.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			HyVdXMU7Ux4/KalAao30mpWOK/lEPT4gvYN09wf31cg=
+			</data>
+		</dict>
+		<key>Base.lproj/LaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			VPNjf2cf66XxnoLsT0p/tEi7PPwPsYDwiapXH8jwU+I=
+			</data>
+		</dict>
 		<key>Headers/RNTurboImagePicker-Swift.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			aGhIvNYV2yMOBa0FMButNvvfXtHAOP6rZRWUrZnC7kI=
-			</data>
-		</dict>
-		<key>Headers/RNTurboImagePicker-umbrella.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			BCoEC54KhYLbYC5twFSzOlJN30ElME0y1xGAZrDJoms=
-			</data>
-		</dict>
-		<key>Modules/RNTurboImagePicker.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			JMHjXihE7dHVrvC9dpp9OQddHNupptRLw8earjeilBQ=
-			</data>
-		</dict>
-		<key>Modules/RNTurboImagePicker.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			XSJ88ybxVdgwfe40r/tdcu7tulkba3tbE/2YDmIhSBE=
+			9DgICd9yX4KsnAUK/YatIpdQVKevDX7fsU7lS3RB6Qo=
 			</data>
 		</dict>
 		<key>Modules/RNTurboImagePicker.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			MX7VES6VLBOL2XpVL1dLfHpxJVEvzq9qtxwlncpWC/0=
+			OkqnVycKpiis34hp70Muadt/mrOaGQE6UnIydD8q80c=
 			</data>
 		</dict>
 		<key>Modules/RNTurboImagePicker.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			zRPslxQz9U/vPfaGJ47x2lom5cCIybcexA4xhUXIKHE=
+			7UdqyvozDgilh9w2GGWf5dh7lOtEkbiu4Vcn1BPW4GM=
 			</data>
 		</dict>
 		<key>Modules/RNTurboImagePicker.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ePZjceLFF2aAwKiRXWN2Y9YfqNwVF1tsVcnu+TGMpgc=
+			jGMc70Ca+bXipCoiLkOeqIkxwXYibk15ANLQIelCvZ4=
 			</data>
 		</dict>
 		<key>Modules/RNTurboImagePicker.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			zRPslxQz9U/vPfaGJ47x2lom5cCIybcexA4xhUXIKHE=
+			7UdqyvozDgilh9w2GGWf5dh7lOtEkbiu4Vcn1BPW4GM=
 			</data>
 		</dict>
 		<key>Modules/RNTurboImagePicker.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ue/z34r9Ir6RK1WCh8dkMVEkVFgFWUHnpQiWyc/Ok4c=
+			ND8HZcwg8ASGO3Z0UOJCGJyo95LiUuMc+INgjl2xxZk=
 			</data>
 		</dict>
 		<key>Modules/RNTurboImagePicker.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			MX7VES6VLBOL2XpVL1dLfHpxJVEvzq9qtxwlncpWC/0=
+			OkqnVycKpiis34hp70Muadt/mrOaGQE6UnIydD8q80c=
 			</data>
 		</dict>
 		<key>Modules/RNTurboImagePicker.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			vkZjPc1d+GoeOPpJTwE7P/R0B9pdxTf/P+yaLIX/WzM=
+			s2a+As08gHk/+VGdJRG4U+1ef7XsxRi7d0memsxHuhs=
 			</data>
 		</dict>
 		<key>Modules/RNTurboImagePicker.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ybZtwotB9gyNHo0R0zbWOySvNGVqpxCdVLNgrNptDsc=
+			OtVCjYdOyBjYEcKYxOjApHVThllX8CRG5Qp4M5WEv9M=
 			</data>
 		</dict>
 		<key>Modules/RNTurboImagePicker.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			vkZjPc1d+GoeOPpJTwE7P/R0B9pdxTf/P+yaLIX/WzM=
+			s2a+As08gHk/+VGdJRG4U+1ef7XsxRi7d0memsxHuhs=
 			</data>
 		</dict>
 		<key>Modules/RNTurboImagePicker.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			kebHYKxHqnc9YV6HuB7Ur6QPmhV4aWEGK3p0XbmKyA4=
+			0PlFEMTwzHU8Gu6aGsJ6O+rArSHzvnZTqsKVQIcsvQE=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Q6p4NOysg5YF5sKnJCi1rkGQt1+b+0zey2HaAE1b8z4=
+			QNYfoQx6+YHKk2c8gFnDzK5EPSgjkH2zSaH3JsQipQ8=
+			</data>
+		</dict>
+		<key>Pretendard-SemiBold.otf</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			yJvEMCfcfN5XJuliIzdvjuwJMCsvwfgUf9W1fPw3YRg=
+			</data>
+		</dict>
+		<key>ToolbarIcons/ic_crop_reflect~dark.webp</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			2DXjUCvpg0bqsJuYZXrYPS2u4z+PMBiQ/Wq8Awkocd8=
+			</data>
+		</dict>
+		<key>ToolbarIcons/ic_crop_reflect~light.webp</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Yh+4vxRv7YiPxoqil8E9LkLvUIUeS78yCJeBBMy/kbY=
+			</data>
+		</dict>
+		<key>ToolbarIcons/ic_crop_rotate~dark.webp</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			VhoDGU2EJqjlMhhnydR2Lw0JFd/zetOciOAN8p2xUuA=
+			</data>
+		</dict>
+		<key>ToolbarIcons/ic_crop_rotate~light.webp</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Pz+gmTiYnDZ6vqtN2CmsyqECNk0VcglUupZ0S2vopyI=
+			</data>
+		</dict>
+		<key>ToolbarIcons/ic_drawing_delete~dark.webp</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			XtL5qilrVt5GaBNk3on//yYSl9e65zMXxMx/hEg+5G8=
+			</data>
+		</dict>
+		<key>ToolbarIcons/ic_drawing_delete~light.webp</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Gzh0ScraswHmdKhdRWqkyRBnA1WLiEuLEfINUn14J5Q=
+			</data>
+		</dict>
+		<key>ToolbarIcons/ic_drawing_forward~dark.webp</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			szkJr5cXk/vCYEJRDhIsiPIa6I+eq0/hfbOH/sDUeKA=
+			</data>
+		</dict>
+		<key>ToolbarIcons/ic_drawing_forward~light.webp</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			dOd4K/epueTEHG6ET+lhLSCNdI4fxIDbgodL31Ic8S0=
+			</data>
+		</dict>
+		<key>ToolbarIcons/ic_drawing_reward~dark.webp</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			gBQmK737rLoVf6k7n4ZejurWpkhQpVxoLS1YJNPpi3U=
+			</data>
+		</dict>
+		<key>ToolbarIcons/ic_drawing_reward~light.webp</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			W9Agusdf8JC2UQsrcjX86I6Puk4cD4W+0advm2HU+F8=
+			</data>
+		</dict>
+		<key>ToolbarIcons/ic_editor_crop~dark.webp</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Aie7WXuXZKJyvrFjKUFBcql845+34EzPSGIeu0Th+tw=
+			</data>
+		</dict>
+		<key>ToolbarIcons/ic_editor_crop~light.webp</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			BMNtOlNZFkZuDPwnGAs2G49oTSbyUWqmtGSRNlG0Ilc=
+			</data>
+		</dict>
+		<key>ToolbarIcons/ic_editor_drawing~dark.webp</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			K/tcRmIAo5Gu0hgWJZbuhSlbSGkCX3eOH2evZ0MW5Y8=
+			</data>
+		</dict>
+		<key>ToolbarIcons/ic_editor_drawing~light.webp</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			IvV5CbAvEz2Fzuu60Rv2iMYlYYpMhAFR6hSCfVGahHU=
+			</data>
+		</dict>
+		<key>ToolbarIcons/ic_editor_effect~dark.webp</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			q/6lYwVS4Ma9o394rH9cXbZ4aF++IixUV2g2edoYjaY=
+			</data>
+		</dict>
+		<key>ToolbarIcons/ic_editor_effect~light.webp</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			S+32Xi6g8w7Wv5QDMNIGTNQEacfybmrk7j8DM7vR8yg=
+			</data>
+		</dict>
+		<key>ToolbarIcons/ic_editor_emoji~dark.webp</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			RCpogLoef1vYf/UR01iXcLdVHj3keJSZbIW1GffHrX8=
+			</data>
+		</dict>
+		<key>ToolbarIcons/ic_editor_emoji~light.webp</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			NzTOgv/8ZkNwHbmeRBd7MDY5p615wQn5QZ8RB+qd6kc=
+			</data>
+		</dict>
+		<key>ToolbarIcons/ic_editor_eraser~dark.webp</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			+aXRuoYUNfppaS6ZSgQoBnMahQzWt2NszNdiCxFFWSA=
+			</data>
+		</dict>
+		<key>ToolbarIcons/ic_editor_eraser~light.webp</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			XiSCbIBiapma13m8VrltRX57/R1P14Ru9UxBCAy+gNQ=
+			</data>
+		</dict>
+		<key>ToolbarIcons/ic_editor_mosaic~dark.webp</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			nWnvfu/H2x/iE6ZMz8kvi6XzGaAAoodCwahHlYGrv4U=
+			</data>
+		</dict>
+		<key>ToolbarIcons/ic_editor_mosaic~light.webp</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			EzKtte+ggAOIBGC9ZqWM+Y6TAhRe3zEzxogtkEQSCmw=
+			</data>
+		</dict>
+		<key>ToolbarIcons/ic_editor_text~dark.webp</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			trssq7NPYo+hlLb/aqylxmKoJbBM+mQErjJyIUjNkQ0=
+			</data>
+		</dict>
+		<key>ToolbarIcons/ic_editor_text~light.webp</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			mOs1eOOwdaVvM/yt0MdA2EAhRpPH+RHhnv5lvP3OknU=
+			</data>
+		</dict>
+		<key>TossFaceFontMac.ttf</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			7EnPMb6pxbwIRLzPCmZDXgwSxipsLuc8dUxjJz5bSIM=
 			</data>
 		</dict>
 	</dict>
