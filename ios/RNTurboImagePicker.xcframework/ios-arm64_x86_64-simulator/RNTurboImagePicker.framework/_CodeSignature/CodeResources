@@ -18,15 +18,15 @@
 		</data>
 		<key>Modules/RNTurboImagePicker.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		tZvEYy22QieORCBkRN1QXTQLsHA=
+		SY4AvwJI8R0NJhnqjECtWrL+LUA=
 		</data>
 		<key>Modules/RNTurboImagePicker.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		AjCnBquBKT5RMUHYWXd1gq7HbU8=
+		GUjfhR0bTF1ovBj/DIx/sL1ROjw=
 		</data>
 		<key>Modules/RNTurboImagePicker.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		/d8OGqrm+VnzJRIbXks8WN8NTRg=
+		Vl1ktawq7rOcm6WwZ4vWxcLmJsU=
 		</data>
 		<key>Modules/RNTurboImagePicker.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -46,7 +46,7 @@
 		</data>
 		<key>Modules/RNTurboImagePicker.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		/d8OGqrm+VnzJRIbXks8WN8NTRg=
+		Vl1ktawq7rOcm6WwZ4vWxcLmJsU=
 		</data>
 		<key>Modules/RNTurboImagePicker.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -89,21 +89,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			4ZsMJaOVwWPKaTKokcQYl/1CYAeHUxY8Ym2JvTHgJdU=
+			JMHjXihE7dHVrvC9dpp9OQddHNupptRLw8earjeilBQ=
 			</data>
 		</dict>
 		<key>Modules/RNTurboImagePicker.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			VpU6bYOc7FW3Q70mauMYViM748Dg0sSNyHVtu24aS7k=
+			XSJ88ybxVdgwfe40r/tdcu7tulkba3tbE/2YDmIhSBE=
 			</data>
 		</dict>
 		<key>Modules/RNTurboImagePicker.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			m7ZW2FVdsdhqqDnN/xdKpkkkatwubio9nF2be2FJsvs=
+			MX7VES6VLBOL2XpVL1dLfHpxJVEvzq9qtxwlncpWC/0=
 			</data>
 		</dict>
 		<key>Modules/RNTurboImagePicker.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
@@ -138,7 +138,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			m7ZW2FVdsdhqqDnN/xdKpkkkatwubio9nF2be2FJsvs=
+			MX7VES6VLBOL2XpVL1dLfHpxJVEvzq9qtxwlncpWC/0=
 			</data>
 		</dict>
 		<key>Modules/RNTurboImagePicker.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>

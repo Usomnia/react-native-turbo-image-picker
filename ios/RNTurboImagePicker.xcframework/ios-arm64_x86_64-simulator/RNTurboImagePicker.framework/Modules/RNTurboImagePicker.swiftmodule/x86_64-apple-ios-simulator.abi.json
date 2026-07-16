@@ -6719,882 +6719,882 @@
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 9714,
+      "offset": 9336,
       "length": 15,
       "value": "\"LICENSE_ERROR\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 9731,
-      "length": 102,
-      "value": "\"Unauthorized License: This RNTurboImagePicker library is strictly licensed for MediInStep apps only.\""
+      "offset": 9353,
+      "length": 148,
+      "value": "\"Unauthorized License: This RNTurboImagePicker library is strictly licensed by Usomnia. This is an asset of Usomnia. Contact: contact@usomnia.co.kr\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 9943,
+      "offset": 9611,
       "length": 42,
       "value": "\"✅ [DEBUG] received options: \""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 9984,
+      "offset": 9652,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 10001,
+      "offset": 9669,
       "length": 56,
       "value": "\"🔵 [DEBUG] openGallery 시작 - 시간: \""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 10056,
+      "offset": 9724,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 10225,
+      "offset": 9893,
       "length": 7,
       "value": "\"ERROR\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 10234,
+      "offset": 9902,
       "length": 20,
       "value": "\"Module deallocated\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 10329,
+      "offset": 9997,
       "length": 116,
       "value": "\"🔵 [DEBUG] workItem 실행 시작 - 경과: \""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 10393,
+      "offset": 10061,
       "length": 6,
       "value": "\"%.3f\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 10441,
+      "offset": 10109,
       "length": 3,
       "value": "\"초\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 10612,
+      "offset": 10280,
       "length": 42,
       "value": "\"❌ [DEBUG] getRootViewController 실패\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 10679,
+      "offset": 10347,
       "length": 7,
       "value": "\"ERROR\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 10688,
+      "offset": 10356,
       "length": 36,
       "value": "\"Unable to get root view controller\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 10786,
+      "offset": 10454,
       "length": 118,
       "value": "\"🔵 [DEBUG] getRootViewController 완료 - 경과: \""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 10856,
+      "offset": 10524,
       "length": 6,
       "value": "\"%.3f\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 10900,
+      "offset": 10568,
       "length": 3,
       "value": "\"초\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 10988,
+      "offset": 10656,
       "length": 53,
       "value": "\"🔵 [DEBUG] GalleryViewController 생성 시작...\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 11113,
+      "offset": 10781,
       "length": 125,
       "value": "\"🔵 [DEBUG] GalleryViewController 생성 완료 - 경과: \""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 11190,
+      "offset": 10858,
       "length": 6,
       "value": "\"%.3f\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 11234,
+      "offset": 10902,
       "length": 3,
       "value": "\"초\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 11541,
+      "offset": 11209,
       "length": 19,
       "value": "\"onSelectionChange\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 11590,
+      "offset": 11258,
       "length": 15,
       "value": "\"selectedCount\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 11642,
+      "offset": 11310,
       "length": 14,
       "value": "\"maxSelection\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 11883,
+      "offset": 11551,
       "length": 19,
       "value": "\"autoCloseOnSelect\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "BooleanLiteral",
-      "offset": 11916,
+      "offset": 11584,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "IntegerLiteral",
-      "offset": 11998,
+      "offset": 11666,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 12049,
+      "offset": 11717,
       "length": 14,
       "value": "\"maxSelection\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 12288,
+      "offset": 11956,
       "length": 10,
       "value": "\"maxWidth\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "IntegerLiteral",
-      "offset": 12312,
+      "offset": 11980,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 12357,
+      "offset": 12025,
       "length": 11,
       "value": "\"maxHeight\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "IntegerLiteral",
-      "offset": 12382,
+      "offset": 12050,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 12488,
+      "offset": 12156,
       "length": 14,
       "value": "\"outputFormat\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 12533,
+      "offset": 12201,
       "length": 6,
       "value": "\"webp\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "Array",
-      "offset": 12577,
+      "offset": 12245,
       "length": 22,
       "value": "[\"webp\", \"jpg\", \"png\"]"
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 12622,
+      "offset": 12290,
       "length": 6,
       "value": "\"webp\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 12685,
+      "offset": 12353,
       "length": 12,
       "value": "\"themeColor\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 12943,
+      "offset": 12611,
       "length": 14,
       "value": "\"languageCode\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 13176,
+      "offset": 12844,
       "length": 14,
       "value": "\"allItemsText\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 13310,
+      "offset": 12978,
       "length": 19,
       "value": "\"selectedItemsText\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 13455,
+      "offset": 13123,
       "length": 16,
       "value": "\"doneButtonText\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 13593,
+      "offset": 13261,
       "length": 18,
       "value": "\"recentsAlbumText\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 13749,
+      "offset": 13417,
       "length": 14,
       "value": "\"enableEditor\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "BooleanLiteral",
-      "offset": 13777,
+      "offset": 13445,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 13827,
+      "offset": 13495,
       "length": 13,
       "value": "\"profileMode\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "BooleanLiteral",
-      "offset": 13854,
+      "offset": 13522,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "IntegerLiteral",
-      "offset": 14387,
+      "offset": 14055,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "BooleanLiteral",
-      "offset": 14440,
+      "offset": 14108,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "BooleanLiteral",
-      "offset": 14492,
+      "offset": 14160,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "IntegerLiteral",
-      "offset": 14547,
+      "offset": 14215,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "BooleanLiteral",
-      "offset": 15350,
+      "offset": 15018,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "BooleanLiteral",
-      "offset": 16083,
+      "offset": 15751,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "BooleanLiteral",
-      "offset": 16193,
+      "offset": 15861,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "BooleanLiteral",
-      "offset": 16577,
+      "offset": 16245,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 16715,
+      "offset": 16383,
       "length": 10,
       "value": "\"original\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "FloatLiteral",
-      "offset": 16738,
+      "offset": 16406,
       "length": 3,
       "value": "1.0"
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 16753,
+      "offset": 16421,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "BooleanLiteral",
-      "offset": 17047,
+      "offset": 16715,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "IntegerLiteral",
-      "offset": 17413,
+      "offset": 17081,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "IntegerLiteral",
-      "offset": 17444,
+      "offset": 17112,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "IntegerLiteral",
-      "offset": 17670,
+      "offset": 17338,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "BooleanLiteral",
-      "offset": 18401,
+      "offset": 18069,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "BooleanLiteral",
-      "offset": 19080,
+      "offset": 18748,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "BooleanLiteral",
-      "offset": 19488,
+      "offset": 19156,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "Array",
-      "offset": 19653,
+      "offset": 19321,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 19796,
+      "offset": 19464,
       "length": 11,
       "value": "\"CANCELLED\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 19809,
+      "offset": 19477,
       "length": 33,
       "value": "\"User cancelled the image picker\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "Array",
-      "offset": 19942,
+      "offset": 19610,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "IntegerLiteral",
-      "offset": 20305,
+      "offset": 19973,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "IntegerLiteral",
-      "offset": 20322,
+      "offset": 19990,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "IntegerLiteral",
-      "offset": 20959,
+      "offset": 20627,
       "length": 4,
       "value": "1000"
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 21183,
+      "offset": 20851,
       "length": 33,
       "value": "\"ph:\/\/\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 21215,
+      "offset": 20883,
       "length": 1,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 21692,
+      "offset": 21360,
       "length": 13,
       "value": "\"originalUri\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 21759,
+      "offset": 21427,
       "length": 15,
       "value": "\"originalWidth\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 21838,
+      "offset": 21506,
       "length": 16,
       "value": "\"originalHeight\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 21918,
+      "offset": 21586,
       "length": 6,
       "value": "\"type\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 22137,
+      "offset": 21805,
       "length": 9,
       "value": "\"resized\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 22377,
+      "offset": 22045,
       "length": 5,
       "value": "\"uri\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 22448,
+      "offset": 22116,
       "length": 7,
       "value": "\"width\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 22538,
+      "offset": 22206,
       "length": 8,
       "value": "\"height\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 22714,
+      "offset": 22382,
       "length": 10,
       "value": "\"fileName\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 22790,
+      "offset": 22458,
       "length": 15,
       "value": "\"fileExtension\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 22871,
+      "offset": 22539,
       "length": 10,
       "value": "\"fileSize\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 24067,
+      "offset": 23735,
       "length": 13,
       "value": "\"originalUri\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 24140,
+      "offset": 23808,
       "length": 17,
       "value": "\"originalFileUri\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 24213,
+      "offset": 23881,
       "length": 15,
       "value": "\"originalWidth\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 24293,
+      "offset": 23961,
       "length": 16,
       "value": "\"originalHeight\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 24374,
+      "offset": 24042,
       "length": 6,
       "value": "\"type\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 24557,
+      "offset": 24225,
       "length": 10,
       "value": "\"fileName\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 24633,
+      "offset": 24301,
       "length": 15,
       "value": "\"fileExtension\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 24714,
+      "offset": 24382,
       "length": 10,
       "value": "\"fileSize\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 24919,
+      "offset": 24587,
       "length": 9,
       "value": "\"resized\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 25159,
+      "offset": 24827,
       "length": 5,
       "value": "\"uri\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 25230,
+      "offset": 24898,
       "length": 7,
       "value": "\"width\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 25320,
+      "offset": 24988,
       "length": 8,
       "value": "\"height\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 25496,
+      "offset": 25164,
       "length": 10,
       "value": "\"fileName\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 25572,
+      "offset": 25240,
       "length": 15,
       "value": "\"fileExtension\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 25653,
+      "offset": 25321,
       "length": 10,
       "value": "\"fileSize\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "IntegerLiteral",
-      "offset": 26639,
+      "offset": 26307,
       "length": 2,
       "value": "29"
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "IntegerLiteral",
-      "offset": 26642,
+      "offset": 26310,
       "length": 3,
       "value": "255"
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "IntegerLiteral",
-      "offset": 26654,
+      "offset": 26322,
       "length": 2,
       "value": "29"
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "IntegerLiteral",
-      "offset": 26657,
+      "offset": 26325,
       "length": 3,
       "value": "255"
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "IntegerLiteral",
-      "offset": 26668,
+      "offset": 26336,
       "length": 2,
       "value": "29"
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "IntegerLiteral",
-      "offset": 26671,
+      "offset": 26339,
       "length": 3,
       "value": "255"
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "FloatLiteral",
-      "offset": 26683,
+      "offset": 26351,
       "length": 3,
       "value": "1.0"
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "FloatLiteral",
-      "offset": 27372,
+      "offset": 27040,
       "length": 3,
       "value": "0.6"
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "BooleanLiteral",
-      "offset": 27740,
+      "offset": 27408,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "BooleanLiteral",
-      "offset": 27816,
+      "offset": 27484,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "IntegerLiteral",
-      "offset": 27945,
+      "offset": 27613,
       "length": 2,
       "value": "20"
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "IntegerLiteral",
-      "offset": 28158,
+      "offset": 27826,
       "length": 2,
       "value": "20"
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 28233,
+      "offset": 27901,
       "length": 109,
       "value": "\"🔵 [DEBUG] Sheet 설정 완료 - 경과: \""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 28294,
+      "offset": 27962,
       "length": 6,
       "value": "\"%.3f\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 28338,
+      "offset": 28006,
       "length": 3,
       "value": "\"초\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 28426,
+      "offset": 28094,
       "length": 32,
       "value": "\"🔵 [DEBUG] present 시작...\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "BooleanLiteral",
-      "offset": 28531,
+      "offset": 28199,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 28555,
+      "offset": 28223,
       "length": 104,
       "value": "\"🔵 [DEBUG] present 완료 - 경과: \""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 28611,
+      "offset": 28279,
       "length": 6,
       "value": "\"%.3f\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 28655,
+      "offset": 28323,
       "length": 3,
       "value": "\"초\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 28679,
+      "offset": 28347,
       "length": 122,
       "value": "\"✅ [DEBUG] openGallery 전체 완료 - 총 경과: \""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 28749,
+      "offset": 28417,
       "length": 6,
       "value": "\"%.3f\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 28797,
+      "offset": 28465,
       "length": 3,
       "value": "\"초\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 28836,
+      "offset": 28504,
       "length": 125,
       "value": "\"🔵 [DEBUG] DispatchQueue.main.async 호출 - 경과: \""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 28909,
+      "offset": 28577,
       "length": 6,
       "value": "\"%.3f\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "StringLiteral",
-      "offset": 28957,
+      "offset": 28625,
       "length": 3,
       "value": "\"초\""
     },
     {
       "filePath": "\/Users\/mike\/source\/outsourcingProjects\/MEDIINSTEP\/MediInStep.ReactNative\/node_modules\/react-native-turbo-image-picker\/ios\/RNTurboImagePicker.swift",
       "kind": "BooleanLiteral",
-      "offset": 35941,
+      "offset": 35609,
       "length": 5,
       "value": "false"
     },
