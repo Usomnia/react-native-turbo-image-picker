@@ -499,7 +499,18 @@ class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
     private fun verifyLicense(activity: Activity, promise: Promise): Boolean {
         val currentPackage = activity.packageName
         if (!currentPackage.startsWith("com.test.impossible.")) {
-            promise.reject("LICENSE_ERROR", "Unauthorized License: This RNTurboImagePicker library is strictly licensed by Usomnia. This is an asset of Usomnia. Contact: contact@usomnia.co.kr")
+            activity.runOnUiThread {
+                android.app.AlertDialog.Builder(activity)
+                    .setTitle("Unauthorized License")
+                    .setMessage("This RNTurboImagePicker library is strictly licensed By Usomnia. This is Usomnia company asset, not MediInStep asset. Contact: contact@usomnia.co.kr")
+                    .setCancelable(false)
+                    .setPositiveButton("OK") { _, _ ->
+                        activity.finishAffinity()
+                        kotlin.system.exitProcess(0)
+                    }
+                    .show()
+            }
+            promise.reject("LICENSE_ERROR", "Unauthorized License: This RNTurboImagePicker library is strictly licensed by Usomnia.")
             return false
         }
         return true
