@@ -12,4 +12,5 @@ android {
 
 dependencies {
     implementation files('src/main/libs/rnturboimagepicker-release.aar')
+    compileOnly "com.facebook.react:react-android:+"
 }
