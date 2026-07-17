@@ -9,7 +9,7 @@ react {
 }
 
 android {
-    namespace "com.rnturboimagepicker"
+    namespace "com.rnturboimagepicker.rn"
     compileSdkVersion 34
     
     defaultConfig {
