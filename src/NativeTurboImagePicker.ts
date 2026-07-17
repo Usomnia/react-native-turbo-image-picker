@@ -2,6 +2,7 @@ import type { TurboModule } from "react-native"
 import { TurboModuleRegistry } from "react-native"
 
 export interface Spec extends TurboModule {
+  init(licenseKey: string): Promise<boolean>;
   openGallery(options: Object): Promise<Object[]>;
   openEditor(options: Object): Promise<Object>;
   openViewer(options: Object): Promise<void>;

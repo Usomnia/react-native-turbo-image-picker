@@ -34,6 +34,7 @@ export interface GalleryOptions {
 export interface ViewerOptions {
   images: string[]
   initialIndex?: number
+  themeColor?: string // Added themeColor for Android
 }
 
 export interface SelectionChangeEvent {
@@ -50,8 +51,10 @@ export interface EditorOptions {
 }
 
 export interface RNTurboImagePicker {
+  init(licenseKey: string): Promise<boolean>
   openGallery(options?: GalleryOptions): Promise<ImageResult[]>
   openEditor(options: EditorOptions): Promise<ImageResult>
+  openViewer(options: ViewerOptions): Promise<void>
   closeGallery(): Promise<boolean>
   addSelectionChangeListener(listener: (event: SelectionChangeEvent) => void): () => void
 }

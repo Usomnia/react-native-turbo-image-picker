@@ -29,6 +29,7 @@ const eventEmitter = new NativeEventEmitter(RNTurboImagePickerModule)
 export type { SelectionChangeEvent } from "./types"
 
 export interface RNTurboImagePicker {
+  init(licenseKey: string): Promise<boolean>
   openGallery(options?: GalleryOptions): Promise<ImageResult[]>
   openEditor(options: EditorOptions): Promise<ImageResult>
   openViewer(options: ViewerOptions): Promise<void>
@@ -37,6 +38,13 @@ export interface RNTurboImagePicker {
 }
 
 const TurboImagePicker: RNTurboImagePicker = {
+  init: async (licenseKey: string): Promise<boolean> => {
+    if (!RNTurboImagePickerModule) {
+      throw new Error(LINKING_ERROR)
+    }
+    return RNTurboImagePickerModule.init(licenseKey)
+  },
+
   openGallery: async (options: GalleryOptions = {}): Promise<ImageResult[]> => {
     if (!RNTurboImagePickerModule) {
       throw new Error(LINKING_ERROR)

@@ -26,7 +26,9 @@ export interface SelectionChangeEvent {
 }
 
 export interface RNTurboImagePicker {
-  openGallery(options?: GalleryOptions): Promise<ImageResult[]>
+  init(licenseKey: string): Promise<boolean>;
+  openGallery(options?: GalleryOptions): Promise<ImageResult[]>;
+  openEditor(options: EditorOptions): Promise<ImageResult>;
   closeGallery(): Promise<boolean>
   addSelectionChangeListener(listener: (event: SelectionChangeEvent) => void): () => void
 }

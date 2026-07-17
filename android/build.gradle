@@ -28,6 +28,23 @@ android {
             path "CMakeLists.txt"
         }
     }
+
+    sourceSets {
+        main {
+            java {
+                def newArchEnabled = project.hasProperty("newArchEnabled") && project.newArchEnabled == "true"
+                if (newArchEnabled) {
+                    srcDirs = [
+                        "src/newarch/java",
+                    ]
+                } else {
+                    srcDirs = [
+                        "src/oldarch/java",
+                    ]
+                }
+            }
+        }
+    }
 }
 
 dependencies {

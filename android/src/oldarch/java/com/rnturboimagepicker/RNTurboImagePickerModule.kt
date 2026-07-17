@@ -40,6 +40,12 @@ class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
     override fun getName(): String = NAME
 
     @ReactMethod
+    override fun init(licenseKey: String, promise: Promise) {
+        val result = LicenseManager.initialize(reactApplicationContext, licenseKey)
+        promise.resolve(result)
+    }
+
+    @ReactMethod
     override fun openEditor(options: ReadableMap, promise: Promise) {
         val activity = getCurrentActivity()
         if (activity == null) {
