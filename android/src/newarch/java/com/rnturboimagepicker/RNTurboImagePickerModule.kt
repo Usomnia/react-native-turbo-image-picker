@@ -1,4 +1,6 @@
-package com.rnturboimagepicker
+package com.rnturboimagepicker.rn
+
+import com.rnturboimagepicker.*
 
 import android.app.Activity
 import android.content.Intent
