@@ -663,6 +663,24 @@ SWIFT_CLASS("_TtC18RNTurboImagePicker25ProfileCropViewController")
 - (void)scrollViewDidEndZooming:(UIScrollView * _Nonnull)scrollView withView:(UIView * _Nullable)view atScale:(CGFloat)scale;
 @end
 
+SWIFT_CLASS("_TtC18RNTurboImagePicker31RemoteImageViewerViewController")
+@interface RemoteImageViewerViewController : UIViewController
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+- (void)viewDidLoad;
+- (void)viewDidLayoutSubviews;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
+@end
+
+@interface RemoteImageViewerViewController (SWIFT_EXTENSION(RNTurboImagePicker)) <UIScrollViewDelegate>
+- (void)scrollViewDidEndDecelerating:(UIScrollView * _Nonnull)scrollView;
+@end
+
+@interface RemoteImageViewerViewController (SWIFT_EXTENSION(RNTurboImagePicker)) <UICollectionViewDataSource, UICollectionViewDelegate>
+- (NSInteger)collectionView:(UICollectionView * _Nonnull)collectionView numberOfItemsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
+- (UICollectionViewCell * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView cellForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+- (void)collectionView:(UICollectionView * _Nonnull)collectionView didSelectItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+@end
+
 @class UIWindow;
 @class UIScene;
 SWIFT_CLASS("_TtC18RNTurboImagePicker13SceneDelegate")
@@ -703,12 +721,27 @@ SWIFT_CLASS("_TtC18RNTurboImagePicker15TextStickerView")
 - (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldReceiveTouch:(UITouch * _Nonnull)touch SWIFT_WARN_UNUSED_RESULT;
 @end
 
+SWIFT_CLASS("_TtC18RNTurboImagePicker13ThumbnailCell")
+@interface ThumbnailCell : UICollectionViewCell
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
 SWIFT_CLASS("_TtC18RNTurboImagePicker13TossFaceLabel")
 @interface TossFaceLabel : UIView
 @property (nonatomic) CGFloat contentScaleFactor;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 - (void)drawRect:(CGRect)rect;
+@end
+
+SWIFT_CLASS("_TtC18RNTurboImagePicker21ZoomableImageItemView")
+@interface ZoomableImageItemView : UIScrollView <UIScrollViewDelegate>
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+- (void)layoutSubviews;
+- (UIView * _Nullable)viewForZoomingInScrollView:(UIScrollView * _Nonnull)scrollView SWIFT_WARN_UNUSED_RESULT;
+- (void)scrollViewDidZoom:(UIScrollView * _Nonnull)scrollView;
 @end
 
 #endif // defined(__OBJC__)

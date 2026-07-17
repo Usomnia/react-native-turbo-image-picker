@@ -3,7 +3,7 @@ require "json"
 package = JSON.parse(File.read(File.join(__dir__, "package.json")))
 
 Pod::Spec.new do |s|
-  s.name         = "RNTurboImagePicker"
+  s.name         = "react-native-turbo-image-picker"
   s.version      = package["version"]
   s.summary      = package["description"]
   s.homepage     = package["homepage"]
@@ -15,6 +15,9 @@ Pod::Spec.new do |s|
 
   s.vendored_frameworks = "ios/RNTurboImagePicker.xcframework"
 
+  s.source_files = "ios/*.{h,m,mm,swift}"
+  s.swift_version = "5.0"
+
   # Assets bundle
   s.resource_bundles = {
     'RNTurboImagePickerAssets' => [
@@ -24,9 +27,24 @@ Pod::Spec.new do |s|
     ]
   }
 
-  s.dependency "React-Core"
   s.dependency "SDWebImageWebPCoder"
-  
-  # Note: The compiled binary already contains the logic for React Native
-  # We just need to make sure the app can link against the XCFramework
+
+  if respond_to?(:install_modules_dependencies, true)
+    install_modules_dependencies(s)
+  else
+    s.dependency "React-Core"
+    # New Architecture (Fabric) 지원
+    if ENV['RCT_NEW_ARCH_ENABLED'] == '1' then
+      s.compiler_flags = "-DRCT_NEW_ARCH_ENABLED=1"
+      s.pod_target_xcconfig = {
+          "HEADER_SEARCH_PATHS" => "\"$(PODS_ROOT)/boost\"",
+          "CLANG_CXX_LANGUAGE_STANDARD" => "c++17"
+      }
+      s.dependency "React-Codegen"
+      s.dependency "RCT-Folly"
+      s.dependency "RCTRequired"
+      s.dependency "RCTTypeSafety"
+      s.dependency "ReactCommon/turbomodule/core"
+    end
+  end
 end
