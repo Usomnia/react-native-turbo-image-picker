@@ -1019,9 +1019,9 @@ extension UIColor {
 
 #if RCT_NEW_ARCH_ENABLED
 // MARK: - Turbo Module Protocol Conformance (New Architecture)
-extension RNTurboImagePicker: RCTTurboModule {
-    // Turbo Module specific implementation if needed
-}
+// extension RNTurboImagePicker: RCTTurboModule {
+//    // Turbo Module specific implementation if needed
+// }
 #endif
 import Foundation
 import UIKit
