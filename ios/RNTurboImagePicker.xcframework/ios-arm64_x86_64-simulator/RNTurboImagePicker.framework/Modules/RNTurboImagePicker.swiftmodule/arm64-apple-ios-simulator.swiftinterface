@@ -16,7 +16,7 @@ import UIKit
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
-@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency public class GalleryViewController : UIKit.UIViewController {
+@objc @_Concurrency.MainActor @preconcurrency public class GalleryViewController : UIKit.UIViewController {
   @_Concurrency.MainActor @preconcurrency public var onImagesSelected: (([(Photos.PHAsset?, UIKit.UIImage)]) -> Swift.Void)?
   @_Concurrency.MainActor @preconcurrency public var onSelectionChanged: ((Swift.Int, Swift.Int) -> Swift.Void)?
   @_Concurrency.MainActor @preconcurrency public var onSingleImageTappedForEdit: ((Photos.PHAsset) -> Swift.Void)?
@@ -25,6 +25,8 @@ import _SwiftConcurrencyShims
   @_Concurrency.MainActor @preconcurrency public var onProfileCropComplete: ((Photos.PHAsset, UIKit.UIImage) -> Swift.Void)?
   @_Concurrency.MainActor @preconcurrency public var editingAsset: Photos.PHAsset?
   @_Concurrency.MainActor @preconcurrency public var maxSelection: Swift.Int
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public init()
+  @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
   @_Concurrency.MainActor @preconcurrency public var maxWidth: Swift.Int
   @_Concurrency.MainActor @preconcurrency public var maxHeight: Swift.Int
   @_Concurrency.MainActor @preconcurrency public var outputFormat: Swift.String
@@ -53,16 +55,16 @@ import _SwiftConcurrencyShims
   @_Concurrency.MainActor @preconcurrency public func forceCleanupBeforeDismiss()
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func didReceiveMemoryWarning()
   @objc deinit
-  @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
-  @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
 }
 public struct FilterState {
   public var filterId: Swift.String
   public var intensity: CoreFoundation.CGFloat
   public init(filterId: Swift.String, intensity: CoreFoundation.CGFloat)
 }
-@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency public class ImageEditorViewController : UIKit.UIViewController {
+@objc @_Concurrency.MainActor @preconcurrency public class ImageEditorViewController : UIKit.UIViewController {
   @_Concurrency.MainActor @preconcurrency public var languageCode: Swift.String
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public init()
+  @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
   @_Concurrency.MainActor @preconcurrency public var allAssets: [Photos.PHAsset]
   @_Concurrency.MainActor @preconcurrency public var standaloneImage: UIKit.UIImage?
   @_Concurrency.MainActor @preconcurrency public var currentIndex: Swift.Int
@@ -81,8 +83,6 @@ public struct FilterState {
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func viewDidLayoutSubviews()
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func viewWillDisappear(_ animated: Swift.Bool)
   @objc deinit
-  @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
-  @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
 }
 extension RNTurboImagePicker.ImageEditorViewController : UIKit.UICollectionViewDataSource {
   @_Concurrency.MainActor @preconcurrency @objc dynamic public func collectionView(_ cv: UIKit.UICollectionView, numberOfItemsInSection section: Swift.Int) -> Swift.Int
@@ -176,6 +176,8 @@ extension RNTurboImagePicker.GalleryViewController : UIKit.UIAdaptivePresentatio
   @objc deinit
 }
 @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency public class RemoteImageViewerViewController : UIKit.UIViewController {
+  @_Concurrency.MainActor @preconcurrency public var themeColor: UIKit.UIColor
+  @_Concurrency.MainActor @preconcurrency public var languageCode: Swift.String
   @_Concurrency.MainActor @preconcurrency public init(imageUrls: [Swift.String], initialIndex: Swift.Int)
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func viewDidLoad()
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func viewDidLayoutSubviews()

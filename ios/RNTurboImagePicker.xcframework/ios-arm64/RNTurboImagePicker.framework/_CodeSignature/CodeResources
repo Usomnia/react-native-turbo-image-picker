@@ -22,7 +22,7 @@
 		</data>
 		<key>Headers/RNTurboImagePicker-Swift.h</key>
 		<data>
-		Jt3Q9k6/870FA33jkM2XxhHMHvg=
+		T1iL5DHd1D7LgDkTvihRDWdQRsk=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -30,11 +30,11 @@
 		</data>
 		<key>Modules/RNTurboImagePicker.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
-		NEeemLVTQqvlYLzkUsw8aE9o8+E=
+		urwdNgc83zudHG/p130EZTpEClM=
 		</data>
 		<key>Modules/RNTurboImagePicker.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<data>
-		NLbLRNy0N4ikpCTKPcgh17T6Nlg=
+		yrDr1jlVw8oxxSJ+seKzXMVuE/A=
 		</data>
 		<key>Modules/RNTurboImagePicker.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
@@ -42,11 +42,11 @@
 		</data>
 		<key>Modules/RNTurboImagePicker.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		NLbLRNy0N4ikpCTKPcgh17T6Nlg=
+		yrDr1jlVw8oxxSJ+seKzXMVuE/A=
 		</data>
 		<key>Modules/RNTurboImagePicker.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		WDUGvv4KhpoSnA27j1xEUHEM65E=
+		TclRElhHvOcwPKB7d52ecYaxibo=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -191,21 +191,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			KzTP1Jh+6XSY/lACyp+zddms61BeHPrGIB8kkZmOtTo=
+			5BpuCttzdLnR9mvPSkcm/6EdrPrksRVcCNA7dgfNaN4=
 			</data>
 		</dict>
 		<key>Modules/RNTurboImagePicker.swiftmodule/arm64-apple-ios.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			3Rr5Bby1XwSmGt/9FS6tDFwCah6eFfvcy5I2x18CElA=
+			mGs6cgXovQgebCPOszeIJgqjTM1f/eUTUGbtQDSYuoA=
 			</data>
 		</dict>
 		<key>Modules/RNTurboImagePicker.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			mO7kb+bV6TdrK39LUaFpeEF7nARihHbOArCr2Hs0rEs=
+			30DHeTzbyYhMoyLc4RIA+AlYIR14lckSAJihJhwEgRU=
 			</data>
 		</dict>
 		<key>Modules/RNTurboImagePicker.swiftmodule/arm64-apple-ios.swiftdoc</key>
@@ -219,14 +219,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			mO7kb+bV6TdrK39LUaFpeEF7nARihHbOArCr2Hs0rEs=
+			30DHeTzbyYhMoyLc4RIA+AlYIR14lckSAJihJhwEgRU=
 			</data>
 		</dict>
 		<key>Modules/RNTurboImagePicker.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ikeWDcx3p1eAfQvdJhpZGBSt8Kuc45t5cq93QwVcsrA=
+			zWgtO8dw6mhgnfDQmB1qsEhOduy54CMgd1iGMEig1dU=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

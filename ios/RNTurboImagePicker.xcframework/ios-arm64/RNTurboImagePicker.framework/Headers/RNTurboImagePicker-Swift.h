@@ -547,6 +547,8 @@ SWIFT_CLASS("_TtC18RNTurboImagePicker11GalleryCell")
 
 SWIFT_CLASS("_TtC18RNTurboImagePicker21GalleryViewController")
 @interface GalleryViewController : UIViewController
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 - (void)viewDidLoad;
 - (void)viewWillAppear:(BOOL)animated;
 - (void)viewDidAppear:(BOOL)animated;
@@ -554,8 +556,7 @@ SWIFT_CLASS("_TtC18RNTurboImagePicker21GalleryViewController")
 - (void)viewWillDisappear:(BOOL)animated;
 - (void)viewDidDisappear:(BOOL)animated;
 - (void)didReceiveMemoryWarning;
-- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
 @end
 
 @class UIPresentationController;
@@ -598,12 +599,13 @@ SWIFT_AVAILABILITY(ios,introduced=15.0)
 
 SWIFT_CLASS("_TtC18RNTurboImagePicker25ImageEditorViewController")
 @interface ImageEditorViewController : UIViewController
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 - (void)viewDidLoad;
 - (void)traitCollectionDidChange:(UITraitCollection * _Nullable)previousTraitCollection;
 - (void)viewDidLayoutSubviews;
 - (void)viewWillDisappear:(BOOL)animated;
-- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
 @end
 
 @interface ImageEditorViewController (SWIFT_EXTENSION(RNTurboImagePicker)) <UICollectionViewDataSource>

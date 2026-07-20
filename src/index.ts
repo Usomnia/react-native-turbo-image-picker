@@ -1,5 +1,5 @@
 import { NativeModules, Platform, TurboModuleRegistry, NativeEventEmitter } from "react-native"
-import type { ImageResult, GalleryOptions, EditorOptions, SelectionChangeEvent } from "./types"
+import type { ImageResult, GalleryOptions, EditorOptions, SelectionChangeEvent, ViewerOptions } from "./types"
 
 const LINKING_ERROR = `The package 'react-native-turbo-image-picker' doesn't seem to be linked. Make sure: \n\n` + Platform.select({ ios: "- You have run 'pod install'\n", default: "" }) + "- You rebuilt the app after installing the package\n" + "- You are not using Expo Go\n"
 
@@ -11,6 +11,14 @@ try {
   NativeTurboImagePicker = TurboModuleRegistry?.get?.("RNTurboImagePicker")
 } catch (e) {
   // Turbo Module not available
+}
+
+let _defaultThemeColor = "#10b981";
+let _defaultLanguageCode = "en";
+
+export interface InitOptions {
+  languageCode?: string;
+  themeColor?: string;
 }
 
 // Fallback to Legacy Native Module (Old Architecture)
@@ -29,7 +37,7 @@ const eventEmitter = new NativeEventEmitter(RNTurboImagePickerModule)
 export type { SelectionChangeEvent } from "./types"
 
 export interface RNTurboImagePicker {
-  init(licenseKey: string): Promise<boolean>
+  init(licenseKey: string, options?: InitOptions): Promise<boolean>
   openGallery(options?: GalleryOptions): Promise<ImageResult[]>
   openEditor(options: EditorOptions): Promise<ImageResult>
   openViewer(options: ViewerOptions): Promise<void>
@@ -38,7 +46,13 @@ export interface RNTurboImagePicker {
 }
 
 const TurboImagePicker: RNTurboImagePicker = {
-  init: async (licenseKey: string): Promise<boolean> => {
+  init: async (licenseKey: string, options?: InitOptions): Promise<boolean> => {
+    if (options?.themeColor) {
+      _defaultThemeColor = options.themeColor;
+    }
+    if (options?.languageCode) {
+      _defaultLanguageCode = options.languageCode;
+    }
     if (!RNTurboImagePickerModule) {
       throw new Error(LINKING_ERROR)
     }
@@ -58,7 +72,12 @@ const TurboImagePicker: RNTurboImagePicker = {
 
     try {
       // onSelectionChange는 네이티브로 전달하지 않음 (JavaScript에서 처리)
-      const { onSelectionChange, ...nativeOptions } = options
+      const { onSelectionChange, ...restOptions } = options
+      const nativeOptions = {
+        themeColor: _defaultThemeColor,
+        languageCode: _defaultLanguageCode,
+        ...restOptions,
+      }
       const result = await RNTurboImagePickerModule.openGallery(nativeOptions)
       return result
     } finally {
@@ -73,14 +92,24 @@ const TurboImagePicker: RNTurboImagePicker = {
     if (!RNTurboImagePickerModule) {
       throw new Error(LINKING_ERROR)
     }
-    return RNTurboImagePickerModule.openEditor(options)
+    const mergedOptions = {
+      themeColor: _defaultThemeColor,
+      languageCode: _defaultLanguageCode,
+      ...options,
+    }
+    return RNTurboImagePickerModule.openEditor(mergedOptions)
   },
 
   openViewer: async (options: ViewerOptions): Promise<void> => {
     if (!RNTurboImagePickerModule) {
       throw new Error(LINKING_ERROR)
     }
-    return RNTurboImagePickerModule.openViewer(options)
+    const mergedOptions = {
+      themeColor: _defaultThemeColor,
+      languageCode: _defaultLanguageCode,
+      ...options,
+    }
+    return RNTurboImagePickerModule.openViewer(mergedOptions)
   },
 
   closeGallery: async (): Promise<boolean> => {
