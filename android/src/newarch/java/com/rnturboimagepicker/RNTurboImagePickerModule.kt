@@ -1,6 +1,4 @@
-package com.rnturboimagepicker.rn
-
-import com.rnturboimagepicker.*
+package com.rnturboimagepicker
 
 import android.app.Activity
 import android.content.Intent
@@ -405,6 +403,8 @@ class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
                                 bitmap
                             }
                             
+                            val processedBitmap = ImageProcessor.applyWatermarkIfNeeded(reactApplicationContext, finalBitmap)
+                            
                             // Determine format and extension
                             val compressFormat: Bitmap.CompressFormat
                             val extension: String
@@ -436,17 +436,20 @@ class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
                             // Save to temporary file
                             val tempFile = File.createTempFile("turbo_edited_${System.currentTimeMillis()}_", ".$extension", reactApplicationContext.cacheDir)
                             FileOutputStream(tempFile).use { out ->
-                                finalBitmap.compress(compressFormat, 85, out)
+                                processedBitmap.compress(compressFormat, 85, out)
                             }
                             
-                            val finalWidth = finalBitmap.width
-                            val finalHeight = finalBitmap.height
+                            val finalWidth = processedBitmap.width
+                            val finalHeight = processedBitmap.height
 
                             // Cleanup
-                            if (bitmap != finalBitmap) {
+                            if (bitmap != processedBitmap) {
                                 bitmap.recycle()
                             }
-                            finalBitmap.recycle()
+                            if (finalBitmap != processedBitmap && finalBitmap != bitmap) {
+                                finalBitmap.recycle()
+                            }
+                            processedBitmap.recycle()
                             
                             val imageInfo = WritableNativeMap().apply {
                                 putString("uri", Uri.fromFile(tempFile).toString())
@@ -511,6 +514,7 @@ class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
         
         return Bitmap.createScaledBitmap(bitmap, finalWidth, finalHeight, true)
     }
+
 
     override fun invalidate() {
         super.invalidate()

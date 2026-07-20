@@ -62,6 +62,7 @@ public struct FilterState {
   public init(filterId: Swift.String, intensity: CoreFoundation.CGFloat)
 }
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency public class ImageEditorViewController : UIKit.UIViewController {
+  @_Concurrency.MainActor @preconcurrency public var languageCode: Swift.String
   @_Concurrency.MainActor @preconcurrency public var allAssets: [Photos.PHAsset]
   @_Concurrency.MainActor @preconcurrency public var standaloneImage: UIKit.UIImage?
   @_Concurrency.MainActor @preconcurrency public var currentIndex: Swift.Int
@@ -112,6 +113,7 @@ public struct Album {
   }
 }
 @_hasMissingDesignatedInitializers public class PhotoManager {
+  public var languageCode: Swift.String
   public static let shared: RNTurboImagePicker.PhotoManager
   public func resetCachingManager()
   public func fetchAlbums(completion: @escaping ([RNTurboImagePicker.Album]) -> Swift.Void)
@@ -170,6 +172,7 @@ extension RNTurboImagePicker.GalleryViewController : UIKit.UIAdaptivePresentatio
 @_hasMissingDesignatedInitializers public class LicenseManager {
   public static let shared: RNTurboImagePicker.LicenseManager
   public func initialize(with key: Swift.String) -> Swift.Bool
+  public func isValidLicense() -> Swift.Bool
   @objc deinit
 }
 @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency public class RemoteImageViewerViewController : UIKit.UIViewController {
@@ -185,4 +188,13 @@ extension RNTurboImagePicker.RemoteImageViewerViewController : UIKit.UICollectio
   @_Concurrency.MainActor @preconcurrency @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, numberOfItemsInSection section: Swift.Int) -> Swift.Int
   @_Concurrency.MainActor @preconcurrency @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, cellForItemAt indexPath: Foundation.IndexPath) -> UIKit.UICollectionViewCell
   @_Concurrency.MainActor @preconcurrency @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, didSelectItemAt indexPath: Foundation.IndexPath)
+}
+public struct Localizer {
+  public static func getString(key: Swift.String, languageCode: Swift.String) -> Swift.String
+}
+@_hasMissingDesignatedInitializers public class ImageProcessor {
+  public static let shared: RNTurboImagePicker.ImageProcessor
+  public func applyWatermarkIfNeeded(_ image: UIKit.UIImage) -> UIKit.UIImage
+  public func applyEvaluationWatermark(to image: UIKit.UIImage) -> UIKit.UIImage
+  @objc deinit
 }

@@ -114,6 +114,7 @@ class RNTurboImagePicker: RCTEventEmitter {
                 }
                 
                 let editorVC = ImageEditorViewController()
+                editorVC.languageCode = options["languageCode"] as? String ?? "en"
                 editorVC.allAssets = [asset]
                 editorVC.currentIndex = 0
                 editorVC.modalPresentationStyle = .fullScreen
@@ -163,6 +164,7 @@ class RNTurboImagePicker: RCTEventEmitter {
                     if let imgData = try? Data(contentsOf: url), let image = UIImage(data: imgData) {
                         DispatchQueue.main.async {
                             let editorVC = ImageEditorViewController()
+                editorVC.languageCode = options["languageCode"] as? String ?? "en"
                             editorVC.standaloneImage = image
                             editorVC.currentIndex = 0
                             editorVC.modalPresentationStyle = .fullScreen
@@ -268,9 +270,7 @@ class RNTurboImagePicker: RCTEventEmitter {
             }
             
             // 언어 코드 설정 (기본값: "en") - 이것이 먼저 설정되어 텍스트 자동 적용
-            if let langCode = options["languageCode"] as? String {
-                galleryVC.languageCode = langCode
-            }
+            galleryVC.languageCode = options["languageCode"] as? String ?? "en" 
             
             // 개별 텍스트 커스터마이징 (옵션, languageCode 오버라이드)
             if let allText = options["allItemsText"] as? String {
@@ -296,6 +296,7 @@ class RNTurboImagePicker: RCTEventEmitter {
                     
                     if enableEditor {
                         let editorVC = ImageEditorViewController()
+                editorVC.languageCode = options["languageCode"] as? String ?? "en"
                         editorVC.allAssets = [asset]
                         editorVC.currentIndex = 0
                         editorVC.singlePhotoMode = true
@@ -348,6 +349,7 @@ class RNTurboImagePicker: RCTEventEmitter {
                     let isMultiSelect = galleryVC.maxSelection != 1 && galleryVC.maxSelection != 0
 
                     let editorVC = ImageEditorViewController()
+                editorVC.languageCode = options["languageCode"] as? String ?? "en"
                     editorVC.allAssets = currentGallery.allAssets
                     editorVC.currentIndex = currentGallery.allAssets.firstIndex(of: asset) ?? 0
                     editorVC.modalPresentationStyle = .fullScreen
@@ -415,12 +417,13 @@ class RNTurboImagePicker: RCTEventEmitter {
                                 // ✅ 1순위: PHAsset
                                 let originalUri = "ph://\(phAsset.localIdentifier)"
 
-                                let targetImage: UIImage
+                                var targetImage: UIImage
                                 if needResize, let resized = self.resizeImage(image, maxWidth: maxWidth, maxHeight: maxHeight) {
                                     targetImage = resized
                                 } else {
                                     targetImage = image
                                 }
+                                targetImage = ImageProcessor.shared.applyWatermarkIfNeeded(targetImage)
 
                                 var result: [String: Any] = [
                                     "originalUri":    originalUri,
@@ -455,12 +458,13 @@ class RNTurboImagePicker: RCTEventEmitter {
                                     return
                                 }
 
-                                let targetImage: UIImage
+                                var targetImage: UIImage
                                 if needResize, let resized = self.resizeImage(image, maxWidth: maxWidth, maxHeight: maxHeight) {
                                     targetImage = resized
                                 } else {
                                     targetImage = image
                                 }
+                                targetImage = ImageProcessor.shared.applyWatermarkIfNeeded(targetImage)
 
                                 var result: [String: Any] = [
                                     "originalUri":     originalFilePath,
@@ -686,8 +690,24 @@ class RNTurboImagePicker: RCTEventEmitter {
         }
         return nil
     }
-    // WebP 인코딩
+    // WebP 인코딩 (iOS 14 이상 네이티브 지원 분기)
     private func encodeWebP(image: UIImage, quality: CGFloat) -> Data? {
+        if #available(iOS 14.0, *) {
+            if let cgImage = image.cgImage {
+                let data = NSMutableData()
+                if let destination = CGImageDestinationCreateWithData(data as CFMutableData, "public.webp" as CFString, 1, nil) {
+                    let options: [CFString: Any] = [
+                        kCGImageDestinationLossyCompressionQuality: quality
+                    ]
+                    CGImageDestinationAddImage(destination, cgImage, options as CFDictionary)
+                    if CGImageDestinationFinalize(destination) {
+                        return data as Data
+                    }
+                }
+            }
+        }
+        
+        // iOS 14 미만이거나 네이티브 변환 실패 시 SDWebImage 폴백
         #if canImport(SDWebImageWebPCoder)
         return SDImageWebPCoder.shared.encodedData(with: image, format: .webP, options: [.encodeCompressionQuality: quality])
         #else
@@ -828,6 +848,7 @@ class RNTurboImagePicker: RCTEventEmitter {
                     }
                 }
                 
+                finalImage = ImageProcessor.shared.applyWatermarkIfNeeded(finalImage)
                 resultImage = finalImage
                 // ✅ 2순위: 에디터 결과 원본 저장 (WebP 소프트웨어 인코딩 방지를 위해 하드웨어 가속되는 JPG 강제 사용)
                 originalFilePath = self.saveImage(finalImage, format: format, prefix: "original", index: 0, timestamp: timestamp, tempDir: tempDir, forceJPEG: true)
@@ -898,6 +919,7 @@ class RNTurboImagePicker: RCTEventEmitter {
         }
     }
 
+
     private func processEditorResultMulti(assets: [PHAsset], croppedImages: [PHAsset: UIImage], filterStates: [PHAsset: FilterState], galleryVC: GalleryViewController, resolve: @escaping RCTPromiseResolveBlock, reject: @escaping RCTPromiseRejectBlock) {
         let tempDir = prepareCacheDirectory()
         let maxWidth = galleryVC.maxWidth
@@ -926,6 +948,8 @@ class RNTurboImagePicker: RCTEventEmitter {
                             finalImage = UIImage(cgImage: cgImg, scale: baseImage.scale, orientation: baseImage.imageOrientation)
                         }
                     }
+                    
+                    finalImage = ImageProcessor.shared.applyWatermarkIfNeeded(finalImage)
                     
                     var result: [String: Any] = [
                         "originalUri": originalUri,
