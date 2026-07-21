@@ -1,0 +1,7 @@
+node_modules/
+android/build/
+android/.cxx/
+android/.gradle/
+*.iml
+.DS_Store
+android/extracted-aar

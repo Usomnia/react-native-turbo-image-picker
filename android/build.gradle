@@ -1,20 +1,55 @@
 apply plugin: 'com.android.library'
 apply plugin: 'org.jetbrains.kotlin.android'
-apply plugin: 'com.facebook.react'
 
-react {
-    libraryName = "RNTurboImagePickerSpec"
-    root = file("../../")
-    jsRootDir = file("../../src")
+def aarFile = file('src/main/libs/rnturboimagepicker-release.aar')
+def extractDir = file("$projectDir/extracted-aar")
+
+// Extract AAR at configuration time so sourceSets can see the manifest and resources immediately
+if (aarFile.exists()) {
+    copy {
+        from zipTree(aarFile)
+        into extractDir
+    }
+    
+    // Strip package attribute from AndroidManifest.xml
+    def manifestFile = file("$extractDir/AndroidManifest.xml")
+    if (manifestFile.exists()) {
+        def content = manifestFile.getText('UTF-8')
+        content = content.replaceAll(/package="[^"]+"/, "")
+        manifestFile.write(content, 'UTF-8')
+    }
+    
+    // Remove BuildConfig.class from classes.jar to prevent R8 Duplicate Class errors
+    def classesJar = file("$extractDir/classes.jar")
+    if (classesJar.exists()) {
+        def tempDir = file("$extractDir/temp_classes")
+        tempDir.mkdirs()
+        
+        ant.unzip(src: classesJar, dest: tempDir)
+        
+        def buildConfigClass = file("$tempDir/com/rnturboimagepicker/BuildConfig.class")
+        if (buildConfigClass.exists()) {
+            buildConfigClass.delete()
+        }
+        
+        classesJar.delete()
+        ant.zip(destfile: classesJar, basedir: tempDir)
+        
+        tempDir.deleteDir()
+    }
 }
 
 android {
-    namespace "com.rnturboimagepicker.wrapper"
+    namespace "com.rnturboimagepicker"
     compileSdkVersion 34
 
     defaultConfig {
         minSdkVersion 24
         targetSdkVersion 34
+    }
+    
+    buildFeatures {
+        buildConfig false
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
@@ -23,37 +58,24 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
-    buildTypes {
-        release {
-            consumerProguardFiles "proguard-rules.pro"
-        }
-    }
-    externalNativeBuild {
-        cmake {
-            path "CMakeLists.txt"
-        }
-    }
+
 
     sourceSets {
         main {
             java {
-                def newArchEnabled = project.hasProperty("newArchEnabled") && project.newArchEnabled == "true"
-                if (newArchEnabled) {
-                    srcDirs = [
-                        "src/newarch/java",
-                    ]
-                } else {
-                    srcDirs = [
-                        "src/oldarch/java",
-                    ]
-                }
+                srcDirs = ["src/main/java"]
             }
+            jniLibs.srcDirs = ["$extractDir/jni"]
+            res.srcDirs = ["$extractDir/res"]
+            assets.srcDirs = ["$extractDir/assets"]
+            manifest.srcFile "$extractDir/AndroidManifest.xml"
         }
     }
 }
 
 dependencies {
-    implementation files('src/main/libs/rnturboimagepicker-release.aar')
+    // Add the classes.jar from the extracted AAR
+    implementation fileTree(dir: "$extractDir", include: ['*.jar'])
     compileOnly "com.facebook.react:react-android:+"
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:1.9.0"

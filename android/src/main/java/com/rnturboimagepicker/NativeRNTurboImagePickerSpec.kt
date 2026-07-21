@@ -12,4 +12,7 @@ abstract class NativeRNTurboImagePickerSpec(reactContext: ReactApplicationContex
     abstract fun openGallery(options: ReadableMap, promise: Promise)
     abstract fun openViewer(options: ReadableMap, promise: Promise)
     abstract fun openEditor(options: ReadableMap, promise: Promise)
+    abstract fun closeGallery(promise: Promise)
+    abstract fun addListener(eventName: String)
+    abstract fun removeListeners(count: Double)
 }

@@ -15,7 +15,7 @@ import java.io.*
 
 @ReactModule(name = RNTurboImagePickerModule.NAME)
 class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
-    NativeTurboImagePickerSpec(reactContext), ActivityEventListener {
+    NativeRNTurboImagePickerSpec(reactContext), ActivityEventListener {
 
     companion object {
         const val NAME = "RNTurboImagePicker"
@@ -39,11 +39,13 @@ class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
 
     override fun getName(): String = NAME
 
+    @ReactMethod
     override fun init(licenseKey: String, promise: Promise) {
         val result = LicenseManager.initialize(reactApplicationContext, licenseKey)
         promise.resolve(result)
     }
 
+    @ReactMethod
     override fun openEditor(options: ReadableMap, promise: Promise) {
         val activity = getCurrentActivity()
         if (activity == null) {
@@ -169,6 +171,7 @@ class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
         }
     }
 
+    @ReactMethod
     override fun openViewer(options: ReadableMap, promise: Promise) {
         val activity = getCurrentActivity()
         if (activity == null) {
@@ -211,6 +214,7 @@ class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
         }
     }
 
+    @ReactMethod
     override fun closeGallery(promise: Promise) {
         val activity = getCurrentActivity()
         if (activity == null) {
@@ -221,10 +225,12 @@ class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
         promise.resolve(true)
     }
 
+    @ReactMethod
     override fun addListener(eventName: String) {
         // Keep: Required for RN built-in Event Emitter Calls.
     }
 
+    @ReactMethod
     override fun removeListeners(count: Double) {
         // Keep: Required for RN built-in Event Emitter Calls.
     }
