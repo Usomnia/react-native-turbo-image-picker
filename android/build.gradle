@@ -9,9 +9,9 @@ react {
 }
 
 android {
-    namespace "com.rnturboimagepicker.rn"
+    namespace "com.rnturboimagepicker.wrapper"
     compileSdkVersion 34
-    
+
     defaultConfig {
         minSdkVersion 24
         targetSdkVersion 34
@@ -22,6 +22,11 @@ android {
     }
     kotlinOptions {
         jvmTarget = "17"
+    }
+    buildTypes {
+        release {
+            consumerProguardFiles "proguard-rules.pro"
+        }
     }
     externalNativeBuild {
         cmake {
@@ -50,7 +55,7 @@ android {
 dependencies {
     implementation files('src/main/libs/rnturboimagepicker-release.aar')
     compileOnly "com.facebook.react:react-android:+"
-    
+
     implementation "org.jetbrains.kotlin:kotlin-stdlib:1.9.0"
     implementation "androidx.core:core-ktx:1.12.0"
     implementation "androidx.appcompat:appcompat:1.6.1"

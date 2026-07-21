@@ -1,6 +1,4 @@
-package com.rnturboimagepicker.rn
-
-import com.rnturboimagepicker.*
+package com.rnturboimagepicker
 
 import com.facebook.react.ReactPackage
 import com.facebook.react.bridge.NativeModule
