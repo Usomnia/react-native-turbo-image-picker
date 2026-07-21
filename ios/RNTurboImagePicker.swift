@@ -66,6 +66,7 @@ class RNTurboImagePicker: RCTEventEmitter {
         
         let initialIndex = options["initialIndex"] as? Int ?? 0
         let themeColorHex = options["themeColor"] as? String
+        let languageCode = options["languageCode"] as? String ?? "en"
         
         DispatchQueue.main.async {
             guard let rootViewController = self.getRootViewController() else {
@@ -74,6 +75,7 @@ class RNTurboImagePicker: RCTEventEmitter {
             }
             
             let viewerVC = RemoteImageViewerViewController(imageUrls: images, initialIndex: initialIndex)
+            viewerVC.languageCode = languageCode
             if let hex = themeColorHex, let color = UIColor(hexString: hex) {
                 viewerVC.themeColor = color
             }
