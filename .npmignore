@@ -5,3 +5,4 @@ android/.gradle
 *.iml
 .DS_Store
 .git
+docs/

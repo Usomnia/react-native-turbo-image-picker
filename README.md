@@ -120,10 +120,18 @@ When an image is selected or edited, the promise resolves to an array of `ImageR
 ---
 
 ## 🎥 Demo
-*(You can upload a video or GIF to GitHub and place the URL here!)*
 
-<!-- Example of embedding a video in GitHub Markdown: -->
-<!-- <video src="YOUR_VIDEO_URL_HERE.mp4" width="300"></video> -->
+### Android
+
+| Editor | Mosaic | Multi-Select |
+|:---:|:---:|:---:|
+| <video src="https://raw.githubusercontent.com/Usomnia/react-native-turbo-image-picker/main/docs/aos_edit.mp4" width="250"></video> | <video src="https://raw.githubusercontent.com/Usomnia/react-native-turbo-image-picker/main/docs/aos_mozaic.mp4" width="250"></video> | <video src="https://raw.githubusercontent.com/Usomnia/react-native-turbo-image-picker/main/docs/aos_multi.mp4" width="250"></video> |
+
+### iOS
+
+| Editor | Mosaic | Multi-Select |
+|:---:|:---:|:---:|
+| <video src="https://raw.githubusercontent.com/Usomnia/react-native-turbo-image-picker/main/docs/ios_edit.mp4" width="250"></video> | <video src="https://raw.githubusercontent.com/Usomnia/react-native-turbo-image-picker/main/docs/ios_mozaic.mp4" width="250"></video> | <video src="https://raw.githubusercontent.com/Usomnia/react-native-turbo-image-picker/main/docs/ios_multi.mp4" width="250"></video> |
 
 ---
 
