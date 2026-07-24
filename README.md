@@ -11,6 +11,22 @@ A highly customizable, high-performance, and purely native image picker and edit
 
 ---
 
+## 🎥 Demo
+
+### Android
+
+| Editor | Mosaic | Multi-Select |
+|:---:|:---:|:---:|
+| ![Android Editor](docs/aos_edit.gif) | ![Android Mosaic](docs/aos_mozaic.gif) | ![Android Multi](docs/aos_multi.gif) |
+
+### iOS
+
+| Editor | Mosaic | Multi-Select |
+|:---:|:---:|:---:|
+| ![iOS Editor](docs/ios_edit.gif) | ![iOS Mosaic](docs/ios_mozaic.gif) | ![iOS Multi](docs/ios_multi.gif) |
+
+---
+
 ## 📦 Installation
 
 ```bash
@@ -116,22 +132,6 @@ When an image is selected or edited, the promise resolves to an array of `ImageR
 - `originalUri` / `uri`: The original and resized/edited file URIs.
 - `originalWidth` / `width`: Dimensions of the image.
 - `type`, `fileName`, `fileExtension`, `fileSize`: Meta information.
-
----
-
-## 🎥 Demo
-
-### Android
-
-| Editor | Mosaic | Multi-Select |
-|:---:|:---:|:---:|
-| ![Android Editor](docs/aos_edit.gif) | ![Android Mosaic](docs/aos_mozaic.gif) | ![Android Multi](docs/aos_multi.gif) |
-
-### iOS
-
-| Editor | Mosaic | Multi-Select |
-|:---:|:---:|:---:|
-| ![iOS Editor](docs/ios_edit.gif) | ![iOS Mosaic](docs/ios_mozaic.gif) | ![iOS Multi](docs/ios_multi.gif) |
 
 ---
 
