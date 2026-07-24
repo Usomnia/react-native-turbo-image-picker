@@ -25,6 +25,8 @@ Pod::Spec.new do |s|
     ]
   }
 
+  s.vendored_frameworks = "ios/RNTurboImagePicker.xcframework"
+
   s.dependency "SDWebImageWebPCoder"
 
   if respond_to?(:install_modules_dependencies, true)
