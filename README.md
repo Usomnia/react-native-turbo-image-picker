@@ -53,13 +53,6 @@ target 'YourAppName' do
 end
 ```
 
-Install pods with static frameworks enabled and clean your Xcode build folder:
-
-```bash
-cd ios
-USE_FRAMEWORKS=static pod install
-```
-
 Note: After running pod install, please make sure to Clean Build Folder (Cmd + Shift + K) in Xcode before building the app to clear any cached module errors. (빌드 전에 Xcode에서 반드시 클린 빌드를 수행해 캐시를 삭제해 주세요.)
 
 ---
