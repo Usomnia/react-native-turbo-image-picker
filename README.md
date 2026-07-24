@@ -53,7 +53,14 @@ Note: After running pod install, please make sure to Clean Build Folder (Cmd + S
 ```javascript
 import { RNTurboImagePicker } from 'react-native-turbo-image-picker';
 
-// Example: Open Image Picker
+// Step 1: Initialize the module (usually in App.tsx or index.js)
+// Pass your license key (if you have one to remove the watermark) and default configurations
+RNTurboImagePicker.init("", { 
+  languageCode: 'en', 
+  themeColor: '#ff0000' 
+}).catch(console.error);
+
+// Step 2: Open Image Picker
 const handleOpenPicker = async () => {
   try {
     const result = await RNTurboImagePicker.openGallery({
