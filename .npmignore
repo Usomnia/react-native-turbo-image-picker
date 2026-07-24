@@ -1,7 +1,7 @@
-node_modules/
-android/build/
-android/.cxx/
-android/.gradle/
+node_modules
+android/build
+android/.cxx
+android/.gradle
 *.iml
 .DS_Store
-.git/
+.git

@@ -13,8 +13,6 @@ Pod::Spec.new do |s|
   s.platforms    = { :ios => "15.1" }
   s.source       = { :git => package["repository"]["url"], :tag => "v#{s.version}" }
 
-  s.vendored_frameworks = "ios/RNTurboImagePicker.xcframework"
-
   s.source_files = "ios/*.{h,m,mm,swift}"
   s.swift_version = "5.0"
 
