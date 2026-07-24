@@ -123,25 +123,15 @@ When an image is selected or edited, the promise resolves to an array of `ImageR
 
 ### Android
 
-**Editor**
-https://github.com/Usomnia/react-native-turbo-image-picker/raw/main/docs/aos_edit.mp4
-
-**Mosaic**
-https://github.com/Usomnia/react-native-turbo-image-picker/raw/main/docs/aos_mozaic.mp4
-
-**Multi-Select**
-https://github.com/Usomnia/react-native-turbo-image-picker/raw/main/docs/aos_multi.mp4
+| Editor | Mosaic | Multi-Select |
+|:---:|:---:|:---:|
+| ![Android Editor](docs/aos_edit.gif) | ![Android Mosaic](docs/aos_mozaic.gif) | ![Android Multi](docs/aos_multi.gif) |
 
 ### iOS
 
-**Editor**
-https://github.com/Usomnia/react-native-turbo-image-picker/raw/main/docs/ios_edit.mp4
-
-**Mosaic**
-https://github.com/Usomnia/react-native-turbo-image-picker/raw/main/docs/ios_mozaic.mp4
-
-**Multi-Select**
-https://github.com/Usomnia/react-native-turbo-image-picker/raw/main/docs/ios_multi.mp4
+| Editor | Mosaic | Multi-Select |
+|:---:|:---:|:---:|
+| ![iOS Editor](docs/ios_edit.gif) | ![iOS Mosaic](docs/ios_mozaic.gif) | ![iOS Multi](docs/ios_multi.gif) |
 
 ---
 
