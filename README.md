@@ -14,11 +14,11 @@ A highly customizable, high-performance, and purely native image picker and edit
 ## 📦 Installation
 
 ```bash
-# Install directly from the GitHub repository
-yarn add git+https://github.com/Usomnia/RNTurboImagePicker.git
+# using yarn
+yarn add react-native-turbo-image-picker
 
 # or using npm
-npm install git+https://github.com/Usomnia/RNTurboImagePicker.git
+npm install react-native-turbo-image-picker
 ```
 
 If you are using iOS, don't forget to configure and install pods:
@@ -122,7 +122,7 @@ When an image is selected or edited, the promise resolves to an array of `ImageR
 
 ## 📜 License & Contact
 
-This `RNTurboImagePicker` library is strictly licensed by **Usomnia**. 
-It is a proprietary asset of Usomnia company.
+This `RNTurboImagePicker` library is released under the **MIT License**.
+However, to remove the watermark from the image editor, a separate license purchase is required.
 
 📧 **Contact**: [contact@usomnia.co.kr](mailto:contact@usomnia.co.kr)
