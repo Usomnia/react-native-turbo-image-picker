@@ -125,13 +125,13 @@ When an image is selected or edited, the promise resolves to an array of `ImageR
 
 | Editor | Mosaic | Multi-Select |
 |:---:|:---:|:---:|
-| <video src="docs/aos_edit.mp4" width="250"></video> | <video src="docs/aos_mozaic.mp4" width="250"></video> | <video src="docs/aos_multi.mp4" width="250"></video> |
+| [![Android Editor](docs/aos_edit_thumb.jpg)](docs/aos_edit.mp4) | [![Android Mosaic](docs/aos_mozaic_thumb.jpg)](docs/aos_mozaic.mp4) | [![Android Multi](docs/aos_multi_thumb.jpg)](docs/aos_multi.mp4) |
 
 ### iOS
 
 | Editor | Mosaic | Multi-Select |
 |:---:|:---:|:---:|
-| <video src="docs/ios_edit.mp4" width="250"></video> | <video src="docs/ios_mozaic.mp4" width="250"></video> | <video src="docs/ios_multi.mp4" width="250"></video> |
+| [![iOS Editor](docs/ios_edit_thumb.jpg)](docs/ios_edit.mp4) | [![iOS Mosaic](docs/ios_mozaic_thumb.jpg)](docs/ios_mozaic.mp4) | [![iOS Multi](docs/ios_multi_thumb.jpg)](docs/ios_multi.mp4) |
 
 ---
 
