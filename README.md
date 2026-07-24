@@ -45,15 +45,13 @@ Open your ios/Podfile and add `:modular_headers => true` inside your target bloc
 target 'YourAppName' do
   config = use_native_modules!
   
-  # Add these two lines (이 두 줄을 추가해 주세요)
+  # Add these two lines
   pod 'SDWebImageWebPCoder', :modular_headers => true
   pod 'SDWebImage', :modular_headers => true
   
   # ...
 end
 ```
-
-Note: After running pod install, please make sure to Clean Build Folder (Cmd + Shift + K) in Xcode before building the app to clear any cached module errors. (빌드 전에 Xcode에서 반드시 클린 빌드를 수행해 캐시를 삭제해 주세요.)
 
 ---
 
