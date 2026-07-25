@@ -20,6 +20,7 @@
     "turbo-module",
     "new-architecture"
   ],
+  "homepage": "https://github.com/Usomnia/react-native-turbo-image-picker",
   "author": "Mike",
   "license": "MIT",
   "peerDependencies": {

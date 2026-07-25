@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.name         = "react-native-turbo-image-picker"
   s.version      = package["version"]
   s.summary      = package["description"]
-  s.homepage     = package["homepage"]
+  s.homepage     = package["homepage"] || package["repository"]["url"] || "https://github.com/Usomnia/react-native-turbo-image-picker"
   s.license      = package["license"]
   s.authors      = package["author"]
 
