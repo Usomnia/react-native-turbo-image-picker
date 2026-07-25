@@ -58,7 +58,7 @@ end
 ## 🛠 Usage Example
 
 ```javascript
-import { RNTurboImagePicker } from 'react-native-turbo-image-picker';
+import RNTurboImagePicker from 'react-native-turbo-image-picker';
 
 // Step 1: Initialize the module (usually in App.tsx or index.js)
 // Pass your license key (if you have one to remove the watermark) and default configurations
