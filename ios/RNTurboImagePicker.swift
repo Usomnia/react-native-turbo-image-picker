@@ -328,11 +328,8 @@ class RNTurboImagePicker: RCTEventEmitter {
                             currentGallery?.refreshSelectionAfterEdit()
                         }
                         
-                        if let topController = self.getRootViewController() {
-                            topController.present(editorVC, animated: true)
-                        } else {
-                            currentGallery.present(editorVC, animated: true)
-                        }
+                        let presenterVC = currentGallery.presentedViewController ?? currentGallery
+                        presenterVC.present(editorVC, animated: true)
                     } else {
                         // Edit is disabled, directly process the cropped image
                         let navToDismiss = currentGallery.navigationController ?? currentGallery
@@ -383,8 +380,9 @@ class RNTurboImagePicker: RCTEventEmitter {
                         }
                     }
 
-                    // Present editor from GalleryVC (fullScreen on top of sheet)
-                    currentGallery.present(editorVC, animated: true)
+                    // Present editor on top of whatever currentGallery is presenting (e.g. camera)
+                    let presenterVC = currentGallery.presentedViewController ?? currentGallery
+                    presenterVC.present(editorVC, animated: true)
                 }
             }
 
