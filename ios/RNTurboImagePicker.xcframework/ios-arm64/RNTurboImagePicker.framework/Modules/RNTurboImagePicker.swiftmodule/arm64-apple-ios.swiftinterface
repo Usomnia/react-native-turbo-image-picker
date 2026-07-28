@@ -58,6 +58,10 @@ import _SwiftConcurrencyShims
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency final public class GalleryViewController : RNTurboImagePicker.GalleryBaseViewController {
+  @_Concurrency.MainActor @preconcurrency final public var customTransitioningDelegate: any UIKit.UIViewControllerTransitioningDelegate {
+    get
+    set
+  }
   @_Concurrency.MainActor @preconcurrency @objc override final public func viewDidLoad()
   @_Concurrency.MainActor @preconcurrency @objc override final public func viewWillAppear(_ animated: Swift.Bool)
   @_Concurrency.MainActor @preconcurrency @objc override final public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)

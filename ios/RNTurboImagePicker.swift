@@ -513,7 +513,9 @@ class RNTurboImagePicker: RCTEventEmitter {
             }
 
             let navigationController = UINavigationController(rootViewController: galleryVC)
-            navigationController.modalPresentationStyle = .pageSheet
+            navigationController.modalPresentationStyle = .custom
+            navigationController.transitioningDelegate = galleryVC.customTransitioningDelegate
+            
             if #available(iOS 13.0, *) {
                 navigationController.view.backgroundColor = UIColor { traitCollection in
                     return traitCollection.userInterfaceStyle == .dark ? UIColor(red: 29/255, green: 29/255, blue: 29/255, alpha: 1.0) : .white
