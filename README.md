@@ -53,6 +53,18 @@ target 'YourAppName' do
 end
 ```
 
+### iOS Permissions (Info.plist)
+You must add the following permissions to your `ios/YourAppName/Info.plist` file, otherwise your app will crash when trying to access the camera or photo library.
+
+```xml
+<key>NSCameraUsageDescription</key>
+<string>We need access to your camera to take photos and videos.</string>
+<key>NSPhotoLibraryUsageDescription</key>
+<string>We need access to your photo library to select images.</string>
+<key>NSPhotoLibraryAddUsageDescription</key>
+<string>We need access to save edited photos to your library.</string>
+```
+
 ---
 
 ## 🛠 Usage Example
