@@ -12870,112 +12870,112 @@
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/GalleryViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 44270,
+      "offset": 44955,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/GalleryViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 44373,
+      "offset": 45058,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/GalleryViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 61265,
+      "offset": 61950,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/GalleryViewController.swift",
       "kind": "Dictionary",
-      "offset": 85501,
+      "offset": 86186,
       "length": 331,
       "value": "[(\"ko\", \"ko_KR\"), (\"ja\", \"ja_JP\"), (\"zh\", \"zh_CN\"), (\"de\", \"de_DE\"), (\"es\", \"es_ES\"), (\"fr\", \"fr_FR\"), (\"hi\", \"hi_IN\"), (\"id\", \"id_ID\"), (\"it\", \"it_IT\"), (\"ms\", \"ms_MY\"), (\"nl\", \"nl_NL\"), (\"pl\", \"pl_PL\"), (\"pt\", \"pt_PT\"), (\"ru\", \"ru_RU\"), (\"th\", \"th_TH\"), (\"tr\", \"tr_TR\"), (\"vi\", \"vi_VN\"), (\"da\", \"da_DK\"), (\"en\", \"en_US\")]"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/GalleryViewController.swift",
       "kind": "Dictionary",
-      "offset": 85891,
+      "offset": 86576,
       "length": 137,
       "value": "[(\"ko\", \"yyyy년 M월\"), (\"ja\", \"yyyy年M月\"), (\"zh\", \"yyyy年M月\")]"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/GalleryViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 97345,
+      "offset": 98030,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/GalleryViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 97926,
+      "offset": 98611,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/GalleryViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 102852,
+      "offset": 103537,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/GalleryViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 102898,
+      "offset": 103583,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/GalleryViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 102948,
+      "offset": 103633,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/GalleryViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 102994,
+      "offset": 103679,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/GalleryViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 103081,
+      "offset": 103766,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/GalleryViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 103137,
+      "offset": 103822,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/GalleryViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 103190,
+      "offset": 103875,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/GalleryViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 105943,
+      "offset": 106628,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/GalleryViewController.swift",
       "kind": "FloatLiteral",
-      "offset": 123541,
+      "offset": 124226,
       "length": 5,
       "value": "0.967"
     },
@@ -13318,7 +13318,7 @@
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/MainViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 30199,
+      "offset": 31106,
       "length": 4,
       "value": "1024"
     },
@@ -18191,6 +18191,20 @@
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/Logger.swift",
       "kind": "StringLiteral",
       "offset": 504,
+      "length": 4,
+      "value": "\"\n\""
+    },
+    {
+      "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/Logger.swift",
+      "kind": "StringLiteral",
+      "offset": 788,
+      "length": 3,
+      "value": "\" \""
+    },
+    {
+      "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/Logger.swift",
+      "kind": "StringLiteral",
+      "offset": 814,
       "length": 4,
       "value": "\"\n\""
     },
