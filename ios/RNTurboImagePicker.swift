@@ -223,7 +223,7 @@ class RNTurboImagePicker: RCTEventEmitter {
         print("🔵 [DEBUG] openGallery 시작 - 시간: \(startTime)")
         
         // Main thread에서 실행
-        let workItem = DispatchWorkItem { [weak self] in
+        DispatchQueue.main.async { [weak self] in
             guard let self = self else {
                 reject("ERROR", "Module deallocated", nil)
                 return
@@ -241,7 +241,7 @@ class RNTurboImagePicker: RCTEventEmitter {
             
             let step2 = CFAbsoluteTimeGetCurrent()
             print("🔵 [DEBUG] GalleryViewController 생성 시작...")
-            let galleryVC = GalleryViewController()
+            let galleryVC = GalleryViewController(nibName: nil, bundle: nil)
             print("🔵 [DEBUG] GalleryViewController 생성 완료 - 경과: \(String(format: "%.3f", CFAbsoluteTimeGetCurrent() - step2))초")
             
             // 현재 갤러리 참조 저장
@@ -345,7 +345,7 @@ class RNTurboImagePicker: RCTEventEmitter {
                 // allowsEditing 활성화: GalleryVC 내 탭 동작 변경
                 galleryVC.allowsEditing = true
 
-                galleryVC.onSingleImageTappedForEdit = { [weak self] asset in
+                galleryVC.onSingleImageTappedForEdit = { [weak self] (asset, _, _) in
                     guard let self = self else { return }
                     guard let currentGallery = self.currentGalleryVC else { return }
                     let galleryNav = currentGallery.navigationController
@@ -516,13 +516,7 @@ class RNTurboImagePicker: RCTEventEmitter {
             navigationController.modalPresentationStyle = .custom
             navigationController.transitioningDelegate = galleryVC.customTransitioningDelegate
             
-            if #available(iOS 13.0, *) {
-                navigationController.view.backgroundColor = UIColor { traitCollection in
-                    return traitCollection.userInterfaceStyle == .dark ? UIColor(red: 29/255, green: 29/255, blue: 29/255, alpha: 1.0) : .white
-                }
-            } else {
-                navigationController.view.backgroundColor = .white
-            }
+            // navigationController.view.backgroundColor 설정 제거 (투명한 탑바 지원을 위함)
             
             let step3 = CFAbsoluteTimeGetCurrent()
             // Configure sheet presentation - 최소 설정만 사용 (기본 iOS 동작 보장)
@@ -561,9 +555,6 @@ class RNTurboImagePicker: RCTEventEmitter {
             print("🔵 [DEBUG] present 완료 - 경과: \(String(format: "%.3f", CFAbsoluteTimeGetCurrent() - step4))초")
             print("✅ [DEBUG] openGallery 전체 완료 - 총 경과: \(String(format: "%.3f", CFAbsoluteTimeGetCurrent() - startTime))초")
         }
-        
-        print("🔵 [DEBUG] DispatchQueue.main.async 호출 - 경과: \(String(format: "%.3f", CFAbsoluteTimeGetCurrent() - startTime))초")
-        DispatchQueue.main.async(execute: workItem)
     }
     
     @objc
