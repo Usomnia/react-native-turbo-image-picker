@@ -372,14 +372,13 @@ extern "C" {
 
 #if defined(__OBJC__)
 
-@class NSString;
-@class NSBundle;
 @class NSCoder;
 @class UITraitCollection;
+@class NSString;
+@class NSBundle;
 SWIFT_CLASS("_TtC18RNTurboImagePicker25GalleryBaseViewController")
 @interface GalleryBaseViewController : UIViewController
-- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)init;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 - (void)viewDidLoad;
 - (void)viewWillAppear:(BOOL)animated;
@@ -388,6 +387,7 @@ SWIFT_CLASS("_TtC18RNTurboImagePicker25GalleryBaseViewController")
 - (void)viewWillDisappear:(BOOL)animated;
 - (void)viewDidDisappear:(BOOL)animated;
 - (void)didReceiveMemoryWarning;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
 @end
 
 @class UIPresentationController;
@@ -441,7 +441,7 @@ SWIFT_CLASS("_TtC18RNTurboImagePicker21GalleryViewController")
 - (void)viewDidLayoutSubviews;
 - (void)viewDidAppear:(BOOL)animated;
 - (void)scrollViewDidScroll:(UIScrollView * _Nonnull)scrollView;
-- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 

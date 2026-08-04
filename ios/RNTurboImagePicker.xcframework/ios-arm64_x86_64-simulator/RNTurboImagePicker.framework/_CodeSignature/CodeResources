@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		tCORvjeqZNJsc6OS3ekfWiW2Kpg=
+		luOgICVQqu2oICYw8KGKNzPenvs=
 		</data>
 		<key>Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<data>
@@ -22,7 +22,7 @@
 		</data>
 		<key>Headers/RNTurboImagePicker-Swift.h</key>
 		<data>
-		SbJ5ojofxILg0kVJDmf1JoeqEKY=
+		GU1OIk0ap3y8e4ZyWk0l7m/WI+I=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -30,11 +30,11 @@
 		</data>
 		<key>Modules/RNTurboImagePicker.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		DLnJbvdfn9aG416DE7tk1hQlLIY=
+		47K5P0GA2stXkmEDhxbDoSwOp+w=
 		</data>
 		<key>Modules/RNTurboImagePicker.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		H8VK3+1VA1U2GE0Na4CjumtoL1c=
+		SfoylTmBEhViVNiTQ1vxefrwHyo=
 		</data>
 		<key>Modules/RNTurboImagePicker.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -42,19 +42,19 @@
 		</data>
 		<key>Modules/RNTurboImagePicker.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		H8VK3+1VA1U2GE0Na4CjumtoL1c=
+		SfoylTmBEhViVNiTQ1vxefrwHyo=
 		</data>
 		<key>Modules/RNTurboImagePicker.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		/eGgNuZ59bZDGR5hgx3lkVtkItA=
+		NKJcT37cV50/V1NuyXgViVMfywM=
 		</data>
 		<key>Modules/RNTurboImagePicker.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		DLnJbvdfn9aG416DE7tk1hQlLIY=
+		47K5P0GA2stXkmEDhxbDoSwOp+w=
 		</data>
 		<key>Modules/RNTurboImagePicker.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		ATspAK9VMCpf8L8F8NcaeQuRdpg=
+		yFJxYXX2WiE98LMZi3LVzkomw3Y=
 		</data>
 		<key>Modules/RNTurboImagePicker.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -62,11 +62,11 @@
 		</data>
 		<key>Modules/RNTurboImagePicker.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		ATspAK9VMCpf8L8F8NcaeQuRdpg=
+		yFJxYXX2WiE98LMZi3LVzkomw3Y=
 		</data>
 		<key>Modules/RNTurboImagePicker.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		duepRpaGEGaSXAveqMMLZbEgexM=
+		vTowYmhA39DBvvLSS9wVtTDrKsc=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -183,7 +183,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			D4x0IBBeQcnHl6ReKIFY88uopLMFwB/cZAdVnhld2AA=
+			prlCSg2I1/WqAiAWf9zTh+7nEWOIiqWTN+IkRTHXfwY=
 			</data>
 		</dict>
 		<key>Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
@@ -211,21 +211,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Fb/etiTuyhT6m2noqVuOxoVcjdH9bzWbvPiSf2ugBMA=
+			H1CEzazvAB9KS6v3hlzqZcUFjLwbImzZnBiLr+x9jBQ=
 			</data>
 		</dict>
 		<key>Modules/RNTurboImagePicker.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			1/psUsdrHZmkulP4upX+rBeEqevfwUe7wHyJDTPp35I=
+			Celq9hmp9S3JuX57sWODgLcy0vmpv+z1vaAuC5oOTbM=
 			</data>
 		</dict>
 		<key>Modules/RNTurboImagePicker.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			zxhPJ5mLNkVYPePc9gngGbk/K9IkfTzmuc7KRjuk6co=
+			//HNJBeK6MKIjC0Y6zVkOrVFGpgQWGqvRDO3KPjsCrI=
 			</data>
 		</dict>
 		<key>Modules/RNTurboImagePicker.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
@@ -239,28 +239,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			zxhPJ5mLNkVYPePc9gngGbk/K9IkfTzmuc7KRjuk6co=
+			//HNJBeK6MKIjC0Y6zVkOrVFGpgQWGqvRDO3KPjsCrI=
 			</data>
 		</dict>
 		<key>Modules/RNTurboImagePicker.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			f6Rhg/s6cT6E8yiS+85/1NZ+hWVhK0VytbvA15XSadM=
+			EQsjlHT6N3Vwr/gA+vjcyPygC8BN/7OU+j/ccdwwYq4=
 			</data>
 		</dict>
 		<key>Modules/RNTurboImagePicker.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			1/psUsdrHZmkulP4upX+rBeEqevfwUe7wHyJDTPp35I=
+			Celq9hmp9S3JuX57sWODgLcy0vmpv+z1vaAuC5oOTbM=
 			</data>
 		</dict>
 		<key>Modules/RNTurboImagePicker.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			o1koMr8d8ThQxf1LkR9B8KLK7Wfd/XvgOaPnRt7c3uY=
+			KmWszvyXNUXqvCu9tk5Ry5lrv2GKGDd7FtdQsvDnuFQ=
 			</data>
 		</dict>
 		<key>Modules/RNTurboImagePicker.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -274,14 +274,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			o1koMr8d8ThQxf1LkR9B8KLK7Wfd/XvgOaPnRt7c3uY=
+			KmWszvyXNUXqvCu9tk5Ry5lrv2GKGDd7FtdQsvDnuFQ=
 			</data>
 		</dict>
 		<key>Modules/RNTurboImagePicker.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			nsq4kbmJU2y7JiJGzXHXNIkORb0NUh4aOzZFE4KPFwU=
+			uRNQm6IvWGnLLWmsn1Lf0Dx+y2OQhMtwUoR5UcEO4jE=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

@@ -37,20 +37,10 @@ yarn add react-native-turbo-image-picker
 npm install react-native-turbo-image-picker
 ```
 
-If you are using iOS, don't forget to configure and install pods:
+If you are using iOS, run pod install:
 
-Open your ios/Podfile and add `:modular_headers => true` inside your target block:
-
-```ruby
-target 'YourAppName' do
-  config = use_native_modules!
-  
-  # Add these two lines
-  pod 'SDWebImageWebPCoder', :modular_headers => true
-  pod 'SDWebImage', :modular_headers => true
-  
-  # ...
-end
+```bash
+cd ios && pod install
 ```
 
 ### iOS Permissions (Info.plist)

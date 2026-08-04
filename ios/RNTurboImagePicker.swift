@@ -25,6 +25,7 @@ class RNTurboImagePicker: RCTEventEmitter {
     
     // 현재 표시 중인 갤러리 참조
     private weak var currentGalleryVC: GalleryViewController?
+    private var editorTransitionDelegate: ImageEditorTransitionDelegate?
     
     // MARK: - Module Setup
     
@@ -241,7 +242,7 @@ class RNTurboImagePicker: RCTEventEmitter {
             
             let step2 = CFAbsoluteTimeGetCurrent()
             print("🔵 [DEBUG] GalleryViewController 생성 시작...")
-            let galleryVC = GalleryViewController(nibName: nil, bundle: nil)
+            let galleryVC = GalleryViewController()
             print("🔵 [DEBUG] GalleryViewController 생성 완료 - 경과: \(String(format: "%.3f", CFAbsoluteTimeGetCurrent() - step2))초")
             
             // 현재 갤러리 참조 저장
@@ -308,7 +309,7 @@ class RNTurboImagePicker: RCTEventEmitter {
                         editorVC.singlePhotoMode = true
                         editorVC.disableCrop = true
                         editorVC.croppedImages = [0: croppedImage]
-                        editorVC.modalPresentationStyle = .fullScreen
+                        editorVC.modalPresentationStyle = .overFullScreen
                         
                         if let hex = currentGallery.themeColorHex, let color = UIColor(hexString: hex) {
                             editorVC.themeColor = color
@@ -328,8 +329,19 @@ class RNTurboImagePicker: RCTEventEmitter {
                             currentGallery?.refreshSelectionAfterEdit()
                         }
                         
+                        var savedDetent: UISheetPresentationController.Detent.Identifier? = nil
+                        if #available(iOS 15.0, *) {
+                            savedDetent = currentGallery.navigationController?.sheetPresentationController?.selectedDetentIdentifier
+                        }
+
                         let presenterVC = currentGallery.presentedViewController ?? currentGallery
-                        presenterVC.present(editorVC, animated: true)
+                        presenterVC.present(editorVC, animated: true) {
+                            if #available(iOS 15.0, *) {
+                                if let saved = savedDetent {
+                                    currentGallery.navigationController?.sheetPresentationController?.selectedDetentIdentifier = saved
+                                }
+                            }
+                        }
                     } else {
                         // Edit is disabled, directly process the cropped image
                         let navToDismiss = currentGallery.navigationController ?? currentGallery
@@ -345,7 +357,7 @@ class RNTurboImagePicker: RCTEventEmitter {
                 // allowsEditing 활성화: GalleryVC 내 탭 동작 변경
                 galleryVC.allowsEditing = true
 
-                galleryVC.onSingleImageTappedForEdit = { [weak self] (asset, _, _) in
+                galleryVC.onSingleImageTappedForEdit = { [weak self] (asset, sourceFrame, sourceImage) in
                     guard let self = self else { return }
                     guard let currentGallery = self.currentGalleryVC else { return }
                     let galleryNav = currentGallery.navigationController
@@ -353,10 +365,27 @@ class RNTurboImagePicker: RCTEventEmitter {
 
                     let editorVC = ImageEditorViewController()
                 editorVC.languageCode = options["languageCode"] as? String ?? "en"
-                    editorVC.allAssets = currentGallery.allAssets
-                    editorVC.currentIndex = currentGallery.allAssets.firstIndex(of: asset) ?? 0
-                    editorVC.modalPresentationStyle = .fullScreen
+                    var editorAssets = currentGallery.allAssets
+                    var targetIndex = 0
+                    if let idx = editorAssets.firstIndex(of: asset) {
+                        targetIndex = idx
+                    } else {
+                        // 🚀 새로 촬영한 사진이 갤러리 배열에 아직 없으면 임시로 추가하여 편집기에서 보이도록 함
+                        editorAssets.insert(asset, at: 0)
+                        targetIndex = 0
+                    }
+                    
+                    editorVC.allAssets = editorAssets
+                    editorVC.currentIndex = targetIndex
+                    editorVC.modalPresentationStyle = .overFullScreen
                     editorVC.singlePhotoMode = !isMultiSelect  // 1장 모드: 스와이프 비활성화
+                    
+                    if sourceFrame != .zero {
+                        self.editorTransitionDelegate = ImageEditorTransitionDelegate()
+                        self.editorTransitionDelegate?.sourceFrame = sourceFrame
+                        self.editorTransitionDelegate?.sourceImage = sourceImage
+                        editorVC.transitioningDelegate = self.editorTransitionDelegate
+                    }
 
                     if let hex = currentGallery.themeColorHex, let color = UIColor(hexString: hex) {
                         editorVC.themeColor = color
@@ -380,9 +409,25 @@ class RNTurboImagePicker: RCTEventEmitter {
                         }
                     }
 
+                    editorVC.onCancel = { [weak currentGallery] in
+                        currentGallery?.selectedAssets.removeAll()
+                        currentGallery?.refreshSelectionAfterEdit()
+                    }
+
+                    var savedDetent: UISheetPresentationController.Detent.Identifier? = nil
+                    if #available(iOS 15.0, *) {
+                        savedDetent = galleryNav?.sheetPresentationController?.selectedDetentIdentifier
+                    }
+
                     // Present editor on top of whatever currentGallery is presenting (e.g. camera)
                     let presenterVC = currentGallery.presentedViewController ?? currentGallery
-                    presenterVC.present(editorVC, animated: true)
+                    presenterVC.present(editorVC, animated: true) {
+                        if #available(iOS 15.0, *) {
+                            if let saved = savedDetent {
+                                galleryNav?.sheetPresentationController?.selectedDetentIdentifier = saved
+                            }
+                        }
+                    }
                 }
             }
 
@@ -407,12 +452,19 @@ class RNTurboImagePicker: RCTEventEmitter {
                 
                 DispatchQueue.global(qos: .userInitiated).async {
                     let dispatchGroup = DispatchGroup()
+                    let semaphore = DispatchSemaphore(value: 3) // 병렬 처리 스레드 수 제한 (OOM 및 발열 방지)
 
                     for (index, pair) in selectedImages.enumerated() {
                         dispatchGroup.enter()
+                        semaphore.wait()
                         
                         // 병렬 처리를 위해 각 이미지마다 새로운 스레드 할당
                         DispatchQueue.global(qos: .userInitiated).async {
+                            defer {
+                                semaphore.signal()
+                                dispatchGroup.leave()
+                            }
+                            
                             let (asset, image) = pair
                             let timestamp    = Int(Date().timeIntervalSince1970 * 1000)
                             let originalSize = image.size
@@ -452,13 +504,11 @@ class RNTurboImagePicker: RCTEventEmitter {
                                 resultsLock.lock()
                                 results.append(result)
                                 resultsLock.unlock()
-                                dispatchGroup.leave()
 
                             } else {
                                 // ✅ 2순위: 카메라 촬영본
                                 guard let originalFilePath = self.saveOriginalImageAsJPEG(
                                         image, index: index, timestamp: timestamp, tempDir: tempDir) else {
-                                    dispatchGroup.leave()
                                     return
                                 }
 
@@ -498,7 +548,6 @@ class RNTurboImagePicker: RCTEventEmitter {
                                 resultsLock.lock()
                                 results.append(result)
                                 resultsLock.unlock()
-                                dispatchGroup.leave()
                             }
                         }
                     } // end for
@@ -632,16 +681,22 @@ class RNTurboImagePicker: RCTEventEmitter {
         }
         
         // 같은 크기면 리사이징 안 함
-        if targetSize.width == originalSize.width && targetSize.height == originalSize.height {
+        if targetSize.width >= originalSize.width && targetSize.height >= originalSize.height {
             return nil
         }
         
-        // 이미지 리사이징
-        UIGraphicsBeginImageContextWithOptions(targetSize, false, image.scale)
-        defer { UIGraphicsEndImageContext() }
+        // 이미지 리사이징 (UIGraphicsImageRenderer 방식 - 메모리 최적화)
+        let format = UIGraphicsImageRendererFormat()
+        format.scale = 1.0 // 실제 픽셀 크기로 저장하기 위함
+        format.opaque = false
+        if #available(iOS 12.0, *) {
+            format.preferredRange = .standard // 광색역 대신 표준 색역 사용으로 메모리 절약
+        }
         
-        image.draw(in: CGRect(origin: .zero, size: targetSize))
-        return UIGraphicsGetImageFromCurrentImageContext()
+        let renderer = UIGraphicsImageRenderer(size: targetSize, format: format)
+        return renderer.image { _ in
+            image.draw(in: CGRect(origin: .zero, size: targetSize))
+        }
     }
     
     // ✅ 2순위: 원본 이미지를 JPEG으로 저장 (WebP 인코딩 없음 → 빠름)
@@ -687,30 +742,59 @@ class RNTurboImagePicker: RCTEventEmitter {
         }
         return nil
     }
-    // WebP 인코딩 (iOS 14 이상 네이티브 지원 분기)
+    // WebP 인코딩 - iOS 16+ 네이티브 CGImageDestination 사용 또는 런타임 Fallback
     private func encodeWebP(image: UIImage, quality: CGFloat) -> Data? {
-        if #available(iOS 14.0, *) {
+        if #available(iOS 16.0, *) {
             if let cgImage = image.cgImage {
                 let data = NSMutableData()
                 if let destination = CGImageDestinationCreateWithData(data as CFMutableData, "public.webp" as CFString, 1, nil) {
-                    let options: [CFString: Any] = [
-                        kCGImageDestinationLossyCompressionQuality: quality
-                    ]
+                    let options: [CFString: Any] = [kCGImageDestinationLossyCompressionQuality: quality]
                     CGImageDestinationAddImage(destination, cgImage, options as CFDictionary)
                     if CGImageDestinationFinalize(destination) {
+                        NSLog("✅ [encodeWebP] iOS 16 네이티브 WebP 인코딩 성공 - %d bytes", data.length)
                         return data as Data
                     }
                 }
             }
         }
         
-        // iOS 14 미만이거나 네이티브 변환 실패 시 SDWebImage 폴백
-        #if canImport(SDWebImageWebPCoder)
-        return SDImageWebPCoder.shared.encodedData(with: image, format: .webP, options: [.encodeCompressionQuality: quality])
-        #else
+        NSLog("🟣 [encodeWebP] SDImageWebPCoder 런타임 폴백 시도")
+        // iOS 14, 15이거나 네이티브 실패 시 SDImageWebPCoder 런타임 호출
+        if let coderClass = NSClassFromString("SDImageWebPCoder") as? NSObject.Type {
+            if coderClass.responds(to: NSSelectorFromString("sharedCoder")) {
+                let sharedCoder = coderClass.perform(NSSelectorFromString("sharedCoder")).takeUnretainedValue()
+                let encodeSel = NSSelectorFromString("encodedDataWithImage:format:options:")
+                
+                if sharedCoder.responds(to: encodeSel),
+                   let method = class_getInstanceMethod(type(of: sharedCoder), encodeSel) {
+                    
+                    // ObjC method signature: - (NSData *)encodedDataWithImage:(UIImage *)image format:(NSInteger)format options:(NSDictionary *)options
+                    typealias EncodeFunc = @convention(c) (AnyObject, Selector, UIImage?, Int, [String: Any]?) -> Data?
+                    let implementation = method_getImplementation(method)
+                    let encode = unsafeBitCast(implementation, to: EncodeFunc.self)
+                    
+                    // format: 3 (SDImageFormatWebP)
+                    let options: [String: Any] = ["encodeCompressionQuality": quality]
+                    if let data = encode(sharedCoder, encodeSel, image, 3, options) {
+                        NSLog("✅ [encodeWebP] SDImageWebPCoder 런타임 인코딩 성공 - %d bytes", data.count)
+                        return data
+                    } else {
+                        NSLog("❌ [encodeWebP] SDImageWebPCoder 런타임 인코딩 실패 (nil 반환)")
+                    }
+                } else {
+                    NSLog("❌ [encodeWebP] SDImageWebPCoder에 encodedDataWithImage:format:options: 메서드가 없습니다.")
+                }
+            } else {
+                NSLog("❌ [encodeWebP] SDImageWebPCoder에 sharedCoder가 없습니다.")
+            }
+        } else {
+            NSLog("❌ [encodeWebP] SDImageWebPCoder 클래스를 찾을 수 없습니다.")
+        }
+
+        NSLog("❌ [encodeWebP] 모든 WebP 인코딩 실패 → nil 반환")
         return nil
-        #endif
     }
+
 
     // MARK: - Format-aware save helpers
 
@@ -895,18 +979,16 @@ class RNTurboImagePicker: RCTEventEmitter {
                 result["fileSize"] = meta.fileSize
             }
             
-            if (maxWidth > 0 || maxHeight > 0) {
-                if let resizedImage = self.resizeImage(image, maxWidth: maxWidth, maxHeight: maxHeight) {
-                    if let resizedUri = self.saveImage(resizedImage, format: format, prefix: "resized", index: 0, timestamp: timestamp, tempDir: tempDir) {
-                        result["uri"] = resizedUri
-                        result["width"] = Int(resizedImage.size.width)
-                        result["height"] = Int(resizedImage.size.height)
-                        let resizedMeta = self.fileMetadata(fromPath: resizedUri)
-                        result["fileName"] = resizedMeta.fileName
-                        result["fileExtension"] = resizedMeta.fileExtension
-                        result["fileSize"] = resizedMeta.fileSize
-                    }
-                }
+            let finalImageForFormat = self.resizeImage(image, maxWidth: maxWidth, maxHeight: maxHeight) ?? image
+            
+            if let finalUri = self.saveImage(finalImageForFormat, format: format, prefix: "final", index: 0, timestamp: timestamp, tempDir: tempDir) {
+                result["uri"] = finalUri
+                result["width"] = Int(finalImageForFormat.size.width)
+                result["height"] = Int(finalImageForFormat.size.height)
+                let finalMeta = self.fileMetadata(fromPath: finalUri)
+                result["fileName"] = finalMeta.fileName
+                result["fileExtension"] = finalMeta.fileExtension
+                result["fileSize"] = finalMeta.fileSize
             }
             
             DispatchQueue.main.async {

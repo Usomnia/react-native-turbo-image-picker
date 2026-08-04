@@ -16,7 +16,7 @@ import UIKit
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
-@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency public class GalleryBaseViewController : UIKit.UIViewController {
+@objc @_Concurrency.MainActor @preconcurrency public class GalleryBaseViewController : UIKit.UIViewController {
   @_Concurrency.MainActor @preconcurrency public var onImagesSelected: (([(Photos.PHAsset?, UIKit.UIImage)]) -> Swift.Void)?
   @_Concurrency.MainActor @preconcurrency public var onSelectionChanged: ((Swift.Int, Swift.Int) -> Swift.Void)?
   @_Concurrency.MainActor @preconcurrency public var onSingleImageTappedForEdit: ((Photos.PHAsset, CoreFoundation.CGRect, UIKit.UIImage?) -> Swift.Void)?
@@ -26,8 +26,7 @@ import _SwiftConcurrencyShims
   @_Concurrency.MainActor @preconcurrency public var editingAsset: Photos.PHAsset?
   @_Concurrency.MainActor @preconcurrency public var profileCropTransitionDelegate: (any UIKit.UIViewControllerTransitioningDelegate)?
   @_Concurrency.MainActor @preconcurrency public var maxSelection: Swift.Int
-  @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
-  @_Concurrency.MainActor @preconcurrency @objc convenience dynamic public init()
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public init()
   @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
   @_Concurrency.MainActor @preconcurrency public var maxWidth: Swift.Int
   @_Concurrency.MainActor @preconcurrency public var maxHeight: Swift.Int
@@ -70,7 +69,7 @@ import _SwiftConcurrencyShims
   @_Concurrency.MainActor @preconcurrency @objc override final public func viewDidLayoutSubviews()
   @_Concurrency.MainActor @preconcurrency @objc override final public func viewDidAppear(_ animated: Swift.Bool)
   @_Concurrency.MainActor @preconcurrency @objc override final public func scrollViewDidScroll(_ scrollView: UIKit.UIScrollView)
-  @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public init()
   @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
 }
