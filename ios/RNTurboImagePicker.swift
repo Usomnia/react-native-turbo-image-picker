@@ -1128,8 +1128,19 @@ fileprivate extension RNTurboImagePicker {
         
         editorVC.onSelectionToggled = { [weak currentGallery] (toggledAsset, isSelected) in
             guard let currentGallery = currentGallery else { return }
-            currentGallery.toggleSelectionFromEditor(asset: toggledAsset, select: isSelected)
+            if isSelected {
+                if !currentGallery.selectedAssets.contains(toggledAsset) {
+                    currentGallery.selectedAssets.append(toggledAsset)
+                    currentGallery.selectedAssetsSet.insert(toggledAsset.localIdentifier)
+                }
+            } else {
+                currentGallery.selectedAssetsSet.remove(toggledAsset.localIdentifier)
+                currentGallery.selectedAssets.removeAll(where: { $0.localIdentifier == toggledAsset.localIdentifier })
+            }
             currentGallery.refreshSelectionAfterEdit()
+            currentGallery.updateSelectedCellNumbers()
+            currentGallery.notifySelectionChanged()
+            currentGallery.updateNavigationBarForSelection()
         }
         
         editorVC.onEditDeleted = { [weak currentGallery] asset in
