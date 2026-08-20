@@ -68,6 +68,7 @@ class RNTurboImagePicker: RCTEventEmitter {
         let initialIndex = options["initialIndex"] as? Int ?? 0
         let themeColorHex = options["themeColor"] as? String
         let languageCode = options["languageCode"] as? String ?? "en"
+        let viewerTitle = options["title"] as? String
         
         DispatchQueue.main.async {
             guard let rootViewController = self.getRootViewController() else {
@@ -77,6 +78,7 @@ class RNTurboImagePicker: RCTEventEmitter {
             
             let viewerVC = RemoteImageViewerViewController(imageUrls: images, initialIndex: initialIndex)
             viewerVC.languageCode = languageCode
+            viewerVC.viewerTitle = viewerTitle
             if let hex = themeColorHex, let color = UIColor(hexString: hex) {
                 viewerVC.themeColor = color
             }
@@ -224,7 +226,7 @@ class RNTurboImagePicker: RCTEventEmitter {
         print("🔵 [DEBUG] openGallery 시작 - 시간: \(startTime)")
         
         // Main thread에서 실행
-        DispatchQueue.main.async { [weak self] in
+        DispatchQueue.main.async { [weak self] () -> Void in
             guard let self = self else {
                 reject("ERROR", "Module deallocated", nil)
                 return
@@ -357,77 +359,8 @@ class RNTurboImagePicker: RCTEventEmitter {
                 // allowsEditing 활성화: GalleryVC 내 탭 동작 변경
                 galleryVC.allowsEditing = true
 
-                galleryVC.onSingleImageTappedForEdit = { [weak self] (asset, sourceFrame, sourceImage) in
-                    guard let self = self else { return }
-                    guard let currentGallery = self.currentGalleryVC else { return }
-                    let galleryNav = currentGallery.navigationController
-                    let isMultiSelect = galleryVC.maxSelection != 1 && galleryVC.maxSelection != 0
-
-                    let editorVC = ImageEditorViewController()
-                editorVC.languageCode = options["languageCode"] as? String ?? "en"
-                    var editorAssets = currentGallery.allAssets
-                    var targetIndex = 0
-                    if let idx = editorAssets.firstIndex(of: asset) {
-                        targetIndex = idx
-                    } else {
-                        // 🚀 새로 촬영한 사진이 갤러리 배열에 아직 없으면 임시로 추가하여 편집기에서 보이도록 함
-                        editorAssets.insert(asset, at: 0)
-                        targetIndex = 0
-                    }
-                    
-                    editorVC.allAssets = editorAssets
-                    editorVC.currentIndex = targetIndex
-                    editorVC.modalPresentationStyle = .overFullScreen
-                    editorVC.singlePhotoMode = !isMultiSelect  // 1장 모드: 스와이프 비활성화
-                    
-                    if sourceFrame != .zero {
-                        self.editorTransitionDelegate = ImageEditorTransitionDelegate()
-                        self.editorTransitionDelegate?.sourceFrame = sourceFrame
-                        self.editorTransitionDelegate?.sourceImage = sourceImage
-                        editorVC.transitioningDelegate = self.editorTransitionDelegate
-                    }
-
-                    if let hex = currentGallery.themeColorHex, let color = UIColor(hexString: hex) {
-                        editorVC.themeColor = color
-                    }
-
-                    editorVC.onConfirmMulti = { [weak self] (assets, croppedImages, filterStates) in
-                        guard let self = self else { return }
-                        let navToDismiss = galleryNav ?? currentGallery
-                        let presenter = navToDismiss.presentingViewController ?? navToDismiss
-                        presenter.dismiss(animated: true) {
-                            self.processEditorResultMulti(assets: assets, croppedImages: croppedImages, filterStates: filterStates, galleryVC: currentGallery, resolve: resolve, reject: reject)
-                        }
-                    }
-
-                    editorVC.onConfirm = { [weak self] (editedAsset: PHAsset?, croppedImage: UIImage?, filterState: FilterState, caption: String) in
-                        guard let self = self else { return }
-                        let navToDismiss = galleryNav ?? currentGallery
-                        let presenter = navToDismiss.presentingViewController ?? navToDismiss
-                        presenter.dismiss(animated: true) {
-                            self.processEditorResult(asset: editedAsset, croppedImage: croppedImage, filterState: filterState, caption: caption, galleryVC: currentGallery, resolve: resolve, reject: reject)
-                        }
-                    }
-
-                    editorVC.onCancel = { [weak currentGallery] in
-                        currentGallery?.selectedAssets.removeAll()
-                        currentGallery?.refreshSelectionAfterEdit()
-                    }
-
-                    var savedDetent: UISheetPresentationController.Detent.Identifier? = nil
-                    if #available(iOS 15.0, *) {
-                        savedDetent = galleryNav?.sheetPresentationController?.selectedDetentIdentifier
-                    }
-
-                    // Present editor on top of whatever currentGallery is presenting (e.g. camera)
-                    let presenterVC = currentGallery.presentedViewController ?? currentGallery
-                    presenterVC.present(editorVC, animated: true) {
-                        if #available(iOS 15.0, *) {
-                            if let saved = savedDetent {
-                                galleryNav?.sheetPresentationController?.selectedDetentIdentifier = saved
-                            }
-                        }
-                    }
+                galleryVC.onSingleImageTappedForEdit = { [weak self] (asset: PHAsset, sourceFrame: CGRect, sourceImage: UIImage?) -> Void in
+                    self?._turbo_handleSingleImageTappedForEdit(asset: asset, sourceFrame: sourceFrame, sourceImage: sourceImage, options: options, resolve: resolve, reject: reject)
                 }
             }
 
@@ -610,7 +543,7 @@ class RNTurboImagePicker: RCTEventEmitter {
     func closeGallery(_ resolve: @escaping RCTPromiseResolveBlock,
                       reject: @escaping RCTPromiseRejectBlock) -> Void {
         
-        DispatchQueue.main.async { [weak self] in
+        DispatchQueue.main.async { [weak self] () -> Void in
             guard let self = self else {
                 reject("ERROR", "Module deallocated", nil)
                 return
@@ -869,7 +802,7 @@ class RNTurboImagePicker: RCTEventEmitter {
         let fileName = url.lastPathComponent
         let fileExtension = url.pathExtension.lowercased()
         let fileSize = (try? FileManager.default.attributesOfItem(atPath: url.path)[.size] as? Int64) ?? 0
-        return (fileName, fileExtension, fileSize ?? 0)
+        return (fileName, fileExtension, fileSize)
     }
     
     private func getRootViewController() -> UIViewController? {
@@ -1129,3 +1062,204 @@ extension UIColor {
 import Foundation
 import UIKit
 
+
+fileprivate func _turbo_handleConfirmMulti(assets: [PHAsset], croppedImages: [PHAsset: UIImage], filterStates: [PHAsset: FilterState], currentGallery: GalleryViewController) {
+    DispatchQueue.global(qos: .userInitiated).async {
+        var newlyEditedAssets: [PHAsset] = []
+        for asset in assets {
+            if let baseImage = croppedImages[asset] {
+                var finalImage = baseImage
+                if let state = filterStates[asset], state.filterId != "original" {
+                    if let filter = FilterManager.shared.filters.first(where: { (f: ImageFilter) -> Bool in return f.id == state.filterId }) {
+                        if let ciImage = CIImage(image: baseImage) {
+                            if let out = filter.apply(ciImage, state.intensity) {
+                                if let cgImg = FilterManager.shared.context.createCGImage(out, from: out.extent) {
+                                    finalImage = UIImage(cgImage: cgImg, scale: baseImage.scale, orientation: baseImage.imageOrientation)
+                                }
+                            }
+                        }
+                    }
+                }
+                DispatchQueue.main.async {
+                    currentGallery.editedImages[asset.localIdentifier] = finalImage
+                }
+                newlyEditedAssets.append(asset)
+            }
+        }
+        DispatchQueue.main.async {
+            for asset in newlyEditedAssets {
+                if !currentGallery.selectedAssetsSet.contains(asset.localIdentifier) {
+                    if currentGallery.maxSelection == 0 || currentGallery.selectedAssets.count < currentGallery.maxSelection {
+                        currentGallery.selectedAssets.append(asset)
+                        currentGallery.selectedAssetsSet.insert(asset.localIdentifier)
+                    }
+                }
+            }
+            currentGallery.refreshSelectionAfterEdit()
+            
+            // These updates are required per the original code
+            currentGallery.updateSelectedCellNumbers()
+            currentGallery.notifySelectionChanged()
+            currentGallery.updateNavigationBarForSelection()
+        }
+    }
+}
+
+fileprivate extension RNTurboImagePicker {
+    func _turbo_handleSingleImageTappedForEdit(asset: PHAsset, sourceFrame: CGRect, sourceImage: UIImage?, options: NSDictionary, resolve: @escaping RCTPromiseResolveBlock, reject: @escaping RCTPromiseRejectBlock) {
+        guard let currentGallery = self.currentGalleryVC else { return }
+        let galleryNav = currentGallery.navigationController
+        let isMultiSelect = currentGallery.maxSelection != 1 && currentGallery.maxSelection != 0
+
+        let editorVC = ImageEditorViewController()
+        editorVC.languageCode = options["languageCode"] as? String ?? "en"
+        var editorAssets = currentGallery.allAssets
+        var targetIndex = 0
+        if let idx = editorAssets.firstIndex(of: asset) {
+            targetIndex = idx
+        } else {
+            editorAssets.insert(asset, at: 0)
+            targetIndex = 0
+        }
+        
+        editorVC.allAssets = editorAssets
+        editorVC.currentIndex = targetIndex
+        editorVC.selectedAssets = currentGallery.selectedAssets
+        
+        editorVC.onSelectionToggled = { [weak currentGallery] (toggledAsset, isSelected) in
+            guard let currentGallery = currentGallery else { return }
+            if isSelected {
+                if !currentGallery.selectedAssets.contains(toggledAsset) {
+                    currentGallery.selectedAssets.append(toggledAsset)
+                }
+            } else {
+                currentGallery.selectedAssets.removeAll(where: { $0.localIdentifier == toggledAsset.localIdentifier })
+            }
+            currentGallery.refreshSelectionAfterEdit()
+        }
+        
+        editorVC.onEditDeleted = { [weak currentGallery] asset in
+            currentGallery?.editedImages.removeValue(forKey: asset.localIdentifier)
+        }
+        
+        editorVC.modalPresentationStyle = .overFullScreen
+        editorVC.singlePhotoMode = !isMultiSelect
+        
+        var initialCroppedImages: [Int: UIImage] = [:]
+        for (i, a) in editorAssets.enumerated() {
+            if let editedImg = currentGallery.editedImages[a.localIdentifier] {
+                initialCroppedImages[i] = editedImg
+            }
+        }
+        editorVC.croppedImages = initialCroppedImages
+        
+        if sourceFrame != .zero {
+            self.editorTransitionDelegate = ImageEditorTransitionDelegate()
+            self.editorTransitionDelegate?.sourceFrame = sourceFrame
+            self.editorTransitionDelegate?.sourceImage = sourceImage
+            
+            if let editedImg = currentGallery.editedImages[asset.localIdentifier] {
+                self.editorTransitionDelegate?.uncroppedImage = editedImg
+                self.editorTransitionDelegate?.asset = nil
+            } else {
+                let options = PHImageRequestOptions()
+                options.deliveryMode = .fastFormat
+                options.isSynchronous = true
+                options.resizeMode = .fast
+                var fastUncropped: UIImage? = nil
+                PHImageManager.default().requestImage(for: asset, targetSize: CGSize(width: 400, height: 400), contentMode: .aspectFit, options: options) { img, _ in
+                    fastUncropped = img
+                }
+                self.editorTransitionDelegate?.uncroppedImage = fastUncropped ?? sourceImage
+                self.editorTransitionDelegate?.asset = asset
+            }
+            
+            var ratio = CGFloat(asset.pixelWidth) / CGFloat(max(1, asset.pixelHeight))
+            if let editedImg = currentGallery.editedImages[asset.localIdentifier] {
+                ratio = editedImg.size.width / max(1.0, editedImg.size.height)
+            }
+            self.editorTransitionDelegate?.assetAspectRatio = ratio
+            self.editorTransitionDelegate?.frameProvider = { [weak currentGallery] currentAsset in
+                return currentGallery?.frameForAsset(currentAsset)
+            }
+            
+            editorVC.transitioningDelegate = self.editorTransitionDelegate
+        }
+
+        if let hex = currentGallery.themeColorHex, let color = UIColor(hexString: hex) {
+            editorVC.themeColor = color
+        }
+
+        editorVC.onConfirmMulti = { [weak currentGallery] (assets, croppedImages, filterStates) in
+            guard let currentGallery = currentGallery else { return }
+            
+            editorVC.dismiss(animated: true) {
+                DispatchQueue.global(qos: .userInitiated).async {
+                    var newlyEditedAssets: [PHAsset] = []
+                    
+                    for asset in assets {
+                        if let baseImage = croppedImages[asset] {
+                            var finalImage = baseImage
+                            if let state = filterStates[asset],
+                               state.filterId != "original",
+                               let filter = FilterManager.shared.filters.first(where: { $0.id == state.filterId }),
+                               let ciImage = CIImage(image: baseImage),
+                               let out = filter.apply(ciImage, state.intensity),
+                               let cgImg = FilterManager.shared.context.createCGImage(out, from: out.extent) {
+                                finalImage = UIImage(cgImage: cgImg, scale: baseImage.scale, orientation: baseImage.imageOrientation)
+                            }
+                            
+                            DispatchQueue.main.async {
+                                currentGallery.editedImages[asset.localIdentifier] = finalImage
+                            }
+                            newlyEditedAssets.append(asset)
+                        }
+                    }
+                    
+                    DispatchQueue.main.async {
+                        for asset in newlyEditedAssets {
+                            if !currentGallery.selectedAssetsSet.contains(asset.localIdentifier) {
+                                if currentGallery.maxSelection == 0 || currentGallery.selectedAssets.count < currentGallery.maxSelection {
+                                    currentGallery.selectedAssets.append(asset)
+                                    currentGallery.selectedAssetsSet.insert(asset.localIdentifier)
+                                }
+                            }
+                        }
+                        currentGallery.updateSelectedCellNumbers()
+                        currentGallery.notifySelectionChanged()
+                        currentGallery.updateNavigationBarForSelection()
+                        currentGallery.collectionView.reloadData()
+                    }
+                }
+            }
+        }
+
+        editorVC.onConfirm = { [weak self, weak galleryNav, weak currentGallery] (editedAsset: PHAsset?, croppedImage: UIImage?, filterState: FilterState, caption: String) in
+            guard let self = self else { return }
+            let navToDismiss = galleryNav ?? currentGallery
+            let presenter = navToDismiss?.presentingViewController ?? navToDismiss
+            presenter?.dismiss(animated: true) {
+                self.processEditorResult(asset: editedAsset, croppedImage: croppedImage, filterState: filterState, caption: caption, galleryVC: currentGallery, resolve: resolve, reject: reject)
+            }
+        }
+
+        editorVC.onCancel = { [weak editorVC] in
+            // 에디터만 닫고 갤러리의 선택 상태는 유지합니다.
+            editorVC?.dismiss(animated: true, completion: nil)
+        }
+
+        var savedDetent: UISheetPresentationController.Detent.Identifier? = nil
+        if #available(iOS 15.0, *) {
+            savedDetent = galleryNav?.sheetPresentationController?.selectedDetentIdentifier
+        }
+
+        let presenterVC = currentGallery.presentedViewController ?? currentGallery
+        presenterVC.present(editorVC, animated: true) {
+            if #available(iOS 15.0, *) {
+                if let saved = savedDetent {
+                    galleryNav?.sheetPresentationController?.selectedDetentIdentifier = saved
+                }
+            }
+        }
+    }
+}
