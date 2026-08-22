@@ -1,4 +1,0 @@
-
-module React_Core.Swift {
-  header "React_Core-Swift.h"
-}

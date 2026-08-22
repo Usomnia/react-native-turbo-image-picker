@@ -41,7 +41,7 @@ class RNTurboImagePicker: RCTEventEmitter {
     
     @objc
     override func supportedEvents() -> [String]! {
-        return ["onSelectionChange"]
+        return ["onSelectionChange", "onImageProcessed"]
     }
     
     // MARK: - Public Methods
@@ -436,8 +436,14 @@ class RNTurboImagePicker: RCTEventEmitter {
 
                                 resultsLock.lock()
                                 results.append(result)
+                                let currentResult = result
                                 resultsLock.unlock()
-
+                                
+                                self.sendEvent(withName: "onImageProcessed", body: [
+                                    "index": index,
+                                    "total": selectedImages.count,
+                                    "image": currentResult
+                                ])
                             } else {
                                 // ✅ 2순위: 카메라 촬영본
                                 guard let originalFilePath = self.saveOriginalImageAsJPEG(
@@ -480,7 +486,14 @@ class RNTurboImagePicker: RCTEventEmitter {
 
                                 resultsLock.lock()
                                 results.append(result)
+                                let currentResult = result
                                 resultsLock.unlock()
+                                
+                                self.sendEvent(withName: "onImageProcessed", body: [
+                                    "index": index,
+                                    "total": selectedImages.count,
+                                    "image": currentResult
+                                ])
                             }
                         }
                     } // end for
@@ -942,6 +955,7 @@ class RNTurboImagePicker: RCTEventEmitter {
             let photoManager = PhotoManager.shared
             var results: [[String: Any]] = []
             let dispatchGroup = DispatchGroup()
+            let resultsLock = NSLock()
             
             for (index, asset) in assets.enumerated() {
                 dispatchGroup.enter()
@@ -992,9 +1006,16 @@ class RNTurboImagePicker: RCTEventEmitter {
                         }
                     }
                     
-                    DispatchQueue.main.async {
-                        results.append(result)
-                    }
+                    resultsLock.lock()
+                    results.append(result)
+                    let currentResult = result
+                    resultsLock.unlock()
+                    
+                    self.sendEvent(withName: "onImageProcessed", body: [
+                        "index": index,
+                        "total": assets.count,
+                        "image": currentResult
+                    ])
                     dispatchGroup.leave()
                 }
                 

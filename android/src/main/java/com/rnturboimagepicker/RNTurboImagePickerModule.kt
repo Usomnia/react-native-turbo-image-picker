@@ -348,7 +348,8 @@ class RNTurboImagePickerModule(private val reactContext: ReactApplicationContext
         val results = mutableListOf<com.facebook.react.bridge.WritableMap>()
         val contentResolver = reactApplicationContext.contentResolver
 
-        for (uri in uris) {
+        val totalCount = uris.size
+        for ((index, uri) in uris.withIndex()) {
             try {
                 // 1. Get EXIF Orientation
                 var orientation = android.media.ExifInterface.ORIENTATION_NORMAL
@@ -471,6 +472,31 @@ class RNTurboImagePickerModule(private val reactContext: ReactApplicationContext
                                 putInt("originalHeight", originalHeight)
                             }
                             results.add(imageInfo)
+                            
+                            // Emit event for intermediate processing
+                            try {
+                                val eventImageInfo = com.facebook.react.bridge.WritableNativeMap().apply {
+                                    putString("uri", Uri.fromFile(tempFile).toString())
+                                    putInt("width", finalWidth)
+                                    putInt("height", finalHeight)
+                                    putString("type", mimeType)
+                                    putString("fileName", tempFile.name)
+                                    putString("fileExtension", extension)
+                                    putDouble("fileSize", tempFile.length().toDouble())
+                                    putString("originalUri", uri.toString())
+                                    putInt("originalWidth", originalWidth)
+                                    putInt("originalHeight", originalHeight)
+                                }
+                                val eventPayload = com.facebook.react.bridge.WritableNativeMap().apply {
+                                    putInt("index", index)
+                                    putInt("total", totalCount)
+                                    putMap("image", eventImageInfo)
+                                }
+                                reactApplicationContext.getJSModule(com.facebook.react.modules.core.DeviceEventManagerModule.RCTDeviceEventEmitter::class.java)
+                                    .emit("onImageProcessed", eventPayload)
+                            } catch (e: Exception) {
+                                // Ignore
+                            }
                         }
                     }
                 }

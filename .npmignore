@@ -1,8 +1,8 @@
-node_modules
-android/build
-android/.cxx
-android/.gradle
-*.iml
+android/build/
+android/.gradle/
+ios/build/
+ios/Pods/
+ios/.symlinks/
+node_modules/
+.git/
 .DS_Store
-.git
-docs/

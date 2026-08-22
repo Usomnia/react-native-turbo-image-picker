@@ -1,4 +1,0 @@
-
-module React_Core.__Swift {
-  exclude header "React_Core-Swift.h"
-}
