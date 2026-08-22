@@ -1,0 +1,7 @@
+Target dependency graph (3 targets)
+Target 'react-native-turbo-image-picker' in project 'Pods'
+➜ Explicit dependency on target 'React-Core' in project 'Pods'
+➜ Explicit dependency on target 'react-native-turbo-image-picker-RNTurboImagePickerAssets' in project 'Pods'
+Target 'react-native-turbo-image-picker-RNTurboImagePickerAssets' in project 'Pods'
+➜ Implicit dependency on target 'React-Core' in project 'Pods' via options '-framework React_Core' in build setting 'OTHER_LDFLAGS'
+Target 'React-Core' in project 'Pods' (no dependencies)

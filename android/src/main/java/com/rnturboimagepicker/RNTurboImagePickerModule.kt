@@ -7,6 +7,7 @@ import android.graphics.BitmapFactory
 import android.net.Uri
 import com.facebook.react.bridge.*
 import com.facebook.react.module.annotations.ReactModule
+import com.rnturboimagepicker.codegen.NativeTurboImagePickerSpec
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -14,8 +15,8 @@ import kotlinx.coroutines.withContext
 import java.io.*
 
 @ReactModule(name = RNTurboImagePickerModule.NAME)
-class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
-    NativeRNTurboImagePickerSpec(reactContext), ActivityEventListener {
+class RNTurboImagePickerModule(private val reactContext: ReactApplicationContext) :
+    NativeTurboImagePickerSpec(reactContext), ActivityEventListener {
 
     companion object {
         const val NAME = "RNTurboImagePicker"
@@ -47,7 +48,7 @@ class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
 
     @ReactMethod
     override fun openEditor(options: ReadableMap, promise: Promise) {
-        val activity = getCurrentActivity()
+        val activity = reactApplicationContext.currentActivity
         if (activity == null) {
             promise.reject(E_NO_ACTIVITY, "Activity doesn't exist")
             return
@@ -83,7 +84,7 @@ class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
 
     @ReactMethod
     override fun openGallery(options: ReadableMap, promise: Promise) {
-        val activity = getCurrentActivity()
+        val activity = reactApplicationContext.currentActivity
         
         if (activity == null) {
             promise.reject(E_NO_ACTIVITY, "Activity doesn't exist")
@@ -173,7 +174,7 @@ class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
 
     @ReactMethod
     override fun openViewer(options: ReadableMap, promise: Promise) {
-        val activity = getCurrentActivity()
+        val activity = reactApplicationContext.currentActivity
         if (activity == null) {
             promise.reject(E_NO_ACTIVITY, "Activity doesn't exist")
             return
@@ -216,7 +217,7 @@ class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
 
     @ReactMethod
     override fun closeGallery(promise: Promise) {
-        val activity = getCurrentActivity()
+        val activity = reactApplicationContext.currentActivity
         if (activity == null) {
             promise.reject(E_NO_ACTIVITY, "Activity doesn't exist")
             return

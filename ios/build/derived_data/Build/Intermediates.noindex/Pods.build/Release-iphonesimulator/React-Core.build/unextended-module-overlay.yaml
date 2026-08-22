@@ -1,0 +1,23 @@
+{
+  "version": 0,
+  "use-external-names": false,
+  "case-sensitive": false,
+  "roots": [{
+    "type": "directory",
+    "name": "/Users/mike/source/PaidModules/RNTurboImagePicker/RNTurboImagePicker-Dist/ios/build/derived_data/Build/Products/Release-iphonesimulator/React-Core/React_Core.framework/Modules",
+    "contents": [{
+      "type": "file",
+      "name": "module.modulemap",
+      "external-contents": "/Users/mike/source/PaidModules/RNTurboImagePicker/RNTurboImagePicker-Dist/ios/build/derived_data/Build/Intermediates.noindex/Pods.build/Release-iphonesimulator/React-Core.build/unextended-module.modulemap",
+    }]
+    },
+    {
+    "type": "directory",
+    "name": "/Users/mike/source/PaidModules/RNTurboImagePicker/RNTurboImagePicker-Dist/ios/build/derived_data/Build/Products/Release-iphonesimulator/React-Core/React_Core.framework/Headers",
+    "contents": [{
+      "type": "file",
+      "name": "React_Core-Swift.h",
+      "external-contents": "/Users/mike/source/PaidModules/RNTurboImagePicker/RNTurboImagePicker-Dist/ios/build/derived_data/Build/Intermediates.noindex/Pods.build/Release-iphonesimulator/React-Core.build/unextended-interface-header.h",
+    }]
+  }]
+}

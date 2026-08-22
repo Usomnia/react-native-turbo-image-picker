@@ -1,0 +1,4 @@
+
+module react_native_turbo_image_picker.__Swift {
+  exclude header "react_native_turbo_image_picker-Swift.h"
+}

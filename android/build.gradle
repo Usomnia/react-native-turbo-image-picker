@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'org.jetbrains.kotlin.android'
+apply plugin: 'com.facebook.react'
 
 def aarFile = file('src/main/libs/rnturboimagepicker-release.aar')
 def extractDir = file("$projectDir/extracted-aar")

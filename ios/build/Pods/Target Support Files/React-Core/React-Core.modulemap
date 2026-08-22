@@ -1,0 +1,6 @@
+framework module React_Core {
+  umbrella header "React-Core-umbrella.h"
+
+  export *
+  module * { export * }
+}

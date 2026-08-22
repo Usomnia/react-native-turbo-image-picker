@@ -1,0 +1,16 @@
+{
+  "" : {
+    "const-values" : "/Users/mike/source/PaidModules/RNTurboImagePicker/RNTurboImagePicker-Dist/ios/build/derived_data/Build/Intermediates.noindex/Pods.build/Release-iphonesimulator/react-native-turbo-image-picker.build/Objects-normal/x86_64/react-native-turbo-image-picker-primary.swiftconstvalues",
+    "dependencies" : "/Users/mike/source/PaidModules/RNTurboImagePicker/RNTurboImagePicker-Dist/ios/build/derived_data/Build/Intermediates.noindex/Pods.build/Release-iphonesimulator/react-native-turbo-image-picker.build/Objects-normal/x86_64/react-native-turbo-image-picker-primary.d",
+    "diagnostics" : "/Users/mike/source/PaidModules/RNTurboImagePicker/RNTurboImagePicker-Dist/ios/build/derived_data/Build/Intermediates.noindex/Pods.build/Release-iphonesimulator/react-native-turbo-image-picker.build/Objects-normal/x86_64/react-native-turbo-image-picker-primary.dia",
+    "emit-module-dependencies" : "/Users/mike/source/PaidModules/RNTurboImagePicker/RNTurboImagePicker-Dist/ios/build/derived_data/Build/Intermediates.noindex/Pods.build/Release-iphonesimulator/react-native-turbo-image-picker.build/Objects-normal/x86_64/react-native-turbo-image-picker-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/mike/source/PaidModules/RNTurboImagePicker/RNTurboImagePicker-Dist/ios/build/derived_data/Build/Intermediates.noindex/Pods.build/Release-iphonesimulator/react-native-turbo-image-picker.build/Objects-normal/x86_64/react-native-turbo-image-picker-primary-emit-module.dia",
+    "pch" : "/Users/mike/source/PaidModules/RNTurboImagePicker/RNTurboImagePicker-Dist/ios/build/derived_data/Build/Intermediates.noindex/Pods.build/Release-iphonesimulator/react-native-turbo-image-picker.build/Objects-normal/x86_64/react-native-turbo-image-picker-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/mike/source/PaidModules/RNTurboImagePicker/RNTurboImagePicker-Dist/ios/build/derived_data/Build/Intermediates.noindex/Pods.build/Release-iphonesimulator/react-native-turbo-image-picker.build/Objects-normal/x86_64/react-native-turbo-image-picker-primary.swiftdeps"
+  },
+  "/Users/mike/source/PaidModules/RNTurboImagePicker/RNTurboImagePicker-Dist/ios/RNTurboImagePicker.swift" : {
+    "index-unit-output-path" : "/Pods.build/Release-iphonesimulator/react-native-turbo-image-picker.build/Objects-normal/x86_64/RNTurboImagePicker-7dc8e0eb2a8434459268ab2277f17624.o",
+    "llvm-bc" : "/Users/mike/source/PaidModules/RNTurboImagePicker/RNTurboImagePicker-Dist/ios/build/derived_data/Build/Intermediates.noindex/Pods.build/Release-iphonesimulator/react-native-turbo-image-picker.build/Objects-normal/x86_64/RNTurboImagePicker-7dc8e0eb2a8434459268ab2277f17624.bc",
+    "object" : "/Users/mike/source/PaidModules/RNTurboImagePicker/RNTurboImagePicker-Dist/ios/build/derived_data/Build/Intermediates.noindex/Pods.build/Release-iphonesimulator/react-native-turbo-image-picker.build/Objects-normal/x86_64/RNTurboImagePicker-7dc8e0eb2a8434459268ab2277f17624.o"
+  }
+}

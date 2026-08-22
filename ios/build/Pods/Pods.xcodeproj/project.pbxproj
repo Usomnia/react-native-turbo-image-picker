@@ -1,0 +1,1109 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		04B3F176F58577D0567C105B4F9D80B1 /* ic_drawing_reward~dark.webp in Resources */ = {isa = PBXBuildFile; fileRef = 9EB9155028ABA0B6CD4A5A4F240ADF88 /* ic_drawing_reward~dark.webp */; };
+		1273FDD95F5FA31614DBF5C7F071653D /* Pods-TempTarget-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3214E3ACC225B52BCB4717757A913C40 /* Pods-TempTarget-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1B34CD3CB43F52C047E5D92B297DCD1D /* ic_crop_reflect~dark.webp in Resources */ = {isa = PBXBuildFile; fileRef = D6400FD1A79DC30BC54392E55411897E /* ic_crop_reflect~dark.webp */; };
+		1CFE27B216FD1505534D341A20FE4AE9 /* ic_crop_reflect~light.webp in Resources */ = {isa = PBXBuildFile; fileRef = 45CF024188CE22AC8472A6A50C27D826 /* ic_crop_reflect~light.webp */; };
+		1DA20BA93D9E77B3A899948F809929B9 /* ic_drawing_delete~dark.webp in Resources */ = {isa = PBXBuildFile; fileRef = C46C69887D5F39D8B24DA1ED765B94B6 /* ic_drawing_delete~dark.webp */; };
+		2205E01DEE11B6805E1128FB749E2006 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54B3803EBECECC09C0A1F076FAAFE025 /* Assets.xcassets */; };
+		26377A86AB65C6590D4E1C8DE3B9DC8F /* ic_drawing_reward~light.webp in Resources */ = {isa = PBXBuildFile; fileRef = 178316F3188760EEC4E9E0E6289328D8 /* ic_drawing_reward~light.webp */; };
+		29D7165471F621A2D9B96CF61581EDD7 /* ic_editor_drawing~light.webp in Resources */ = {isa = PBXBuildFile; fileRef = 3062E3E8FBB5EB267B1F88A1954A902D /* ic_editor_drawing~light.webp */; };
+		2A3E78EFCFF701047B61F8423391BD5C /* ic_editor_mosaic~light.webp in Resources */ = {isa = PBXBuildFile; fileRef = 19CFF0E069920CB7539A16CAFFB93F86 /* ic_editor_mosaic~light.webp */; };
+		343409826094C991E83E7A343B0060CE /* ic_editor_eraser~dark.webp in Resources */ = {isa = PBXBuildFile; fileRef = B615CCB6DF661F62BF11CADF12DB6EEB /* ic_editor_eraser~dark.webp */; };
+		39ADB15716B4901DF12B4773D8949FE6 /* ic_drawing_forward~light.webp in Resources */ = {isa = PBXBuildFile; fileRef = 79332058B99CA18AFE732237E442B154 /* ic_drawing_forward~light.webp */; };
+		4CDF3279F787B39FCC64852A2C859E4B /* ic_drawing_forward~dark.webp in Resources */ = {isa = PBXBuildFile; fileRef = 120B49B668D3E5BC1AEAEF133E081960 /* ic_drawing_forward~dark.webp */; };
+		5500C63EF5F029CDF1E64BBA0DC591BD /* ic_editor_effect~dark.webp in Resources */ = {isa = PBXBuildFile; fileRef = 26B2AA389C9E67F74C23E22B4C05BFBC /* ic_editor_effect~dark.webp */; };
+		5623A720652DD034AFED8269F723FA1C /* react-native-turbo-image-picker-RNTurboImagePickerAssets in Resources */ = {isa = PBXBuildFile; fileRef = C94CF73741E9004E0F309EA943159409 /* react-native-turbo-image-picker-RNTurboImagePickerAssets */; };
+		6A1946E42BEDD7FC8BC7D7E62FBD3C3A /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 82552665BE22AD8CE66C7FD82A15A8FE /* Pretendard-SemiBold.otf */; };
+		6DCF1FD362961CE4B266B3882B96228E /* ic_editor_crop~dark.webp in Resources */ = {isa = PBXBuildFile; fileRef = A752BEE023A873B65AA218EDFDCB041F /* ic_editor_crop~dark.webp */; };
+		72443533E8286D31F6A980D0CAA26517 /* ic_crop_rotate~dark.webp in Resources */ = {isa = PBXBuildFile; fileRef = 0816512C50613B919CF05FB82B622CEA /* ic_crop_rotate~dark.webp */; };
+		7369FC41FB5C84BCA41ED2B43E924190 /* ic_editor_mosaic~dark.webp in Resources */ = {isa = PBXBuildFile; fileRef = 5E99B8362C7A8C07F7E9C6698599B4F4 /* ic_editor_mosaic~dark.webp */; };
+		76805214E16B51862529AD9D34AF5829 /* RNTurboImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71AF4A83DAB0A8C6C07DD64AD67CA53 /* RNTurboImagePicker.swift */; };
+		7960311567BE9BF32F95306EA43471AA /* React-Core-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 04A67DC1AEF936FF3A088E570BE956D2 /* React-Core-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		80AFDB13A1021BF7882DBF2A4EC80C47 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CB74A84DF62E0DBFFA4715EF79E08A1 /* Foundation.framework */; };
+		937AD693A803B6DD08FE54AAEF781594 /* RNTurboImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 805ADF582F927CD3F163640E085B9321 /* RNTurboImagePicker.m */; };
+		98FBB73CF42791EA2072393B30AC08A0 /* ic_crop_rotate~light.webp in Resources */ = {isa = PBXBuildFile; fileRef = CA8391AA802C4B335265AE68773F7D6C /* ic_crop_rotate~light.webp */; };
+		9CA2B8BAF7289F60FD8D37B865804B8E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CB74A84DF62E0DBFFA4715EF79E08A1 /* Foundation.framework */; };
+		A325C458AD4B8DBFE8EE7E6C15893181 /* react-native-turbo-image-picker-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7877BF38451EA965F6C6129531FEF3E1 /* react-native-turbo-image-picker-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A3B9DE4FF6C8D7BEDC5385C50EE7904D /* ic_editor_eraser~light.webp in Resources */ = {isa = PBXBuildFile; fileRef = 702E80B8C9800CD90EE38E90BF4759BA /* ic_editor_eraser~light.webp */; };
+		A60347663F1E2B96B6B9C600DB72236B /* react-native-turbo-image-picker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7C156FCCCD2C3BBAB53BD93EC2EF55 /* react-native-turbo-image-picker-dummy.m */; };
+		AB9ED7A4DEAC70259C59B713305FF816 /* TossFaceFontMac.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EE29FCB9F829F5ACF8F5C8A5812622AD /* TossFaceFontMac.ttf */; };
+		B59276AF1C72A61056C2AE8D4C67969F /* ic_editor_text~dark.webp in Resources */ = {isa = PBXBuildFile; fileRef = 64B9E738D61DCFC0095234068014DDFD /* ic_editor_text~dark.webp */; };
+		BFCB00D4F65BFBFEA9674E7724D63DC5 /* ic_editor_emoji~dark.webp in Resources */ = {isa = PBXBuildFile; fileRef = B53ACDBB93F2D9674B05BB7F78C42014 /* ic_editor_emoji~dark.webp */; };
+		CC4528518E0D2796882C0EFF016A5B8B /* ic_drawing_delete~light.webp in Resources */ = {isa = PBXBuildFile; fileRef = BE29653953FAE0486743138E982A334C /* ic_drawing_delete~light.webp */; };
+		D3A8FCB43140D53285EBAE0DC7715BB9 /* ic_editor_emoji~light.webp in Resources */ = {isa = PBXBuildFile; fileRef = 5A38AB56303575A4D827BB6DDF66907B /* ic_editor_emoji~light.webp */; };
+		E0111D1AF81F11448D1E694EC447CE17 /* ic_editor_text~light.webp in Resources */ = {isa = PBXBuildFile; fileRef = 76A39FDBC565D0B498394094DBF9CC20 /* ic_editor_text~light.webp */; };
+		E7064C4ECF0EBD8518DF89BC7D1DB2BD /* React-Core-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6244AA8B05AF70C8C6FA4D6F0E1F7349 /* React-Core-dummy.m */; };
+		E944B8C45E9AF029CEFC80DB6E350331 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CB74A84DF62E0DBFFA4715EF79E08A1 /* Foundation.framework */; };
+		E9C6D52C2843AAC3B10DCD93576F98DC /* Pods-TempTarget-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A5398F59FE236B094FDB9C6A06091BF /* Pods-TempTarget-dummy.m */; };
+		E9E59E37745EA22ED9B681B0711C984A /* ic_editor_effect~light.webp in Resources */ = {isa = PBXBuildFile; fileRef = 129CF6CE90B7F8CE1E4B5F69D37F0381 /* ic_editor_effect~light.webp */; };
+		EA953C61B1E8ACC8525C027B7792E04C /* ic_editor_drawing~dark.webp in Resources */ = {isa = PBXBuildFile; fileRef = 4D9E286C54FA76ECEA1B8F6D837231B6 /* ic_editor_drawing~dark.webp */; };
+		EB2BC4495159B3826543FC2AF54AE9C0 /* ic_editor_crop~light.webp in Resources */ = {isa = PBXBuildFile; fileRef = B516B950C39BA79C7324EFAF00192CB2 /* ic_editor_crop~light.webp */; };
+		FD6D4543048F8A1A01B5DCEB68A8846F /* ReplaceMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354F85B3FB5C8D0C9E0801E07974AD87 /* ReplaceMe.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		096D15232B374071D9F2F4C835482883 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B0E8AF2362A861F693FEF708D9625F36;
+			remoteInfo = "react-native-turbo-image-picker-RNTurboImagePickerAssets";
+		};
+		5AFD01707C367AAA79E20FFE7C74BAE9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7ACAA9BE580DD31A5CB9D97C45D9492D;
+			remoteInfo = "React-Core";
+		};
+		78A152B3950EA22774A30187AF3740BF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BB972E3AB133C9AAE222BBC1000EC24A;
+			remoteInfo = "react-native-turbo-image-picker";
+		};
+		987620EC946E11C8A19DAE6B35DC95C8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7ACAA9BE580DD31A5CB9D97C45D9492D;
+			remoteInfo = "React-Core";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		04A67DC1AEF936FF3A088E570BE956D2 /* React-Core-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "React-Core-umbrella.h"; sourceTree = "<group>"; };
+		07560932B404A0B1F3D5B248117D4E5E /* Pods-TempTarget-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TempTarget-frameworks.sh"; sourceTree = "<group>"; };
+		0816512C50613B919CF05FB82B622CEA /* ic_crop_rotate~dark.webp */ = {isa = PBXFileReference; includeInIndex = 1; path = "ic_crop_rotate~dark.webp"; sourceTree = "<group>"; };
+		0BDE1EC89C18FEBE792CC37F392BEFD9 /* react-native-turbo-image-picker-xcframeworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "react-native-turbo-image-picker-xcframeworks.sh"; sourceTree = "<group>"; };
+		10BB36123A45964F556B6B0E442ADF20 /* ios_edit.gif */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.gif; name = ios_edit.gif; path = docs/ios_edit.gif; sourceTree = "<group>"; };
+		120B49B668D3E5BC1AEAEF133E081960 /* ic_drawing_forward~dark.webp */ = {isa = PBXFileReference; includeInIndex = 1; path = "ic_drawing_forward~dark.webp"; sourceTree = "<group>"; };
+		129CF6CE90B7F8CE1E4B5F69D37F0381 /* ic_editor_effect~light.webp */ = {isa = PBXFileReference; includeInIndex = 1; path = "ic_editor_effect~light.webp"; sourceTree = "<group>"; };
+		178316F3188760EEC4E9E0E6289328D8 /* ic_drawing_reward~light.webp */ = {isa = PBXFileReference; includeInIndex = 1; path = "ic_drawing_reward~light.webp"; sourceTree = "<group>"; };
+		17851BBBAA0B6A13412D3237EC29E1F8 /* Pods-TempTarget.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-TempTarget.modulemap"; sourceTree = "<group>"; };
+		19CFF0E069920CB7539A16CAFFB93F86 /* ic_editor_mosaic~light.webp */ = {isa = PBXFileReference; includeInIndex = 1; path = "ic_editor_mosaic~light.webp"; sourceTree = "<group>"; };
+		26B2AA389C9E67F74C23E22B4C05BFBC /* ic_editor_effect~dark.webp */ = {isa = PBXFileReference; includeInIndex = 1; path = "ic_editor_effect~dark.webp"; sourceTree = "<group>"; };
+		29E69ECB807E156D11DFFFAECE2BA4D7 /* react-native-turbo-image-picker */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "react-native-turbo-image-picker"; path = react_native_turbo_image_picker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C173057CA54E50399846C429958F830 /* React-Core.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "React-Core.release.xcconfig"; sourceTree = "<group>"; };
+		2CB74A84DF62E0DBFFA4715EF79E08A1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		3062E3E8FBB5EB267B1F88A1954A902D /* ic_editor_drawing~light.webp */ = {isa = PBXFileReference; includeInIndex = 1; path = "ic_editor_drawing~light.webp"; sourceTree = "<group>"; };
+		3214E3ACC225B52BCB4717757A913C40 /* Pods-TempTarget-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TempTarget-umbrella.h"; sourceTree = "<group>"; };
+		354F85B3FB5C8D0C9E0801E07974AD87 /* ReplaceMe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReplaceMe.swift; path = "React-Core/Classes/ReplaceMe.swift"; sourceTree = "<group>"; };
+		3718E30A0C7AB3F80A65BF12E0A1F370 /* react-native-turbo-image-picker-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "react-native-turbo-image-picker-prefix.pch"; sourceTree = "<group>"; };
+		3A966D0509B68CA269911B4FB089398B /* Pods-TempTarget */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-TempTarget"; path = Pods_TempTarget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		434588709AF2281FC3ED1B9787791A01 /* react-native-turbo-image-picker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "react-native-turbo-image-picker.debug.xcconfig"; sourceTree = "<group>"; };
+		45CF024188CE22AC8472A6A50C27D826 /* ic_crop_reflect~light.webp */ = {isa = PBXFileReference; includeInIndex = 1; path = "ic_crop_reflect~light.webp"; sourceTree = "<group>"; };
+		4D9E286C54FA76ECEA1B8F6D837231B6 /* ic_editor_drawing~dark.webp */ = {isa = PBXFileReference; includeInIndex = 1; path = "ic_editor_drawing~dark.webp"; sourceTree = "<group>"; };
+		4F7C156FCCCD2C3BBAB53BD93EC2EF55 /* react-native-turbo-image-picker-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "react-native-turbo-image-picker-dummy.m"; sourceTree = "<group>"; };
+		54B3803EBECECC09C0A1F076FAAFE025 /* Assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ios/RNTurboImagePickerAssets/Assets.xcassets; sourceTree = "<group>"; };
+		58B826A5D5CF49E73045D79435CD3739 /* Pods-TempTarget-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TempTarget-acknowledgements.plist"; sourceTree = "<group>"; };
+		5A38AB56303575A4D827BB6DDF66907B /* ic_editor_emoji~light.webp */ = {isa = PBXFileReference; includeInIndex = 1; path = "ic_editor_emoji~light.webp"; sourceTree = "<group>"; };
+		5A5398F59FE236B094FDB9C6A06091BF /* Pods-TempTarget-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TempTarget-dummy.m"; sourceTree = "<group>"; };
+		5AF0529DB4DA020E173C894961C42CDE /* react-native-turbo-image-picker-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "react-native-turbo-image-picker-Info.plist"; sourceTree = "<group>"; };
+		5E99B8362C7A8C07F7E9C6698599B4F4 /* ic_editor_mosaic~dark.webp */ = {isa = PBXFileReference; includeInIndex = 1; path = "ic_editor_mosaic~dark.webp"; sourceTree = "<group>"; };
+		6088E37FAEC946344EC9360C54167DA1 /* ResourceBundle-RNTurboImagePickerAssets-react-native-turbo-image-picker-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-RNTurboImagePickerAssets-react-native-turbo-image-picker-Info.plist"; sourceTree = "<group>"; };
+		6244AA8B05AF70C8C6FA4D6F0E1F7349 /* React-Core-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "React-Core-dummy.m"; sourceTree = "<group>"; };
+		6465845452B5D7DE08FCD6DABC20FEE3 /* react-native-turbo-image-picker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "react-native-turbo-image-picker.release.xcconfig"; sourceTree = "<group>"; };
+		64B9E738D61DCFC0095234068014DDFD /* ic_editor_text~dark.webp */ = {isa = PBXFileReference; includeInIndex = 1; path = "ic_editor_text~dark.webp"; sourceTree = "<group>"; };
+		702E80B8C9800CD90EE38E90BF4759BA /* ic_editor_eraser~light.webp */ = {isa = PBXFileReference; includeInIndex = 1; path = "ic_editor_eraser~light.webp"; sourceTree = "<group>"; };
+		76A39FDBC565D0B498394094DBF9CC20 /* ic_editor_text~light.webp */ = {isa = PBXFileReference; includeInIndex = 1; path = "ic_editor_text~light.webp"; sourceTree = "<group>"; };
+		7877BF38451EA965F6C6129531FEF3E1 /* react-native-turbo-image-picker-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "react-native-turbo-image-picker-umbrella.h"; sourceTree = "<group>"; };
+		79332058B99CA18AFE732237E442B154 /* ic_drawing_forward~light.webp */ = {isa = PBXFileReference; includeInIndex = 1; path = "ic_drawing_forward~light.webp"; sourceTree = "<group>"; };
+		805ADF582F927CD3F163640E085B9321 /* RNTurboImagePicker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RNTurboImagePicker.m; path = ios/RNTurboImagePicker.m; sourceTree = "<group>"; };
+		82552665BE22AD8CE66C7FD82A15A8FE /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9EB9155028ABA0B6CD4A5A4F240ADF88 /* ic_drawing_reward~dark.webp */ = {isa = PBXFileReference; includeInIndex = 1; path = "ic_drawing_reward~dark.webp"; sourceTree = "<group>"; };
+		9EE3B3DF429998BA5010C5A0ECB23F01 /* React-Core.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "React-Core.debug.xcconfig"; sourceTree = "<group>"; };
+		A0EFFBF8D061B26587F17207B06954DA /* Pods-TempTarget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TempTarget.release.xcconfig"; sourceTree = "<group>"; };
+		A752BEE023A873B65AA218EDFDCB041F /* ic_editor_crop~dark.webp */ = {isa = PBXFileReference; includeInIndex = 1; path = "ic_editor_crop~dark.webp"; sourceTree = "<group>"; };
+		A9C3E60A9838EC7873FC40169561872E /* aos_multi.gif */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.gif; name = aos_multi.gif; path = docs/aos_multi.gif; sourceTree = "<group>"; };
+		AC58321B7EE70F4FA19DD833397C8283 /* aos_edit.gif */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.gif; name = aos_edit.gif; path = docs/aos_edit.gif; sourceTree = "<group>"; };
+		AEECE65E46E4EC41446FD3621E41A336 /* Pods-TempTarget-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TempTarget-Info.plist"; sourceTree = "<group>"; };
+		B516B950C39BA79C7324EFAF00192CB2 /* ic_editor_crop~light.webp */ = {isa = PBXFileReference; includeInIndex = 1; path = "ic_editor_crop~light.webp"; sourceTree = "<group>"; };
+		B53ACDBB93F2D9674B05BB7F78C42014 /* ic_editor_emoji~dark.webp */ = {isa = PBXFileReference; includeInIndex = 1; path = "ic_editor_emoji~dark.webp"; sourceTree = "<group>"; };
+		B5D6783B07D1BF18FE445EB3697AB2A5 /* Pods-TempTarget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TempTarget.debug.xcconfig"; sourceTree = "<group>"; };
+		B615CCB6DF661F62BF11CADF12DB6EEB /* ic_editor_eraser~dark.webp */ = {isa = PBXFileReference; includeInIndex = 1; path = "ic_editor_eraser~dark.webp"; sourceTree = "<group>"; };
+		BD71E2539823621820F84384064C253A /* React-Core */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "React-Core"; path = React_Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE29653953FAE0486743138E982A334C /* ic_drawing_delete~light.webp */ = {isa = PBXFileReference; includeInIndex = 1; path = "ic_drawing_delete~light.webp"; sourceTree = "<group>"; };
+		C46C69887D5F39D8B24DA1ED765B94B6 /* ic_drawing_delete~dark.webp */ = {isa = PBXFileReference; includeInIndex = 1; path = "ic_drawing_delete~dark.webp"; sourceTree = "<group>"; };
+		C7CBF921EBDC94C6C371E691955F9FED /* react-native-turbo-image-picker.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = "react-native-turbo-image-picker.podspec"; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		C94CF73741E9004E0F309EA943159409 /* react-native-turbo-image-picker-RNTurboImagePickerAssets */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "react-native-turbo-image-picker-RNTurboImagePickerAssets"; path = RNTurboImagePickerAssets.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA8391AA802C4B335265AE68773F7D6C /* ic_crop_rotate~light.webp */ = {isa = PBXFileReference; includeInIndex = 1; path = "ic_crop_rotate~light.webp"; sourceTree = "<group>"; };
+		D6400FD1A79DC30BC54392E55411897E /* ic_crop_reflect~dark.webp */ = {isa = PBXFileReference; includeInIndex = 1; path = "ic_crop_reflect~dark.webp"; sourceTree = "<group>"; };
+		D71AF4A83DAB0A8C6C07DD64AD67CA53 /* RNTurboImagePicker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RNTurboImagePicker.swift; path = ios/RNTurboImagePicker.swift; sourceTree = "<group>"; };
+		DA525A35D5E012113F7BFB365864DBB6 /* ios_mozaic.gif */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.gif; name = ios_mozaic.gif; path = docs/ios_mozaic.gif; sourceTree = "<group>"; };
+		DB9B287541B9C6F0DA20B47EA294E383 /* react-native-turbo-image-picker.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "react-native-turbo-image-picker.modulemap"; sourceTree = "<group>"; };
+		E0391011E7B68C95C8E88B6FB072D3DF /* ios_multi.gif */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.gif; name = ios_multi.gif; path = docs/ios_multi.gif; sourceTree = "<group>"; };
+		E0590A1D0522DEC8C0C91C636E118938 /* Pods-TempTarget-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TempTarget-acknowledgements.markdown"; sourceTree = "<group>"; };
+		E05AC308C35A39867AEF8EE346347995 /* aos_mozaic.gif */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.gif; name = aos_mozaic.gif; path = docs/aos_mozaic.gif; sourceTree = "<group>"; };
+		EB5DE8AFFABE8F78208BF8F131E64C18 /* React-Core-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "React-Core-prefix.pch"; sourceTree = "<group>"; };
+		ECA6DAADF473361A9E364869746A3611 /* React-Core.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "React-Core.modulemap"; sourceTree = "<group>"; };
+		EE29FCB9F829F5ACF8F5C8A5812622AD /* TossFaceFontMac.ttf */ = {isa = PBXFileReference; includeInIndex = 1; path = TossFaceFontMac.ttf; sourceTree = "<group>"; };
+		F0BD4A157F9E9F6F9B8F3D47AB77D4F6 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		F1B8881224F58D5A61323A59EC348B8B /* RNTurboImagePicker.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = RNTurboImagePicker.xcframework; path = ios/RNTurboImagePicker.xcframework; sourceTree = "<group>"; };
+		F9A0C8B0CFDEA9C1AD78EA55B0498880 /* React-Core-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "React-Core-Info.plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0FCA54CB6EA6C6610368D35304C0942F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E944B8C45E9AF029CEFC80DB6E350331 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32FB33ABEE77DA6097318AE2F0654169 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74C2F693B33D5760CAB18A14086E180F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				80AFDB13A1021BF7882DBF2A4EC80C47 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		97792FC4EE21B73D550E6EECAA5B2B1D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9CA2B8BAF7289F60FD8D37B865804B8E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		224F2070B7033984FF6FD25146A14991 /* react-native-turbo-image-picker */ = {
+			isa = PBXGroup;
+			children = (
+				54B3803EBECECC09C0A1F076FAAFE025 /* Assets.xcassets */,
+				805ADF582F927CD3F163640E085B9321 /* RNTurboImagePicker.m */,
+				D71AF4A83DAB0A8C6C07DD64AD67CA53 /* RNTurboImagePicker.swift */,
+				7BA3719A75AD50A2F7ED55B87825E992 /* Fonts */,
+				76A04108080A3A7D6EEA6FA3248A7A39 /* Frameworks */,
+				3C733CA943180846E46AE998B6FD84F1 /* Pod */,
+				93875BFE21347332893785E5CA50D18A /* Support Files */,
+				EAA438A23310C5295904A2F52AD1C488 /* ToolbarIcons */,
+			);
+			name = "react-native-turbo-image-picker";
+			path = ../../..;
+			sourceTree = "<group>";
+		};
+		3C733CA943180846E46AE998B6FD84F1 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				AC58321B7EE70F4FA19DD833397C8283 /* aos_edit.gif */,
+				E05AC308C35A39867AEF8EE346347995 /* aos_mozaic.gif */,
+				A9C3E60A9838EC7873FC40169561872E /* aos_multi.gif */,
+				10BB36123A45964F556B6B0E442ADF20 /* ios_edit.gif */,
+				DA525A35D5E012113F7BFB365864DBB6 /* ios_mozaic.gif */,
+				E0391011E7B68C95C8E88B6FB072D3DF /* ios_multi.gif */,
+				C7CBF921EBDC94C6C371E691955F9FED /* react-native-turbo-image-picker.podspec */,
+				F0BD4A157F9E9F6F9B8F3D47AB77D4F6 /* README.md */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		50A27B1671E7F7C65C3516ED3A913031 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				FF30F6FE1603BA92EFEC0DBE04F40984 /* Pods-TempTarget */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		5E3D8D39AEFE479595BB19970F32DDCA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A3C1E9D7802BFD4263FD9A2DC5C91933 /* React-Core */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		76A04108080A3A7D6EEA6FA3248A7A39 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F1B8881224F58D5A61323A59EC348B8B /* RNTurboImagePicker.xcframework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7AECBA61365544F357B06DE1C8710425 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				2CB74A84DF62E0DBFFA4715EF79E08A1 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		7B09EC969D89953C438D0E3FAA1427DF /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				ECA6DAADF473361A9E364869746A3611 /* React-Core.modulemap */,
+				6244AA8B05AF70C8C6FA4D6F0E1F7349 /* React-Core-dummy.m */,
+				F9A0C8B0CFDEA9C1AD78EA55B0498880 /* React-Core-Info.plist */,
+				EB5DE8AFFABE8F78208BF8F131E64C18 /* React-Core-prefix.pch */,
+				04A67DC1AEF936FF3A088E570BE956D2 /* React-Core-umbrella.h */,
+				9EE3B3DF429998BA5010C5A0ECB23F01 /* React-Core.debug.xcconfig */,
+				2C173057CA54E50399846C429958F830 /* React-Core.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/React-Core";
+			sourceTree = "<group>";
+		};
+		7BA3719A75AD50A2F7ED55B87825E992 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				82552665BE22AD8CE66C7FD82A15A8FE /* Pretendard-SemiBold.otf */,
+				EE29FCB9F829F5ACF8F5C8A5812622AD /* TossFaceFontMac.ttf */,
+			);
+			name = Fonts;
+			path = ios/RNTurboImagePickerAssets/Fonts;
+			sourceTree = "<group>";
+		};
+		93875BFE21347332893785E5CA50D18A /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				DB9B287541B9C6F0DA20B47EA294E383 /* react-native-turbo-image-picker.modulemap */,
+				4F7C156FCCCD2C3BBAB53BD93EC2EF55 /* react-native-turbo-image-picker-dummy.m */,
+				5AF0529DB4DA020E173C894961C42CDE /* react-native-turbo-image-picker-Info.plist */,
+				3718E30A0C7AB3F80A65BF12E0A1F370 /* react-native-turbo-image-picker-prefix.pch */,
+				7877BF38451EA965F6C6129531FEF3E1 /* react-native-turbo-image-picker-umbrella.h */,
+				0BDE1EC89C18FEBE792CC37F392BEFD9 /* react-native-turbo-image-picker-xcframeworks.sh */,
+				434588709AF2281FC3ED1B9787791A01 /* react-native-turbo-image-picker.debug.xcconfig */,
+				6465845452B5D7DE08FCD6DABC20FEE3 /* react-native-turbo-image-picker.release.xcconfig */,
+				6088E37FAEC946344EC9360C54167DA1 /* ResourceBundle-RNTurboImagePickerAssets-react-native-turbo-image-picker-Info.plist */,
+			);
+			name = "Support Files";
+			path = "ios/build/Pods/Target Support Files/react-native-turbo-image-picker";
+			sourceTree = "<group>";
+		};
+		93EA84EAF9E8A97EEC4EDD46ABABCDCB /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				224F2070B7033984FF6FD25146A14991 /* react-native-turbo-image-picker */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		A3C1E9D7802BFD4263FD9A2DC5C91933 /* React-Core */ = {
+			isa = PBXGroup;
+			children = (
+				354F85B3FB5C8D0C9E0801E07974AD87 /* ReplaceMe.swift */,
+				7B09EC969D89953C438D0E3FAA1427DF /* Support Files */,
+			);
+			name = "React-Core";
+			path = "React-Core";
+			sourceTree = "<group>";
+		};
+		C77751E526C549C9EEF025FE8480B10A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3A966D0509B68CA269911B4FB089398B /* Pods-TempTarget */,
+				BD71E2539823621820F84384064C253A /* React-Core */,
+				29E69ECB807E156D11DFFFAECE2BA4D7 /* react-native-turbo-image-picker */,
+				C94CF73741E9004E0F309EA943159409 /* react-native-turbo-image-picker-RNTurboImagePickerAssets */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				93EA84EAF9E8A97EEC4EDD46ABABCDCB /* Development Pods */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				5E3D8D39AEFE479595BB19970F32DDCA /* Pods */,
+				C77751E526C549C9EEF025FE8480B10A /* Products */,
+				50A27B1671E7F7C65C3516ED3A913031 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7AECBA61365544F357B06DE1C8710425 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EAA438A23310C5295904A2F52AD1C488 /* ToolbarIcons */ = {
+			isa = PBXGroup;
+			children = (
+				D6400FD1A79DC30BC54392E55411897E /* ic_crop_reflect~dark.webp */,
+				45CF024188CE22AC8472A6A50C27D826 /* ic_crop_reflect~light.webp */,
+				0816512C50613B919CF05FB82B622CEA /* ic_crop_rotate~dark.webp */,
+				CA8391AA802C4B335265AE68773F7D6C /* ic_crop_rotate~light.webp */,
+				C46C69887D5F39D8B24DA1ED765B94B6 /* ic_drawing_delete~dark.webp */,
+				BE29653953FAE0486743138E982A334C /* ic_drawing_delete~light.webp */,
+				120B49B668D3E5BC1AEAEF133E081960 /* ic_drawing_forward~dark.webp */,
+				79332058B99CA18AFE732237E442B154 /* ic_drawing_forward~light.webp */,
+				9EB9155028ABA0B6CD4A5A4F240ADF88 /* ic_drawing_reward~dark.webp */,
+				178316F3188760EEC4E9E0E6289328D8 /* ic_drawing_reward~light.webp */,
+				A752BEE023A873B65AA218EDFDCB041F /* ic_editor_crop~dark.webp */,
+				B516B950C39BA79C7324EFAF00192CB2 /* ic_editor_crop~light.webp */,
+				4D9E286C54FA76ECEA1B8F6D837231B6 /* ic_editor_drawing~dark.webp */,
+				3062E3E8FBB5EB267B1F88A1954A902D /* ic_editor_drawing~light.webp */,
+				26B2AA389C9E67F74C23E22B4C05BFBC /* ic_editor_effect~dark.webp */,
+				129CF6CE90B7F8CE1E4B5F69D37F0381 /* ic_editor_effect~light.webp */,
+				B53ACDBB93F2D9674B05BB7F78C42014 /* ic_editor_emoji~dark.webp */,
+				5A38AB56303575A4D827BB6DDF66907B /* ic_editor_emoji~light.webp */,
+				B615CCB6DF661F62BF11CADF12DB6EEB /* ic_editor_eraser~dark.webp */,
+				702E80B8C9800CD90EE38E90BF4759BA /* ic_editor_eraser~light.webp */,
+				5E99B8362C7A8C07F7E9C6698599B4F4 /* ic_editor_mosaic~dark.webp */,
+				19CFF0E069920CB7539A16CAFFB93F86 /* ic_editor_mosaic~light.webp */,
+				64B9E738D61DCFC0095234068014DDFD /* ic_editor_text~dark.webp */,
+				76A39FDBC565D0B498394094DBF9CC20 /* ic_editor_text~light.webp */,
+			);
+			name = ToolbarIcons;
+			path = ios/RNTurboImagePickerAssets/ToolbarIcons;
+			sourceTree = "<group>";
+		};
+		FF30F6FE1603BA92EFEC0DBE04F40984 /* Pods-TempTarget */ = {
+			isa = PBXGroup;
+			children = (
+				17851BBBAA0B6A13412D3237EC29E1F8 /* Pods-TempTarget.modulemap */,
+				E0590A1D0522DEC8C0C91C636E118938 /* Pods-TempTarget-acknowledgements.markdown */,
+				58B826A5D5CF49E73045D79435CD3739 /* Pods-TempTarget-acknowledgements.plist */,
+				5A5398F59FE236B094FDB9C6A06091BF /* Pods-TempTarget-dummy.m */,
+				07560932B404A0B1F3D5B248117D4E5E /* Pods-TempTarget-frameworks.sh */,
+				AEECE65E46E4EC41446FD3621E41A336 /* Pods-TempTarget-Info.plist */,
+				3214E3ACC225B52BCB4717757A913C40 /* Pods-TempTarget-umbrella.h */,
+				B5D6783B07D1BF18FE445EB3697AB2A5 /* Pods-TempTarget.debug.xcconfig */,
+				A0EFFBF8D061B26587F17207B06954DA /* Pods-TempTarget.release.xcconfig */,
+			);
+			name = "Pods-TempTarget";
+			path = "Target Support Files/Pods-TempTarget";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		6F231FAD998C286A57F6EB0D04AB1821 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7960311567BE9BF32F95306EA43471AA /* React-Core-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B60FF45114BFE3FD571155F8465BEFA1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1273FDD95F5FA31614DBF5C7F071653D /* Pods-TempTarget-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CDCAD644550F35DD94DE91ECC99E10A3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A325C458AD4B8DBFE8EE7E6C15893181 /* react-native-turbo-image-picker-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		7ACAA9BE580DD31A5CB9D97C45D9492D /* React-Core */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A8BA0F8B419D93C6A6CB1D5248C2C93D /* Build configuration list for PBXNativeTarget "React-Core" */;
+			buildPhases = (
+				6F231FAD998C286A57F6EB0D04AB1821 /* Headers */,
+				1F81D6707A777E7EC34B6CBB94480755 /* Sources */,
+				0FCA54CB6EA6C6610368D35304C0942F /* Frameworks */,
+				A6A904E46BA59BA63992C12AE5CE6053 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "React-Core";
+			productName = React_Core;
+			productReference = BD71E2539823621820F84384064C253A /* React-Core */;
+			productType = "com.apple.product-type.framework";
+		};
+		A3314F5BC7F28341EE713FF1B2C0D764 /* Pods-TempTarget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 983D9FAF892AAD6DA6634412A703B2D1 /* Build configuration list for PBXNativeTarget "Pods-TempTarget" */;
+			buildPhases = (
+				B60FF45114BFE3FD571155F8465BEFA1 /* Headers */,
+				E942D86850E7E1505720AD85742B4D95 /* Sources */,
+				97792FC4EE21B73D550E6EECAA5B2B1D /* Frameworks */,
+				86015FF188C17D53FBEC0DB9759E7653 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4F284D364AB1011C0D5FC6C0868F0DE8 /* PBXTargetDependency */,
+				AF7F9B30D6240F51870577A5AD8B733F /* PBXTargetDependency */,
+			);
+			name = "Pods-TempTarget";
+			productName = Pods_TempTarget;
+			productReference = 3A966D0509B68CA269911B4FB089398B /* Pods-TempTarget */;
+			productType = "com.apple.product-type.framework";
+		};
+		B0E8AF2362A861F693FEF708D9625F36 /* react-native-turbo-image-picker-RNTurboImagePickerAssets */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 57BF1EF59FCAB58EEC1CD3BBB562E22C /* Build configuration list for PBXNativeTarget "react-native-turbo-image-picker-RNTurboImagePickerAssets" */;
+			buildPhases = (
+				386606CE664FC182C493D5C219B81B72 /* Sources */,
+				32FB33ABEE77DA6097318AE2F0654169 /* Frameworks */,
+				79DA34E6F480417F3A6317CD8FC6A14B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "react-native-turbo-image-picker-RNTurboImagePickerAssets";
+			productName = RNTurboImagePickerAssets;
+			productReference = C94CF73741E9004E0F309EA943159409 /* react-native-turbo-image-picker-RNTurboImagePickerAssets */;
+			productType = "com.apple.product-type.bundle";
+		};
+		BB972E3AB133C9AAE222BBC1000EC24A /* react-native-turbo-image-picker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1586AC004FA5EFBEB0E13AA0A399D197 /* Build configuration list for PBXNativeTarget "react-native-turbo-image-picker" */;
+			buildPhases = (
+				CDCAD644550F35DD94DE91ECC99E10A3 /* Headers */,
+				22D792F4C8C5E3B95BED1F96A11462A2 /* [CP] Copy XCFrameworks */,
+				0718906AEED37604606A779CC6D8EF1F /* Sources */,
+				74C2F693B33D5760CAB18A14086E180F /* Frameworks */,
+				1898B2E01C997F6722DE4DD099135440 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				288B1AADAF919107B48D4F342100CFAF /* PBXTargetDependency */,
+				FDA1D5FA37DF0B5FCF8E99DF93D11DA2 /* PBXTargetDependency */,
+			);
+			name = "react-native-turbo-image-picker";
+			productName = react_native_turbo_image_picker;
+			productReference = 29E69ECB807E156D11DFFFAECE2BA4D7 /* react-native-turbo-image-picker */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			minimizedProjectReferenceProxies = 0;
+			preferredProjectObjectVersion = 100;
+			productRefGroup = C77751E526C549C9EEF025FE8480B10A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A3314F5BC7F28341EE713FF1B2C0D764 /* Pods-TempTarget */,
+				7ACAA9BE580DD31A5CB9D97C45D9492D /* React-Core */,
+				BB972E3AB133C9AAE222BBC1000EC24A /* react-native-turbo-image-picker */,
+				B0E8AF2362A861F693FEF708D9625F36 /* react-native-turbo-image-picker-RNTurboImagePickerAssets */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1898B2E01C997F6722DE4DD099135440 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5623A720652DD034AFED8269F723FA1C /* react-native-turbo-image-picker-RNTurboImagePickerAssets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79DA34E6F480417F3A6317CD8FC6A14B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2205E01DEE11B6805E1128FB749E2006 /* Assets.xcassets in Resources */,
+				1B34CD3CB43F52C047E5D92B297DCD1D /* ic_crop_reflect~dark.webp in Resources */,
+				1CFE27B216FD1505534D341A20FE4AE9 /* ic_crop_reflect~light.webp in Resources */,
+				72443533E8286D31F6A980D0CAA26517 /* ic_crop_rotate~dark.webp in Resources */,
+				98FBB73CF42791EA2072393B30AC08A0 /* ic_crop_rotate~light.webp in Resources */,
+				1DA20BA93D9E77B3A899948F809929B9 /* ic_drawing_delete~dark.webp in Resources */,
+				CC4528518E0D2796882C0EFF016A5B8B /* ic_drawing_delete~light.webp in Resources */,
+				4CDF3279F787B39FCC64852A2C859E4B /* ic_drawing_forward~dark.webp in Resources */,
+				39ADB15716B4901DF12B4773D8949FE6 /* ic_drawing_forward~light.webp in Resources */,
+				04B3F176F58577D0567C105B4F9D80B1 /* ic_drawing_reward~dark.webp in Resources */,
+				26377A86AB65C6590D4E1C8DE3B9DC8F /* ic_drawing_reward~light.webp in Resources */,
+				6DCF1FD362961CE4B266B3882B96228E /* ic_editor_crop~dark.webp in Resources */,
+				EB2BC4495159B3826543FC2AF54AE9C0 /* ic_editor_crop~light.webp in Resources */,
+				EA953C61B1E8ACC8525C027B7792E04C /* ic_editor_drawing~dark.webp in Resources */,
+				29D7165471F621A2D9B96CF61581EDD7 /* ic_editor_drawing~light.webp in Resources */,
+				5500C63EF5F029CDF1E64BBA0DC591BD /* ic_editor_effect~dark.webp in Resources */,
+				E9E59E37745EA22ED9B681B0711C984A /* ic_editor_effect~light.webp in Resources */,
+				BFCB00D4F65BFBFEA9674E7724D63DC5 /* ic_editor_emoji~dark.webp in Resources */,
+				D3A8FCB43140D53285EBAE0DC7715BB9 /* ic_editor_emoji~light.webp in Resources */,
+				343409826094C991E83E7A343B0060CE /* ic_editor_eraser~dark.webp in Resources */,
+				A3B9DE4FF6C8D7BEDC5385C50EE7904D /* ic_editor_eraser~light.webp in Resources */,
+				7369FC41FB5C84BCA41ED2B43E924190 /* ic_editor_mosaic~dark.webp in Resources */,
+				2A3E78EFCFF701047B61F8423391BD5C /* ic_editor_mosaic~light.webp in Resources */,
+				B59276AF1C72A61056C2AE8D4C67969F /* ic_editor_text~dark.webp in Resources */,
+				E0111D1AF81F11448D1E694EC447CE17 /* ic_editor_text~light.webp in Resources */,
+				6A1946E42BEDD7FC8BC7D7E62FBD3C3A /* Pretendard-SemiBold.otf in Resources */,
+				AB9ED7A4DEAC70259C59B713305FF816 /* TossFaceFontMac.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		86015FF188C17D53FBEC0DB9759E7653 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A6A904E46BA59BA63992C12AE5CE6053 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		22D792F4C8C5E3B95BED1F96A11462A2 /* [CP] Copy XCFrameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/react-native-turbo-image-picker/react-native-turbo-image-picker-xcframeworks.sh",
+				"${PODS_ROOT}/../../RNTurboImagePicker.xcframework",
+			);
+			name = "[CP] Copy XCFrameworks";
+			outputPaths = (
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/react-native-turbo-image-picker/RNTurboImagePicker.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/react-native-turbo-image-picker/react-native-turbo-image-picker-xcframeworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0718906AEED37604606A779CC6D8EF1F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A60347663F1E2B96B6B9C600DB72236B /* react-native-turbo-image-picker-dummy.m in Sources */,
+				937AD693A803B6DD08FE54AAEF781594 /* RNTurboImagePicker.m in Sources */,
+				76805214E16B51862529AD9D34AF5829 /* RNTurboImagePicker.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F81D6707A777E7EC34B6CBB94480755 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7064C4ECF0EBD8518DF89BC7D1DB2BD /* React-Core-dummy.m in Sources */,
+				FD6D4543048F8A1A01B5DCEB68A8846F /* ReplaceMe.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		386606CE664FC182C493D5C219B81B72 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E942D86850E7E1505720AD85742B4D95 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9C6D52C2843AAC3B10DCD93576F98DC /* Pods-TempTarget-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		288B1AADAF919107B48D4F342100CFAF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "React-Core";
+			target = 7ACAA9BE580DD31A5CB9D97C45D9492D /* React-Core */;
+			targetProxy = 5AFD01707C367AAA79E20FFE7C74BAE9 /* PBXContainerItemProxy */;
+		};
+		4F284D364AB1011C0D5FC6C0868F0DE8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "React-Core";
+			target = 7ACAA9BE580DD31A5CB9D97C45D9492D /* React-Core */;
+			targetProxy = 987620EC946E11C8A19DAE6B35DC95C8 /* PBXContainerItemProxy */;
+		};
+		AF7F9B30D6240F51870577A5AD8B733F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "react-native-turbo-image-picker";
+			target = BB972E3AB133C9AAE222BBC1000EC24A /* react-native-turbo-image-picker */;
+			targetProxy = 78A152B3950EA22774A30187AF3740BF /* PBXContainerItemProxy */;
+		};
+		FDA1D5FA37DF0B5FCF8E99DF93D11DA2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "react-native-turbo-image-picker-RNTurboImagePickerAssets";
+			target = B0E8AF2362A861F693FEF708D9625F36 /* react-native-turbo-image-picker-RNTurboImagePickerAssets */;
+			targetProxy = 096D15232B374071D9F2F4C835482883 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		24E8E0BEAD5EF865C30EE84E74714640 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9EE3B3DF429998BA5010C5A0ECB23F01 /* React-Core.debug.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_PREFIX_HEADER = "Target Support Files/React-Core/React-Core-prefix.pch";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Target Support Files/React-Core/React-Core-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/React-Core/React-Core.modulemap";
+				PRODUCT_MODULE_NAME = React_Core;
+				PRODUCT_NAME = React_Core;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		296F86E0DD688C440F8EB2FD9C0415AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		4E6466780B87736828BD77789C4CE24A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 434588709AF2281FC3ED1B9787791A01 /* react-native-turbo-image-picker.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGNING_ALLOWED = NO;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/react-native-turbo-image-picker";
+				IBSC_MODULE = react_native_turbo_image_picker;
+				INFOPLIST_FILE = "Target Support Files/react-native-turbo-image-picker/ResourceBundle-RNTurboImagePickerAssets-react-native-turbo-image-picker-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				PRODUCT_NAME = RNTurboImagePickerAssets;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		A2966B8C6189C44EF53CBAA6E3800AE3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2C173057CA54E50399846C429958F830 /* React-Core.release.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_PREFIX_HEADER = "Target Support Files/React-Core/React-Core-prefix.pch";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Target Support Files/React-Core/React-Core-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/React-Core/React-Core.modulemap";
+				PRODUCT_MODULE_NAME = React_Core;
+				PRODUCT_NAME = React_Core;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		A3A5C57A4B61CC9A675AB722D406C58B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B5D6783B07D1BF18FE445EB3697AB2A5 /* Pods-TempTarget.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				INFOPLIST_FILE = "Target Support Files/Pods-TempTarget/Pods-TempTarget-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-TempTarget/Pods-TempTarget.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D45A151CE24072ED63AA854A09DC99E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6465845452B5D7DE08FCD6DABC20FEE3 /* react-native-turbo-image-picker.release.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_PREFIX_HEADER = "Target Support Files/react-native-turbo-image-picker/react-native-turbo-image-picker-prefix.pch";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Target Support Files/react-native-turbo-image-picker/react-native-turbo-image-picker-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/react-native-turbo-image-picker/react-native-turbo-image-picker.modulemap";
+				PRODUCT_MODULE_NAME = react_native_turbo_image_picker;
+				PRODUCT_NAME = react_native_turbo_image_picker;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		D834CBC26EE75B6228E94AA005EC6C1F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 434588709AF2281FC3ED1B9787791A01 /* react-native-turbo-image-picker.debug.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_PREFIX_HEADER = "Target Support Files/react-native-turbo-image-picker/react-native-turbo-image-picker-prefix.pch";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Target Support Files/react-native-turbo-image-picker/react-native-turbo-image-picker-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/react-native-turbo-image-picker/react-native-turbo-image-picker.modulemap";
+				PRODUCT_MODULE_NAME = react_native_turbo_image_picker;
+				PRODUCT_NAME = react_native_turbo_image_picker;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		E8656C1001DF140796D6B45247FD2901 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A0EFFBF8D061B26587F17207B06954DA /* Pods-TempTarget.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				INFOPLIST_FILE = "Target Support Files/Pods-TempTarget/Pods-TempTarget-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-TempTarget/Pods-TempTarget.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		F3E264B2417BDFCD2BC2B58566242312 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		F8F5F5F03AB00454CE718B1903709109 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6465845452B5D7DE08FCD6DABC20FEE3 /* react-native-turbo-image-picker.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGNING_ALLOWED = NO;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/react-native-turbo-image-picker";
+				IBSC_MODULE = react_native_turbo_image_picker;
+				INFOPLIST_FILE = "Target Support Files/react-native-turbo-image-picker/ResourceBundle-RNTurboImagePickerAssets-react-native-turbo-image-picker-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				PRODUCT_NAME = RNTurboImagePickerAssets;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1586AC004FA5EFBEB0E13AA0A399D197 /* Build configuration list for PBXNativeTarget "react-native-turbo-image-picker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D834CBC26EE75B6228E94AA005EC6C1F /* Debug */,
+				D45A151CE24072ED63AA854A09DC99E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				296F86E0DD688C440F8EB2FD9C0415AF /* Debug */,
+				F3E264B2417BDFCD2BC2B58566242312 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		57BF1EF59FCAB58EEC1CD3BBB562E22C /* Build configuration list for PBXNativeTarget "react-native-turbo-image-picker-RNTurboImagePickerAssets" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4E6466780B87736828BD77789C4CE24A /* Debug */,
+				F8F5F5F03AB00454CE718B1903709109 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		983D9FAF892AAD6DA6634412A703B2D1 /* Build configuration list for PBXNativeTarget "Pods-TempTarget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A3A5C57A4B61CC9A675AB722D406C58B /* Debug */,
+				E8656C1001DF140796D6B45247FD2901 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A8BA0F8B419D93C6A6CB1D5248C2C93D /* Build configuration list for PBXNativeTarget "React-Core" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24E8E0BEAD5EF865C30EE84E74714640 /* Debug */,
+				A2966B8C6189C44EF53CBAA6E3800AE3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}

@@ -1,0 +1,23 @@
+PODS:
+  - React-Core (0.1.0)
+  - react-native-turbo-image-picker (1.1.84):
+    - React-Core
+
+DEPENDENCIES:
+  - react-native-turbo-image-picker (from `../..`)
+
+SPEC REPOS:
+  trunk:
+    - React-Core
+
+EXTERNAL SOURCES:
+  react-native-turbo-image-picker:
+    :path: "../.."
+
+SPEC CHECKSUMS:
+  React-Core: c89e140a0ac23ed77a6094fe25d005e9c72e03b0
+  react-native-turbo-image-picker: f5ce0831d09a301162d76fcc18ea651f74648d15
+
+PODFILE CHECKSUM: df1886eecad68c17d3bf5a1324e3d51a97fdd6d0
+
+COCOAPODS: 1.16.2
