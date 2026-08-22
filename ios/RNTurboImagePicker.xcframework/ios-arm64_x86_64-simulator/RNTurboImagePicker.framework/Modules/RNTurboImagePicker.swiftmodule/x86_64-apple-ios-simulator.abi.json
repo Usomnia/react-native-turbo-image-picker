@@ -18642,20 +18642,6 @@
       "value": "\"otf\""
     },
     {
-      "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/FontHelper.swift",
-      "kind": "StringLiteral",
-      "offset": 1111,
-      "length": 17,
-      "value": "\"TossFaceFontMac\""
-    },
-    {
-      "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/FontHelper.swift",
-      "kind": "StringLiteral",
-      "offset": 1145,
-      "length": 5,
-      "value": "\"ttf\""
-    },
-    {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/EmojiCategories.swift",
       "kind": "StringLiteral",
       "offset": 551,
