@@ -348,9 +348,7 @@ extern "C" {
 #endif
 @import AVFoundation;
 @import CoreFoundation;
-@import CoreMedia;
 @import Foundation;
-@import ObjectiveC;
 @import UIKit;
 #endif
 
@@ -428,12 +426,6 @@ SWIFT_CLASS("_TtC18RNTurboImagePicker19BrushSizeSliderView")
 - (void)layoutSubviews;
 @end
 
-SWIFT_CLASS("_TtC18RNTurboImagePicker19CameraExpandOverlay")
-@interface CameraExpandOverlay : UIView
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
 SWIFT_CLASS("_TtC18RNTurboImagePicker17CameraPreviewView")
 @interface CameraPreviewView : UIView
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
@@ -447,12 +439,6 @@ SWIFT_CLASS("_TtC18RNTurboImagePicker17CameraPreviewView")
 @class AVCapturePhoto;
 @interface CameraPreviewView (SWIFT_EXTENSION(RNTurboImagePicker)) <AVCapturePhotoCaptureDelegate>
 - (void)captureOutput:(AVCapturePhotoOutput * _Nonnull)output didFinishProcessingPhoto:(AVCapturePhoto * _Nonnull)photo error:(NSError * _Nullable)error;
-@end
-
-@class AVCaptureOutput;
-@class AVCaptureConnection;
-@interface CameraPreviewView (SWIFT_EXTENSION(RNTurboImagePicker)) <AVCaptureVideoDataOutputSampleBufferDelegate>
-- (void)captureOutput:(AVCaptureOutput * _Nonnull)output didOutputSampleBuffer:(CMSampleBufferRef _Nonnull)sampleBuffer fromConnection:(AVCaptureConnection * _Nonnull)connection;
 @end
 
 SWIFT_CLASS("_TtC18RNTurboImagePicker23CircleDashedOverlayView")
@@ -525,18 +511,6 @@ SWIFT_CLASS("_TtC18RNTurboImagePicker21DrawingViewController")
 - (UIView * _Nullable)viewForZoomingInScrollView:(UIScrollView * _Nonnull)scrollView SWIFT_WARN_UNUSED_RESULT;
 @end
 
-SWIFT_CLASS("_TtC18RNTurboImagePicker14EditorPageCell")
-@interface EditorPageCell : UICollectionViewCell <UIScrollViewDelegate>
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-- (void)layoutSubviews;
-- (void)prepareForReuse;
-- (UIView * _Nullable)viewForZoomingInScrollView:(UIScrollView * _Nonnull)scrollView SWIFT_WARN_UNUSED_RESULT;
-- (void)scrollViewDidZoom:(UIScrollView * _Nonnull)scrollView;
-- (void)scrollViewWillBeginZooming:(UIScrollView * _Nonnull)scrollView withView:(UIView * _Nullable)view;
-- (void)scrollViewDidEndZooming:(UIScrollView * _Nonnull)scrollView withView:(UIView * _Nullable)view atScale:(CGFloat)scale;
-@end
-
 SWIFT_CLASS("_TtC18RNTurboImagePicker25EmojiPickerViewController")
 @interface EmojiPickerViewController : UIViewController
 - (void)loadView;
@@ -548,6 +522,7 @@ SWIFT_CLASS("_TtC18RNTurboImagePicker25EmojiPickerViewController")
 @end
 
 @class UICollectionView;
+@class UICollectionViewCell;
 @class UICollectionViewLayout;
 @interface EmojiPickerViewController (SWIFT_EXTENSION(RNTurboImagePicker)) <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 - (NSInteger)collectionView:(UICollectionView * _Nonnull)cv numberOfItemsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
@@ -562,8 +537,16 @@ SWIFT_CLASS("_TtC18RNTurboImagePicker19FilterThumbnailCell")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
-SWIFT_CLASS("_TtC18RNTurboImagePicker25GalleryBaseViewController")
-@interface GalleryBaseViewController : UIViewController
+SWIFT_CLASS("_TtC18RNTurboImagePicker11GalleryCell")
+@interface GalleryCell : UICollectionViewCell
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+- (void)layoutSubviews;
+- (void)prepareForReuse;
+@end
+
+SWIFT_CLASS("_TtC18RNTurboImagePicker21GalleryViewController")
+@interface GalleryViewController : UIViewController
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 - (void)viewDidLoad;
@@ -577,34 +560,34 @@ SWIFT_CLASS("_TtC18RNTurboImagePicker25GalleryBaseViewController")
 @end
 
 @class UIPresentationController;
-@interface GalleryBaseViewController (SWIFT_EXTENSION(RNTurboImagePicker)) <UIAdaptivePresentationControllerDelegate>
+@interface GalleryViewController (SWIFT_EXTENSION(RNTurboImagePicker)) <UIAdaptivePresentationControllerDelegate>
 - (void)presentationControllerDidDismiss:(UIPresentationController * _Nonnull)presentationController;
 @end
 
 @class UISheetPresentationController;
 SWIFT_AVAILABILITY(ios,introduced=15.0)
-@interface GalleryBaseViewController (SWIFT_EXTENSION(RNTurboImagePicker)) <UISheetPresentationControllerDelegate>
+@interface GalleryViewController (SWIFT_EXTENSION(RNTurboImagePicker)) <UISheetPresentationControllerDelegate>
 - (void)sheetPresentationControllerDidChangeSelectedDetentIdentifier:(UISheetPresentationController * _Nonnull)sheetPresentationController;
 @end
 
-@interface GalleryBaseViewController (SWIFT_EXTENSION(RNTurboImagePicker)) <UICollectionViewDataSource>
+@interface GalleryViewController (SWIFT_EXTENSION(RNTurboImagePicker)) <UICollectionViewDataSource>
 - (NSInteger)collectionView:(UICollectionView * _Nonnull)collectionView numberOfItemsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (UICollectionViewCell * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView cellForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 @end
 
-@interface GalleryBaseViewController (SWIFT_EXTENSION(RNTurboImagePicker)) <UICollectionViewDataSourcePrefetching>
+@interface GalleryViewController (SWIFT_EXTENSION(RNTurboImagePicker)) <UICollectionViewDataSourcePrefetching>
 - (void)collectionView:(UICollectionView * _Nonnull)collectionView prefetchItemsAtIndexPaths:(NSArray<NSIndexPath *> * _Nonnull)indexPaths;
 - (void)collectionView:(UICollectionView * _Nonnull)collectionView cancelPrefetchingForItemsAtIndexPaths:(NSArray<NSIndexPath *> * _Nonnull)indexPaths;
 @end
 
 @class UIImagePickerController;
-@interface GalleryBaseViewController (SWIFT_EXTENSION(RNTurboImagePicker)) <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface GalleryViewController (SWIFT_EXTENSION(RNTurboImagePicker)) <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 - (void)imagePickerController:(UIImagePickerController * _Nonnull)picker didFinishPickingMediaWithInfo:(NSDictionary<UIImagePickerControllerInfoKey, id> * _Nonnull)info;
 - (void)imagePickerControllerDidCancel:(UIImagePickerController * _Nonnull)picker;
 @end
 
 @protocol UIViewControllerTransitionCoordinator;
-@interface GalleryBaseViewController (SWIFT_EXTENSION(RNTurboImagePicker)) <UICollectionViewDelegateFlowLayout>
+@interface GalleryViewController (SWIFT_EXTENSION(RNTurboImagePicker)) <UICollectionViewDelegateFlowLayout>
 - (void)collectionView:(UICollectionView * _Nonnull)collectionView didSelectItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 - (void)scrollViewDidScroll:(UIScrollView * _Nonnull)scrollView;
 - (void)scrollViewDidEndDragging:(UIScrollView * _Nonnull)scrollView willDecelerate:(BOOL)decelerate;
@@ -612,83 +595,6 @@ SWIFT_AVAILABILITY(ios,introduced=15.0)
 - (CGSize)collectionView:(UICollectionView * _Nonnull)collectionView layout:(UICollectionViewLayout * _Nonnull)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 - (void)viewDidLayoutSubviews;
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator> _Nonnull)coordinator;
-@end
-
-SWIFT_CLASS("_TtC18RNTurboImagePicker11GalleryCell")
-@interface GalleryCell : UICollectionViewCell
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-- (void)layoutSubviews;
-- (void)prepareForReuse;
-@end
-
-SWIFT_CLASS("_TtC18RNTurboImagePicker29GalleryPresentationController")
-@interface GalleryPresentationController : UIPresentationController
-@property (nonatomic, readonly) CGRect frameOfPresentedViewInContainerView;
-- (void)presentationTransitionWillBegin;
-- (nonnull instancetype)initWithPresentedViewController:(UIViewController * _Nonnull)presentedViewController presentingViewController:(UIViewController * _Nullable)presentingViewController OBJC_DESIGNATED_INITIALIZER;
-@end
-
-@protocol UIViewControllerContextTransitioning;
-SWIFT_CLASS("_TtC18RNTurboImagePicker22GallerySlideInAnimator")
-@interface GallerySlideInAnimator : NSObject <UIViewControllerAnimatedTransitioning>
-- (NSTimeInterval)transitionDuration:(id <UIViewControllerContextTransitioning> _Nullable)_ SWIFT_WARN_UNUSED_RESULT;
-- (void)animateTransition:(id <UIViewControllerContextTransitioning> _Nonnull)ctx;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-SWIFT_CLASS("_TtC18RNTurboImagePicker23GallerySlideOutAnimator")
-@interface GallerySlideOutAnimator : NSObject <UIViewControllerAnimatedTransitioning>
-- (NSTimeInterval)transitionDuration:(id <UIViewControllerContextTransitioning> _Nullable)_ SWIFT_WARN_UNUSED_RESULT;
-- (void)animateTransition:(id <UIViewControllerContextTransitioning> _Nonnull)ctx;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-SWIFT_CLASS("_TtC18RNTurboImagePicker25GalleryTransitionDelegate")
-@interface GalleryTransitionDelegate : NSObject <UIViewControllerTransitioningDelegate>
-- (UIPresentationController * _Nullable)presentationControllerForPresentedViewController:(UIViewController * _Nonnull)p presentingViewController:(UIViewController * _Nullable)presenting sourceViewController:(UIViewController * _Nonnull)source SWIFT_WARN_UNUSED_RESULT;
-- (id <UIViewControllerAnimatedTransitioning> _Nullable)animationControllerForPresentedController:(UIViewController * _Nonnull)p presentingController:(UIViewController * _Nonnull)presenting sourceController:(UIViewController * _Nonnull)source SWIFT_WARN_UNUSED_RESULT;
-- (id <UIViewControllerAnimatedTransitioning> _Nullable)animationControllerForDismissedController:(UIViewController * _Nonnull)d SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-SWIFT_CLASS("_TtC18RNTurboImagePicker21GalleryViewController")
-@interface GalleryViewController : GalleryBaseViewController
-- (void)viewDidLoad;
-- (void)viewWillAppear:(BOOL)animated;
-- (void)traitCollectionDidChange:(UITraitCollection * _Nullable)previousTraitCollection;
-- (void)viewDidLayoutSubviews;
-- (void)viewDidAppear:(BOOL)animated;
-- (void)scrollViewDidScroll:(UIScrollView * _Nonnull)scrollView;
-- (void)scrollViewWillBeginDragging:(UIScrollView * _Nonnull)scrollView;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-@class UIImage;
-SWIFT_CLASS("_TtC18RNTurboImagePicker20GoogleEmojiImageView")
-@interface GoogleEmojiImageView : UIImageView
-- (nonnull instancetype)init;
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithImage:(UIImage * _Nullable)image SWIFT_UNAVAILABLE;
-- (nonnull instancetype)initWithImage:(UIImage * _Nullable)image highlightedImage:(UIImage * _Nullable)highlightedImage SWIFT_UNAVAILABLE;
-@end
-
-SWIFT_CLASS("_TtC18RNTurboImagePicker29ImageEditorTransitionAnimator")
-@interface ImageEditorTransitionAnimator : NSObject <UIViewControllerAnimatedTransitioning>
-- (NSTimeInterval)transitionDuration:(id <UIViewControllerContextTransitioning> _Nullable)transitionContext SWIFT_WARN_UNUSED_RESULT;
-- (void)animateTransition:(id <UIViewControllerContextTransitioning> _Nonnull)transitionContext;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-SWIFT_CLASS("_TtC18RNTurboImagePicker29ImageEditorTransitionDelegate")
-@interface ImageEditorTransitionDelegate : NSObject <UIViewControllerTransitioningDelegate>
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-- (id <UIViewControllerAnimatedTransitioning> _Nullable)animationControllerForPresentedController:(UIViewController * _Nonnull)presented presentingController:(UIViewController * _Nonnull)presenting sourceController:(UIViewController * _Nonnull)source SWIFT_WARN_UNUSED_RESULT;
-- (id <UIViewControllerAnimatedTransitioning> _Nullable)animationControllerForDismissedController:(UIViewController * _Nonnull)dismissed SWIFT_WARN_UNUSED_RESULT;
 @end
 
 SWIFT_CLASS("_TtC18RNTurboImagePicker25ImageEditorViewController")
@@ -710,11 +616,6 @@ SWIFT_CLASS("_TtC18RNTurboImagePicker25ImageEditorViewController")
 @interface ImageEditorViewController (SWIFT_EXTENSION(RNTurboImagePicker)) <UICollectionViewDataSourcePrefetching>
 - (void)collectionView:(UICollectionView * _Nonnull)cv prefetchItemsAtIndexPaths:(NSArray<NSIndexPath *> * _Nonnull)indexPaths;
 - (void)collectionView:(UICollectionView * _Nonnull)cv cancelPrefetchingForItemsAtIndexPaths:(NSArray<NSIndexPath *> * _Nonnull)indexPaths;
-@end
-
-@interface ImageEditorViewController (SWIFT_EXTENSION(RNTurboImagePicker)) <UIGestureRecognizerDelegate>
-- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer * _Nonnull)gestureRecognizer SWIFT_WARN_UNUSED_RESULT;
-- (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @interface ImageEditorViewController (SWIFT_EXTENSION(RNTurboImagePicker)) <UICollectionViewDelegateFlowLayout>
@@ -760,8 +661,6 @@ SWIFT_CLASS("_TtC18RNTurboImagePicker25ProfileCropViewController")
 
 @interface ProfileCropViewController (SWIFT_EXTENSION(RNTurboImagePicker)) <UIScrollViewDelegate>
 - (UIView * _Nullable)viewForZoomingInScrollView:(UIScrollView * _Nonnull)scrollView SWIFT_WARN_UNUSED_RESULT;
-- (void)scrollViewDidScroll:(UIScrollView * _Nonnull)scrollView;
-- (void)scrollViewDidEndDragging:(UIScrollView * _Nonnull)scrollView willDecelerate:(BOOL)decelerate;
 - (void)scrollViewDidZoom:(UIScrollView * _Nonnull)scrollView;
 - (void)scrollViewDidEndZooming:(UIScrollView * _Nonnull)scrollView withView:(UIView * _Nullable)view atScale:(CGFloat)scale;
 @end
@@ -776,11 +675,6 @@ SWIFT_CLASS("_TtC18RNTurboImagePicker31RemoteImageViewerViewController")
 
 @interface RemoteImageViewerViewController (SWIFT_EXTENSION(RNTurboImagePicker)) <UIScrollViewDelegate>
 - (void)scrollViewDidEndDecelerating:(UIScrollView * _Nonnull)scrollView;
-@end
-
-@interface RemoteImageViewerViewController (SWIFT_EXTENSION(RNTurboImagePicker)) <UIGestureRecognizerDelegate>
-- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer * _Nonnull)gestureRecognizer SWIFT_WARN_UNUSED_RESULT;
-- (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @interface RemoteImageViewerViewController (SWIFT_EXTENSION(RNTurboImagePicker)) <UICollectionViewDataSource, UICollectionViewDelegate>
@@ -801,19 +695,6 @@ SWIFT_CLASS("_TtC18RNTurboImagePicker13SceneDelegate")
 - (void)sceneWillEnterForeground:(UIScene * _Nonnull)scene;
 - (void)sceneDidEnterBackground:(UIScene * _Nonnull)scene;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-@class UICollectionViewLayoutAttributes;
-SWIFT_CLASS("_TtC18RNTurboImagePicker21TelegramGalleryLayout")
-@interface TelegramGalleryLayout : UICollectionViewLayout
-- (void)prepareLayout;
-@property (nonatomic, readonly) CGSize collectionViewContentSize;
-- (NSArray<UICollectionViewLayoutAttributes *> * _Nullable)layoutAttributesForElementsInRect:(CGRect)rect SWIFT_WARN_UNUSED_RESULT;
-- (UICollectionViewLayoutAttributes * _Nullable)layoutAttributesForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
-- (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds SWIFT_WARN_UNUSED_RESULT;
-- (void)invalidateLayout;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
 SWIFT_CLASS("_TtC18RNTurboImagePicker23TextInputViewController")
@@ -848,11 +729,12 @@ SWIFT_CLASS("_TtC18RNTurboImagePicker13ThumbnailCell")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
-SWIFT_CLASS("_TtC18RNTurboImagePicker14ZoomScrollView")
-@interface ZoomScrollView : UIScrollView
-- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer * _Nonnull)gr SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS("_TtC18RNTurboImagePicker13TossFaceLabel")
+@interface TossFaceLabel : UIView
+@property (nonatomic) CGFloat contentScaleFactor;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+- (void)drawRect:(CGRect)rect;
 @end
 
 SWIFT_CLASS("_TtC18RNTurboImagePicker21ZoomableImageItemView")
