@@ -64,15 +64,20 @@ const TurboImagePicker: RNTurboImagePicker = {
       throw new Error(LINKING_ERROR)
     }
 
-    // onSelectionChange 콜백이 있으면 임시 리스너 등록
-    let subscription: any = null
+    // 콜백 이벤트 임시 리스너 등록
+    let subscriptionSelChange: any = null
+    let subscriptionImgProcessed: any = null
+    
     if (options.onSelectionChange) {
-      subscription = eventEmitter.addListener("onSelectionChange", options.onSelectionChange)
+      subscriptionSelChange = eventEmitter.addListener("onSelectionChange", options.onSelectionChange)
+    }
+    if (options.onImageProcessed) {
+      subscriptionImgProcessed = eventEmitter.addListener("onImageProcessed", options.onImageProcessed)
     }
 
     try {
-      // onSelectionChange는 네이티브로 전달하지 않음 (JavaScript에서 처리)
-      const { onSelectionChange, ...restOptions } = options
+      // 이벤트 콜백은 네이티브로 전달하지 않음
+      const { onSelectionChange, onImageProcessed, ...restOptions } = options
       const nativeOptions = {
         themeColor: _defaultThemeColor,
         languageCode: _defaultLanguageCode,
@@ -81,9 +86,14 @@ const TurboImagePicker: RNTurboImagePicker = {
       const result = await RNTurboImagePickerModule.openGallery(nativeOptions)
       return result
     } finally {
-      // 갤러리가 닫히면 리스너 제거
-      if (subscription) {
-        subscription.remove()
+      // 갤러리가 닫히면 onSelectionChange 리스너 제거
+      if (subscriptionSelChange) {
+        subscriptionSelChange.remove()
+      }
+      // asyncProcessing 모드가 아닐 때만 onImageProcessed 리스너 제거 (async 모드에선 백그라운드 처리를 위해 유지해야 함)
+      // 호출부에서 수동으로 제거하거나, 최종 완료 시 정리하는 구조가 필요할 수 있음
+      if (!options.asyncProcessing && subscriptionImgProcessed) {
+        subscriptionImgProcessed.remove()
       }
     }
   },

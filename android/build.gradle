@@ -2,6 +2,10 @@ apply plugin: 'com.android.library'
 apply plugin: 'org.jetbrains.kotlin.android'
 apply plugin: 'com.facebook.react'
 
+react {
+    libraryName = "RNTurboImagePickerSpec"
+}
+
 def aarFile = file('src/main/libs/rnturboimagepicker-release.aar')
 def extractDir = file("$projectDir/extracted-aar")
 
@@ -10,6 +14,11 @@ if (aarFile.exists()) {
     copy {
         from zipTree(aarFile)
         into extractDir
+    }
+    
+    // Remove the pre-compiled codegen .so to prevent Duplicate File errors with New Architecture
+    fileTree(dir: "$extractDir/jni", include: "**/libreact_codegen_RNTurboImagePickerSpec.so").each { file ->
+        file.delete()
     }
     
     // Strip package attribute from AndroidManifest.xml
@@ -60,11 +69,24 @@ android {
         jvmTarget = "17"
     }
 
+    def newArchEnabled = project.hasProperty("newArchEnabled") && project.newArchEnabled == "true"
+    if (newArchEnabled) {
+        externalNativeBuild {
+            cmake {
+                path "CMakeLists.txt"
+            }
+        }
+    }
 
     sourceSets {
         main {
             java {
                 srcDirs = ["src/main/java"]
+                if (newArchEnabled) {
+                    srcDirs += ["src/newarch/java"]
+                } else {
+                    srcDirs += ["src/oldarch/java"]
+                }
             }
             jniLibs.srcDirs = ["$extractDir/jni"]
             res.srcDirs = ["$extractDir/res"]

@@ -28,13 +28,16 @@ export interface GalleryOptions {
   enableEditor?: boolean // 단일 이미지 선택 시 편집기 활성화 여부
   profileMode?: boolean // 1:1 프로필 크롭 모드 활성화 여부
   themeColor?: string // 테마 컬러 지정 (ex: "#FFEB3B")
+  asyncProcessing?: boolean // 완전 비동기 이벤트 리턴 여부
   onSelectionChange?: (event: SelectionChangeEvent) => void
+  onImageProcessed?: (event: any) => void
 }
 
 export interface ViewerOptions {
   images: string[]
   initialIndex?: number
   themeColor?: string // Added themeColor for Android
+  title?: string
 }
 
 export interface SelectionChangeEvent {

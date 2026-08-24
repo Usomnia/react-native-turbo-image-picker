@@ -1,13 +1,14 @@
 {
   "name": "react-native-turbo-image-picker",
-  "version": "1.1.88",
+  "version": "1.2.01",
   "description": "High-performance Telegram-like image gallery picker for React Native with Turbo Module",
   "main": "src/index.ts",
   "types": "src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "typescript": "tsc --noEmit",
-    "lint": "eslint \"**/*.{js,ts,tsx}\""
+    "lint": "eslint \"**/*.{js,ts,tsx}\"",
+    "example": "yarn --cwd ../RNTurboImagePickerApp"
   },
   "keywords": [
     "react-native",
@@ -27,14 +28,6 @@
     "react": "*",
     "react-native": "*"
   },
-  "codegenConfig": {
-    "name": "RNTurboImagePickerSpec",
-    "type": "modules",
-    "jsSrcsDir": "src",
-    "android": {
-      "javaPackageName": "com.rnturboimagepicker.codegen"
-    }
-  },
   "devDependencies": {
     "@types/react": "^18.0.0",
     "@types/react-native": "^0.72.0",
@@ -50,10 +43,10 @@
     "ios/RNTurboImagePicker.mm",
     "ios/RNTurboImagePicker.swift",
     "ios/RNTurboImagePickerAssets",
-    "android/src",
     "android/build.gradle",
+    "android/CMakeLists.txt",
     "android/proguard-rules.pro",
-    "android/gradle.properties",
+    "android/src",
     "react-native-turbo-image-picker.podspec",
     "README.md",
     "react-native.config.js"
@@ -61,5 +54,13 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/Usomnia/react-native-turbo-image-picker.git"
+  },
+  "codegenConfig": {
+    "name": "RNTurboImagePickerSpec",
+    "type": "modules",
+    "jsSrcsDir": "src",
+    "android": {
+      "javaPackageName": "com.rnturboimagepicker.codegen"
+    }
   }
 }
