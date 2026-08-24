@@ -414,6 +414,8 @@ class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
     private suspend fun processImages(uris: List<Uri>): List<com.facebook.react.bridge.WritableMap> = withContext(Dispatchers.IO) {
         val results = mutableListOf<com.facebook.react.bridge.WritableMap>()
         val contentResolver = reactApplicationContext.contentResolver
+        val totalCount = uris.size
+        var currentIndex = 0
 
         for (uri in uris) {
             try {
@@ -525,23 +527,38 @@ class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
                             }
                             processedBitmap.recycle()
                             
-                            val imageInfo = WritableNativeMap().apply {
-                                putString("uri", Uri.fromFile(tempFile).toString())
-                                putInt("width", finalWidth)
-                                putInt("height", finalHeight)
-                                putString("type", mimeType)
-                                putString("fileName", tempFile.name)
-                                putString("fileExtension", extension)
-                                putDouble("fileSize", tempFile.length().toDouble())
-                                putString("originalUri", uri.toString())
-                                putInt("originalWidth", originalWidth)
-                                putInt("originalHeight", originalHeight)
+                            val createImageInfo = {
+                                WritableNativeMap().apply {
+                                    putString("uri", Uri.fromFile(tempFile).toString())
+                                    putInt("width", finalWidth)
+                                    putInt("height", finalHeight)
+                                    putString("type", mimeType)
+                                    putString("fileName", tempFile.name)
+                                    putString("fileExtension", extension)
+                                    putDouble("fileSize", tempFile.length().toDouble())
+                                    putString("originalUri", uri.toString())
+                                    putInt("originalWidth", originalWidth)
+                                    putInt("originalHeight", originalHeight)
+                                }
                             }
+                            val imageInfo = createImageInfo()
                             results.add(imageInfo)
+
+                            try {
+                                val eventMap = WritableNativeMap().apply {
+                                    putInt("total", totalCount)
+                                    putInt("index", currentIndex)
+                                    putMap("image", createImageInfo())
+                                }
+                                reactApplicationContext.getJSModule(com.facebook.react.modules.core.DeviceEventManagerModule.RCTDeviceEventEmitter::class.java)
+                                    .emit("onImageProcessed", eventMap)
+                            } catch (e: Exception) { }
                         }
                     }
                 }
+                currentIndex++
             } catch (e: Exception) {
+                currentIndex++
                 // Skip failed images
                 continue
             }

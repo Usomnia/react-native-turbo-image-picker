@@ -384,20 +384,7 @@ class RNTurboImagePicker: RCTEventEmitter {
                 let resultsLock = NSLock()
                 
                 DispatchQueue.global(qos: .userInitiated).async {
-                    let dispatchGroup = DispatchGroup()
-                    let semaphore = DispatchSemaphore(value: 3) // 병렬 처리 스레드 수 제한 (OOM 및 발열 방지)
-
                     for (index, pair) in selectedImages.enumerated() {
-                        dispatchGroup.enter()
-                        semaphore.wait()
-                        
-                        // 병렬 처리를 위해 각 이미지마다 새로운 스레드 할당
-                        DispatchQueue.global(qos: .userInitiated).async {
-                            defer {
-                                semaphore.signal()
-                                dispatchGroup.leave()
-                            }
-                            
                             let (asset, image) = pair
                             let timestamp    = Int(Date().timeIntervalSince1970 * 1000)
                             let originalSize = image.size
@@ -495,10 +482,7 @@ class RNTurboImagePicker: RCTEventEmitter {
                                     "image": currentResult
                                 ])
                             }
-                        }
                     } // end for
-
-                    dispatchGroup.wait()
 
                     DispatchQueue.main.async {
                         self.currentGalleryVC = nil
