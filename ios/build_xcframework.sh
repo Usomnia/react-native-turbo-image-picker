@@ -14,7 +14,8 @@ xcodebuild archive \
     -destination 'generic/platform=iOS' \
     -archivePath "$ARCHIVE_DIR/iOS.xcarchive" \
     SKIP_INSTALL=NO \
-    BUILD_LIBRARY_FOR_DISTRIBUTION=YES
+    BUILD_LIBRARY_FOR_DISTRIBUTION=YES \
+    MACH_O_TYPE=staticlib
 
 echo "Building iOS Simulator Archive..."
 xcodebuild archive \
@@ -24,7 +25,8 @@ xcodebuild archive \
     -destination 'generic/platform=iOS Simulator' \
     -archivePath "$ARCHIVE_DIR/iOS_Simulator.xcarchive" \
     SKIP_INSTALL=NO \
-    BUILD_LIBRARY_FOR_DISTRIBUTION=YES
+    BUILD_LIBRARY_FOR_DISTRIBUTION=YES \
+    MACH_O_TYPE=staticlib
 
 echo "Creating XCFramework..."
 rm -rf build/RNTurboImagePicker.xcframework
