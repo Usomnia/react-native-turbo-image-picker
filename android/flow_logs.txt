@@ -1,0 +1,26 @@
+05-11 18:40:29.618  1733  4695 V WindowManager: Collecting in transition 3029: ActivityRecord{499d612 u0 com.rnturboimagepicker.app/.MainActivity, caller=com.android.server.wm.TransitionController.collect:7 com.android.server.wm.ActivityStarter.startActivityUnchecked:626 com.android.server.wm.ActivityStarter.executeRequest:3365 com.android.server.wm.ActivityStarter.execute:1122 com.android.server.wm.ActivityTaskManagerService.startActivityAsUser:88 
+05-11 18:40:29.618  1733  4695 D ActivityTaskManager: TaskLaunchParamsModifier:task=null activity=ActivityRecord{499d612 u0 com.rnturboimagepicker.app/.MainActivity t-1} display-area-from-current-params=null display-area-for-record=DefaultTaskDisplayArea_d0@50806316 display-id=0 task-display-area-windowing-mode=1 suggested-display-area=DefaultTaskDisplayArea_d0@50806316
+05-11 18:40:29.619  1733  4695 D ActivityTaskManager: TaskLaunchParamsModifier:task=Task{3dfe4db #535 type=standard A=11679:com.rnturboimagepicker.app} activity=ActivityRecord{499d612 u0 com.rnturboimagepicker.app/.MainActivity t-1} display-from-task=0 display-id=0 task-display-area-windowing-mode=1 suggested-display-area=DefaultTaskDisplayArea_d0@50806316 inherit-from-task=fullscreen non-freeform-task-display-area display-area=DefaultTaskDisplayArea_d0@50806316 default-portrait freeform-size-mismatch=Rect(81, 568 - 999, 1768)
+05-11 18:40:29.620  1733  4695 V WindowManager: Collecting in transition 3029: ActivityRecord{724f9ea u0 com.rnturboimagepicker.app/.MainActivity t535}, caller=com.android.server.wm.TransitionController.collect:7 com.android.server.wm.ActivityStarter.startActivityInner:1923 com.android.server.wm.ActivityStarter.startActivityUnchecked:639 com.android.server.wm.ActivityStarter.executeRequest:3365 com.android.server.wm.ActivityStarter.execute:1122 
+05-11 18:40:29.620  1733  4695 D WindowManager: prepareSync <SYNC_STATE_WAITING_FOR_DRAW>, mPrepareSyncSeqId=0, win=Window{51d6c7d u0 com.rnturboimagepicker.app/com.rnturboimagepicker.app.MainActivity}
+05-11 18:40:29.622  1733  4695 I ActivityTaskManager: START u0 {flg=0x10000000 cmp=com.rnturboimagepicker.app/.MainActivity} with LAUNCH_MULTIPLE from uid 2000 (BAL_ALLOW_PERMISSION) result code=3
+05-11 18:40:29.622  3318  3318 E pageboostd: Received HALT command code 2
+05-11 18:40:29.623  2492  2547 D WindowManagerShell: onActivityRestartAttempt: ComponentInfo{com.rnturboimagepicker.app/com.rnturboimagepicker.app.MainActivity}
+05-11 18:40:31.718  8564  8564 I VRI[MainActivity]@cab8262: ViewPostIme pointer 0
+05-11 18:40:31.720  8564  8564 I VRI[MainActivity]@cab8262: ViewPostIme pointer 1
+05-11 18:40:31.723  1447  1447 I LayerHistory: com.rnturboimagepicker.app/com.rnturboimagepicker.app.MainActivity$_8564#40462 Max (can't resolve refresh rate)
+05-11 18:40:31.746  8564  8564 I VRI[MainActivity]@cab8262: onDisplayChanged oldDisplayState=2 newDisplayState=2
+05-11 18:40:34.720  8564  8564 I VRI[MainActivity]@cab8262: call setFrameRateCategory for touch hint category=no preference, reason=boost timeout, vri=VRI[MainActivity]@cab8262
+05-11 18:40:34.724  1447  1447 I SurfaceFlinger: [com.rnturboimagepicker.app/com.rnturboimagepicker.app.MainActivity$_8564#40462] setFrameRateCategory: NoPreference
+05-11 18:40:34.726  1447  1447 I LayerHistory: com.rnturboimagepicker.app/com.rnturboimagepicker.app.MainActivity$_8564#40462 is infrequent
+05-11 18:40:34.742  8564  8564 I VRI[MainActivity]@cab8262: onDisplayChanged oldDisplayState=2 newDisplayState=2
+05-11 18:40:34.807  8564  8564 I VRI[MainActivity]@cab8262: ViewPostIme pointer 0
+05-11 18:40:34.807  8564  8564 I VRI[MainActivity]@cab8262: call setFrameRateCategory for touch hint category=high hint, reason=touch, vri=VRI[MainActivity]@cab8262
+05-11 18:40:34.809  8564  8564 I VRI[MainActivity]@cab8262: ViewPostIme pointer 1
+05-11 18:40:34.824  1447  1447 I SurfaceFlinger: [com.rnturboimagepicker.app/com.rnturboimagepicker.app.MainActivity$_8564#40462] setFrameRateCategory: HighHint
+05-11 18:40:34.825  1447  1447 I LayerHistory: com.rnturboimagepicker.app/com.rnturboimagepicker.app.MainActivity$_8564#40462 voted ExplicitCategory with category: HighHint
+05-11 18:40:34.850  8564  8564 I VRI[MainActivity]@cab8262: onDisplayChanged oldDisplayState=2 newDisplayState=2
+05-11 18:40:36.904  8564  8564 I VRI[MainActivity]@cab8262: ViewPostIme pointer 0
+05-11 18:40:36.906  8564  8564 I VRI[MainActivity]@cab8262: ViewPostIme pointer 1
+05-11 18:40:39.003  8564  8564 I VRI[MainActivity]@cab8262: ViewPostIme pointer 0
+05-11 18:40:39.006  8564  8564 I VRI[MainActivity]@cab8262: ViewPostIme pointer 1

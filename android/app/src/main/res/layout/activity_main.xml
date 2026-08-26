@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#F8F9FA">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- ───── Header ───── -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="RN Turbo Image Picker"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#1A1A2E"
+            android:layout_marginBottom="2dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Android 테스트 화면"
+            android:textSize="14sp"
+            android:textColor="#2196F3"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- ───── 출력 옵션 카드 ───── -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#FFFFFF"
+            android:padding="14dp"
+            android:layout_marginBottom="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="출력 옵션"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#555"
+                android:layout_marginBottom="10dp"/>
+
+            <!-- Format Selector -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="포맷"
+                android:textSize="12sp"
+                android:textColor="#777"
+                android:layout_marginBottom="6dp"/>
+
+            <RadioGroup
+                android:id="@+id/formatRadioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="12dp">
+
+                <RadioButton
+                    android:id="@+id/radioWebp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="WebP"
+                    android:textSize="13sp"
+                    android:checked="true"/>
+
+                <RadioButton
+                    android:id="@+id/radioJpg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="JPG"
+                    android:textSize="13sp"/>
+
+                <RadioButton
+                    android:id="@+id/radioPng"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="PNG"
+                    android:textSize="13sp"/>
+            </RadioGroup>
+
+            <!-- maxWidth / maxHeight -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginEnd="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Max Width (px)"
+                        android:textSize="12sp"
+                        android:textColor="#777"
+                        android:layout_marginBottom="4dp"/>
+
+                    <EditText
+                        android:id="@+id/inputMaxWidth"
+                        android:layout_width="match_parent"
+                        android:layout_height="42dp"
+                        android:hint="1024 (기본값)"
+                        android:inputType="number"
+                        android:textSize="13sp"
+                        android:padding="8dp"
+                        android:background="#F0F0F0"
+                        android:imeOptions="actionNext"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Max Height (px)"
+                        android:textSize="12sp"
+                        android:textColor="#777"
+                        android:layout_marginBottom="4dp"/>
+
+                    <EditText
+                        android:id="@+id/inputMaxHeight"
+                        android:layout_width="match_parent"
+                        android:layout_height="42dp"
+                        android:hint="1024 (기본값)"
+                        android:inputType="number"
+                        android:textSize="13sp"
+                        android:padding="8dp"
+                        android:background="#F0F0F0"
+                        android:imeOptions="actionDone"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- ───── 버튼 그리드 ───── -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <Button
+                android:id="@+id/btnSingleSelect"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="1개 선택"
+                android:textSize="13sp"
+                android:layout_marginEnd="4dp"
+                android:padding="12dp"/>
+
+            <Button
+                android:id="@+id/btnSingleEdit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="1개 편집"
+                android:textSize="13sp"
+                android:layout_marginStart="4dp"
+                android:padding="12dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <Button
+                android:id="@+id/btnMultiSelect"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="멀티 선택"
+                android:textSize="13sp"
+                android:layout_marginEnd="4dp"
+                android:padding="12dp"/>
+
+            <Button
+                android:id="@+id/btnMultiEdit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="멀티 편집"
+                android:textSize="13sp"
+                android:layout_marginStart="4dp"
+                android:padding="12dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <Button
+                android:id="@+id/btnProfileCropOnly"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="프로필 (크롭만)"
+                android:textSize="13sp"
+                android:layout_marginEnd="4dp"
+                android:padding="12dp"/>
+
+            <Button
+                android:id="@+id/btnProfileCrop"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="프로필 (크롭+편집)"
+                android:textSize="13sp"
+                android:layout_marginStart="4dp"
+                android:padding="12dp"/>
+        </LinearLayout>
+
+        <!-- ───── 성능 테스트 ───── -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <Button
+                android:id="@+id/btnCacheTest"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="원격 캐시 테스트 (20장)"
+                android:textSize="13sp"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#00BCD4"
+                android:padding="12dp"/>
+        </LinearLayout>
+
+        <!-- ───── 결과 상태 ───── -->
+        <TextView
+            android:id="@+id/resultText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="이미지를 선택하세요"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:padding="10dp"
+            android:background="#E3F2FD"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- ───── 결과 이미지 목록 ───── -->
+        <TextView
+            android:id="@+id/resultImagesLabelZoom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="결과 이미지 (Zoom)"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textColor="#555"
+            android:visibility="gone"
+            android:layout_marginBottom="8dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/resultImagesRecyclerViewZoom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_marginBottom="16dp"
+            android:clipToPadding="false"/>
+
+        <TextView
+            android:id="@+id/resultImagesLabelFade"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="결과 이미지 (Fade)"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textColor="#555"
+            android:visibility="gone"
+            android:layout_marginBottom="8dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/resultImagesRecyclerViewFade"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_marginBottom="16dp"
+            android:clipToPadding="false"/>
+
+        <TextView
+            android:id="@+id/resultImagesLabelSlide"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="결과 이미지 (Slide)"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textColor="#555"
+            android:visibility="gone"
+            android:layout_marginBottom="8dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/resultImagesRecyclerViewSlide"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_marginBottom="16dp"
+            android:clipToPadding="false"/>
+
+        <!-- ───── 로그 ───── -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="로그:"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textColor="#555"
+            android:layout_marginBottom="6dp"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:background="#F5F5F5"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/logText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="로그가 여기에 표시됩니다..."
+                android:textSize="11sp"
+                android:fontFamily="monospace"
+                android:textColor="#424242"/>
+        </ScrollView>
+
+    </LinearLayout>
+</ScrollView>

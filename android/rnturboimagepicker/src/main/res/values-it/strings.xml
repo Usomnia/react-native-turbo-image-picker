@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tab_all">Tutto</string>
+    <string name="tab_selected">selezionato</string>
+    <string name="button_done">Fatto</string>
+    <string name="selected_count">%1$d selezionato</string>
+    <string name="selected_count_ko">%1$d개 선택됨</string>
+    <string name="album_recents">Recenti</string>
+</resources>
+
+
+
+
+
+

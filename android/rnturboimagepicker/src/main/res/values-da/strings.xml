@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tab_all">Alle</string>
+    <string name="tab_selected">valgt</string>
+    <string name="button_done">Færdig</string>
+    <string name="selected_count">%1$d valgt</string>
+    <string name="selected_count_ko">%1$d개 선택됨</string>
+    <string name="album_recents">Seneste</string>
+</resources>
+
+
+
+
+
+

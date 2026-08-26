@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/Users/mike/source/PaidModules/RNTurboImagePicker/RNTurboImagePicker/android/rnturboimagepicker/.cxx/RelWithDebInfo/u423i5b4/x86_64",
+  "command": "/Users/mike/Library/Android/sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++ --target=x86_64-none-linux-android24 --sysroot=/Users/mike/Library/Android/sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -Dreact_codegen_RNTurboImagePickerSpec_EXPORTS -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -O2 -frtti -fexceptions -Wall -fstack-protector-all -O2 -g -DNDEBUG -fPIC -o CMakeFiles/react_codegen_RNTurboImagePickerSpec.dir/dummy.cpp.o -c /Users/mike/source/PaidModules/RNTurboImagePicker/RNTurboImagePicker/android/rnturboimagepicker/.cxx/RelWithDebInfo/u423i5b4/x86_64/dummy.cpp",
+  "file": "/Users/mike/source/PaidModules/RNTurboImagePicker/RNTurboImagePicker/android/rnturboimagepicker/.cxx/RelWithDebInfo/u423i5b4/x86_64/dummy.cpp"
+}
+]

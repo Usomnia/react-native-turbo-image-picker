@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/editor_background">
+
+    <!--
+        Z-order (뒤→앞):
+        1. drawingImageContainer  ← 이미지/캔버스 (가장 뒤)
+        2. colorScrollView        ← 색상 팔레트 오버레이
+        3. drawingTopBar          ← 상단 바 (elevation으로 항상 위)
+        4. drawingBottomBar       ← 하단 바 (elevation으로 항상 위)
+        5. brushSizeSlider / brushPreviewCircle
+    -->
+
+    <!-- 1. Image + Canvas (최하단 Z-order, top bar 아래 ~ bottom bar 위) -->
+    <FrameLayout
+        android:id="@+id/drawingImageContainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/drawingTopBar"
+        app:layout_constraintBottom_toTopOf="@id/drawingBottomBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- 2. Color picker row (이미지 위, bottom bar 바로 위) -->
+    <HorizontalScrollView
+        android:id="@+id/drawingColorScrollView"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:background="@android:color/transparent"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toTopOf="@id/drawingBottomBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:id="@+id/drawingColorContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp" />
+
+    </HorizontalScrollView>
+
+    <!-- 3. Top bar (elevation으로 줌 시에도 항상 위) -->
+    <LinearLayout
+        android:id="@+id/drawingTopBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/editor_background"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <View
+            android:id="@+id/drawingStatusBarSpacer"
+            android:layout_width="match_parent"
+            android:layout_height="0dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp">
+
+            <ImageButton
+                android:id="@+id/drawingUndoBtn"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="16dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_drawing_reward"
+                android:contentDescription="실행 취소"
+                android:padding="12dp"
+                android:scaleType="centerInside"
+                android:tint="@color/editor_foreground"
+                android:alpha="0.3" />
+
+            <ImageButton
+                android:id="@+id/drawingRedoBtn"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_toEndOf="@id/drawingUndoBtn"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="8dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_drawing_forward"
+                android:contentDescription="다시 실행"
+                android:padding="12dp"
+                android:scaleType="centerInside"
+                android:tint="@color/editor_foreground"
+                android:alpha="0.3" />
+
+            <ImageButton
+                android:id="@+id/drawingTrashBtn"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="16dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_drawing_delete"
+                android:contentDescription="전체 삭제"
+                android:padding="12dp"
+                android:scaleType="centerInside"
+                android:tint="@color/editor_foreground"
+                android:alpha="0.3" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <!-- 4. Bottom bar (elevation으로 줌 시에도 항상 위) -->
+    <LinearLayout
+        android:id="@+id/drawingBottomBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/editor_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+
+            <ImageButton
+                android:id="@+id/drawingCancelBtn"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="8dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_close_x"
+                android:contentDescription="취소"
+                android:padding="12dp"
+                android:scaleType="centerInside"
+                android:tint="@color/editor_foreground" />
+
+            <ImageButton
+                android:id="@+id/drawingConfirmBtn"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="8dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_check"
+                android:contentDescription="@string/turbo_confirm"
+                android:padding="12dp"
+                android:scaleType="centerInside"
+                android:tint="@color/editor_foreground" />
+
+            <LinearLayout
+                android:id="@+id/drawingToolGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageButton
+                    android:id="@+id/drawingPenBtn"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/ic_editor_drawing"
+                    android:contentDescription="펜"
+                    android:padding="8dp"
+                    android:scaleType="centerInside"
+                    android:tint="@color/editor_foreground"
+                    android:alpha="1.0" />
+
+                <ImageButton
+                    android:id="@+id/drawingMosaicBtn"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="8dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/ic_drawing_mosaic"
+                    android:contentDescription="모자이크"
+                    android:padding="8dp"
+                    android:scaleType="centerInside"
+                    android:tint="@color/editor_foreground"
+                    android:alpha="0.4" />
+
+                <ImageButton
+                    android:id="@+id/drawingEraserBtn"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="8dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/ic_drawing_eraser"
+                    android:contentDescription="지우개"
+                    android:padding="8dp"
+                    android:scaleType="centerInside"
+                    android:tint="@color/editor_foreground"
+                    android:alpha="0.4" />
+
+            </LinearLayout>
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/drawingNavBarSpacer"
+            android:layout_width="match_parent"
+            android:layout_height="0dp" />
+
+    </LinearLayout>
+
+    <!-- 5. Brush slider (elevation으로 바 위에) -->
+    <com.rnturboimagepicker.BrushSizeSliderView
+        android:id="@+id/brushSizeSlider"
+        android:layout_width="40dp"
+        android:layout_height="300dp"
+        android:layout_marginStart="-20dp"
+        android:elevation="3dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/drawingTopBar"
+        app:layout_constraintBottom_toTopOf="@id/drawingBottomBar" />
+
+    <!-- 6. Brush preview circle -->
+    <View
+        android:id="@+id/brushPreviewCircle"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:visibility="gone"
+        android:background="@drawable/bg_brush_preview_circle"
+        android:elevation="3dp"
+        app:layout_constraintTop_toBottomOf="@id/drawingTopBar"
+        app:layout_constraintBottom_toTopOf="@id/drawingBottomBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

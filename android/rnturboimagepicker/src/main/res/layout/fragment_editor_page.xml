@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/editor_cell_background">
+
+    <com.rnturboimagepicker.ZoomableImageView
+        android:id="@+id/editorImageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/editor_cell_background" />
+
+    <FrameLayout
+        android:id="@+id/stickerContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipChildren="false"
+        android:clipToPadding="false" />
+
+</FrameLayout>

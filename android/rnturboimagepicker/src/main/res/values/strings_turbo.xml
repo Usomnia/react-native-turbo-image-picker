@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="turbo_cancel">Cancel</string>
+    <string name="turbo_send">Send</string>
+    <string name="turbo_done">Done</string>
+    <string name="turbo_confirm">Confirm</string>
+    <string name="turbo_enter_text">Enter text</string>
+    
+    <string name="filter_original">Original</string>
+    <string name="filter_soft">Soft</string>
+    <string name="filter_clean">Clean</string>
+    <string name="filter_cold">Cold</string>
+    <string name="filter_warm">Warm</string>
+    <string name="filter_shining">Shining</string>
+    <string name="filter_romantic">Romantic</string>
+    <string name="filter_calm">Calm</string>
+    <string name="filter_vintage">Vintage</string>
+    <string name="filter_mono">Mono</string>
+    <string name="filter_sepia">Sepia</string>
+    
+    <string name="emoji_face">Face &amp; People</string>
+    <string name="emoji_animal">Animal &amp; Nature</string>
+    <string name="emoji_food">Food</string>
+    <string name="emoji_activity">Activity</string>
+    <string name="emoji_travel">Travel</string>
+    <string name="emoji_object">Object</string>
+    <string name="emoji_symbol">Symbol</string>
+    <string name="emoji_flag">Flag</string>
+    
+    <string name="viewer_counter">%1$d of %2$d</string>
+    <string name="viewer_zero">0 of 0</string>
+    <string name="crop_freeform">Free</string>
+    <string name="turbo_text">Text</string>
+    <string name="turbo_effect">Effect</string>
+    <string name="filter_film">Film</string>
+    <string name="filter_instant">Instant</string>
+    <string name="filter_noir">Noir</string>
+    <string name="filter_process">Process</string>
+    <string name="filter_tonal">Tonal</string>
+    <string name="filter_transfer">Transfer</string>
+    <string name="filter_chrome">Chrome</string>
+    <string name="filter_fade">Fade</string>
+    <string name="filter_cinematic">Cinematic</string>
+</resources>

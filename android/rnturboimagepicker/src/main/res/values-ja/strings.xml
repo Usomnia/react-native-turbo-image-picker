@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tab_all">すべて</string>
+    <string name="tab_selected">選択済み</string>
+    <string name="button_done">完了</string>
+    <string name="selected_count">%1$d件選択済み</string>
+    <string name="selected_count_ko">%1$d개 선택됨</string>
+    <string name="album_recents">最近</string>
+
+
+
+
+
+
+    <string name="delete_edits_message">編集を削除しますか？</string>
+    <string name="yes">はい</string>
+    <string name="no">いいえ</string>
+    <string name="editor_apply">適用</string>
+</resources>

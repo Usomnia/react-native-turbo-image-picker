@@ -1,0 +1,242 @@
+apply plugin: 'com.android.library'
+apply plugin: 'org.jetbrains.kotlin.android'
+
+// Conditionally apply React Native plugin only if available (not in standalone builds)
+// Check multiple possible React Native paths (both android and ReactAndroid for RN 0.82+)
+def reactNativePaths = [
+    file("${project.rootProject.rootDir}/../node_modules/react-native/ReactAndroid"),
+    file("${project.rootProject.rootDir}/../node_modules/react-native/android"),
+    file("$rootDir/../../../../react-native/ReactAndroid"),
+    file("$rootDir/../../../../react-native/android")
+]
+def reactNativeExists = reactNativePaths.any { it.exists() }
+def isReactNativeProject = reactNativeExists || project.hasProperty('reactNativeProject')
+def reactNativePluginApplied = false
+
+if (isReactNativeProject) {
+    try {
+        apply plugin: 'com.facebook.react'
+        reactNativePluginApplied = true
+        
+        // 플러그인이 깊이가 다른 package.json을 찾도록 강제 지정
+        react {
+            libraryName = "RNTurboImagePickerSpec"
+            root = file("../../")
+            jsRootDir = file("../../src")
+        }
+        
+        println "React Native plugin applied successfully"
+    } catch (Exception e) {
+        // React Native plugin not available - this is normal for standalone builds
+        println "Note: React Native plugin not available (standalone build mode): ${e.message}"
+        reactNativePluginApplied = false
+    }
+}
+
+def reactNativeArchitectures() {
+  def value = project.getProperties().get("reactNativeArchitectures")
+  return value ? value.split(",") : ["armeabi-v7a", "x86", "x86_64", "arm64-v8a"]
+}
+
+def getReactNativeMinorVersion() {
+  def rnVersion = project.properties['REACT_NATIVE_VERSION'] ?: System.getenv("REACT_NATIVE_VERSION")
+  if (rnVersion) {
+    def versions = rnVersion.split("\\.")
+    if (versions.length >= 2) {
+      return versions[1].toInteger()
+    }
+  }
+  return 73 // Default to 0.73
+}
+
+android {
+  namespace "com.rnturboimagepicker"
+  compileSdkVersion 34
+
+  buildFeatures {
+    buildConfig true
+  }
+
+  defaultConfig {
+    minSdkVersion 24
+    targetSdkVersion 34
+    versionCode 1
+    versionName "1.0.0"
+    buildConfigField "boolean", "IS_NEW_ARCHITECTURE_ENABLED", "${project.hasProperty('newArchEnabled') && project.newArchEnabled == 'true'}"
+    buildConfigField "int", "REACT_NATIVE_MINOR_VERSION", getReactNativeMinorVersion().toString()
+    
+    externalNativeBuild {
+      cmake {
+        cppFlags "-O2 -frtti -fexceptions -Wall -fstack-protector-all"
+        arguments "-DANDROID_STL=c++_shared"
+      }
+    }
+  }
+
+  externalNativeBuild {
+    cmake {
+      path "CMakeLists.txt"
+    }
+  }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+        }
+    }
+
+  lintOptions {
+    disable 'GradleCompatible'
+  }
+
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_17
+    targetCompatibility JavaVersion.VERSION_17
+  }
+
+  kotlinOptions {
+    jvmTarget = "17"
+  }
+
+  sourceSets {
+    main {
+      java {
+        // Conditionally include React Native architecture-specific sources
+        // Only include React Native sources if plugin was successfully applied
+        if (reactNativePluginApplied) {
+          // Check if New Architecture is enabled
+          def newArchEnabled = project.hasProperty("newArchEnabled") && project.newArchEnabled == "true"
+          
+          if (newArchEnabled) {
+            // New Architecture enabled - use Turbo Modules
+            println("📦 RNTurboImagePicker: Building with New Architecture (Turbo Modules) ✨")
+            srcDirs = [
+              "src/main/java",  // Pure Android files
+              "src/newarch"     // Turbo Module files
+            ]
+          } else {
+            // Old Architecture - use Legacy Native Modules
+            println("📦 RNTurboImagePicker: Building with Legacy Native Module support (Old Architecture)")
+            srcDirs = [
+              "src/main/java",  // Pure Android files
+              "src/oldarch"     // React Native module files
+            ]
+          }
+        } else {
+          // Standalone build - only include pure Android files from src/main/java
+          println("📦 RNTurboImagePicker: Building in standalone mode (no React Native dependencies)")
+          srcDirs = [
+            "src/main/java"  // Only pure Android files (React Native files excluded)
+          ]
+        }
+      }
+    }
+  }
+}
+
+repositories {
+  mavenCentral()
+  google()
+  maven {
+    url "https://www.jitpack.io"
+  }
+  // React Native repositories - only add if React Native is available
+  if (isReactNativeProject) {
+    // Find the actual React Native path
+    def foundPath = reactNativePaths.find { it.exists() }
+    if (foundPath) {
+      maven {
+        // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
+        url foundPath.absolutePath
+      }
+      // Try to add JSC repository in the same relative location
+      def jscPath = new File(foundPath.parentFile, "jsc-android/dist")
+      if (jscPath.exists()) {
+        maven {
+          url jscPath.absolutePath
+        }
+      }
+    }
+  }
+}
+
+configurations.all {
+    resolutionStrategy {
+        // Force specific versions to avoid conflicts
+        force(
+            "org.jetbrains.kotlin:kotlin-stdlib:1.9.0",
+            "org.jetbrains.kotlin:kotlin-stdlib-common:1.9.0",
+            "androidx.core:core-ktx:1.12.0",
+            "androidx.core:core:1.12.0",
+            "androidx.appcompat:appcompat:1.6.1",
+            "androidx.activity:activity-ktx:1.8.2",
+            "androidx.activity:activity:1.8.2",
+            "androidx.fragment:fragment-ktx:1.6.2",
+            "androidx.fragment:fragment:1.6.2",
+            "androidx.annotation:annotation:1.6.0",
+            "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3",
+            "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3"
+        )
+        // Allow React Native dependency to fail gracefully in standalone builds
+        eachDependency { DependencyResolveDetails details ->
+            if (details.requested.group == 'com.facebook.react' && details.requested.name == 'react-native') {
+                // Try to resolve, but don't fail if unavailable
+            }
+        }
+    }
+}
+
+dependencies {
+  // React Native dependency - conditionally added
+  // Only add if React Native plugin was successfully applied
+  // Note: In standalone builds, this will be skipped, which is acceptable
+  // The host React Native app will provide this dependency at runtime
+  if (reactNativePluginApplied) {
+    // We're in a React Native project context and plugin is available
+    compileOnly 'com.facebook.react:react-native:+'
+    println "React Native dependency added"
+  } else {
+    // Standalone build - React Native not available
+    println "Standalone build: React Native dependency skipped."
+  }
+  
+  // Kotlin
+  implementation "org.jetbrains.kotlin:kotlin-stdlib:1.9.0"
+  implementation "androidx.core:core-ktx:1.12.0"
+  implementation "androidx.appcompat:appcompat:1.6.1"
+  
+  // Photo picker and media
+  implementation "androidx.activity:activity-ktx:1.8.2"
+  implementation "androidx.fragment:fragment-ktx:1.6.2"
+  
+  // Coroutines for async operations
+  implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3"
+  implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3"
+  
+  // Material Design Components for Bottom Sheet
+  implementation "com.google.android.material:material:1.11.0"
+  
+  // RecyclerView for image grid
+  implementation "androidx.recyclerview:recyclerview:1.3.2"
+  
+  // CardView for grid items
+  implementation "androidx.cardview:cardview:1.0.0"
+  
+  // CoordinatorLayout for Bottom Sheet
+  implementation "androidx.coordinatorlayout:coordinatorlayout:1.2.0"
+  
+  // Glide for image loading
+  implementation "com.github.bumptech.glide:glide:4.16.0"
+  implementation "com.github.bumptech.glide:recyclerview-integration:4.16.0"
+  
+  // CameraX for live preview
+  def camerax_version = "1.3.0"
+  implementation "androidx.camera:camera-core:${camerax_version}"
+  implementation "androidx.camera:camera-camera2:${camerax_version}"
+  implementation "androidx.camera:camera-lifecycle:${camerax_version}"
+  implementation "androidx.camera:camera-view:${camerax_version}"
+  
+  // Exif interface for correct image rotation with Glide
+  implementation "androidx.exifinterface:exifinterface:1.3.7"
+}

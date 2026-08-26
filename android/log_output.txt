@@ -1,0 +1,1291 @@
+--------- beginning of main
+05-11 18:37:24.020 11844 11878 I MediaCodec: setCodecState state(0), called in 6, domain 1, 0
+05-11 18:37:24.021  1733  2221 I SemMediaResourceHelper: onState
+05-11 18:37:24.021  3751  3751 I SemMediaResourceHelper: onState
+05-11 18:37:24.021  1733  2221 I DrmMediaResourceHelper: onStateChanged size = 1
+05-11 18:37:24.021  1733  2221 I DrmMediaResourceHelper: resource type: 2,,,isSecured :  falseIsEncoder : truegetCodecState : 0getpid : 11844
+05-11 18:37:24.039  1733  4244 D SemWifiUsabilityStatsMonitor: onWifiUsabilityStats - seqNum 54186, isSameBssidAndFreq true
+05-11 18:37:24.042  2492  2564 D Tile.WifiTile: handleUpdateState isTransient=false transientEnabling =false cb.isTransient=false state.state = 2 mStateBeforeClick.value =false enabled =true
+--------- beginning of system
+05-11 18:37:24.075  1733  3333 D FreecessController: com.sec.android.gallery3d(10120) is important[2]
+05-11 18:37:24.076  1447  2157 D NativeSemDvfsManager: acquire:: timeout = 2000 mIsAcquired = 1  mTagName : SurfaceFlinger 
+05-11 18:37:24.076  1447  2157 E NativeCustomFrequencyManager: [NativeCFMS] BpCustomFrequencyManager::acquire()
+05-11 18:37:24.076  1354  1381 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 2996128  [1447 / 1000]    HINT : SF_GPU_MINLOCK    list : [TIMEOUT / 2000] 
+05-11 18:37:24.082 11844 11878 I MediaCodec: setCodecState state(1), called in 6, domain 1, 0
+05-11 18:37:24.083  3751  3751 I SemMediaResourceHelper: onState
+05-11 18:37:24.083  1733  2221 I SemMediaResourceHelper: onState
+05-11 18:37:24.083  1733  2221 I DrmMediaResourceHelper: onStateChanged size = 1
+05-11 18:37:24.083  1733  2221 I DrmMediaResourceHelper: resource type: 2,,,isSecured :  falseIsEncoder : truegetCodecState : 1getpid : 11844
+05-11 18:37:24.091  1447  1545 I VSyncReactor: Current= 60, Period= 60, hwcPeriod= 60
+05-11 18:37:24.105  3751  3751 I SDHMS:LOAD: type: LoadsFreqs, value: 0:3:5:633099:1248000:533000:701740:1456000:533000:31:312:0
+05-11 18:37:24.176  3035  5081 I id.app.launcher: Explicit concurrent copying GC freed 1520KB AllocSpace bytes, 3(56KB) LOS objects, 66% free, 16MB/50MB, paused 221us,63us total 262.595ms
+05-11 18:37:24.179  3035  3042 W id.app.launcher: ApkAssets: Deleting an ApkAssets object '<empty> and /data/app/~~vqWNMoS9LPOAf0HQ-fnqdQ==/com.sec.android.app.clockpackage-CHVua4AOjk_Z7qNoUjubvg==/base.apk' with 1 weak references
+05-11 18:37:24.181  3035  3042 W id.app.launcher: ApkAssets: Deleting an ApkAssets object '<empty> and /data/app/~~fwTLjGdNMgB8elyWVK-PiQ==/com.rnturboimagepicker.app-u5S4gp6y9jyDL3jUFyQ9Uw==/base.apk' with 1 weak references
+05-11 18:37:24.182  3035  3042 W id.app.launcher: ApkAssets: Deleting an ApkAssets object '<empty> and /data/app/~~NIT9CzUuxc6tGZpnLSH7yA==/com.samsung.android.app.spage-sV38-_39WQbqHSY4kQsPfw==/base.apk' with 1 weak references
+05-11 18:37:24.185  3035 32448 I HoneySpace.Memory-Monitor: trimMemory 20
+05-11 18:37:24.192 11473  8999 D ImuFileWriter: File rolled & ready: 495_gyro_1778492204197.csv → 495_gyro_1778492204197.csv.gz (8KB)
+05-11 18:37:24.195 11473  8999 D ImuFileWriter: New gyro file opened: 495_gyro_1778492244193.csv (encrypted: true)
+05-11 18:37:24.221  1733  4422 D InputDispatcher: Inject motion (9001/2000): action=0x0, time=1068117191000000, f=0x0, d=0 dsdx=1.000000 dtdx=0.000000
+05-11 18:37:24.222  1733  2060 I InputDispatcher: Delivering touch to (2492): action: 0x4, f=0x0, d=0, 'b90dca4', t=1 
+05-11 18:37:24.222  1733  2060 I InputDispatcher: Canceling stream: last source was MOUSE and new event is MotionEvent
+05-11 18:37:24.222  1733  2060 I InputDispatcher: Canceling pointers for device -1 in 7849c97 StatusBar (server) with event MotionEvent
+05-11 18:37:24.223  1733  2060 W InputDispatcher: channel 7849c97 StatusBar (server)~ dropping inconsistent event: DispatchEntry{resolvedFlags=0, targetFlags=0x0, transform=transform (ROT_0) (IDENTITY)
+05-11 18:37:24.223  1733  2060 W InputDispatcher: } original: MotionEvent
+05-11 18:37:24.223  1733  2060 I InputDispatcher: Delivering touch to (2492): action: 0xa, f=0x0, d=0, '7849c97', t=3 
+05-11 18:37:24.223  1733  2060 W InputDispatcher: channel [Gesture Monitor] PalmMotion (server)~ dropping inconsistent event: DispatchEntry{resolvedFlags=0, targetFlags=0x0, transform=transform (ROT_0) (IDENTITY)
+05-11 18:37:24.223  1733  2060 W InputDispatcher: } original: MotionEvent
+05-11 18:37:24.223  1733  2060 I InputDispatcher: Delivering touch to (8564): action: 0x0, f=0x0, d=0, '51d6c7d', t=1 
+05-11 18:37:24.223  1733  2060 D PowerManagerService: [api] userActivityFromNative : touch displayId=0 eventTime=1068117191
+05-11 18:37:24.223  1733  2060 D PowerManagerService: UserActivityStateListenerState: 1
+05-11 18:37:24.224  8564  8564 I VRI[MainActivity]@cab8262: ViewPostIme pointer 0
+05-11 18:37:24.224  1447  1447 I LayerHistory: StatusBar$_2492#101 Max (can't resolve refresh rate)
+05-11 18:37:24.224  1447  1447 I SurfaceFlinger: Touch Boost - choose 120.00 Hz
+05-11 18:37:24.224  1447  1447 I HWComposer: [4633128672291735937] ActiveConfigToHWC, ID : 0
+05-11 18:37:24.224  1733  1813 I GestureDetector: obtain mCurrentDownEvent. id: -649800603 caller: com.android.server.wm.SystemGesturesPointerEventListener.onPointerEvent:17 com.android.server.wm.PointerEventDispatcher.onInputEvent:51 android.view.InputEventReceiver.dispatchInputEvent:385 
+05-11 18:37:24.225  1333  1414 I display : Set Affinity config for fps(120) : 0, cpuIDs : 255
+05-11 18:37:24.225  1333  1414 I display : Set Affinity CPU ID : 0
+05-11 18:37:24.225  1333  1414 I display : Set Affinity CPU ID : 1
+05-11 18:37:24.225  1333  1414 I display : Set Affinity CPU ID : 2
+05-11 18:37:24.225  1333  1414 I display : Set Affinity CPU ID : 3
+05-11 18:37:24.225  1333  1414 I display : Set Affinity CPU ID : 4
+05-11 18:37:24.225  1333  1414 I display : Set Affinity CPU ID : 5
+05-11 18:37:24.225  1733  1813 I GestureDetector: obtain mCurrentDownEvent. id: -649800603 caller: com.android.server.wm.SystemPerformancePointerEventListener.onPointerEvent:13 com.android.server.wm.PointerEventDispatcher.onInputEvent:51 android.view.InputEventReceiver.dispatchInputEvent:385 
+05-11 18:37:24.225  1333  1414 I display : Set Affinity CPU ID : 6
+05-11 18:37:24.225  1333  1414 I display : Set Affinity CPU ID : 7
+05-11 18:37:24.225  1333  1414 I display : Set affinity HWC : 1333
+05-11 18:37:24.225  1333  1414 I display : CPU set : Cluster(0), min_clock(0)
+05-11 18:37:24.225  1333  1414 I display : CPU set : Cluster(1), min_clock(0)
+05-11 18:37:24.225  1333  1414 I display : CPU set : Cluster(2), min_clock(0)
+05-11 18:37:24.225  1447  1545 I VSyncReactor: Current= 60, Period= 120, hwcPeriod= 60
+05-11 18:37:24.225  8564  8564 I VRI[MainActivity]@cab8262: call setFrameRateCategory for touch hint category=high hint, reason=touch, vri=VRI[MainActivity]@cab8262
+05-11 18:37:24.226  1733  4422 D InputDispatcher: Inject motion (9001/2000): action=0x1, time=1068117191000000, f=0x0, d=0 dsdx=1.000000 dtdx=0.000000
+05-11 18:37:24.226  1733  2060 I InputDispatcher: Delivering touch to (8564): action: 0x1, f=0x0, d=0, '51d6c7d', t=1 
+05-11 18:37:24.226  8564  8564 I VRI[MainActivity]@cab8262: ViewPostIme pointer 1
+05-11 18:37:24.227  1733  1813 I GestureDetector: obtain mCurrentMotionEventRaw. action: 1 id: -832941173
+05-11 18:37:24.227  1733  1813 I GestureDetector: obtain mCurrentMotionEventRaw. action: 1 id: -832941173
+05-11 18:37:24.231 11473  9016 D ImuFileWriter: File rolled & ready: 495_gravity_1778492204236.csv → 495_gravity_1778492204236.csv.gz (26KB)
+05-11 18:37:24.233  1447  1447 I SurfaceFlinger: [com.rnturboimagepicker.app/com.rnturboimagepicker.app.MainActivity$_8564#40462] setFrameRateCategory: HighHint
+05-11 18:37:24.233  1733  1816 D LocalDisplayAdapter: updateActiveModeLocked for d=4633128672291735937, mActiveModeId=1, mActiveSfDisplayMode=DisplayMode{id=0, width=1080, height=2400, xDpi=422.03, yDpi=423.333, peakRefreshRate=120.00001, vsyncRate=120.00001, appVsyncOffsetNanos=0, presentationDeadlineNanos=9333333, supportedHdrTypes=[2, 3, 4], group=0}
+05-11 18:37:24.233  1733  1816 I DisplayDeviceRepository: Display device changed render timings: "기본으로 제공되는 화면", renderFrameRate=120.00001, presentationDeadlineNanos=9333333, appVsyncOffsetNanos=0
+05-11 18:37:24.234 11473  9016 D ImuFileWriter: New gravity file opened: 495_gravity_1778492244231.csv (encrypted: true)
+05-11 18:37:24.235  1733  1914 D BrightnessThermalClamper: Thermal status observer already started
+05-11 18:37:24.235  1733  1733 D SGM:GameManager: onDisplayChanged. displyId: 0, state: 2
+05-11 18:37:24.236  1733  1733 D MotionRecognitionService: [DisplayListener] getRefreshRate 120.00001
+05-11 18:37:24.236  1733  1733 D AODManagerService: requestReCalToTSP IsSingleTouchMode = falserequestedReCalToTSP = false / previousDisplayState = ON
+05-11 18:37:24.236  1733  2081 D SGM:FgCheckThread: onLooperPrepared(), msg: MSG_LCD_ON
+05-11 18:37:24.236  1733  5862 D LiftUpHandler: [LTW] Stopped already.
+05-11 18:37:24.236  1435  5449 D AudioFlinger: setParameters: filtered dev setParameters keyvalue screen_state=on
+05-11 18:37:24.236  1733  2221 D MotionRecognitionService: Inject RefreshRate: 120
+05-11 18:37:24.236  1733  2221 D SensorService: setSContextDataLocked ints length 3 , byte length 8
+05-11 18:37:24.236  1321  1362 D audio_hw_primary: device-adev_set_parameters: enter
+05-11 18:37:24.236  1733  2221 D SensorService: setSContextDataLocked 100048c1
+05-11 18:37:24.236  1321  1362 I audio_hw_primary: device-adev_set_parameters: Screen State = on)
+05-11 18:37:24.236  1321  1362 I audio_hw_proxy2: proxy-proxy_set_parameters: set Screen-state 1
+05-11 18:37:24.236  1321  1362 D audio_hw_primary: device-adev_set_parameters: param (screen_state=on)
+05-11 18:37:24.236  1321  1362 I audio_hw_primary_odm: odm_adev_set_parameters: enter with key(screen_state=on)
+05-11 18:37:24.236  1321  1362 V audio_hw_primary: device-adev_set_parameters: exit (screen_state=on)
+05-11 18:37:24.236  1348  1348 D Sensors : c1 48 00 10 78 00 00 00  
+05-11 18:37:24.236  1348  1348 E Sensors : inject_scontext_data: New ssp_data_injection_fd(44)
+05-11 18:37:24.237  1321  1362 I Audio_a2dpsink_hw: adev_set_parameters: kevpairs=[screen_state=on]
+05-11 18:37:24.238  1733  1816 D RefreshRateModeManager: updateDefaultDisplayToken: android.os.BinderProxy@9c60ced, isChanged: false
+05-11 18:37:24.238  3035  3035 I VRI[LauncherActivity]@6bec86c: onDisplayChanged oldDisplayState=2 newDisplayState=2
+05-11 18:37:24.239  3035 32448 I HoneySpace.Memory-Monitor: current state = 2, didTrim = false
+05-11 18:37:24.239  6209  6209 I VRI[InputMethod]@12430fa: onDisplayChanged oldDisplayState=2 newDisplayState=2
+05-11 18:37:24.239  8564  8564 I VRI[MainActivity]@cab8262: onDisplayChanged oldDisplayState=2 newDisplayState=2
+05-11 18:37:24.239  2492  2564 D StackScroller: onDisplayChanged for predraw skip to 2
+05-11 18:37:24.240  2492  2547 I VRI[ShellDropTarget]@3c33d45: onDisplayChanged oldDisplayState=2 newDisplayState=2
+05-11 18:37:24.240  2492  2492 D DisplayLifecycle: updateDisplay id = 0
+05-11 18:37:24.240  1348  1348 D Sensors : SContext Data Injection return 8
+05-11 18:37:24.241  1333  1407 I display : doDisplayConfigPostProcess needSetActiveConfig is true - mDesiredConfig: 0
+05-11 18:37:24.241  1333  1407 I display : setActiveConfig(config=0)
+05-11 18:37:24.241  1333  1407 I display : next config(0): width=1080 height=2400 period=8333333 Xdpi=422030 Ydpi=423333 groupId=0
+05-11 18:37:24.241  1333  1407 I display : Current VRR MODE is 1
+05-11 18:37:24.241  2492  2492 I VRI[LockscreenShortcutBlur]@2e72967: onDisplayChanged oldDisplayState=2 newDisplayState=2
+05-11 18:37:24.241  1447  1545 I VSyncReactor: Current= 60, Period= 120, hwcPeriod= 60
+05-11 18:37:24.241  2492  2492 I VRI[NavigationBar0]@d2dc3c8: onDisplayChanged oldDisplayState=2 newDisplayState=2
+05-11 18:37:24.241  2492  2492 I VRI[NotificationShade]@e330e9c: onDisplayChanged oldDisplayState=2 newDisplayState=2
+05-11 18:37:24.241  2492  2492 I VRI[StatusBar]@e258f5d: onDisplayChanged oldDisplayState=2 newDisplayState=2
+05-11 18:37:24.241  2492  2492 I VRI[Bouncer]@c91d142: onDisplayChanged oldDisplayState=2 newDisplayState=2
+05-11 18:37:24.242  3035 32448 I HoneySpace.RefreshRateSource: singleFrameMs 8
+05-11 18:37:24.243  3035  3035 I VRI[RecentsTransitionOverlay]@39442e4: onDisplayChanged oldDisplayState=2 newDisplayState=2
+05-11 18:37:24.243  3035  3035 I VRI[CocktailBarService]@b501f02: onDisplayChanged oldDisplayState=2 newDisplayState=2
+05-11 18:37:24.243  3035  3035 I VRI[RecentsActivity]@a5f5a58: onDisplayChanged oldDisplayState=2 newDisplayState=2
+05-11 18:37:24.244  1733  2555 D WifiDisplayAdapter: isFitToActiveDisplayLocked : false
+05-11 18:37:24.257  1333  1407 I display : config 16666666, desired 8333333
+05-11 18:37:24.258  1447  1545 I VSyncReactor: Current= 60, Period= 120, hwcPeriod= 60
+05-11 18:37:24.274  1447  1545 I VSyncReactor: Current= 60, Period= 120, hwcPeriod= 120
+05-11 18:37:24.524  1733  1813 I GestureDetector: handleMessage TAP
+05-11 18:37:24.525  1733  1733 I GestureDetector: handleMessage TAP
+05-11 18:37:24.527  1657 11891 D BufferPoolAccessor2.0: bufferpool2 0xb4000075f52e1e08 : 2(6000 size) total buffers - 1(3000 size) used buffers - 779695/779702 (recycle/alloc) - 31/779700 (fetch/transfer)
+05-11 18:37:24.609 24418 24418 D BoundBrokerSvc: onUnbind: Intent { act=com.google.android.gms.onboardingconsent.api.ConsentManagerApiService.START dat=chimera-action:/... cmp=com.google.android.gms/.chimera.GmsApiService }
+05-11 18:37:24.615  1733  2392 I ActivityManager: Changes in 10110 5 to 10, 56 to 0
+05-11 18:37:24.618  1435  5449 V APM_AudioPolicyManager: setAppState(portId:238, state:2)
+05-11 18:37:24.626  1435  5449 V APM_AudioPolicyManager: setAppState(portId:238, state:2)
+05-11 18:37:24.724   672   672 D io_stats: !@   8,0 r 28518952 865004600 w 9436953 166002844 d 3092435 374152336 f 0 0 iot 18867752 0 th 0 0 0 pt 0 inp 0 0 1068117.696
+05-11 18:37:24.770  2664 28164 D IpClient/wlan0: interfaceLinkStateChanged: ifindex 23 up
+05-11 18:37:24.867  1447  1447 I LayerHistory: com.rnturboimagepicker.app/com.rnturboimagepicker.app.MainActivity$_8564#40462 Max (can't resolve refresh rate)
+05-11 18:37:24.867  1447  1447 I LayerHistory: StatusBar$_2492#101 Max (can't resolve refresh rate)
+05-11 18:37:24.867  1447  1447 I SurfaceFlinger: Idle - choose 60.00 Hz
+05-11 18:37:24.868  1447  1447 I HWComposer: [4633128672291735937] ActiveConfigToHWC, ID : 2
+05-11 18:37:24.868  1333  1414 I display : Set Affinity config for fps(60) : 2, cpuIDs : 255
+05-11 18:37:24.868  1333  1414 I display : Set Affinity CPU ID : 0
+05-11 18:37:24.868  1333  1414 I display : Set Affinity CPU ID : 1
+05-11 18:37:24.868  1333  1414 I display : Set Affinity CPU ID : 2
+05-11 18:37:24.868  1333  1414 I display : Set Affinity CPU ID : 3
+05-11 18:37:24.868  1333  1414 I display : Set Affinity CPU ID : 4
+05-11 18:37:24.868  1333  1414 I display : Set Affinity CPU ID : 5
+05-11 18:37:24.868  1333  1414 I display : Set Affinity CPU ID : 6
+05-11 18:37:24.868  1333  1414 I display : Set Affinity CPU ID : 7
+05-11 18:37:24.868  1333  1414 I display : Set affinity HWC : 1333
+05-11 18:37:24.868  1333  1414 I display : CPU set : Cluster(0), min_clock(0)
+05-11 18:37:24.868  1333  1414 I display : CPU set : Cluster(1), min_clock(0)
+05-11 18:37:24.868  1333  1414 I display : CPU set : Cluster(2), min_clock(0)
+05-11 18:37:24.869  1447  1545 I VSyncReactor: Current= 120, Period= 60, hwcPeriod= 120
+05-11 18:37:24.875  1333  1407 I display : doDisplayConfigPostProcess needSetActiveConfig is true - mDesiredConfig: 2
+05-11 18:37:24.875  1333  1407 I display : setActiveConfig(config=2)
+05-11 18:37:24.875  1333  1407 I display : next config(2): width=1080 height=2400 period=16666666 Xdpi=422030 Ydpi=423333 groupId=0
+05-11 18:37:24.875  1333  1407 I display : Current VRR MODE is 1
+05-11 18:37:24.875  1447  1545 I VSyncReactor: Current= 120, Period= 60, hwcPeriod= 120
+05-11 18:37:24.883  1447  1545 I VSyncReactor: Current= 120, Period= 60, hwcPeriod= 60
+05-11 18:37:25.583  1733  4007 D CustomizedBinderCallsStatsInternal: reportCpuUsage() : 1%
+05-11 18:37:25.584  1733  1837 I BinderCallsStats: Collected cpu time : 0us, collected call count : 0 for 556402509 ms
+05-11 18:37:25.765  1733  2351 D WifiConnectivityMonitor.NetworkStatsAnalyzer: Backhaul result - RSSI:-48, CE:6, PE:7, TI:15, PTI:16, TW:0, PTW:0, Tx:17, Rx:17, TxS:1, RxS:0, RESULT:true, IC:0, ICT:5, WC:0, WCT:5, R:1, RC:1, IE:0, EC:0
+05-11 18:37:26.077  1354  8996 I HYPER-HAL: [RequestManager.cpp]releaseLocked(): Released ID : 2996128
+05-11 18:37:26.320  1733  2392 D InputDispatcher: Inject motion (9048/2000): action=0x0, time=1068119292000000, f=0x0, d=0 dsdx=1.000000 dtdx=0.000000
+05-11 18:37:26.321  1733  2060 I InputDispatcher: Delivering touch to (2492): action: 0x4, f=0x0, d=0, 'b90dca4', t=1 
+05-11 18:37:26.321  1733  2060 I InputDispatcher: Delivering touch to (8564): action: 0x0, f=0x0, d=0, '51d6c7d', t=1 
+05-11 18:37:26.321  1733  2060 D PowerManagerService: [api] userActivityFromNative : touch displayId=0 eventTime=1068119292
+05-11 18:37:26.323  8564  8564 I VRI[MainActivity]@cab8262: ViewPostIme pointer 0
+05-11 18:37:26.326  1733  1813 I GestureDetector: obtain mCurrentDownEvent. id: -196521594 caller: com.android.server.wm.SystemGesturesPointerEventListener.onPointerEvent:17 com.android.server.wm.PointerEventDispatcher.onInputEvent:51 android.view.InputEventReceiver.dispatchInputEvent:385 
+05-11 18:37:26.326  1733  1813 I GestureDetector: obtain mCurrentDownEvent. id: -196521594 caller: com.android.server.wm.SystemPerformancePointerEventListener.onPointerEvent:13 com.android.server.wm.PointerEventDispatcher.onInputEvent:51 android.view.InputEventReceiver.dispatchInputEvent:385 
+05-11 18:37:26.329  1733  4032 I InputMethodManagerService: isInputMethodShown: isShown=false
+05-11 18:37:26.330  1733  2392 D InputDispatcher: Inject motion (9048/2000): action=0x1, time=1068119292000000, f=0x0, d=0 dsdx=1.000000 dtdx=0.000000
+05-11 18:37:26.331  1733  2060 I InputDispatcher: Delivering touch to (8564): action: 0x1, f=0x0, d=0, '51d6c7d', t=1 
+05-11 18:37:26.331  8564  8564 I VRI[MainActivity]@cab8262: ViewPostIme pointer 1
+05-11 18:37:26.331  1733  1813 I GestureDetector: obtain mCurrentMotionEventRaw. action: 1 id: -930544864
+05-11 18:37:26.332  1733  1813 I GestureDetector: obtain mCurrentMotionEventRaw. action: 1 id: -930544864
+05-11 18:37:26.333  1447  1447 I SurfaceFlinger: SFWD update time=1068119305511167
+05-11 18:37:26.335  1447  1447 I SurfaceFlinger: Touch Boost - choose 120.00 Hz
+05-11 18:37:26.337  1447  1447 I HWComposer: [4633128672291735937] ActiveConfigToHWC, ID : 0
+05-11 18:37:26.337  1333  1414 I display : Set Affinity config for fps(120) : 0, cpuIDs : 255
+05-11 18:37:26.337  1333  1414 I display : Set Affinity CPU ID : 0
+05-11 18:37:26.337  1333  1414 I display : Set Affinity CPU ID : 1
+05-11 18:37:26.337  1333  1414 I display : Set Affinity CPU ID : 2
+05-11 18:37:26.337  1333  1414 I display : Set Affinity CPU ID : 3
+05-11 18:37:26.337  1333  1414 I display : Set Affinity CPU ID : 4
+05-11 18:37:26.337  1333  1414 I display : Set Affinity CPU ID : 5
+05-11 18:37:26.337  1333  1414 I display : Set Affinity CPU ID : 6
+05-11 18:37:26.337  1333  1414 I display : Set Affinity CPU ID : 7
+05-11 18:37:26.337  1333  1414 I display : Set affinity HWC : 1333
+05-11 18:37:26.337  1333  1414 I display : CPU set : Cluster(0), min_clock(0)
+05-11 18:37:26.338  1333  1414 I display : CPU set : Cluster(1), min_clock(0)
+05-11 18:37:26.338  1333  1414 I display : CPU set : Cluster(2), min_clock(0)
+05-11 18:37:26.339  1733  4007 V AutofillSession: Primary service component name: ComponentInfo{com.samsung.android.samsungpassautofill/com.samsung.android.samsungpassautofill.AutofillServiceMain}, secondary service component name: ComponentInfo{com.android.credentialmanager/com.samsung.android.credentialmanager.autofill.SecCredentialAutofillService}
+05-11 18:37:26.341  1733  4007 V SecondaryProviderHandler: Creating a secondary provider handler with component name, ComponentInfo{com.android.credentialmanager/com.samsung.android.credentialmanager.autofill.SecCredentialAutofillService}
+05-11 18:37:26.341  1447  2157 D NativeSemDvfsManager: acquire:: timeout = 2000 mIsAcquired = 1  mTagName : SurfaceFlinger 
+05-11 18:37:26.342  1447  2157 E NativeCustomFrequencyManager: [NativeCFMS] BpCustomFrequencyManager::acquire()
+05-11 18:37:26.342  1354  1381 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 2996128  [1447 / 1000]    HINT : SF_GPU_MINLOCK    list : [TIMEOUT / 2000] 
+05-11 18:37:26.343  1333  1407 I display : doDisplayConfigPostProcess needSetActiveConfig is true - mDesiredConfig: 0
+05-11 18:37:26.343  1333  1407 I display : setActiveConfig(config=0)
+05-11 18:37:26.343  1333  1407 I display : next config(0): width=1080 height=2400 period=8333333 Xdpi=422030 Ydpi=423333 groupId=0
+05-11 18:37:26.343  1333  1407 I display : Current VRR MODE is 1
+05-11 18:37:26.344  1447  1545 I VSyncReactor: Current= 60, Period= 120, hwcPeriod= 60
+05-11 18:37:26.348  8564  8564 D InputMethodManagerUtils: startInputInner - Id : 0
+05-11 18:37:26.348  8564  8564 I InputMethodManager: startInputInner - IInputMethodManagerGlobalInvoker.startInputOrWindowGainedFocus
+05-11 18:37:26.351  8564  8564 I InputMethodManager_LC: showSoftInput(View,I)
+05-11 18:37:26.352  8564  8564 I ImeTracker: com.rnturboimagepicker.app:6a9cae04: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser true
+05-11 18:37:26.353  8564  8564 I InputMethodManager_LC: ssi(): flags=0 view=com.rnturboimagepicker.app reason=SHOW_SOFT_INPUT
+05-11 18:37:26.353  8564  8564 D InputMethodManager: showSoftInput() view=androidx.appcompat.widget.AppCompatEditText{1b5e2ea VFED..CL. .F.P..ID 0,61-438,187 #7f08012f app:id/inputMaxWidth aid=1073741828} flags=0 reason=SHOW_SOFT_INPUT
+05-11 18:37:26.354  6209  6209 I HBD     : HoneyBoardService onViewClicked 
+05-11 18:37:26.355  6209  6931 I SemDvfsHyPerManager: acquire hyper - SKBD_RE_ENTER_SHOW/6209@1, type = -999
+05-11 18:37:26.353  1733  2075 V InputMethodManagerService: startInputOrWindowGainedFocusInternalLocked: reason=CHECK_FOCUS clientState=b5c7021 editorInfo=android.view.inputmethod.EditorInfo@98e2ef4 startInputFlags=VIEW_HAS_FOCUS|IS_TEXT_EDITOR|INITIAL_CONNECTION softInputMode=STATE_UNSPECIFIED|ADJUST_RESIZE windowFlags=#81810100 sameWindowFocused=true
+05-11 18:37:26.355  1733  2075 D InputMethodManagerService: setWindowStateInner, windowToken=android.os.BinderProxy@fff32d4, state=ImeTargetWindowState{ imeToken null imeFocusChanged false hasEditorFocused true requestedImeVisible false imeDisplayId 0 softInputModeState STATE_UNSPECIFIED|ADJUST_RESIZE isStartInputByGainFocus false}
+05-11 18:37:26.355  1733  2075 D InputMethodManagerService: DESKTOP MODE! : 2
+05-11 18:37:26.355  1733  2075 D InputMethodManagerService: NOT IN KNOX DESKTOP MODE!
+05-11 18:37:26.355  1733  2075 V InputMethodManagerService: semComputeImeDisplayIdForTarget: displayId=0
+05-11 18:37:26.356  1354  1381 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 19285156  [6209 / 1]    HINT : KBD_APP_RE_ENTER_VIEW    list : [TIMEOUT / 400] 
+05-11 18:37:26.356  1733  2075 D InputMethodManagerService: isImeSwitcherDisabledPackage : false
+05-11 18:37:26.356  1354  1381 I HYPER-HAL: [ResourceManager.cpp]updateResource(): [CPUMinFreq] UpdateResource Request ID : 19285156    Value : 2288000
+05-11 18:37:26.357  1733  2075 D InputMethodManagerService: checkDisplayOfStartInputAndUpdateKeyboard: displayId=0, mFocusedDisplayId=0
+05-11 18:37:26.357  1733  2075 D InputTransport: Input channel constructed: 'ClientS', fd=1234
+05-11 18:37:26.358  1733  2075 D InputTransport: Input channel destroyed: 'ClientS', fd=1234
+05-11 18:37:26.358  8564  8780 D InputTransport: Input channel constructed: 'ClientS', fd=142
+05-11 18:37:26.358  1733  2075 V InputMethodManagerService: Client requesting input be shown, flags : 0
+05-11 18:37:26.358  1733  2075 D InputMethodManagerService: ACCESS_CONTROL_ENABLED = false, ACCESS_CONTROL_KEYBOARD_BLOCK = true
+05-11 18:37:26.358  1733  2075 D InputMethodManagerService: setWindowStateInner, windowToken=android.os.BinderProxy@fff32d4, state=ImeTargetWindowState{ imeToken android.os.Binder@5d42092 imeFocusChanged false hasEditorFocused true requestedImeVisible true imeDisplayId 0 softInputModeState STATE_UNSPECIFIED|ADJUST_RESIZE isStartInputByGainFocus false}
+05-11 18:37:26.359  1333  1407 I display : config 16666666, desired 8333333
+05-11 18:37:26.360  1733  2075 D InputMethodBindingController: bindCurrentInputMethodService: caller=com.android.server.inputmethod.InputMethodBindingController.bindCurrentInputMethodService:20 com.android.server.inputmethod.InputMethodManagerService.showCurrentInputLocked:130 com.android.server.inputmethod.InputMethodManagerService.showSoftInput:150 com.android.server.inputmethod.ZeroJankProxy$$ExternalSyntheticLambda11.get:24 java.util.concurrent.CompletableFuture$AsyncSupply.run:1744 com.android.server.inputmethod.ZeroJankProxy$$ExternalSyntheticLambda13.run:12 android.os.Handler.handleCallback:959 android.os.Handler.dispatchMessage:100 android.os.Looper.loopOnce:257 android.os.Looper.loop:342 
+05-11 18:37:26.360  1447  1545 I VSyncReactor: Current= 60, Period= 120, hwcPeriod= 60
+05-11 18:37:26.365  1733  2075 I ActivityManager: Changes in 10196 7 to 5, 0 to 127
+05-11 18:37:26.366  1593  2003 I CameraService: onUidStateChanged: uid=10196, procState is changed. (7 -> 5)
+05-11 18:37:26.366  1733  2075 V InputMethodManagerService: Calling com.android.server.inputmethod.IInputMethodInvoker@2b03d06.showSoftInput(android.os.BinderProxy@fff32d4, 1, null) for reason: SHOW_SOFT_INPUT
+05-11 18:37:26.367  1435  5449 V APM_AudioPolicyManager: setAppState(portId:238, state:2)
+05-11 18:37:26.367 19210 20126 I ejla    : (REDACTED) HDM. appOpsListener %s %s
+05-11 18:37:26.368 19210 20126 I ejla    : (REDACTED) HDM. Ignoring irrelevant audio permission changes for package %s
+05-11 18:37:26.370  6209  6209 I HBD     : HoneyBoardService [PF_OP][onViewClicked]  14 ms 
+05-11 18:37:26.370  6209  6209 I HBD     : HoneyBoardService onFinishInput 
+05-11 18:37:26.371  6209  6209 I HBD     : a IC have been unbinding,  RemoteInputConnection{idHash=#26bc97}
+05-11 18:37:26.371  6209  6209 I HBD     : HoneyBoardService [PF_CL][onFinishInput]  1 ms 
+05-11 18:37:26.371  6209  6209 I HBD     : HoneyBoardService onInlineSuggestionsResponse 
+05-11 18:37:26.371  1733  4007 I InputMethodManagerService: isInputMethodShown: isShown=false
+05-11 18:37:26.372  6209  6209 I HBD     : HoneyBoardService onCreateInlineSuggestionsRequest 
+05-11 18:37:26.375  6209  6209 I HBD     : HoneyBoardService [IMI] onStartInput - caller pid : 8564 , caller uid : 11679 
+05-11 18:37:26.375  6209  6209 I HBD     : t updateConfigs 
+05-11 18:37:26.375  6209  6209 I HBD     : t isEnabledNightMode : true 
+05-11 18:37:26.375  6209  6209 I HBD     : a IC have been binding, RemoteInputConnection{idHash=#4f00420} 
+05-11 18:37:26.375  6209  6209 I HBD     : g [EditorInputType]setPrivateImeOptionsToTable privateImeOptions ( null )
+05-11 18:37:26.375  6209  6209 I HBD     : b incognitoMode : false 
+05-11 18:37:26.375  6209  6209 I HBD     : b [CPS]isPredictionOnByLanguage :false, isForceOff : false, isPredictionOn : true , isOnPref : true 
+05-11 18:37:26.375  6209  6209 I HBD     : g getDefaultInputRange : UNKNOWN 
+05-11 18:37:26.375  6209  6209 I HBD     : g getDefaultInputRange : UNKNOWN 
+05-11 18:37:26.375  6209  6209 I HBD     : g getDefaultInputRange : UNKNOWN 
+05-11 18:37:26.376  6209  6209 I HBD     : b update cached prediction status : true 
+05-11 18:37:26.376  6209  6209 I HBD     : g getDefaultInputRange : UNKNOWN 
+05-11 18:37:26.376  6209  6209 I HBD     : g getDefaultInputRange : UNKNOWN 
+05-11 18:37:26.376  6209  6209 I HBD     : a currentState : 0 
+05-11 18:37:26.376  1447  1545 I VSyncReactor: Current= 60, Period= 120, hwcPeriod= 120
+05-11 18:37:26.378  6209  6209 I HBD     : E EBD ssu s 0 
+05-11 18:37:26.379  6209  6209 I HBD     : a [UpdatePolicy] [post] a: 0 cl: 4521984 kit: [1/0] vt: 0 ir: 2 
+05-11 18:37:26.383  8564  8564 I AssistStructure: Flattened final assist data: 4976 bytes, containing 1 windows, 28 views
+05-11 18:37:26.384  1733  4007 D AutofillSession: createPendingIntent for request 782
+05-11 18:37:26.385  1733  4007 D ContentCapturePerUserService: Notified activity assist data for activity: Token{2f2b251 ActivityRecord{724f9ea u0 com.rnturboimagepicker.app/.MainActivity t535}} without a session Id
+05-11 18:37:26.386  6209  6209 I HBD     : a [NRIC] resetNoResponseState 
+05-11 18:37:26.386  6209  6209 I HBD     : b update cached prediction status : true 
+05-11 18:37:26.386  6209  6209 I HBD     : c [AiWriter] setContact : com.rnturboimagepicker.app
+05-11 18:37:26.386  6209  6209 I HBD     : HoneyBoardService [PF_OP][onStartInput]  11 ms 
+05-11 18:37:26.388  1733  1733 V GrammaticalInflectionUtils: AttributionSource: AttributionSource { uid = 10173, packageName = null, attributionTag = null, token = android.os.Binder@2ba4914, deviceId = 0, next = null } does not have READ_SYSTEM_GRAMMATICAL_GENDER permission.
+05-11 18:37:26.389  6209  6209 I InputMethod: showSoftInput(): flags=1
+05-11 18:37:26.390  1733  4007 I InputMethodManagerService: isAccessoryKeyboard 0
+05-11 18:37:26.390  6209  6209 I HBD     : HoneyBoardService onEvaluateInputViewShown: true 
+05-11 18:37:26.393  1733  4007 I InputMethodManagerService: isAccessoryKeyboard 0
+05-11 18:37:26.393  6209  6209 I HBD     : HoneyBoardService onEvaluateInputViewShown: true 
+05-11 18:37:26.393  6209  6209 I HBD     : HoneyBoardService onStartInputView : restarting=false, client=com.rnturboimagepicker.app, pid=8564 
+05-11 18:37:26.393  6209  6209 I HBD     : g [EditorInputType]setPrivateImeOptionsToTable privateImeOptions ( null )
+05-11 18:37:26.393  6209  6209 I HBD     : b incognitoMode : false 
+05-11 18:37:26.393  6209  6209 I HBD     : g getDefaultInputRange : UNKNOWN 
+05-11 18:37:26.393  6209  6209 I HBD     : g getDefaultInputRange : UNKNOWN 
+05-11 18:37:26.393  6209  6209 I HBD     : g getDefaultInputRange : UNKNOWN 
+05-11 18:37:26.393  6209  6209 I HBD     : HoneyBoardService onStartInputViewInternal: inputType=0x2, imeOptions=0x5, initialSelStart=0, initialSelEnd=0 
+05-11 18:37:26.393  6209  6209 I HBD     : e applyThemesPolicy 
+05-11 18:37:26.394  6209  6209 I HBD     : d mIsGalaxyTheme = false mIsDexDesktopDisplay : false IsRequiredDarkTypeTheme = true night mode : true mIsEnabledHighContrast = false mIsOpenThemeForHoneyBoardInstalled = false mIsWallpaperThemeInstalled = false mIsThemeParkTheme = false
+05-11 18:37:26.394  6209  6209 I HBD     : a theme : Dark mode and no theme park 
+05-11 18:37:26.394  6209  6209 I HBD     : e required dark type theme, isCoverDisplayTheme :  false
+05-11 18:37:26.395  6209  6209 I HBD     : e update KeyboardTheme themeIndex : 0x 12000000  theme :  키패드 있고 어둡게
+05-11 18:37:26.395  6209  6209 I HBD     : a set Theme convertedIndex : 4 
+05-11 18:37:26.395  6209  6209 I HBD     : a onThemeChanged: currTheme = 4, nextTheme = 4 
+05-11 18:37:26.396  6209  6209 I HBD     : e onUpdate: mThemeStyle = 4 
+05-11 18:37:26.396  6209  6209 I HBD     : b updatePredictionStatus : 1, editorOpt 
+05-11 18:37:26.396  6209  6209 I HBD     : b updateForEditorClass isPredictionOn = false 
+05-11 18:37:26.397  6209  6209 I HBD     : E EBD ssu s 0 
+05-11 18:37:26.397  6209  6209 I HBD     : a [UpdatePolicy] [post] a: 1 cl: 4521984 kit: [1/0] vt: 0 ir: 2 
+05-11 18:37:26.397  1733  4007 D KNOX_MDM_SettingsProvider: isChangeAllowed() : name = enabled_input_methods
+05-11 18:37:26.398  1733  4007 D KNOX_MDM_SettingsProvider: edmUri: content://com.sec.knox.provider/RestrictionPolicy3
+05-11 18:37:26.398  1733  4007 D KNOX_MDM_SettingsProvider: projectionArgs: isSettingsChangesAllowed
+05-11 18:37:26.398  1733  4007 D KNOX_MDM_SettingsProvider: selectionArgs: false
+05-11 18:37:26.398  1733  4007 D KNOX_MDM_SettingsProvider: selectionArgs: 10196
+05-11 18:37:26.398  1733  4007 D SecContentProvider: query(), uri = 17 selection = isSettingsChangesAllowed
+05-11 18:37:26.398  1733  4007 D SecContentProvider: called from android.uid.honeyboard:10196
+05-11 18:37:26.398  1733  4007 D RestrictionPolicy: isSettingsChangesAllowedAsUser, userId 0 : true
+05-11 18:37:26.398  1733  4007 D KNOX_MDM_SettingsProvider: ret = 1
+05-11 18:37:26.398  1733  4007 D KNOX_MDM_SettingsProvider: isChangeAllowed() : name = default_input_method
+05-11 18:37:26.398  1733  4007 D KNOX_MDM_SettingsProvider: edmUri: content://com.sec.knox.provider/RestrictionPolicy3
+05-11 18:37:26.398  1733  4007 D KNOX_MDM_SettingsProvider: projectionArgs: isSettingsChangesAllowed
+05-11 18:37:26.398  1733  4007 D KNOX_MDM_SettingsProvider: selectionArgs: false
+05-11 18:37:26.398  1733  4007 D KNOX_MDM_SettingsProvider: selectionArgs: 10196
+05-11 18:37:26.398  1733  4007 D SecContentProvider: query(), uri = 17 selection = isSettingsChangesAllowed
+05-11 18:37:26.398  1733  4007 D SecContentProvider: called from android.uid.honeyboard:10196
+05-11 18:37:26.399  6209  6209 I HBD     : b update cached prediction status : true 
+05-11 18:37:26.399  1733  4007 D RestrictionPolicy: isSettingsChangesAllowedAsUser, userId 0 : true
+05-11 18:37:26.399  1733  4007 D KNOX_MDM_SettingsProvider: ret = 1
+05-11 18:37:26.399  1360 11912 D BufferPoolAccessor2.0: bufferpool2 0xb40000746cc06b28 : 6(23329536 size) total buffers - 5(19441280 size) used buffers - 55704/56071 (recycle/alloc) - 8092/56065 (fetch/transfer)
+05-11 18:37:26.399  6209 28751 I HBD     : p updated Sub Types. Korean 
+05-11 18:37:26.400  6209  6209 I HBD     : e [SKE_TAM] Changed false
+05-11 18:37:26.400  6209  6209 I HBD     : b update cached prediction status : true 
+05-11 18:37:26.401  6209  9063 I HBD     : a InputMethodSubtype is set as local:ko 
+05-11 18:37:26.405  1308  1308 D Zygote  : Forked child process 9067
+05-11 18:37:26.407  1733  1839 I ActivityManager: Start proc 9067:com.samsung.android.samsungpassautofill/u0a173 for service {com.samsung.android.samsungpassautofill/com.samsung.android.samsungpassautofill.AutofillServiceMain}
+05-11 18:37:26.408  6209  6209 I HBD     : a updateMultiTapTimeValue 
+05-11 18:37:26.408  1733  1733 I InputMethodManagerService: subtype state: oldSubtype = android.view.inputmethod.InputMethodSubtype@450000 newSubtype = android.view.inputmethod.InputMethodSubtype@450000 force = false, intent received : false
+05-11 18:37:26.409  6209  9068 I HBD     : a [HBIC] requestCursorUpdates 2 
+05-11 18:37:26.409  6209  6209 I HBD     : a getMultiTapTimeoutValue 
+05-11 18:37:26.409  6209  6209 I HBD     : a getSingleVowelMultiTapTimeoutValue 
+05-11 18:37:26.410  6209  9068 I HBD     : b requestCursorUpdates returned  true ,  1
+05-11 18:37:26.412  6209  9065 I HBD     : a refresh(), mParameterMode,  0
+05-11 18:37:26.414  6209  9065 I HBD     : a setMorphemePerformanceParameter 
+05-11 18:37:26.414  6209  9065 I HBD     : a [AiWriter] setContact : com.rnturboimagepicker.app
+05-11 18:37:26.420  9067  9067 I ungpassautofill: Using CollectorTypeCC GC.
+05-11 18:37:26.435  6209  6209 I HBD     : a onBind 
+05-11 18:37:26.435  6209  6209 I HBD     : b updateConfigForInvalidate:  [EditorEnterActionItem] 0x5* / 
+05-11 18:37:26.435  6209  6209 I HBD     : b updateConfig: [LanguageItem] Korean / [KeyboardViewTypeItem] 0 / [KeyboardInputTypeItem] mainType(1), subType(0)* / [CurrentLanguageInputTypeItem] mainType(0), subType(0) / [KeyboardInputRangeItem] 2* / [SelectedLanguageItem] 3 / [TextOrNullInputClassItem] false* / [NumberOnlyInputTypeItem] true* / [NumberInputClassItem] true* / [DigitEditorItem] true* / [NumberKeyFirstLineItem] true /  
+05-11 18:37:26.435  6209  6209 I HBD     : b updateConfig: [SpaceRowStyleCmItem] true / [SpaceRowStylePeriodItem] true / [SpaceRowStyleEmailURLPeriodItem] true / [SpaceRowStyleEmailURLDotComItem] true / [SpaceRowStyleEmailURLPeriodItem] true / [SpaceRowStyleEmailURLDotComItem] true* / [SpaceRowStyleJapaneseArrowItem] true / [SpaceRowStyleJapanesePeriodItem] true / [TouchAndHoldSpaceBarTypeItem] cursor_control / [UseToolBarItem] true / [VoiceInputTypeItem] 1 /  
+05-11 18:37:26.435  6209  6209 I HBD     : b updateConfig: [DensityItem] 3.0 / [DisplayWidthItem] 1080 / [DisplayHeightItem] 2400 / [MainTextLabelItem] 1 / [LanguageSwitchingUsingKeyItem] true / [VoiceEnabledItem] false* / [PredictionStatusItem] true / [EditorEnterActionItem] -1 /  
+05-11 18:37:26.435  6209  6209 I HBD     : f updateKeyboardViewHolder: MAKE NEW E: false CC: true UC: true 
+05-11 18:37:26.438  1435  5449 V APM_AudioPolicyManager: setAppState(portId:238, state:2)
+05-11 18:37:26.445  6209  6209 I HBD     : d [NormalPresenterLocator] processLocateKeyboard: isUseCached(false), isUseKeysCafe(false) 
+05-11 18:37:26.463  6209  6209 I HBD     : d [PF_OP][updateKeyboardViewHolder]  28 ms 
+05-11 18:37:26.463  6209  6209 I HBD     : h [PF_OP][onStartInputViewActivate]  0 ms 
+05-11 18:37:26.463  6209  6209 I HBD     : MultiModalSwitcher onStartInputView 
+05-11 18:37:26.464  2492  2492 D NavigationBarControllerImpl: setNavigationBarShortcut requestClass : com.samsung.android.honeyboard, remoteViews : null, position : 0, priority : 12
+05-11 18:37:26.465  2492  2492 D RemoteViewPack: OnSetRemoteView RemoteViewShortcut(requestClass=com.samsung.android.honeyboard, remoteViews=null, position=0, priority=12)
+05-11 18:37:26.465  2492  2492 D NavBarStateManager: NavBarStates(0) isGameMode: false
+05-11 18:37:26.465  2492  2492 D Navbar.Store: ----handleEvent(0) OnUpdateRemoteViewContainer(rotation=0, leftContainer=android.widget.LinearLayout{e658f0d I.E...... ......ID 0,0-118,144 #7f0a0624 app:id/left_remoteview}, rightContainer=android.widget.LinearLayout{3e20ec2 I.E...... ......I. 962,0-1080,144 #7f0a09df app:id/right_remoteview}, contextualButtonVisible=false, darkIntensity=0.0, displayId=0) [Module] SamsungNavigationBarView
+05-11 18:37:26.465  2492  2492 D Navbar.Store: ------[Band]REMOTE_VIEW_PACK_SET_REMOTEVIEW_CONTAINER
+05-11 18:37:26.466  2492  2492 D Navbar.Store: --------apply(0) NavBarStoreAction$UpdateRemoteViewContainer
+05-11 18:37:26.466  2492  2492 D Navbar.Store: --------apply(0) NavBarStoreAction$UpdateRemoteViewDarkIntensity
+05-11 18:37:26.470  6209  6209 I HBD     : a color = [r : 1], [g : 1], [b : 2], [alpha : 255], rgb = -16711422, isDark = true 
+05-11 18:37:26.471  6209  6209 I HBD     : a color = [r : 1], [g : 1], [b : 2], [alpha : 255], rgb = -16711422, isDark = true 
+05-11 18:37:26.472  6209  6209 I HBD     : a color = [r : 1], [g : 1], [b : 2], [alpha : 255], rgb = -16711422, isDark = true 
+05-11 18:37:26.473  2492  2492 D NavigationBarControllerImpl: setNavigationBarShortcut requestClass : com.samsung.android.honeyboard, remoteViews : null, position : 0, priority : 12
+05-11 18:37:26.473  2492  2492 D RemoteViewPack: OnSetRemoteView RemoteViewShortcut(requestClass=com.samsung.android.honeyboard, remoteViews=null, position=0, priority=12)
+05-11 18:37:26.473  2492  2492 D NavBarStateManager: NavBarStates(0) isGameMode: false
+05-11 18:37:26.473  2492  2492 D Navbar.Store: ----handleEvent(0) OnUpdateRemoteViewContainer(rotation=0, leftContainer=android.widget.LinearLayout{e658f0d I.E...... ......ID 0,0-118,144 #7f0a0624 app:id/left_remoteview}, rightContainer=android.widget.LinearLayout{3e20ec2 I.E...... ......I. 962,0-1080,144 #7f0a09df app:id/right_remoteview}, contextualButtonVisible=false, darkIntensity=0.0, displayId=0) [Module] SamsungNavigationBarView
+05-11 18:37:26.473  2492  2492 D Navbar.Store: ------[Band]REMOTE_VIEW_PACK_SET_REMOTEVIEW_CONTAINER
+05-11 18:37:26.473  2492  2492 D Navbar.Store: --------apply(0) NavBarStoreAction$UpdateRemoteViewContainer
+05-11 18:37:26.473  2492  2492 D Navbar.Store: --------apply(0) NavBarStoreAction$UpdateRemoteViewDarkIntensity
+05-11 18:37:26.476  6209  6209 I HBD     : HoneyBoardService [PF_OP][onStartInputView]  83 ms 
+05-11 18:37:26.476  1733  2392 D InputMethodManagerService: isImeSwitcherDisabledPackage : false
+05-11 18:37:26.476  1733  2392 I InputMethodManagerService: setImeWindowStatus: vis=3, backDisposition=0
+05-11 18:37:26.477  2492  2492 D NavigationBarControllerImpl: setNavigationBarShortcut requestClass : com.samsung.android.honeyboard, remoteViews : android.widget.RemoteViews@19e53ac, position : 0, priority : 12
+05-11 18:37:26.477  2492  2492 D RemoteViewPack: OnSetRemoteView RemoteViewShortcut(requestClass=com.samsung.android.honeyboard, remoteViews=android.widget.RemoteViews@19e53ac, position=0, priority=12)
+05-11 18:37:26.477  1733  9082 I SemInputMotionHelper: setMotionControl: ALL: 11, client=com.samsung.android.hardware.secinputdev.SemInputDeviceManager, ret=-1
+05-11 18:37:26.477  1733  9082 D SemInputDeviceManager: setProperty: (100) CMD,SIP,1
+05-11 18:37:26.478  1733  9082 I SemInputCommandService: setPropertyAllTouch: SIP,1 retDefault=1 retExtra=-2
+05-11 18:37:26.478  1733  9082 D TspStateManager: wrote command: cmd=1, type=5
+05-11 18:37:26.478  1733  2071 D SemInputDevice:TSP: SetPropertyTask: CMD,set_sip_mode,1 [05-11 18:37:26.477]
+05-11 18:37:26.478  1733  9083 D SemInputDeviceManager: setProperty: (0) CMD,GRIP_DATA,1,18,24,7,1374,24,1881
+05-11 18:37:26.478  1733  9083 D TspStateManager: wrote command: cmd=1,18,24,7,1374,24,1881, type=1
+05-11 18:37:26.478  6209  6209 I HBD     : HoneyBoardService onWindowShown 
+05-11 18:37:26.478  6209  6209 I HBD     : HoneyBoardService [PF_OP][onWindowShown]  0 ms 
+05-11 18:37:26.479  1733  2392 D InputMethodManagerService: notifyUserActivity: canceled, displayId=0
+05-11 18:37:26.479  1733  2392 V InputMethodManagerService: applyImeVisibility state=1
+05-11 18:37:26.479  6209  6209 I HBD     : c IIFO[r:d2f6495720][type:finish] 
+05-11 18:37:26.479  1408  1408 I sysinput:Touch: writeInformation:249, OK
+05-11 18:37:26.479  1733  2071 D SysinputHAL_V1_3(V1_2): runTspCmdNoRead(TSP(1)): set_sip_mode,1 ret=0
+05-11 18:37:26.480  1733  2071 D SemInputDevice:TSP: SetPropertyTask: CMD,set_grip_data,1,18,24,7,1374,24,1881 [05-11 18:37:26.478]
+05-11 18:37:26.480  1733  4032 D InputMethodManagerService: isImeSwitcherDisabledPackage : false
+05-11 18:37:26.480  1733  4032 I InputMethodManagerService: setImeWindowStatus: vis=3, backDisposition=0
+05-11 18:37:26.480  3751  9085 I N0      : limitCPUFreq:: freq = -1
+05-11 18:37:26.481  1354  1381 I HYPER-HAL: [ResourceManager.cpp]removeResource(): [CPUMaxFreq] RemoveResource Request ID : 7044383
+05-11 18:37:26.481  6209  6209 I HBD     : h [SKE_LM] disableTags : id:en_US
+05-11 18:37:26.481  6209  6209 I HBD     : h [SKE_LM] disableTags : id:ar_SA
+05-11 18:37:26.481  6209  6209 I HBD     : h [SKE_LM] enable notTaggedWith:id:en_US, id:ar_SA, emoji
+05-11 18:37:26.483  1354  1381 I HYPER-HAL: [RequestManager.cpp]releaseLocked(): Released ID : 7044383
+05-11 18:37:26.484  1408  1408 I sysinput:Touch: writeInformation:249, OK
+05-11 18:37:26.484  1733  2071 D SysinputHAL_V1_3(V1_2): runTspCmdNoRead(TSP(1)): set_grip_data,1,18,24,7,1374,24,1881 ret=0
+05-11 18:37:26.485  2492  2492 D NavBarStateManager: NavBarStates(0) isGameMode: false
+05-11 18:37:26.485  2492  2492 D Navbar.Store: ----handleEvent(0) OnUpdateRemoteViewContainer(rotation=0, leftContainer=android.widget.LinearLayout{e658f0d V.E...... ......ID 0,0-118,144 #7f0a0624 app:id/left_remoteview}, rightContainer=android.widget.LinearLayout{3e20ec2 I.E...... ......I. 962,0-1080,144 #7f0a09df app:id/right_remoteview}, contextualButtonVisible=false, darkIntensity=0.0, displayId=0) [Module] SamsungNavigationBarView
+05-11 18:37:26.485  2492  2492 D Navbar.Store: ------[Band]REMOTE_VIEW_PACK_SET_REMOTEVIEW_CONTAINER
+05-11 18:37:26.485  2492  2492 D Navbar.Store: --------apply(0) NavBarStoreAction$UpdateRemoteViewContainer
+05-11 18:37:26.485  2492  2492 D Navbar.Store: --------apply(0) NavBarStoreAction$UpdateRemoteViewDarkIntensity
+05-11 18:37:26.487  2492  2492 D NavigationBar: setImeWindowStatus displayId=0 vis=3 backDisposition=0 showImeSwitcher=false imeShown=true
+05-11 18:37:26.488  2492  2492 D Navbar.Store: handleEvent(0) OnNavBarIconHintChanged(iconHint=3) [Module] NavigationBar
+05-11 18:37:26.488  2492  2492 D Navbar.Store: --[Band]SETUPWIZARD_PACK_SET_NAVBAR_ICON_HINT
+05-11 18:37:26.488  2492  2492 D Navbar.Store: --[Band]VIS_PACK_REEVAULATE_NAVBAR
+05-11 18:37:26.488  2492  2492 D Navbar.Store: ----apply(0) NavBarStoreAction$ReevaluateNavBar
+05-11 18:37:26.491  2492  2492 D Navbar.Store: ----handleEvent(0) OnUpdateRemoteViewContainer(rotation=0, leftContainer=android.widget.LinearLayout{e658f0d V.E...... ......ID 0,0-118,144 #7f0a0624 app:id/left_remoteview}, rightContainer=android.widget.LinearLayout{3e20ec2 I.E...... ......I. 962,0-1080,144 #7f0a09df app:id/right_remoteview}, contextualButtonVisible=false, darkIntensity=0.0, displayId=0) [Module] SamsungNavigationBarView
+05-11 18:37:26.491  2492  2492 D Navbar.Store: ------[Band]REMOTE_VIEW_PACK_SET_REMOTEVIEW_CONTAINER
+05-11 18:37:26.491  2492  2492 D Navbar.Store: --------apply(0) NavBarStoreAction$UpdateRemoteViewContainer
+05-11 18:37:26.491  2492  2492 D Navbar.Store: --------apply(0) NavBarStoreAction$UpdateRemoteViewDarkIntensity
+05-11 18:37:26.491  2492  2492 D NavBarView: disableBack=false (useAltBack=true, handlingGestures=false, disabledFlagBack=false, isBottomGesture=false, isImeRenderingNavButtons=false)
+05-11 18:37:26.492  2492  2492 D NavBarStateManager: NavBarStates(0) canShowKeyboardButtonForRotation(0): true
+05-11 18:37:26.492  2492  2492 D Navbar.Store: handleEvent(0) OnUpdateSysUiStateFlag(noArguments=true) [Module] SamsungNavigationBarView
+05-11 18:37:26.492  2492  2492 D Navbar.Store: --[Band]GESTURE_PACK_UPDATE_SYSTEMUI_STATE_FLAG
+05-11 18:37:26.492  2492  2492 D Navbar.Store: --[Band] (afterAction) GESTURE_PACK_UPDATE_SYSTEMUI_STATE_FLAG
+05-11 18:37:26.492  2492  2492 D SysUiState: SysUiState changed: old=0x10020000 new=0x10060000
+05-11 18:37:26.493  3035 32449 I HoneySpace.SystemUiRepository: systemUiFlags: allow_gesture|ime_visible|awake
+05-11 18:37:26.493  2492  2492 D NavBarStateManager: NavBarStates(0) canUseNavBarBackgroundFrame: false
+05-11 18:37:26.494  3035  3093 I HoneySpace.TaskbarEventTracker: invokeEvent() called with: event = SystemUiStateChanged(stateFlags=268828672)
+05-11 18:37:26.494  2492  2492 D NavigationBarControllerImpl: setNavigationBarShortcut requestClass : com.android.wm.shell.controlpanel.activity.FlexPanelActivity, remoteViews : null, position : 0, priority : 11
+05-11 18:37:26.494  2492  2492 D RemoteViewPack: OnSetRemoteView RemoteViewShortcut(requestClass=com.android.wm.shell.controlpanel.activity.FlexPanelActivity, remoteViews=null, position=0, priority=11)
+05-11 18:37:26.494  2492  2492 D NavBarStateManager: NavBarStates(0) isGameMode: false
+05-11 18:37:26.494  2492  2492 D Navbar.Store: ----handleEvent(0) OnUpdateRemoteViewContainer(rotation=0, leftContainer=android.widget.LinearLayout{e658f0d V.E...... ........ 0,0-118,144 #7f0a0624 app:id/left_remoteview}, rightContainer=android.widget.LinearLayout{3e20ec2 I.E...... ......I. 962,0-1080,144 #7f0a09df app:id/right_remoteview}, contextualButtonVisible=false, darkIntensity=0.0, displayId=0) [Module] SamsungNavigationBarView
+05-11 18:37:26.494  2492  2492 D Navbar.Store: ------[Band]REMOTE_VIEW_PACK_SET_REMOTEVIEW_CONTAINER
+05-11 18:37:26.494  2492  2492 D Navbar.Store: --------apply(0) NavBarStoreAction$UpdateRemoteViewContainer
+05-11 18:37:26.494  2492  2492 D Navbar.Store: --------apply(0) NavBarStoreAction$UpdateRemoteViewDarkIntensity
+05-11 18:37:26.501  6209  6209 I HBD     : h [SKE_LM] disableTags : id:en_US
+05-11 18:37:26.501  6209  6209 I HBD     : h [SKE_LM] disableTags : id:ar_SA
+05-11 18:37:26.501  6209  6209 I HBD     : h [SKE_LM] enable notTaggedWith:id:en_US, id:ar_SA, emoji
+05-11 18:37:26.501  6209  6209 W HBD     : d1 Engine Sync Finished by onStartInputView, check InputKey timing 
+05-11 18:37:26.502  2492  2492 D NavBarStateManager: NavBarStates(0) canUseNavBarBackgroundFrame: false
+05-11 18:37:26.502  6209  6209 I HBD     : C [EmojiCandidate] getEmoji from EmojiCore-[0]
+05-11 18:37:26.502  6209  6209 I HBD     : Z [SCV] (6) 1 1 1 1 1 1 
+05-11 18:37:26.502  6209  6209 I HBD     : E EBD si S 1 
+05-11 18:37:26.506  9067  9067 I SamsungAnalytics605079: Tracker start:6.05.079
+05-11 18:37:26.507  9067  9067 I DIAGMON_SDK[605079]: DiagMonAgent type: 2
+05-11 18:37:26.507  9067  9067 I DIAGMON_SDK[605079][r7xeailczv] : generated SR object
+05-11 18:37:26.509  9067  9087 I SamsungAnalytics605079: Initialize delete api call counting
+05-11 18:37:26.509  1733  4032 V WindowManager: Relayout Window{80c82d5 u0 InputMethod}: viewVisibility=0 req=1080x2320 ty=2011 d0
+05-11 18:37:26.510  1447  1707 I Layer   : InputSurface is created [InputMethod$_6209#40468]
+05-11 18:37:26.510  1447  1707 I SurfaceFlinger: id=40468 createSurf, flag=44004, InputMethod$_6209#40468
+05-11 18:37:26.510  1733  4032 D WindowManager: makeSurface duration=1 name=InputMethod$_6209
+05-11 18:37:26.513  2492  2492 I VRI[StatusBar]@e258f5d: handleResized, frames=ClientWindowFrames{frame=[0,0][1080,80] display=[0,0][1080,2400] parentFrame=[0,0][0,0]} displayId=0 dragResizing=false compatScale=1.0 frameChanged=false attachedFrameChanged=false configChanged=false displayChanged=false compatScaleChanged=false dragResizingChanged=false
+05-11 18:37:26.513  2492  2492 I VRI[NavigationBar0]@d2dc3c8: handleResized, frames=ClientWindowFrames{frame=[0,2256][1080,2400] display=[0,0][1080,2400] parentFrame=[0,0][0,0]} displayId=0 dragResizing=false compatScale=1.0 frameChanged=false attachedFrameChanged=false configChanged=false displayChanged=false compatScaleChanged=false dragResizingChanged=false
+05-11 18:37:26.513  3035  3035 I VRI[CocktailBarService]@b501f02: handleResized, frames=ClientWindowFrames{frame=[1013,481][1080,823] display=[0,0][1080,2400] parentFrame=[0,0][0,0]} displayId=0 dragResizing=false compatScale=1.0 frameChanged=false attachedFrameChanged=false configChanged=false displayChanged=false compatScaleChanged=false dragResizingChanged=false
+05-11 18:37:26.515  8564  8564 I InsetsController: onStateChanged: host=com.rnturboimagepicker.app/com.rnturboimagepicker.app.MainActivity, from=android.view.ViewRootImpl.handleResized:2789, state=InsetsState: {mDisplayFrame=Rect(0, 0 - 1080, 2400), mDisplayCutout=DisplayCutout{insets=Rect(0, 80 - 0, 0) waterfall=Insets{left=0, top=0, right=0, bottom=0} boundingRect={Bounds=[Rect(0, 0 - 0, 0), Rect(510, 0 - 570, 80), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]} cutoutPathParserInfo={CutoutPathParserInfo{displayWidth=1080 displayHeight=2400 physicalDisplayWidth=1080 physicalDisplayHeight=2400 density={3.0} cutoutSpec={M 0,0 H -10 V 26.66666666666667 H 10 V 0 H 0 Z @dp} rotation={0} scale={1.0} physicalPixelDisplaySizeRatio={1.0}}} sideOverrides={}}, mRoundedCorners=RoundedCorners{[RoundedCorner{position=TopLeft, radius=108, center=Point(108, 108)}, RoundedCorner{position=TopRight, radius=108, center=Point(972, 108)}, RoundedCorner{position=BottomRight, radius=108, center=Point(972, 2292)}, RoundedCorner{position=BottomLeft, radius=108, center=Point(108, 2292)}]}  mRoundedCornerFrame=Rect(0, 0 - 1080, 2400), mPrivacyIndicatorBounds=PrivacyIndicatorBounds {static bounds=Rect(948, 0 - 1080, 80) rotation=0}, mDisplayShape=DisplayShape{ spec=-311912193 displayWidth=1080 displayHeight=2400 physicalPixelDisplaySizeRatio=1.0 rotation=0 offsetX=0 offsetY=0 scale=1.0}, mSources= { InsetsSource: {95340000 mType=statusBars mFrame=[0,0][1080,80] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {95340005 mType=mandatorySystemGestures mFrame=[0,0][1080,116] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {95340006 mType=tappableElement mFrame=[0,0][1080,80] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {d1290001 mType=navigationBars mFrame=[0,2256][1080,2400] mVisible=true mFlags= mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {d1290004 mType=systemGestures mFrame=[0,0][0,0] mVisible=true mFlags= mSideHint=NONE mBoundingRects=null}, InsetsSource: {d1290005 mType=mandatorySystemGestures mFrame=[0,2256][1080,2400] mVisible=true mFlags= mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {d1290006 mType=tappableElement mFrame=[0,2256][1080,2400] mVisible=true mFlags= mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {d1290024 mType=systemGestures mFrame=[0,0][0,0] mVisible=true mFlags= mSideHint=NONE mBoundingRects=null}, InsetsSource: {3 mType=ime mFrame=[0,1374][1080,2400] mVisible=false mFlags= mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {27 mType=displayCutout mFrame=[0,0][1080,80] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null} }
+05-11 18:37:26.515  8564  8564 I VRI[MainActivity]@cab8262: handleResized, frames=ClientWindowFrames{frame=[0,0][1080,2400] display=[0,0][1080,2400] parentFrame=[0,0][0,0]} displayId=0 dragResizing=false compatScale=1.0 frameChanged=false attachedFrameChanged=false configChanged=false displayChanged=false compatScaleChanged=false dragResizingChanged=false
+05-11 18:37:26.515  1733  4032 V WindowManager: Relayout hash=80c82d5, pid=6209, syncId=-1: mAttrs={(0,0)(fillxfill) gr=BOTTOM CENTER_VERTICAL sim={adjust=pan} ty=INPUT_METHOD fmt=TRANSPARENT wanim=0x7f1401fc preferredMinDisplayRefreshRate=60.0 receive insets ignoring z-order
+05-11 18:37:26.515  1733  4032 V WindowManager:   fl=81800108
+05-11 18:37:26.515  1733  4032 V WindowManager:   pfl=10000000
+05-11 18:37:26.515  1733  4032 V WindowManager:   bhv=1
+05-11 18:37:26.515  1733  4032 V WindowManager:   fitTypes=3
+05-11 18:37:26.515  1733  4032 V WindowManager:   fitSides=7
+05-11 18:37:26.515  1733  4032 V WindowManager:   fitIgnoreVis
+05-11 18:37:26.515  1733  4032 V WindowManager:   frameRateBoostOnTouch=true
+05-11 18:37:26.515  1733  4032 V WindowManager:   dvrrWindowFrameRateHint=true
+05-11 18:37:26.515  1733  4032 V WindowManager:  dimAmount=0.18 dimDuration=150 naviIconColor=0}
+05-11 18:37:26.517  6209  6209 I BLASTBufferQueue_Java: new BLASTBufferQueue, mName= VRI[InputMethod]@12430fa mNativeObject= 0xb400007c03263450 sc.mNativeObject= 0xb400007ab3360b90 caller= android.view.ViewRootImpl.updateBlastSurfaceIfNeeded:3397 android.view.ViewRootImpl.relayoutWindow:11361 android.view.ViewRootImpl.performTraversals:4544 android.view.ViewRootImpl.doTraversal:3708 android.view.ViewRootImpl$TraversalRunnable.run:12542 android.view.Choreographer$CallbackRecord.run:1751 android.view.Choreographer$CallbackRecord.run:1760 android.view.Choreographer.doCallbacks:1216 android.view.Choreographer.doFrame:1142 android.view.Choreographer$FrameDisplayEventReceiver.run:1707 
+05-11 18:37:26.517  6209  6209 I BLASTBufferQueue_Java: update, w= 1080 h= 2320 mName = VRI[InputMethod]@12430fa mNativeObject= 0xb400007c03263450 sc.mNativeObject= 0xb400007ab3360b90 format= -2 caller= android.graphics.BLASTBufferQueue.<init>:88 android.view.ViewRootImpl.updateBlastSurfaceIfNeeded:3397 android.view.ViewRootImpl.relayoutWindow:11361 android.view.ViewRootImpl.performTraversals:4544 android.view.ViewRootImpl.doTraversal:3708 android.view.ViewRootImpl$TraversalRunnable.run:12542 
+05-11 18:37:26.517  9067  9067 I [PASS][SPAF]KidAppRestrictionManager: initialize - skipping: SDK version 35 is lower than BAKLAVA (36)
+05-11 18:37:26.517  1435  5449 V APM_AudioPolicyManager: setAppState(portId:238, state:2)
+05-11 18:37:26.517  1435  5449 V APM_AudioPolicyManager: setAppState(portId:238, state:2)
+05-11 18:37:26.518  6209  6209 I VRI[InputMethod]@12430fa: Relayout returned: old=(0,80,1080,2400) new=(0,80,1080,2400) relayoutAsync=false req=(1080,2320)0 dur=8 res=0x3 s={true 0xb400007c63683c70} ch=true seqId=0
+05-11 18:37:26.518  1447  1447 I SurfaceFlinger: [InputMethod$_6209#40468] attach to parent LayerHierarchy{RequestedLayerState{80c82d5 InputMethod#144 parentId=40467} 1 children}
+05-11 18:37:26.519  9067  9067 I [PASS][SPAF]AutofillService: onCreate: Service scope initialized
+05-11 18:37:26.527  1733  4032 V GrammaticalInflectionUtils: AttributionSource: AttributionSource { uid = 10122, packageName = null, attributionTag = null, token = android.os.Binder@2ba4914, deviceId = 0, next = null } does not have READ_SYSTEM_GRAMMATICAL_GENDER permission.
+05-11 18:37:26.533  6209  6209 I SemTspStateManager: setDeadZone() v2=null, v3=2.2%,0.69%,57.25%,2.22%,62.75%,0.69%,1.67%
+05-11 18:37:26.536  6209  6209 I HBD     : b Set dead zone & edge zone for SamsungIME deadzone_v3 :  2.2%,0.69%,57.25%,2.22%,62.75%,0.69%,1.67%
+05-11 18:37:26.536  6209  6209 I HBD     : g [PresenterContainerImpl] onFirstOnLayoutChanged: set touch listeners 
+05-11 18:37:26.536  6209  6209 I HBD     : g [PresenterContainerImpl] OnLayoutChangeListener: ViewInfo = pos(0, 0), size(1080, 750), posOnScreen(0, 1426), offset(0, 0), L 
+05-11 18:37:26.536  6209  6209 I HBD     : a [BoardScrapCreator] create: keyboardCount(1) 
+05-11 18:37:26.536  6209  6209 I HBD     : r0 updateChangedBoard - [LC:false][TC:true][RC:true][RB:false] 
+05-11 18:37:26.536  6209  6209 I HBD     : b update cached prediction status : true 
+05-11 18:37:26.536  6209  6209 I HBD     : e updateCurrentEngine,  4521984 ,  SWIFTKEY
+05-11 18:37:26.536  6209  6209 I HBD     : e [SKE_TAM] Changed false
+05-11 18:37:26.536  1733  9092 D SemInputDeviceManager: setProperty: (0) CMD,GRIP_DATA,1,18,24,7,1374,24,1506
+05-11 18:37:26.536  6209  6209 I HBD     : a [SKE_INPUT] updateKeys : 0 ms
+05-11 18:37:26.536  6209  6209 I HBD     : e [SKE_TAM] custom = false , useEngine = true
+05-11 18:37:26.537  1733  9092 D TspStateManager: wrote command: cmd=1,18,24,7,1374,24,1506, type=1
+05-11 18:37:26.537  1733  2071 D SemInputDevice:TSP: SetPropertyTask: CMD,set_grip_data,1,18,24,7,1374,24,1506 [05-11 18:37:26.536]
+05-11 18:37:26.537  6209  6209 I HBD     : e [SKE_TAM] Changed false
+05-11 18:37:26.537  6209  6209 W HBD     : c [SKE_KPM] kpmNotLoaded [false/true]
+05-11 18:37:26.537  6209  6209 I HBD     : h [SKE_LM] disableTags : id:en_US
+05-11 18:37:26.537  6209  6209 I HBD     : h [SKE_LM] disableTags : id:ar_SA
+05-11 18:37:26.537  6209  6209 I HBD     : h [SKE_LM] enable notTaggedWith:id:en_US, id:ar_SA, emoji
+05-11 18:37:26.537  6209  6209 I HBD     : a refresh(), mParameterMode,  0
+05-11 18:37:26.537  6209  6209 I HBD     : a setMorphemePerformanceParameter 
+05-11 18:37:26.537  1408  1408 I sysinput:Touch: writeInformation:249, OK
+05-11 18:37:26.537  6209  6209 I HBD     : c [PF_EN] updateChangedBoard() 1 
+05-11 18:37:26.537  1733  2071 D SysinputHAL_V1_3(V1_2): runTspCmdNoRead(TSP(1)): set_grip_data,1,18,24,7,1374,24,1506 ret=0
+05-11 18:37:26.538  6209  6209 I HBD     : C [EmojiCandidate] getEmoji from EmojiCore-[0]
+05-11 18:37:26.538  6209  6209 I HBD     : Z [SCV] (6) 1 1 1 1 1 1 
+05-11 18:37:26.538  6209  6209 I HBD     : E EBD bc S 1 
+05-11 18:37:26.538  1308  1308 D Zygote  : Forked child process 9095
+05-11 18:37:26.538  6209  6209 I HBD     : c TMST - update statistics 
+05-11 18:37:26.538  1733  1839 I ActivityManager: Start proc 9095:com.samsung.android.samsungpass/u0a122 for content provider {com.samsung.android.samsungpass/com.samsung.android.samsungpass.passservice.provider.SamsungPassProvider}
+05-11 18:37:26.539  6209  6209 I HBD     : d [PF_OP][OnLayoutChangeListener]  3 ms 
+05-11 18:37:26.540  6209  6209 I VRI[InputMethod]@12430fa: Creating new active sync group VRI[InputMethod]@12430fa#91
+05-11 18:37:26.540  1733  4032 D WindowManager: setInsetsWindow Window{80c82d5 u0 InputMethod}, contentInsets=Rect(0, 1294 - 0, 0) -> Rect(0, 1294 - 0, 0), visibleInsets=Rect(0, 1294 - 0, 0) -> Rect(0, 1294 - 0, 0), touchableRegion=SkRegion((0,1294,1080,2176)) -> SkRegion((0,1294,1080,2176)), touchableInsets 3 -> 3
+05-11 18:37:26.546  6209 20857 I VRI[InputMethod]@12430fa: mWNT: t=0xb400007b532c22d0 mBlastBufferQueue=0xb400007c03263450 fn= 1 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.ViewRootImpl$11.onFrameDraw:15016 android.view.ThreadedRenderer$1.onFrameDraw:761 <bottom of call stack> 
+05-11 18:37:26.546  6209 20857 I VRI[InputMethod]@12430fa: Setting up sync and frameCommitCallback
+05-11 18:37:26.550  9095  9095 I oid.samsungpass: Using CollectorTypeCC GC.
+05-11 18:37:26.555  6209  7087 I BLASTBufferQueue: [VRI[InputMethod]@12430fa#144](f:0,a:0,s:0) onFrameAvailable the first frame is available
+05-11 18:37:26.556  6209  7087 I VRI[InputMethod]@12430fa: Received frameCommittedCallback lastAttemptedDrawFrameNum=1 didProduceBuffer=true
+05-11 18:37:26.556  1447  1707 I SurfaceFlinger: [InputMethod$_6209#40468] setTransactionState with the first frame. bufferData(ID: 26667451941443, frameNumber: 1)
+05-11 18:37:26.557  1733  4032 D WindowManager: finishDrawingWindow: Window{80c82d5 u0 InputMethod} mDrawState=DRAW_PENDING seqId=0
+05-11 18:37:26.559  1733  1817 D SurfaceControl: restrictHighRefreshRate, enabled=true
+05-11 18:37:26.560  1447  1707 I SurfaceFlinger: HRR : 1
+05-11 18:37:26.560  1447  1447 I Layer   : setBuffer InputMethod$_6209#40468 - 1
+05-11 18:37:26.560  1447  1447 I Layer   : frame 1 is latched - InputMethod$_6209#40468, visible=0 [1080 2320]
+05-11 18:37:26.561  8564  8564 D InsetsController: show(ime(), fromIme=true)
+05-11 18:37:26.562  1733  2555 D SecContentProvider: query(), uri = 15 selection = isClipboardAllowedAsUser
+05-11 18:37:26.562  1733  2555 D SecContentProvider: called from android.uid.honeyboard:10196
+05-11 18:37:26.562  8564  8564 I InsetsController: setRequestedVisibleTypes: visible=true, mask=ime, host=com.rnturboimagepicker.app/com.rnturboimagepicker.app.MainActivity, from=android.view.InsetsController.controlAnimationUnchecked:1498 android.view.InsetsController.applyAnimation:2228 android.view.InsetsController.applyAnimation:2159 android.view.InsetsController.show:1340 android.view.ViewRootImpl$ViewRootHandler.handleMessageImpl:8056 android.view.ViewRootImpl$ViewRootHandler.handleMessage:7991 android.os.Handler.dispatchMessage:107 android.os.Looper.loopOnce:257 android.os.Looper.loop:342 android.app.ActivityThread.main:9634 
+05-11 18:37:26.562  1733  1816 I RefreshRateModeManager: Schedule to change allowedModes=baseModeId=3 allowGroupSwitching=false primary=physical: (60.0 120.0) render:  (60.0 120.0) appRequest=physical: (60.0 120.0) render:  (60.0 120.0) idleScreenRefreshRateConfig=null, displayToken=android.os.BinderProxy@9c60ced  mVotesByDisplay:
+05-11 18:37:26.562  1733  1816 I RefreshRateModeManager:     -1:
+05-11 18:37:26.562  1733  1816 I RefreshRateModeManager:       PRIORITY_REFRESH_RATE_MODE -> CombinedVote{ mVotes=[PhysicalVote{ RefreshRateVote{  mMinRefreshRate=48.0, mMaxRefreshRate=120.0 } }, DisableRefreshRateSwitchingVote{ mDisableRefreshRateSwitching=false }] }
+05-11 18:37:26.562  1733  1816 I RefreshRateModeManager:     0:
+05-11 18:37:26.562  1733  1816 I RefreshRateModeManager:       PRIORITY_USER_SETTING_PEAK_RENDER_FRAME_RATE -> RenderVote{ RefreshRateVote{  mMinRefreshRate=0.0, mMaxRefreshRate=120.0 } }
+05-11 18:37:26.562  1733  1816 I RefreshRateModeManager:       PRIORITY_USER_SETTING_PEAK_REFRESH_RATE -> CombinedVote{ mVotes=[PhysicalVote{ RefreshRateVote{  mMinRefreshRate=0.0, mMaxRefreshRate=120.0 } }, DisableRefreshRateSwitchingVote{ mDisableRefreshRateSwitching=false }] }
+05-11 18:37:26.562  1733  1816 I RefreshRateModeManager:       PRIORITY_APP_REQUEST_RENDER_FRAME_RATE_RANGE -> RenderVote{ RefreshRateVote{  mMinRefreshRate=60.0, mMaxRefreshRate=Infinity } }
+05-11 18:37:26.562  1733  1816 I RefreshRateModeManager:       PRIORITY_USER_SETTING_MIN_RENDER_FRAME_RATE -> RenderVote{ RefreshRateVote{  mMinRefreshRate=0.0, mMaxRefreshRate=Infinity } }
+05-11 18:37:26.562  1733  1816 I RefreshRateModeManager:     35:
+05-11 18:37:26.562  1733  1816 I RefreshRateModeManager:       PRIORITY_USER_SETTING_PEAK_RENDER_FRAME_RATE -> RenderVote{ RefreshRateVote{  mMinRefreshRate=0.0, mMaxRefreshRate=120.0 } }
+05-11 18:37:26.562  1733  1816 I RefreshRateModeManager:       PRIORITY_USER_SETTING_PEAK_REFRESH_RATE -> CombinedVote{ mVotes=[PhysicalVote{ RefreshRateVote{  mMinRefreshRate=0.0, mMaxRefreshRate=120.0 } }, DisableRefreshRateSwitchingVote{ mDisableRefreshRateSwitching=false }] }
+05-11 18:37:26.562  1733  1816 I RefreshRateModeManager:       PRIORITY_USER_SETTING_MIN_RENDER_FRAME_RATE -> RenderVote{ RefreshRateVote{  mMinRefreshRate=0.0, mMaxRefreshRate=Infinity } }
+05-11 18:37:26.562  1733  1816 I RefreshRateModeManager: 
+05-11 18:37:26.562  1733  1816 I RefreshRateModeManager:  mModeSwitchingType: SWITCHING_TYPE_WITHIN_GROUPS mAlwaysRespectAppRequest: false
+05-11 18:37:26.562  1733  1816 I RefreshRateModeManager:  Current Mode mReportedRefreshRateMode(toSurfaceFlinger)=REFRESH_RATE_MODE_SEAMLESS, mRefreshRateMode(fromSettings)=REFRESH_RATE_MODE_SEAMLESS
+05-11 18:37:26.562  1733  1816 I RefreshRateModeManager:  BrightnessState mPassive=false, PassiveModeToken=false, mBrightness=161, mAmbientLux=243.0
+05-11 18:37:26.562  1733  2555 D RestrictionPolicy: isClipboardAllowed : true
+05-11 18:37:26.562  1733  2555 D SecContentProvider: SemKnoxPolicyContract.RestrictionPolicy.CLIPBOARD_ALLOWED_AS_USER return = true
+05-11 18:37:26.564  8564  8564 I InsetsController: controlAnimationUncheckedInner: Added types=ime, animType=0, host=com.rnturboimagepicker.app/com.rnturboimagepicker.app.MainActivity, from=android.view.InsetsController.controlAnimationUnchecked:1502 android.view.InsetsController.applyAnimation:2228 android.view.InsetsController.applyAnimation:2159 
+05-11 18:37:26.565  1733  1816 D LocalDisplayAdapter: setDesiredDisplayModeSpecsAsync(4633128672291735937) : defaultMode=2 allowGroupSwitching=false primaryRanges=physical: (60.0 120.0) render:  (60.0 120.0) appRequestRanges=physical: (60.0 120.0) render:  (60.0 120.0) idleScreenRefreshRate=null
+05-11 18:37:26.565  1733  2592 D InsetsSourceProvider: updateVisibility: serverVisible=true, clientVisible=true, source=InsetsSource: {3 mType=ime mFrame=[0,1374][1080,2400] mVisible=true mFlags= mSideHint=BOTTOM mBoundingRects=null}, controlTarget=Window{51d6c7d u0 com.rnturboimagepicker.app/com.rnturboimagepicker.app.MainActivity}, from=com.android.server.wm.ImeInsetsSourceProvider.updateVisibility:7 com.android.server.wm.InsetsSourceProvider.setClientVisible:8 com.android.server.wm.ImeInsetsSourceProvider.setClientVisible:3 com.android.server.wm.InsetsSourceProvider.updateClientVisibility:20 com.android.server.wm.ImeInsetsSourceProvider.updateClientVisibility:53 com.android.server.wm.InsetsStateController.onRequestedVisibleTypesChanged:20 com.android.server.wm.InsetsPolicy.onRequestedVisibleTypesChanged:3 com.android.server.wm.Session.updateRequestedVisibleTypes:30 android.view.IWindowSession$Stub.onTransact:1244 com.android.server.wm.Session.onTransact:1 
+05-11 18:37:26.566  8564  9105 W InteractionJankMonitor: Initializing without READ_DEVICE_CONFIG permission. enabled=false, interval=1, missedFrameThreshold=3, frameTimeThreshold=64, package=com.rnturboimagepicker.app
+05-11 18:37:26.567  1733  4007 I ActivityManager: Changes in 10113 19 to 5, 0 to 16
+05-11 18:37:26.567  1733  2592 I WindowManager: Cancelling animation restarting=true, leash=Surface(name=Surface(name=b90dca4 NavigationBar0)/@0x7e18772 - animation-leash of insets_animation)/@0x8758017
+05-11 18:37:26.567  1733  2592 I WindowManager: Reparenting to original parent: Surface(name=WindowToken{d0b31d1 type=2019 android.os.BinderProxy@d82ab6a})/@0x67797c3, destroy=false, syncState=0, syncCommitDepth=0, surface=Surface(name=b90dca4 NavigationBar0)/@0x7e18772
+05-11 18:37:26.567  1733  2592 I WindowManager: Reparenting to leash, surface=Surface(name=b90dca4 NavigationBar0)/@0x7e18772, syncState=0, syncCommitDepth=0, leashParent=Surface(name=WindowToken{d0b31d1 type=2019 android.os.BinderProxy@d82ab6a})/@0x67797c3
+05-11 18:37:26.567  1435 23008 V APM_AudioPolicyManager: setAppState(portId:238, state:2)
+05-11 18:37:26.567  1447  1447 I RefreshRateSelector: Display 4633128672291735937 policy changed
+05-11 18:37:26.567  1447  1447 I RefreshRateSelector: Previous: {defaultModeId=2, allowGroupSwitching=false, primaryRanges={physical=[48.00 Hz, 120.00 Hz], render=[0.00 Hz, 120.00 Hz]}, appRequestRanges={physical=[48.00 Hz, 120.00 Hz], render=[0.00 Hz, 120.00 Hz]} idleScreenConfig=nullptr}
+05-11 18:37:26.567  1447  1447 I RefreshRateSelector: Current:  DisplayManagerPolicy{defaultModeId=2, allowGroupSwitching=false, primaryRanges={physical=[60.00 Hz, 120.00 Hz], render=[60.00 Hz, 120.00 Hz]}, appRequestRanges={physical=[60.00 Hz, 120.00 Hz], render=[60.00 Hz, 120.00 Hz]} idleScreenConfig=nullptr}
+05-11 18:37:26.567  1447  1447 I RefreshRateSelector: 350 mode changes were performed under the previous policy
+05-11 18:37:26.567  1447  1447 I SurfaceFlinger: [4633128672291735937] Setting desired display mode specs: {defaultModeId=2, allowGroupSwitching=false, primaryRanges={physical=[60.00 Hz, 120.00 Hz], render=[60.00 Hz, 120.00 Hz]}, appRequestRanges={physical=[60.00 Hz, 120.00 Hz], render=[60.00 Hz, 120.00 Hz]} idleScreenConfig=nullptr}
+05-11 18:37:26.567  1733  7620 I PerProcessNandswap$NandswapMsgHandler: madvise_prefetch for com.osp.app.signin
+05-11 18:37:26.567  1447  2156 I SurfaceFlinger: id=40469 createSurf, flag=24000, Surface(name=b90dca4 NavigationBar0)/@0x7e18772 - animation-leash of insets_animation#40469
+05-11 18:37:26.567  6209 28750 I ScsApi@Feature: checkFeature() : FEATURE_SPEECH_RECOGNITION, sdk : 4.0.20
+05-11 18:37:26.568  6209 28750 I ScsApi@FeatureHolder: setStatus() : FEATURE_SPEECH_RECOGNITION : 0
+05-11 18:37:26.568  6209 28750 I HBD     : l HoneyVoice checkFeature() 0 time: 1
+05-11 18:37:26.568  6209 28750 I HBD     : a HoneyVoice isSCSSpeechFeatureEnabled : true 1 ms 
+05-11 18:37:26.569  1435 23008 V APM_AudioPolicyManager: setAppState(portId:238, state:2)
+05-11 18:37:26.570  1435 23008 V APM_AudioPolicyManager: setAppState(portId:238, state:2)
+05-11 18:37:26.571  8564  8564 D ScrollView:  onsize change changed 
+05-11 18:37:26.571  1733  7613 D PerProcessNandswap$NandswapHandler: nandswap start for non-activity com.osp.app.signin(pid 10926) action:6 adj:100 type:2
+05-11 18:37:26.571  1733  2592 D WindowManager: makeSurface duration=4 leash=Surface(name=Surface(name=b90dca4 NavigationBar0)/@0x7e18772 - animation-leash of insets_animation)/@0x706793e
+05-11 18:37:26.571 10926 18567 I SamsungAccount: [AccountManagerProvider] isChildAccount
+05-11 18:37:26.572  1733  2592 D InsetsSourceProvider: updateControlForTarget: control=InsetsSourceControl: {d1290001 mType=navigationBars initiallyVisible mSurfacePosition=Point(0, 2256) mInsetsHint=Insets{left=0, top=0, right=0, bottom=144}}, target=PermanentControlTarget, from=com.android.server.wm.InsetsStateController.onControlTargetChanged:81 com.android.server.wm.InsetsPolicy.updateBarControlTarget:188 com.android.server.wm.DisplayPolicy.updateSystemBarAttributes:281 com.android.server.wm.InsetsStateController.onRequestedVisibleTypesChanged:46 com.android.server.wm.InsetsPolicy.onRequestedVisibleTypesChanged:3 
+05-11 18:37:26.572  1733  2592 D WindowManager: updateSystemBarAttributes: displayId=0, focusedCanBeNavColorWin=false, win=Window{51d6c7d u0 com.rnturboimagepicker.app/com.rnturboimagepicker.app.MainActivity}, navColorWin=Window{80c82d5 u0 InputMethod}, caller=com.android.server.wm.InsetsStateController.onRequestedVisibleTypesChanged:46 com.android.server.wm.InsetsPolicy.onRequestedVisibleTypesChanged:3 com.android.server.wm.Session.updateRequestedVisibleTypes:30 
+05-11 18:37:26.574  1733  2592 D WindowManager: updateSystemBarAttributes, bhv=1, apr=0, statusBarAprRegions=[AppearanceRegion{ bounds=[0,0][1080,2400]}], requestedVisibilities=-1
+05-11 18:37:26.574 10926 18567 I SamsungAccount: [AccountManagerProvider] Calling package : android.honeyboard.
+05-11 18:37:26.576  1447  1447 E SurfaceFlinger: alpha changed 0.000 -> 1.000 - Surface(name=80c82d5 InputMethod)/@0x84f8ba8 - animation-leash of insets_animation#40467
+05-11 18:37:26.576  1447  1447 I SurfaceFlinger: [Surface(name=b90dca4 NavigationBar0)/@0x7e18772 - animation-leash of insets_animation#40469] attach to parent LayerHierarchy{RequestedLayerState{WindowToken{d0b31d1 type=2019 android.os.BinderProxy@d82ab6a}#88 parentId=31} 2 children}
+05-11 18:37:26.577  1447  1447 I Layer   : setBuffer InputMethod$_6209#40468 - 2
+05-11 18:37:26.577  1447  1447 I Layer   : frame 2 is latched - InputMethod$_6209#40468, visible=0 [1080 2320]
+05-11 18:37:26.580  1733  2555 D InputMethodManagerService: isImeSwitcherDisabledPackage : false
+05-11 18:37:26.582 10926 18567 I SamsungAccount: [SignatureInfoDbHelper] searchOnUser(fromDb) - [10/lfgff][android.honeyboard.][64/3291d] => matched
+05-11 18:37:26.582 10926 18567 I SamsungAccount: [AccountManagerProvider] This is the access of the allowed application
+05-11 18:37:26.582  2492  2492 D NavigationBar: setImeWindowStatus displayId=0 vis=3 backDisposition=0 showImeSwitcher=false imeShown=true
+05-11 18:37:26.582  1733  1817 V WindowManager: performShowLocked: mDrawState=HAS_DRAWN in Window{80c82d5 u0 InputMethod}
+05-11 18:37:26.582 10926 18567 I SamsungAccount: [AccountManagerUtil] isSamsungAccountSignedIn : true
+05-11 18:37:26.584  2492  2492 I VRI[StatusBar]@e258f5d: handleResized, frames=ClientWindowFrames{frame=[0,0][1080,80] display=[0,0][1080,2400] parentFrame=[0,0][0,0]} displayId=0 dragResizing=false compatScale=1.0 frameChanged=false attachedFrameChanged=false configChanged=false displayChanged=false compatScaleChanged=false dragResizingChanged=false
+05-11 18:37:26.584  3035  3035 I VRI[CocktailBarService]@b501f02: handleResized, frames=ClientWindowFrames{frame=[1013,481][1080,823] display=[0,0][1080,2400] parentFrame=[0,0][0,0]} displayId=0 dragResizing=false compatScale=1.0 frameChanged=false attachedFrameChanged=false configChanged=false displayChanged=false compatScaleChanged=false dragResizingChanged=false
+05-11 18:37:26.584  2492  2492 I VRI[NavigationBar0]@d2dc3c8: handleResized, frames=ClientWindowFrames{frame=[0,2256][1080,2400] display=[0,0][1080,2400] parentFrame=[0,0][0,0]} displayId=0 dragResizing=false compatScale=1.0 frameChanged=false attachedFrameChanged=false configChanged=false displayChanged=false compatScaleChanged=false dragResizingChanged=false
+05-11 18:37:26.584  6209  6209 I VRI[InputMethod]@12430fa: handleResized, frames=ClientWindowFrames{frame=[0,80][1080,2400] display=[0,80][1080,2400] parentFrame=[0,0][0,0]} displayId=0 dragResizing=false compatScale=1.0 frameChanged=false attachedFrameChanged=false configChanged=false displayChanged=false compatScaleChanged=false dragResizingChanged=false
+05-11 18:37:26.585  1447  1447 I SurfaceFlinger: Layer [Surface(name=80c82d5 InputMethod)/@0[...]tion-leash of insets_animation#40467] hidden!! flag(0)
+05-11 18:37:26.585  1447  1447 I Layer   : setBuffer InputMethod$_6209#40468 - 3
+05-11 18:37:26.585  1447  1447 I Layer   : frame 3 is latched - InputMethod$_6209#40468, visible=0 [1080 2320]
+05-11 18:37:26.586  8564  8564 I InsetsController: onStateChanged: host=com.rnturboimagepicker.app/com.rnturboimagepicker.app.MainActivity, from=android.view.ViewRootImpl.handleResized:2789, state=InsetsState: {mDisplayFrame=Rect(0, 0 - 1080, 2400), mDisplayCutout=DisplayCutout{insets=Rect(0, 80 - 0, 0) waterfall=Insets{left=0, top=0, right=0, bottom=0} boundingRect={Bounds=[Rect(0, 0 - 0, 0), Rect(510, 0 - 570, 80), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]} cutoutPathParserInfo={CutoutPathParserInfo{displayWidth=1080 displayHeight=2400 physicalDisplayWidth=1080 physicalDisplayHeight=2400 density={3.0} cutoutSpec={M 0,0 H -10 V 26.66666666666667 H 10 V 0 H 0 Z @dp} rotation={0} scale={1.0} physicalPixelDisplaySizeRatio={1.0}}} sideOverrides={}}, mRoundedCorners=RoundedCorners{[RoundedCorner{position=TopLeft, radius=108, center=Point(108, 108)}, RoundedCorner{position=TopRight, radius=108, center=Point(972, 108)}, RoundedCorner{position=BottomRight, radius=108, center=Point(972, 2292)}, RoundedCorner{position=BottomLeft, radius=108, center=Point(108, 2292)}]}  mRoundedCornerFrame=Rect(0, 0 - 1080, 2400), mPrivacyIndicatorBounds=PrivacyIndicatorBounds {static bounds=Rect(948, 0 - 1080, 80) rotation=0}, mDisplayShape=DisplayShape{ spec=-311912193 displayWidth=1080 displayHeight=2400 physicalPixelDisplaySizeRatio=1.0 rotation=0 offsetX=0 offsetY=0 scale=1.0}, mSources= { InsetsSource: {95340000 mType=statusBars mFrame=[0,0][1080,80] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {95340005 mType=mandatorySystemGestures mFrame=[0,0][1080,116] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {95340006 mType=tappableElement mFrame=[0,0][1080,80] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {d1290001 mType=navigationBars mFrame=[0,2256][1080,2400] mVisible=true mFlags= mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {d1290004 mType=systemGestures mFrame=[0,0][0,0] mVisible=true mFlags= mSideHint=NONE mBoundingRects=null}, InsetsSource: {d1290005 mType=mandatorySystemGestures mFrame=[0,2256][1080,2400] mVisible=true mFlags= mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {d1290006 mType=tappableElement mFrame=[0,2256][1080,2400] mVisible=true mFlags= mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {d1290024 mType=systemGestures mFrame=[0,0][0,0] mVisible=true mFlags= mSideHint=NONE mBoundingRects=null}, InsetsSource: {3 mType=ime mFrame=[0,1374][1080,2400] mVisible=true mFlags= mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {27 mType=displayCutout mFrame=[0,0][1080,80] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null} }
+05-11 18:37:26.586  8564  8564 I VRI[MainActivity]@cab8262: handleResized, frames=ClientWindowFrames{frame=[0,0][1080,2400] display=[0,0][1080,2400] parentFrame=[0,0][0,0]} displayId=0 dragResizing=false compatScale=1.0 frameChanged=false attachedFrameChanged=false configChanged=false displayChanged=false compatScaleChanged=false dragResizingChanged=false
+05-11 18:37:26.586  2492  2547 D WindowManagerShell: onKeepClearAreasChanged: restricted={}, unrestricted={Rect(0, 1374 - 1080, 2256)}
+05-11 18:37:26.589  1733  1816 I InsetsController: onStateChanged: host=PermanentControlTarget, from=com.android.server.wm.InsetsPolicy$ControlTarget.run:18, state=InsetsState: {mDisplayFrame=Rect(0, 0 - 1080, 2400), mDisplayCutout=DisplayCutout{insets=Rect(0, 80 - 0, 0) waterfall=Insets{left=0, top=0, right=0, bottom=0} boundingRect={Bounds=[Rect(0, 0 - 0, 0), Rect(510, 0 - 570, 80), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]} cutoutPathParserInfo={CutoutPathParserInfo{displayWidth=1080 displayHeight=2400 physicalDisplayWidth=1080 physicalDisplayHeight=2400 density={3.0} cutoutSpec={M 0,0 H -10 V 26.66666666666667 H 10 V 0 H 0 Z @dp} rotation={0} scale={1.0} physicalPixelDisplaySizeRatio={1.0}}} sideOverrides={}}, mRoundedCorners=RoundedCorners{[RoundedCorner{position=TopLeft, radius=108, center=Point(108, 108)}, RoundedCorner{position=TopRight, radius=108, center=Point(972, 108)}, RoundedCorner{position=BottomRight, radius=108, center=Point(972, 2292)}, RoundedCorner{position=BottomLeft, radius=108, center=Point(108, 2292)}]}  mRoundedCornerFrame=Rect(0, 0 - 0, 0), mPrivacyIndicatorBounds=PrivacyIndicatorBounds {static bounds=Rect(948, 0 - 1080, 80) rotation=0}, mDisplayShape=DisplayShape{ spec=-311912193 displayWidth=1080 displayHeight=2400 physicalPixelDisplaySizeRatio=1.0 rotation=0 offsetX=0 offsetY=0 scale=1.0}, mSources= { InsetsSource: {95340000 mType=statusBars mFrame=[0,0][1080,80] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {95340005 mType=mandatorySystemGestures mFrame=[0,0][1080,116] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {95340006 mType=tappableElement mFrame=[0,0][1080,80] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {d1290001 mType=navigationBars mFrame=[0,2256][1080,2400] mVisible=true mFlags= mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {d1290004 mType=systemGestures mFrame=[0,0][0,0] mVisible=true mFlags= mSideHint=NONE mBoundingRects=null}, InsetsSource: {d1290005 mType=mandatorySystemGestures mFrame=[0,2256][1080,2400] mVisible=true mFlags= mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {d1290006 mType=tappableElement mFrame=[0,2256][1080,2400] mVisible=true mFlags= mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {d1290024 mType=systemGestures mFrame=[0,0][0,0] mVisible=true mFlags= mSideHint=NONE mBoundingRects=null}, InsetsSource: {3 mType=ime mFrame=[0,1374][1080,2400] mVisible=true mFlags= mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {27 mType=displayCutout mFrame=[0,0][1080,80] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null} }
+05-11 18:37:26.590  1733  1816 I InsetsSourceConsumer: applyRequestedVisibilityToControl: visible=true, type=navigationBars, host=PermanentControlTarget
+05-11 18:37:26.593  1447  1447 I SurfaceFlinger: Layer [InputMethod$_6209#40468] hidden!! flag(0)
+05-11 18:37:26.593  1447  1447 I SurfaceFlinger: [LayerHierarchy{RequestedLayerState{b90dca4 NavigationBar0#89 parentId=40469} 1 children}] reparent to LayerHierarchy{RequestedLayerState{Surface(name=b90dca4 NavigationBar0)/@0x7e18772 - animation-leash of insets_animation#40469 parentId=88} 1 children}
+05-11 18:37:26.593  1447  1447 I SurfaceFlinger: [LayerHierarchy{RequestedLayerState{Surface(name=b90dca4 NavigationBar0)/@0x7e18772 - animation-leash of insets_animation#40463} no children}] reparent to OffscreenRoot
+05-11 18:37:26.593  1447  1447 I SurfaceFlinger: [LayerHierarchy{RequestedLayerState{Surface(name=b90dca4 NavigationBar0)/@0x7e18772 - animation-leash of insets_animation#40463} no children}] RelativeParent to null
+05-11 18:37:26.594  1447  1447 I SurfaceFlinger: id=40463 Removed Surface(name=b90dca4 NavigationBar0)/@0x7e18772 - animation-leash of insets_animation#40463 (152)
+05-11 18:37:26.594  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.594  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.599  1447  1447 D SurfaceFlinger: Display 4633128672291735937 HWC layers:
+05-11 18:37:26.599  1447  1447 D SurfaceFlinger:        DEVICE |   0xb400007b8f15d050 | 0001 | RGBA_8888    |    0.0    0.0 1080.0 2400.0 |    0    0 1080 2400 | com.rnturboimagepicker.app/com.rntur[...]epicker.app.MainActivity$_8564#40462 (92)
+05-11 18:37:26.599  1447  1447 D SurfaceFlinger:        DEVICE |   0xb400007b8f11d250 | 0001 | RGBA_8888    |    0.0    0.0 1080.0 1374.0 |    0 1026 1080 2400 | InputMethod$_6209#40468 (3)
+05-11 18:37:26.599  1447  1447 D SurfaceFlinger:        DEVICE |   0xb400007b8f19d1d0 | 0001 | RGBA_8888    |    0.0    0.0 1080.0   80.0 |    0    0 1080   80 | StatusBar$_2492#101 (76046)
+05-11 18:37:26.599  1447  1447 D SurfaceFlinger:        DEVICE |   0xb400007b8f174190 | 0001 | RGBA_8888    |    0.0    0.0   67.0  342.0 | 1013  481 1080  823 | com.sec.android.app.launcher/com.sam[...]l.app.CocktailBarService$_3035#40009 (1)
+05-11 18:37:26.599  1447  1447 D SurfaceFlinger:        DEVICE |   0xb400007b8f198150 | 0001 | RGBA_8888    |    0.0    0.0 1080.0  144.0 |    0 2256 1080 2400 | NavigationBar0$_2492#98 (40150)
+05-11 18:37:26.599  1447  1447 D SurfaceFlinger: 
+05-11 18:37:26.600  1733  7613 D PerProcessNandswap$NandswapHandler: nandswap end for non-activity com.osp.app.signin(pid 10926) ret:1 adj:100
+05-11 18:37:26.601  1447  1447 I SurfaceFlinger: destroyed Surface(name=b90dca4 NavigationBar0)/@0x7e18772 - animation-leash of insets_animation#40463
+05-11 18:37:26.602  1447  1447 I Layer   : id=40463 Destroyed Surface(name=b90dca4 NavigationBar0)/@0x7e18772 - animation-leash of insets_animation#40463
+05-11 18:37:26.602  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.602  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.610 10926 18567 I SamsungAccount: [TPMU]  SIMState     :SIM_STATE_READY
+05-11 18:37:26.610  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.610  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.617 10926 18567 I SamsungAccount: [CountryCodeUtil] isChinaCountryCode : false
+05-11 18:37:26.619  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.619  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.620 10926 18567 I SamsungAccount: [TPMU] getMccFromUsim
+05-11 18:37:26.620 10926 18567 I SamsungAccount: [MccManager] saveMccToPreference Start
+05-11 18:37:26.621 10926 18567 I SamsungAccount: [MccManager] saveMccToPreference, mcc is same with previous mcc
+05-11 18:37:26.624 10926 18567 I SamsungAccount: [ChildAccountSupportedListManager] getSupportedListFromLocal from cache
+05-11 18:37:26.624 10926 18567 I SamsungAccount: [TPMU]  SIMState     :SIM_STATE_READY
+05-11 18:37:26.624 10926 18567 I SamsungAccount: [CountryCodeUtil] isChinaCountryCode : false
+05-11 18:37:26.625 10926 18567 I SamsungAccount: [TPMU] getMccFromUsim
+05-11 18:37:26.625 10926 18567 I SamsungAccount: [MccManager] saveMccToPreference Start
+05-11 18:37:26.625 10926 18567 I SamsungAccount: [MccManager] saveMccToPreference, mcc is same with previous mcc
+05-11 18:37:26.625 10926 18567 I SamsungAccount: [FamilyGroupUtil] meetKoreaCountryCondition(beforeSignUp=false): true
+05-11 18:37:26.625 10926 18567 I SamsungAccount: [TPMU]  SIMState     :SIM_STATE_READY
+05-11 18:37:26.625 10926 18567 I SamsungAccount: [CountryCodeUtil] isChinaCountryCode : false
+05-11 18:37:26.626 10926 18567 I SamsungAccount: [TPMU] getMccFromUsim
+05-11 18:37:26.626 10926 18567 I SamsungAccount: [MccManager] saveMccToPreference Start
+05-11 18:37:26.626 10926 18567 I SamsungAccount: [MccManager] saveMccToPreference, mcc is same with previous mcc
+05-11 18:37:26.626 10926 18567 I SamsungAccount: [FamilyGroupUtil] meetKoreaOneUiCondition: true
+05-11 18:37:26.626 10926 18567 I SamsungAccount: [FamilyGroupUtil] isSupportFamilyService: true
+05-11 18:37:26.626 10926 18567 I SamsungAccount: [AccountManagerUtil] isSamsungAccountSignedIn : true
+05-11 18:37:26.626  1733  1733 I GestureDetector: handleMessage TAP
+05-11 18:37:26.627  1733  1813 I GestureDetector: handleMessage TAP
+05-11 18:37:26.627  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.627  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.627 10926 18567 I SamsungAccount: [ChildAccount] isChildAccount : false
+05-11 18:37:26.628 10926 18567 I SamsungAccount: [AccountManagerProvider] makeResultBundle - resultCode : 0
+05-11 18:37:26.629  6209 28751 I HBD     : i [AiWriter] isChildAccount:false
+05-11 18:37:26.629  6209 28751 I HBD     : i [AiWriter] updateChildAccountInfo reset
+05-11 18:37:26.629  6209 28751 I HBD     : i [AiWriter] setCurrentCc resetCcAndLegalAge
+05-11 18:37:26.635  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.635  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.643  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.643  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.648  9095  9095 I MultiDex: VM with version 2.1.0 has multidex support
+05-11 18:37:26.648  9095  9095 I MultiDex: Installing application
+05-11 18:37:26.648  9095  9095 I MultiDex: VM has multidex support, MultiDex support library is disabled.
+05-11 18:37:26.652  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.652  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.660  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.660  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.669  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.669  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.670  9095  9095 I FirebaseApp: Device unlocked: initializing all Firebase APIs for app [DEFAULT]
+05-11 18:37:26.677  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.677  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.685  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.685  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.694  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.694  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.695  9095  9095 I FirebaseInitProvider: FirebaseApp initialization successful
+05-11 18:37:26.698  9095  9095 I CrashlyticsInitProvider: CrashlyticsInitProvider skipping initialization
+05-11 18:37:26.702  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.702  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.706 11473  9121 D ImuFileWriter: File rolled & ready: 495_gyro_1778492206718.csv → 495_gyro_1778492206718.csv.gz (8KB)
+05-11 18:37:26.708  9095  9095 I [PASS][SPASS]SearchProvider: secQueryGetFingerprint 520910900ko_KRfalse
+05-11 18:37:26.709 11473  9121 D ImuFileWriter: New gyro file opened: 495_gyro_1778492246707.csv (encrypted: true)
+05-11 18:37:26.709  9095  9095 I [PASS][SPASS]SamsungPassSettingsProvider: onCreateData
+05-11 18:37:26.709  9095  9095 I [PASS][SPASS]EasySigninProvider: onCreate
+05-11 18:37:26.710  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.710  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.710  9095  9095 I [PASS][SPASS]PasskeyProvider: onCreate
+05-11 18:37:26.712  9095  9095 I [PASS][CMN]WalletDeeplinkTokenProvider: onCreate
+05-11 18:37:26.713  9095  9095 I [PASS][SPASS]SettingDBProvider: onCreate
+05-11 18:37:26.713  9095  9095 I [PASS][SPASS]WalletSettingsProvider: onCreate
+05-11 18:37:26.715  9095  9095 I [PASS][SPASS]SPassApplication: onCreate
+05-11 18:37:26.716  9095  9107 I [PASS][PASS]SamsungPassProvider: call method in provider method_is_app_policy_enabled
+05-11 18:37:26.717  9067  9067 I [PASS][SPAF]AutofillHelper: getInlineSuggestionsRequest : InlineSuggestionsRequest { maxSuggestionCount = 6, inlinePresentationSpecs = [InlinePresentationSpec { minSize = 100x90, maxSize = 1000x90, style = Bundle[mParcelledData.dataSize=2480] }, InlinePresentationSpec { minSize = 100x90, maxSize = 1000x90, style = Bundle[mParcelledData.dataSize=2480] }, InlinePresentationSpec { minSize = 100x90, maxSize = 1000x90, style = Bundle[mParcelledData.dataSize=2480] }, InlinePresentationSpec { minSize = 100x90, maxSize = 1000x90, style = Bundle[mParcelledData.dataSize=2480] }, InlinePresentationSpec { minSize = 100x90, maxSize = 1000x90, style = Bundle[mParcelledData.dataSize=2480] }, InlinePresentationSpec { minSize = 100x90, maxSize = 1000x90, style = Bundle[mParcelledData.dataSize=2480] }], hostPackageName = com.samsung.android.honeyboard, supportedLocales = [], extras = Bundle[EMPTY_PARCEL], hostInputToken = android.os.BinderProxy@27b9484, hostDisplayId = 0, inlineTooltipPresentationSpec = null }
+05-11 18:37:26.717  9067  9067 I [PASS][SPAF]PassController: initializePass with timeout: 5000ms
+05-11 18:37:26.717  9067  9067 I [PASS][SDK]y: initialize()
+05-11 18:37:26.717  9067  9067 I [PASS][SDK]i: bind
+05-11 18:37:26.719  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.719  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.721  1733  2555 D PackageManager: setEnabledSetting : userId = 0 packageName = com.samsung.android.samsungpass cmp = androidx.work.impl.background.systemjob.SystemJobService newState = 1 callingPackage = com.samsung.android.samsungpass
+05-11 18:37:26.721  1733  2555 D ApplicationPolicy: getApplicationStateEnabled : pkg = com.samsung.android.samsungpass userId : 0
+05-11 18:37:26.721  1733  2555 D ApplicationPolicy: getApplicationComponentState : pkg = com.samsung.android.samsungpass userId : 0
+05-11 18:37:26.722  9095  9095 I [PASS][SPASS]FrameworkUtils: isInitialized : true
+05-11 18:37:26.722  9095  9095 I [PASS][SPASS]FrameworkHelper: initialize - already initialized
+05-11 18:37:26.724  9095  9123 I [PASS][SPASS]FrameworkUtils: isInitialized : true
+05-11 18:37:26.724  9095  9123 I [PASS][SPASS]PassFramework: ISU
+05-11 18:37:26.725   672   672 D io_stats: !@   8,0 r 28520675 865064052 w 9436998 166009504 d 3092435 374152336 f 0 0 iot 18868144 0 th 0 0 0 pt 0 inp 0 0 1068119.697
+05-11 18:37:26.725   672   672 D io_stats: !@ Read_top(KB): roid.honeyboard(6209) 22644 ch_zygote(9095) 22204 ch_zygote(9067) 5756
+05-11 18:37:26.725   672   672 D io_stats: !@ Write_top(KB): loop46(3323) 6400 kworker/u16:1(8504) 252 ch_zygote(9067) 8
+05-11 18:37:26.725  9095  9123 W [PASS][PASS]PermissionHelper: usrId is invalid : 
+05-11 18:37:26.725  9095  9123 I [PASS][SPASS]FrameworkUtils: isSignedUp - false
+05-11 18:37:26.726  9095  9095 I [PASS][SPASS]FrameworkUtils: isInitialized : true
+05-11 18:37:26.726  9095  9095 I [PASS][SPASS]PassFramework: ISU
+05-11 18:37:26.726  9095  9095 W [PASS][PASS]PermissionHelper: usrId is invalid : 
+05-11 18:37:26.726  9095  9095 I [PASS][SPASS]FrameworkUtils: isSignedUp - false
+05-11 18:37:26.726  9095  9095 I [PASS][SPASS]IconUtils:  checkVersionAddIcon : criticalUpdateVersion : true firstCheck : false appIconExist : false  walletMigrated : false
+05-11 18:37:26.726  9095  9095 I [PASS][CMN]WalletUtil: getWalletCountryChanged - false
+05-11 18:37:26.726  9095  9095 I [PASS][SPASS]IconUtils: setComponentEnabledSetting : false, walletMigrated : false, walletCountryChanged : false
+05-11 18:37:26.726  1733  4007 D PackageManager: setEnabledSetting : userId = 0 packageName = com.samsung.android.samsungpass cmp = com.samsung.android.samsungpass.launcher.EntryLauncher newState = 2 callingPackage = com.samsung.android.samsungpass
+05-11 18:37:26.727  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.727  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.727  1733  4007 D PackageManager: setEnabledSetting : userId = 0 packageName = com.samsung.android.samsungpass cmp = com.samsung.android.samsungpass.ui.activity.EntryLauncher newState = 2 callingPackage = com.samsung.android.samsungpass
+05-11 18:37:26.728  1733  4007 D PackageManager: setEnabledSetting : userId = 0 packageName = com.samsung.android.samsungpass cmp = com.samsung.android.samsungpass.launcher.EntryLauncherJPN newState = 2 callingPackage = com.samsung.android.samsungpass
+05-11 18:37:26.728  1733  4007 D PackageManager: setEnabledSetting : userId = 0 packageName = com.samsung.android.samsungpass cmp = com.samsung.android.samsungpass.launcher.SearchableActivity newState = 1 callingPackage = com.samsung.android.samsungpass
+05-11 18:37:26.728  1733  4007 D ApplicationPolicy: getApplicationStateEnabled : pkg = com.samsung.android.samsungpass userId : 0
+05-11 18:37:26.728  1733  4007 D ApplicationPolicy: getApplicationComponentState : pkg = com.samsung.android.samsungpass userId : 0
+05-11 18:37:26.731  9095  9095 W MockDeskModeManager: Failed to register DesktopMode listener via reflection
+05-11 18:37:26.731  9095  9095 W MockDeskModeManager: java.lang.reflect.InvocationTargetException
+05-11 18:37:26.731  9095  9095 W MockDeskModeManager: 	at java.lang.reflect.Method.invoke(Native Method)
+05-11 18:37:26.731  9095  9095 W MockDeskModeManager: 	at com.samsung.android.samsungpass.common.framework.platform.sep.SepDeskModeManager.registerDesktopModeStateChangeListener(Unknown Source:61)
+05-11 18:37:26.731  9095  9095 W MockDeskModeManager: 	at com.samsung.android.samsungpass.common.framework.platform.sep.SepDeskModeManager.<init>(Unknown Source:34)
+05-11 18:37:26.731  9095  9095 W MockDeskModeManager: 	at com.samsung.android.samsungpass.common.framework.platform.DesktopManager.getInstance(Unknown Source:12)
+05-11 18:37:26.731  9095  9095 W MockDeskModeManager: 	at com.samsung.android.samsungpass.common.biometric.FingerprintHelper$FingerprintHelperP.<init>(SourceFile:6)
+05-11 18:37:26.731  9095  9095 W MockDeskModeManager: 	at com.samsung.android.samsungpass.common.biometric.FingerprintHelper$FingerprintHelperP.<init>(SourceFile:1)
+05-11 18:37:26.731  9095  9095 W MockDeskModeManager: 	at com.samsung.android.samsungpass.common.biometric.FingerprintHelper$InstanceHolderP.<clinit>(Unknown Source:3)
+05-11 18:37:26.731  9095  9095 W MockDeskModeManager: 	at com.samsung.android.samsungpass.common.biometric.FingerprintHelper.getInstance(Unknown Source:24)
+05-11 18:37:26.731  9095  9095 W MockDeskModeManager: 	at com.samsung.android.samsungpass.common.biometric.BiometricHelper.initialize(Unknown Source:0)
+05-11 18:37:26.731  9095  9095 W MockDeskModeManager: 	at com.samsung.android.samsungpass.application.SPassApplication.onCreate(Unknown Source:115)
+05-11 18:37:26.731  9095  9095 W MockDeskModeManager: 	at android.app.Instrumentation.callApplicationOnCreate(Instrumentation.java:1386)
+05-11 18:37:26.731  9095  9095 W MockDeskModeManager: 	at android.app.ActivityThread.handleBindApplication(ActivityThread.java:8377)
+05-11 18:37:26.731  9095  9095 W MockDeskModeManager: 	at android.app.ActivityThread.-$$Nest$mhandleBindApplication(Unknown Source:0)
+05-11 18:37:26.731  9095  9095 W MockDeskModeManager: 	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:2675)
+05-11 18:37:26.731  9095  9095 W MockDeskModeManager: 	at android.os.Handler.dispatchMessage(Handler.java:107)
+05-11 18:37:26.731  9095  9095 W MockDeskModeManager: 	at android.os.Looper.loopOnce(Looper.java:257)
+05-11 18:37:26.731  9095  9095 W MockDeskModeManager: 	at android.os.Looper.loop(Looper.java:342)
+05-11 18:37:26.731  9095  9095 W MockDeskModeManager: 	at android.app.ActivityThread.main(ActivityThread.java:9634)
+05-11 18:37:26.731  9095  9095 W MockDeskModeManager: 	at java.lang.reflect.Method.invoke(Native Method)
+05-11 18:37:26.731  9095  9095 W MockDeskModeManager: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:619)
+05-11 18:37:26.731  9095  9095 W MockDeskModeManager: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:929)
+05-11 18:37:26.731  9095  9095 W MockDeskModeManager: Caused by: java.lang.NullPointerException: Expected to unbox a 'int' primitive type but was returned null
+05-11 18:37:26.731  9095  9095 W MockDeskModeManager: 	at $Proxy3.hashCode(Unknown Source)
+05-11 18:37:26.731  9095  9095 W MockDeskModeManager: 	at android.util.ArrayMap.indexOfKey(ArrayMap.java:441)
+05-11 18:37:26.731  9095  9095 W MockDeskModeManager: 	at android.util.ArrayMap.containsKey(ArrayMap.java:430)
+05-11 18:37:26.731  9095  9095 W MockDeskModeManager: 	at com.samsung.android.desktopmode.SemDesktopModeManager.registerListener(SemDesktopModeManager.java:214)
+05-11 18:37:26.731  9095  9095 W MockDeskModeManager: 	... 21 more
+05-11 18:37:26.731  9095  9095 I MockDeskModeManager:  isDeskMode : false
+05-11 18:37:26.731  9095  9095 I MockDeskModeManager:  isNewDesktopMode : false
+05-11 18:37:26.732  9095  9095 I MockDeskModeManager: Adding Desktop State change Listeners
+05-11 18:37:26.735  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.735  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.738  9095  9095 I [PASS][CMN]DeviceFeature: isJDMDevice : 0
+05-11 18:37:26.743  9095  9095 W [PASS][PASS]PermissionHelper: usrId is invalid : 
+05-11 18:37:26.743  9095  9126 I [PASS][CMN]SamsungAnalyticsLog: initializeSamsungAnalytics
+05-11 18:37:26.744  9095  9126 I SamsungAnalytics605079: Tracker start:6.05.079
+05-11 18:37:26.744  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.744  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.744  9095  9095 W [PASS][CMN]PackageUtil: Can not find package [com.samsung.android.spaymini]
+05-11 18:37:26.744  9095  9140 I [PASS][SPASS]FrameworkUtils: isInitialized : true
+05-11 18:37:26.744  9095  9140 I [PASS][SPASS]PassFramework: ISU
+05-11 18:37:26.744  9095  9126 I DIAGMON_SDK[605079]: DiagMonAgent type: 2
+05-11 18:37:26.745  9095  9126 I DIAGMON_SDK[605079][p595fm8rxk] : generated SR object
+05-11 18:37:26.745  9095  9140 W [PASS][PASS]PermissionHelper: usrId is invalid : 
+05-11 18:37:26.745  9095  9140 I [PASS][SPASS]FrameworkUtils: isSignedUp - false
+05-11 18:37:26.746  9095  9138 I SamsungAnalytics605079: Initialize delete api call counting
+05-11 18:37:26.746  9095  9126 I [PASS][SPASS]SPassApplication: AndroidThreeTen initialization started
+05-11 18:37:26.747  9095  9124 I [AUTHFW][PSDK]PassOperation: initialize
+05-11 18:37:26.747  9095  9124 I [AUTHFW][PSDK]PassServiceConnection: bindService
+05-11 18:37:26.747  9095  9143 I [PASS][CMN]DeviceFeature: isJDMDevice : 0
+05-11 18:37:26.751  1733  4007 D CompatChangeReporter: Compat change id reported: 151861875; UID 5278; state: ENABLED
+05-11 18:37:26.751  1733  4007 V GrammaticalInflectionUtils: AttributionSource: AttributionSource { uid = 5278, packageName = null, attributionTag = null, token = android.os.Binder@2ba4914, deviceId = 0, next = null } does not have READ_SYSTEM_GRAMMATICAL_GENDER permission.
+05-11 18:37:26.751  9095  9126 I [PASS][SPASS]SPassApplication: AndroidThreeTen initialized
+05-11 18:37:26.751  1435  5449 V APM_AudioPolicyManager: setAppState(portId:238, state:2)
+05-11 18:37:26.752  1435  5449 V APM_AudioPolicyManager: setAppState(portId:238, state:2)
+05-11 18:37:26.752  9095  9095 I [PASS][PASS]PassService: onBind:SamsungPassService
+05-11 18:37:26.752  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.752  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.758   690   690 W keymaster_tee: [WRN]begin req PARAMS: A32 B2 P64 
+05-11 18:37:26.758  1354  9059 I HYPER-HAL: [ResourceManager.cpp]removeResource(): [CPUMinFreq] RemoveResource Request ID : 19285156
+05-11 18:37:26.760  1354  9059 I HYPER-HAL: [RequestManager.cpp]releaseLocked(): Released ID : 19285156
+05-11 18:37:26.760   689   702 I keystore2: system/security/keystore2/src/security_level.rs:454 - In create_operation. Success to create IKeystoreOperation. 10122, None
+05-11 18:37:26.760  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.760  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.762  9067  9067 I [PASS][SDK]i: onServiceConnected
+05-11 18:37:26.763  9067  9067 I [PASS][SPAF]PassController: onConnected
+05-11 18:37:26.763  9067  9067 I [PASS][SPAF]PassController: Pass initialize duration: 46 - Successful
+05-11 18:37:26.763  9067  9067 I [PASS][SDK]y: getState
+05-11 18:37:26.763  9067  9067 I [PASS][SDK]c: isLocked
+05-11 18:37:26.763  9067  9067 I [PASS][SDK]c: getBooleanAttribute : is_fmm_locked
+05-11 18:37:26.767  1308  1308 D Zygote  : Forked child process 9149
+05-11 18:37:26.768  1733  1839 I ActivityManager: Start proc 9149:com.samsung.android.authfw/5278 for service {com.samsung.android.authfw/com.samsung.android.authfw.pass.PassService}
+05-11 18:37:26.767  3729  4036 I DMASA[C]: [b]Register SA_UPLOAD_DIAGNOSTIC job
+05-11 18:37:26.769  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.769  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.774  9095  9147 I [PASS][PASS]StateRepository: selectionArgs : [is_fmm_locked]
+05-11 18:37:26.774  9095  9147 W [PASS][PASS]StateRepository: does not have uId info
+05-11 18:37:26.774  9095  9147 I [PASS][CMN]DeviceFeature: isJDMDevice : 0
+05-11 18:37:26.777  9095  9143 I [PASS][CMN]DeviceFeature: isJDMDevice : 0
+05-11 18:37:26.777  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.777  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.777   690   690 W keymaster_tee: [WRN]begin req PARAMS: A32 B2 P64 
+05-11 18:37:26.779   689 31829 I keystore2: system/security/keystore2/src/security_level.rs:454 - In create_operation. Success to create IKeystoreOperation. 10122, None
+05-11 18:37:26.780   690   690 W keymaster_tee: [WRN]begin req PARAMS: A32 B2 P64 
+05-11 18:37:26.781  3035  3035 I HoneySpace.EdgePanel.KeyboardVisibleObserver: updateSipStatus: 1 0 1026 0
+05-11 18:37:26.782   689   702 I keystore2: system/security/keystore2/src/security_level.rs:454 - In create_operation. Success to create IKeystoreOperation. 10122, None
+05-11 18:37:26.784  9095  9147 I [PASS][PASS]StateRepository: Query(is_fmm_locked), attribute:is_fmm_locked, value:false
+05-11 18:37:26.786  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.786  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.786  9095  9143 I [PASS][CMN]DeviceFeature: isJDMDevice : 0
+05-11 18:37:26.786  9149  9149 I .android.authfw: Using CollectorTypeCC GC.
+05-11 18:37:26.791  9095  9138 I SamsungAnalytics605079: register setting status
+05-11 18:37:26.791   690   690 W keymaster_tee: [WRN]begin req PARAMS: A32 B2 P64 
+05-11 18:37:26.793  9067  9067 I [PASS][SPAF]PassController: isLockedForFMM: false
+05-11 18:37:26.794   689   702 I keystore2: system/security/keystore2/src/security_level.rs:454 - In create_operation. Success to create IKeystoreOperation. 10122, None
+05-11 18:37:26.794  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.794  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.795  9067  9067 I [PASS][SDK]y: getState
+05-11 18:37:26.795  9067  9067 I [PASS][SDK]c: isSignedIn
+05-11 18:37:26.795  9067  9067 I [PASS][SDK]c: getBooleanAttribute : is_signed_in
+05-11 18:37:26.795  9095  9147 I [PASS][PASS]StateRepository: selectionArgs : [is_signed_in]
+05-11 18:37:26.795  9095  9147 W [PASS][PASS]StateRepository: does not have uId info
+05-11 18:37:26.795  9095  9147 W [PASS][PASS]PermissionHelper: usrId is invalid : 
+05-11 18:37:26.795  9095  9147 I [PASS][PASS]StateRepository: Query(is_signed_in), attribute:is_signed_in, value:false
+05-11 18:37:26.797  9095  9143 I [PASS][PASS]SamsungKidAccountManager: isKidsAccount - cache invalid or expired, refreshing and waiting
+05-11 18:37:26.797  9095  9143 I [PASS][PASS]SamsungKidAccountManager: refreshKidsAccountStatusInternal - start
+05-11 18:37:26.800  9067  9067 W [PASS][SDK]c: Signed Out
+05-11 18:37:26.800  9067  9067 I [PASS][SPAF]PassController: SamsungPass.isSignedIn() : false
+05-11 18:37:26.800  9095  9147 I [PASS][PASS]SamsungPassProvider: call method in provider method_is_pwg_enabled
+05-11 18:37:26.802  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.802  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.805  9067  9067 I [PASS][SPAF]ProviderUtil: is_password_generator_enabled: true
+05-11 18:37:26.805  9067  9067 I [PASS][SPAF]AutofillService: launchFillRequestJob: requestId=782
+05-11 18:37:26.806  9095  9147 I [PASS][PASS]SamsungPassProvider: call method in provider method_is_ai_autofill
+05-11 18:37:26.806  9067  9067 I [PASS][SPAF]ProviderUtil: is_ai_autofill_enabled: 2
+05-11 18:37:26.806  9067  9067 I [PASS][SPAF]AutofillService: launchFillRequestJob: hybrid mode start(normal), requestId=782
+05-11 18:37:26.807  9067  9067 I [PASS][SPAF]AutofillService: rememberFillParseMode: requestId=782, isAiUsing=false, cachedSize=1
+05-11 18:37:26.807 10926 18567 I SamsungAccount: [AccountManagerProvider] isChildAccount
+05-11 18:37:26.808 10926 18567 I SamsungAccount: [AccountManagerProvider] Calling package : android.samsungpass.
+05-11 18:37:26.811  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.811  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.812  9067  9165 I [PASS][SPAF]AutofillHintChecker: checkAndCacheNudgeActive : false
+05-11 18:37:26.813  1733  2555 I AssistStructure: Flattened final assist data: 4452 bytes, containing 1 windows, 28 views
+05-11 18:37:26.814 10926 18567 I SamsungAccount: [SignatureInfoDbHelper] searchOnUser(fromDb) - [10/6k11j][android.samsungpass.][64/3291d] => matched
+05-11 18:37:26.814 10926 18567 I SamsungAccount: [AccountManagerProvider] This is the access of the allowed application
+05-11 18:37:26.814 10926 18567 I SamsungAccount: [AccountManagerUtil] isSamsungAccountSignedIn : true
+05-11 18:37:26.814 10926 18567 I SamsungAccount: [TPMU]  SIMState     :SIM_STATE_READY
+05-11 18:37:26.815 10926 18567 I SamsungAccount: [CountryCodeUtil] isChinaCountryCode : false
+05-11 18:37:26.815 10926 18567 I SamsungAccount: [TPMU] getMccFromUsim
+05-11 18:37:26.815 10926 18567 I SamsungAccount: [MccManager] saveMccToPreference Start
+05-11 18:37:26.815 10926 18567 I SamsungAccount: [MccManager] saveMccToPreference, mcc is same with previous mcc
+05-11 18:37:26.816 10926 18567 I SamsungAccount: [ChildAccountSupportedListManager] getSupportedListFromLocal from cache
+05-11 18:37:26.816 10926 18567 I SamsungAccount: [TPMU]  SIMState     :SIM_STATE_READY
+05-11 18:37:26.816 10926 18567 I SamsungAccount: [CountryCodeUtil] isChinaCountryCode : false
+05-11 18:37:26.817 10926 18567 I SamsungAccount: [TPMU] getMccFromUsim
+05-11 18:37:26.817 10926 18567 I SamsungAccount: [MccManager] saveMccToPreference Start
+05-11 18:37:26.817 10926 18567 I SamsungAccount: [MccManager] saveMccToPreference, mcc is same with previous mcc
+05-11 18:37:26.817 10926 18567 I SamsungAccount: [FamilyGroupUtil] meetKoreaCountryCondition(beforeSignUp=false): true
+05-11 18:37:26.817 10926 18567 I SamsungAccount: [TPMU]  SIMState     :SIM_STATE_READY
+05-11 18:37:26.817 10926 18567 I SamsungAccount: [CountryCodeUtil] isChinaCountryCode : false
+05-11 18:37:26.818 10926 18567 I SamsungAccount: [TPMU] getMccFromUsim
+05-11 18:37:26.818 10926 18567 I SamsungAccount: [MccManager] saveMccToPreference Start
+05-11 18:37:26.818 10926 18567 I SamsungAccount: [MccManager] saveMccToPreference, mcc is same with previous mcc
+05-11 18:37:26.818 10926 18567 I SamsungAccount: [FamilyGroupUtil] meetKoreaOneUiCondition: true
+05-11 18:37:26.818 10926 18567 I SamsungAccount: [FamilyGroupUtil] isSupportFamilyService: true
+05-11 18:37:26.818 10926 18567 I SamsungAccount: [AccountManagerUtil] isSamsungAccountSignedIn : true
+05-11 18:37:26.818 10926 18567 I SamsungAccount: [ChildAccount] isChildAccount : false
+05-11 18:37:26.818 10926 18567 I SamsungAccount: [AccountManagerProvider] makeResultBundle - resultCode : 0
+05-11 18:37:26.819  9095  9143 I [PASS][PASS]SamsungKidAccountManager: queryKidsAccountFromProvider - result: Bundle[{result_code=0, result_message=false}]
+05-11 18:37:26.819  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.819  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.819  9095  9143 I [PASS][CMN]DeviceFeature: isJDMDevice : 0
+05-11 18:37:26.823   690   690 W keymaster_tee: [WRN]begin req PARAMS: A32 B2 P64 
+05-11 18:37:26.824   689   702 I keystore2: system/security/keystore2/src/security_level.rs:454 - In create_operation. Success to create IKeystoreOperation. 10122, None
+05-11 18:37:26.827  9095  9143 I [PASS][CMN]DeviceFeature: isJDMDevice : 0
+05-11 18:37:26.827  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.827  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.828   690   690 W keymaster_tee: [WRN]begin req PARAMS: A32 B2 P64 
+05-11 18:37:26.831   689   702 I keystore2: system/security/keystore2/src/security_level.rs:454 - In create_operation. Success to create IKeystoreOperation. 10122, None
+05-11 18:37:26.832  9067  9067 I [PASS][SPAF]AutofillHintExtension: findFromEditText() / entry [inputMaxWidth], hint [1024 (기본값)] => username
+05-11 18:37:26.832  9067  9067 W [PASS][SPAF]AutofillHints: Valid autofill hint: [username]
+05-11 18:37:26.832  9067  9067 I [PASS][SPAF]MetadataCollect: Add: 8, inputMaxWidth
+05-11 18:37:26.833  9067  9067 I [PASS][SPAF]AutofillHintExtension: findFromEditText() / entry [inputMaxHeight], hint [1024 (기본값)] => username
+05-11 18:37:26.833  9067  9067 W [PASS][SPAF]AutofillHints: Valid autofill hint: [username]
+05-11 18:37:26.833  9067  9067 I [PASS][SPAF]MetadataCollect: Add: 8, inputMaxHeight
+05-11 18:37:26.833  9067  9067 I [PASS][SPAF]SALogging: screenId:PSAF01, eventId:PSAF0000, dimension:{NODEINFO=Identified: ID fields = 2, PW fields = 0 / package : com.rnturboimagepicker.app / webdomain :  / nodes : [username] / requestId : 782}, value:-1
+05-11 18:37:26.833  9067  9067 I [PASS][SPAF]SALogging: saResult:0
+05-11 18:37:26.834  9067  9067 W [PASS][SPAF]AutofillHints: Valid autofill hint: [username]
+05-11 18:37:26.834  9067  9067 I [PASS][SPAF]AutofillHintChecker: isNudgeActive : false / isSamsungInternetPackage : false
+05-11 18:37:26.834  9067  9067 I [PASS][SPAF]AutofillService: check autofill support false
+05-11 18:37:26.834  9095  9143 I [PASS][CMN]DeviceFeature: isJDMDevice : 0
+05-11 18:37:26.834  9095  9147 I [PASS][PASS]SamsungPassProvider: call method in provider method_put_event_log
+05-11 18:37:26.835   690   690 W keymaster_tee: [WRN]begin req PARAMS: A32 B2 P64 
+05-11 18:37:26.836  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.836  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.838   689   702 I keystore2: system/security/keystore2/src/security_level.rs:454 - In create_operation. Success to create IKeystoreOperation. 10122, None
+05-11 18:37:26.839  9067  9067 E [PASS][SPAF]AutofillService: No valid parsed autofill fields
+05-11 18:37:26.840  9067  9067 I [PASS][SDK]y: getState
+05-11 18:37:26.840  9067  9067 I [PASS][SDK]c: isSignedIn
+05-11 18:37:26.840  9067  9067 I [PASS][SDK]c: getBooleanAttribute : is_signed_in
+05-11 18:37:26.841  9095  9147 I [PASS][PASS]StateRepository: selectionArgs : [is_signed_in]
+05-11 18:37:26.841  9095  9147 W [PASS][PASS]StateRepository: does not have uId info
+05-11 18:37:26.841  9095  9147 W [PASS][PASS]PermissionHelper: usrId is invalid : 
+05-11 18:37:26.841  9095  9147 I [PASS][PASS]StateRepository: Query(is_signed_in), attribute:is_signed_in, value:false
+05-11 18:37:26.844  9095  9143 I [PASS][PASS]SamsungKidAccountManager: refreshKidsAccountStatusInternal - success: false
+05-11 18:37:26.844  9095  9143 I [PASS][PASS]SamsungKidAccountManager: warmUpCache - cache warmed up successfully
+05-11 18:37:26.844  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.844  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.844  9095  9124 I [PASS][SPASS]KidAppRestrictionManager: initialize - skipping: SDK version 35 is lower than BAKLAVA (36)
+05-11 18:37:26.845  9067  9067 W [PASS][SDK]c: Signed Out
+05-11 18:37:26.845  9067  9067 I [PASS][SPAF]PassController: SamsungPass.isSignedIn() : false
+05-11 18:37:26.852  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.852  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.854  3667  3667 I SSS:AugmentedAutofillService: AugmentedAutofillService: onConnected()
+05-11 18:37:26.861  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.861  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.862  3667  3667 I SSS:AugmentedAutofillService: AugmentedAutofillService: onFillRequest()
+05-11 18:37:26.868  9149  9149 I [AUTHFW][PASS]AuthFwApp:  onCreate
+05-11 18:37:26.869  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.869  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.874  9149  9149 I [AUTHFW][PASS]PassService: onCreate()
+05-11 18:37:26.876  3667  3667 I SSS:HintsManager: getEntityTypeFromResourceMap map: com.rnturboimagepicker.app.MainActivity_com.rnturboimagepicker.app_inputMaxWidth, value: null
+05-11 18:37:26.877  9149  9149 E [AUTHFW][TZ]TzAppFactory: the chipName is not added in chipList!
+05-11 18:37:26.877  9149  9149 I [AUTHFW][TZ]TzAppFactory: flavor:exynos2100
+05-11 18:37:26.877  9149  9149 I [AUTHFW][TZ]TzAppAsset: AFD
+05-11 18:37:26.877  9149  9149 I [AUTHFW][TZ]TzAppAsset: Found
+05-11 18:37:26.877  9149  9149 I [AUTHFW][TZ]TzAppFactory: use asset ta
+05-11 18:37:26.877  9149  9149 I [AUTHFW][TZ]TzApp: Start using TzAppAsset as TzApp
+05-11 18:37:26.878  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.878  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.878  3667  3667 I SSS:CommonUtil: getTargetActivityComponent() activityComponent:ComponentInfo{com.rnturboimagepicker.app/com.rnturboimagepicker.app.MainActivity} target:null
+05-11 18:37:26.879  3667  3667 I SSS:CommonUtil: getTargetActivityComponent() activityComponent:ComponentInfo{com.rnturboimagepicker.app/com.rnturboimagepicker.app.MainActivity} target:null
+05-11 18:37:26.879  1733  2592 I AssistStructure: Flattened final assist data: 4452 bytes, containing 1 windows, 28 views
+05-11 18:37:26.880  3667  3667 I SSS: CustomAssistStructure: Time Test - tree creation time: 1 mS
+05-11 18:37:26.881  3667  3667 I SSS:AssistStructureParser: Unable to find hint from Assist Structure
+05-11 18:37:26.881  3667  3667 I SSS:AugmentedAutofillService: AssistStructureParser Hint: []
+05-11 18:37:26.881  3667  3667 I SSS:AugmentedAutofillService: onFillRequest hint: {}
+05-11 18:37:26.881  3667  3667 I SSS:AugmentedAutofillService: onFillRequest() fail: hint not found
+05-11 18:37:26.886  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.886  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.887  9149  9149 I [AUTHFW][PASS]PassService: onBind()
+05-11 18:37:26.887  9149  9149 I [AUTHFW][PASS]PassService: onBind:PassOperation
+05-11 18:37:26.888  9095  9095 I [AUTHFW][PSDK]PassServiceConnection: onServiceConnected
+05-11 18:37:26.889  9095  9095 I [PASS][SPASS]SPassApplication: pass connected
+05-11 18:37:26.894  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.894  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.902  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.902  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.919  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.919  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.921  8564  8564 I InsetsController: cancelAnimation: types=ime, animType=0, host=com.rnturboimagepicker.app/com.rnturboimagepicker.app.MainActivity, from=android.view.InsetsController.notifyFinished:1890 android.view.InsetsAnimationThreadControlRunner$1.lambda$notifyFinished$0:87 android.view.InsetsAnimationThreadControlRunner$1.$r8$lambda$cDFF0h4Ncq-8EXdGszv69jrUu7c:0 
+05-11 18:37:26.922  8564  8564 I ImeTracker: com.rnturboimagepicker.app:6a9cae04: onShown
+05-11 18:37:26.927  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:26.927  1447  1447 I CompositionEngine: !includesLayer [InputMethod$_6209#40468]
+05-11 18:37:27.123  1733  4244 D SemWifiUsabilityStatsMonitor: onWifiUsabilityStats - seqNum 54187, isSameBssidAndFreq true
+05-11 18:37:27.126  2492  2564 D Tile.WifiTile: handleUpdateState isTransient=false transientEnabling =false cb.isTransient=false state.state = 2 mStateBeforeClick.value =false enabled =true
+05-11 18:37:27.291 25404  8879 I NearbyMediums: No BLE Fast/GATT advertisements found in the latest cycle.
+05-11 18:37:27.291 25404  8879 I NearbyMediums: Current Tracked Scanning Clients are : {NearbyConnections.EnvironmentMonitor, NearbySharing, NearbyConnections.TxAdvertisement}
+05-11 18:37:27.292 25404  8342 I NearbyConnections: Processing lost BlePeripheral BlePeripheral{advertisement=BleAdvertisement { version=2, socketVersion=2, isFast=true, serviceIdHash=null, data=[ 0x23 0x4b 0x4f 0x56 0x49 0x11 0x32 0xd3 0x2b 0x4c 0x58 0xed 0x06 0x9d 0x79 0x41 0x57 0x7e 0x8f 0x06 0xa9 0xf5 0xa1 ], deviceToken=[ 0x03 0x06 ], rxAdvertisement=null }, dctAdvertisement=null, address=null, psm=0, deviceToken=<ByteString@ebd8a6e size=2 contents="\003\006">, isSecondProfile=false, rxInstantConnectionAdv=null}.
+05-11 18:37:27.292 25404  8342 I NearbyConnections: Lost BleEndpoint for BlePeripheral BlePeripheral{advertisement=BleAdvertisement { version=2, socketVersion=2, isFast=true, serviceIdHash=null, data=[ 0x23 0x4b 0x4f 0x56 0x49 0x11 0x32 0xd3 0x2b 0x4c 0x58 0xed 0x06 0x9d 0x79 0x41 0x57 0x7e 0x8f 0x06 0xa9 0xf5 0xa1 ], deviceToken=[ 0x03 0x06 ], rxAdvertisement=null }, dctAdvertisement=null, address=null, psm=0, deviceToken=<ByteString@ebd8a6e size=2 contents="\003\006">, isSecondProfile=false, rxInstantConnectionAdv=null} (with EndpointId KOVI and EndpointInfo [ 0x32 0xd3 0x2b 0x4c 0x58 0xed 0x06 0x9d 0x79 0x41 0x57 0x7e 0x8f 0x06 0xa9 0xf5 0xa1 ]).
+05-11 18:37:27.293 25404  8342 I NearbyConnections: Unable to record lost endpoint due to null currentDiscoveryPhase
+05-11 18:37:27.293 25404  8342 I NearbyConnections: ClientProxy(169934695) reporting onEndpointLost(KOVI)
+05-11 18:37:27.295 25404  8342 I NearbySharing: NearbySharing Internal event EndpointLost(endpointId=KOVI)
+05-11 18:37:27.424  1424  1590 I EDEN    : [Exynos][EDEN][v1.6.23][SERVICE] processAliveMointorMain:253: Try to check pid=(1364)...
+05-11 18:37:27.449 11844 11879 D BufferPoolAccessor2.0: bufferpool2 0xb4000075af8f0a38 : 5(19200 size) total buffers - 4(15360 size) used buffers - 779846/779851 (recycle/alloc) - 1427/1559693 (fetch/transfer)
+05-11 18:37:27.867  1447  2157 D NativeSemDvfsManager: acquire:: timeout = 2000 mIsAcquired = 1  mTagName : SurfaceFlinger 
+05-11 18:37:27.868  1447  2157 E NativeCustomFrequencyManager: [NativeCFMS] BpCustomFrequencyManager::acquire()
+05-11 18:37:27.868  1354  1381 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 2996128  [1447 / 1000]    HINT : SF_GPU_MINLOCK    list : [TIMEOUT / 2000] 
+05-11 18:37:27.870  3529  3529 W Choreographer: Frame time is 0.078815 ms in the future!  Check that graphics HAL is generating vsync timestamps using the correct timebase.
+05-11 18:37:27.992  3751  4033 I N0      : limitCPUFreq:: freq = 1872000
+05-11 18:37:27.992  3751  4033 I SemDvfsHyPerManager: acquire hyper - SIOP_ARM_MAX/3751@2, type = 301993986
+05-11 18:37:27.993  1354  1381 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 7044383  [3751 / 2]    HINT :      list : [CPUMaxFreq / 1872000] 
+05-11 18:37:27.994  1354  1381 I HYPER-HAL: [ResourceManager.cpp]updateResource(): [CPUMaxFreq] UpdateResource Request ID : 7044383    Value : 1872000
+05-11 18:37:28.470  1733  2592 D InputDispatcher: Inject motion (9184/2000): action=0x0, time=1068121441000000, f=0x0, d=0 dsdx=1.000000 dtdx=0.000000
+05-11 18:37:28.471  1733  2060 I InputDispatcher: Delivering touch to (2492): action: 0x4, f=0x0, d=0, 'b90dca4', t=1 
+05-11 18:37:28.471  1733  2060 I InputDispatcher: Delivering touch to (6209): action: 0x0, f=0x0, d=0, '80c82d5', t=1 +(0,-80)
+05-11 18:37:28.471  1733  2060 D PowerManagerService: [api] userActivityFromNative : touch, IME displayId=0 eventTime=1068121441
+05-11 18:37:28.472  6209  6209 I VRI[InputMethod]@12430fa: ViewPostIme pointer 0
+05-11 18:37:28.473  6209  6209 I HBD     : c load TMST TocuhLogic rune : true 
+05-11 18:37:28.474  6209  6209 I GestureDetector: obtain mCurrentDownEvent. id: -291832976 caller: Jp.c.onTouch:958 android.view.View.performOnTouchCallback:17037 android.view.View.dispatchTouchEvent:17004 
+05-11 18:37:28.475  1733  1813 I GestureDetector: obtain mCurrentDownEvent. id: -291832976 caller: com.android.server.wm.SystemGesturesPointerEventListener.onPointerEvent:17 com.android.server.wm.PointerEventDispatcher.onInputEvent:51 android.view.InputEventReceiver.dispatchInputEvent:385 
+05-11 18:37:28.475  1733  1813 I GestureDetector: obtain mCurrentDownEvent. id: -291832976 caller: com.android.server.wm.SystemPerformancePointerEventListener.onPointerEvent:13 com.android.server.wm.PointerEventDispatcher.onInputEvent:51 android.view.InputEventReceiver.dispatchInputEvent:385 
+05-11 18:37:28.476  1447  1447 I LayerHistory: com.rnturboimagepicker.app/com.rnturboimagepicker.app.MainActivity$_8564#40462 is infrequent
+05-11 18:37:28.476  1447  1447 I SurfaceFlinger: All layers Min - choose 60.00 Hz
+05-11 18:37:28.477  1447  1447 I HWComposer: [4633128672291735937] ActiveConfigToHWC, ID : 2
+05-11 18:37:28.477  1333  1414 I display : Set Affinity config for fps(60) : 2, cpuIDs : 255
+05-11 18:37:28.477  1333  1414 I display : Set Affinity CPU ID : 0
+05-11 18:37:28.477  1333  1414 I display : Set Affinity CPU ID : 1
+05-11 18:37:28.477  1333  1414 I display : Set Affinity CPU ID : 2
+05-11 18:37:28.477  1333  1414 I display : Set Affinity CPU ID : 3
+05-11 18:37:28.477  1333  1414 I display : Set Affinity CPU ID : 4
+05-11 18:37:28.477  1333  1414 I display : Set Affinity CPU ID : 5
+05-11 18:37:28.477  1333  1414 I display : Set Affinity CPU ID : 6
+05-11 18:37:28.477  1333  1414 I display : Set Affinity CPU ID : 7
+05-11 18:37:28.477  1333  1414 I display : Set affinity HWC : 1333
+05-11 18:37:28.477  1333  1414 I display : CPU set : Cluster(0), min_clock(0)
+05-11 18:37:28.477  1333  1414 I display : CPU set : Cluster(1), min_clock(0)
+05-11 18:37:28.477  1333  1414 I display : CPU set : Cluster(2), min_clock(0)
+05-11 18:37:28.478  6209  6209 I HBD     : d ATL SoundAndVibrationKeyA
+05-11 18:37:28.479  6209  6209 I HBD     : d sound is off 
+05-11 18:37:28.479  6209  7008 I HBD     : e [VibrationFeedback] playVibrator - deviceId:0 
+05-11 18:37:28.480  1333  1407 I display : doDisplayConfigPostProcess needSetActiveConfig is true - mDesiredConfig: 2
+05-11 18:37:28.480  1333  1407 I display : setActiveConfig(config=2)
+05-11 18:37:28.480  1333  1407 I display : next config(2): width=1080 height=2400 period=16666666 Xdpi=422030 Ydpi=423333 groupId=0
+05-11 18:37:28.480  1333  1407 I display : Current VRR MODE is 1
+05-11 18:37:28.480  1447  1545 I VSyncReactor: Current= 120, Period= 60, hwcPeriod= 120
+05-11 18:37:28.480  1733  1816 D LocalDisplayAdapter: updateActiveModeLocked for d=4633128672291735937, mActiveModeId=3, mActiveSfDisplayMode=DisplayMode{id=2, width=1080, height=2400, xDpi=422.03, yDpi=423.333, peakRefreshRate=60.000004, vsyncRate=60.000004, appVsyncOffsetNanos=0, presentationDeadlineNanos=17666666, supportedHdrTypes=[2, 3, 4], group=0}
+05-11 18:37:28.481  6209  6209 I HBD     : c [PF_KL] OTE none 0 4 12 7647269 (1, NONE) 
+05-11 18:37:28.481  1733  1816 I DisplayDeviceRepository: Display device changed render timings: "기본으로 제공되는 화면", renderFrameRate=60.000004, presentationDeadlineNanos=17666666, appVsyncOffsetNanos=0
+05-11 18:37:28.481  1733  2592 D InputDispatcher: Inject motion (9184/2000): action=0x1, time=1068121441000000, f=0x0, d=0 dsdx=1.000000 dtdx=0.000000
+05-11 18:37:28.482  1733  2060 I InputDispatcher: Delivering touch to (6209): action: 0x1, f=0x0, d=0, '80c82d5', t=1 +(0,-80)
+05-11 18:37:28.483  1733  2555 D VibratorManagerService: vibrate - uid: 10196, opPkg: com.samsung.android.honeyboard, effect: Mono{mEffect=Composed{segments=[SemHaptic{mType=50025, mMagnitude=-1}], repeat=-1, mMagnitudeType=TYPE_TOUCH}}, attrs: VibrationAttributes{mUsage=TOUCH, mAudioUsage= USAGE_ASSISTANCE_SONIFICATION, mCategory=UNKNOWN, mFlags=0, tags=}, reason: null, token: android.os.BinderProxy@b7fe180
+05-11 18:37:28.483  1733  2555 D VibratorManagerService: converted usage = TOUCH(18)
+05-11 18:37:28.483  6209  6209 I VRI[InputMethod]@12430fa: ViewPostIme pointer 1
+05-11 18:37:28.483  6209  6209 I GestureDetector: obtain mCurrentMotionEventRaw. action: 1 id: -448938270
+05-11 18:37:28.483  1733  2555 D VibratorManagerService: This 50025 is not supported for engine.
+05-11 18:37:28.484  6209  6209 I HBD     : a down event is done 
+05-11 18:37:28.484  1733  2555 D VibratorManagerService: semPatternVibrate : EFFECT_CLICK(1), repeat: -1, usage: TOUCH(18), magnitude: 4000
+05-11 18:37:28.484  1733  1914 D BrightnessThermalClamper: Thermal status observer already started
+05-11 18:37:28.484  1733  1813 I GestureDetector: obtain mCurrentMotionEventRaw. action: 1 id: -448938270
+05-11 18:37:28.484  1733  2555 D VibratorManagerService: Starting vibrate for vibration 1610
+05-11 18:37:28.484  1733  1733 D SGM:GameManager: onDisplayChanged. displyId: 0, state: 2
+05-11 18:37:28.485  1733  1733 D MotionRecognitionService: [DisplayListener] getRefreshRate 60.000004
+05-11 18:37:28.485  1733  2221 D MotionRecognitionService: Inject RefreshRate: 60
+05-11 18:37:28.485  1733  1733 D AODManagerService: requestReCalToTSP IsSingleTouchMode = falserequestedReCalToTSP = false / previousDisplayState = ON
+05-11 18:37:28.485  1733  2221 D SensorService: setSContextDataLocked ints length 3 , byte length 8
+05-11 18:37:28.485  1733  2221 D SensorService: setSContextDataLocked 100048c1
+05-11 18:37:28.485  1435 23008 D AudioFlinger: setParameters: filtered dev setParameters keyvalue screen_state=on
+05-11 18:37:28.485  1733  2081 D SGM:FgCheckThread: onLooperPrepared(), msg: MSG_LCD_ON
+05-11 18:37:28.485  1733  5862 D LiftUpHandler: [LTW] Stopped already.
+05-11 18:37:28.485  1321  1362 D audio_hw_primary: device-adev_set_parameters: enter
+05-11 18:37:28.486  1321  1362 I audio_hw_primary: device-adev_set_parameters: Screen State = on)
+05-11 18:37:28.486  1733  1813 I GestureDetector: obtain mCurrentMotionEventRaw. action: 1 id: -448938270
+05-11 18:37:28.486  1321  1362 I audio_hw_proxy2: proxy-proxy_set_parameters: set Screen-state 1
+05-11 18:37:28.486  1321  1362 D audio_hw_primary: device-adev_set_parameters: param (screen_state=on)
+05-11 18:37:28.486  1321  1362 I audio_hw_primary_odm: odm_adev_set_parameters: enter with key(screen_state=on)
+05-11 18:37:28.486  1321  1362 V audio_hw_primary: device-adev_set_parameters: exit (screen_state=on)
+05-11 18:37:28.486  1348  1348 D Sensors : c1 48 00 10 3c 00 00 00  
+05-11 18:37:28.486  1348  1348 E Sensors : inject_scontext_data: New ssp_data_injection_fd(44)
+05-11 18:37:28.488  1733  2049 D VibrationThread: Playing vibration id 1610 StartSequentialEffectStep
+05-11 18:37:28.488  1333  1407 I display : config 8333333, desired 16666666
+05-11 18:37:28.488  1733  2049 D VibrationThread: StartSequentialEffectStep for effect #0
+05-11 18:37:28.488  1447  1545 I VSyncReactor: Current= 120, Period= 60, hwcPeriod= 120
+05-11 18:37:28.489  3035  3035 I VRI[LauncherActivity]@6bec86c: onDisplayChanged oldDisplayState=2 newDisplayState=2
+05-11 18:37:28.489  3035  3035 I VRI[RecentsTransitionOverlay]@39442e4: onDisplayChanged oldDisplayState=2 newDisplayState=2
+05-11 18:37:28.489  3035  3035 I VRI[CocktailBarService]@b501f02: onDisplayChanged oldDisplayState=2 newDisplayState=2
+05-11 18:37:28.489  3035  3035 I VRI[RecentsActivity]@a5f5a58: onDisplayChanged oldDisplayState=2 newDisplayState=2
+05-11 18:37:28.489  6209  6209 I HBD     : a up event is done 
+05-11 18:37:28.489  3035 32448 I HoneySpace.Memory-Monitor: current state = 2, didTrim = false
+05-11 18:37:28.490  8564  8564 I VRI[MainActivity]@cab8262: ViewPostIme key 0
+05-11 18:37:28.491  1321  1362 I Audio_a2dpsink_hw: adev_set_parameters: kevpairs=[screen_state=on]
+05-11 18:37:28.491  3035 32448 I HoneySpace.RefreshRateSource: singleFrameMs 16
+05-11 18:37:28.492  2492  2492 D DisplayLifecycle: updateDisplay id = 0
+05-11 18:37:28.492  2492  2564 D StackScroller: onDisplayChanged for predraw skip to 2
+05-11 18:37:28.492  2492  2547 I VRI[ShellDropTarget]@3c33d45: onDisplayChanged oldDisplayState=2 newDisplayState=2
+05-11 18:37:28.494  1733  2571 D WifiDisplayAdapter: isFitToActiveDisplayLocked : false
+05-11 18:37:28.497  2492  2492 I VRI[LockscreenShortcutBlur]@2e72967: onDisplayChanged oldDisplayState=2 newDisplayState=2
+05-11 18:37:28.497  2492  2492 I VRI[NavigationBar0]@d2dc3c8: onDisplayChanged oldDisplayState=2 newDisplayState=2
+05-11 18:37:28.497  2492  2492 I VRI[NotificationShade]@e330e9c: onDisplayChanged oldDisplayState=2 newDisplayState=2
+05-11 18:37:28.497  2492  2492 I VRI[StatusBar]@e258f5d: onDisplayChanged oldDisplayState=2 newDisplayState=2
+05-11 18:37:28.497  2492  2492 I VRI[Bouncer]@c91d142: onDisplayChanged oldDisplayState=2 newDisplayState=2
+05-11 18:37:28.497  1447  1545 I VSyncReactor: Current= 120, Period= 60, hwcPeriod= 60
+05-11 18:37:28.497  1348  1348 D Sensors : SContext Data Injection return 8
+05-11 18:37:28.498  1733  2049 E VibratorController: vibratorSetIntensity setAmplitude successfully
+05-11 18:37:28.498  1733  4847 W PresentationStatsEventLogger: Bad view state for: -1
+05-11 18:37:28.499  8564  8564 I VRI[MainActivity]@cab8262: ViewPostIme key 1
+05-11 18:37:28.499  8564  8564 I VRI[MainActivity]@cab8262: onDisplayChanged oldDisplayState=2 newDisplayState=2
+05-11 18:37:28.501  6209  6209 I HBD     : d ATL DTMFKeyA
+05-11 18:37:28.502  1733  1816 D RefreshRateModeManager: updateDefaultDisplayToken: android.os.BinderProxy@9c60ced, isChanged: false
+05-11 18:37:28.504  1447  1447 I Layer   : setBuffer InputMethod$_6209#40468 - 4
+05-11 18:37:28.504  1447  1447 I Layer   : frame 4 is latched - InputMethod$_6209#40468, visible=0 [1080 2320]
+05-11 18:37:28.505  1415  1415 E SecVibrator-HAL-AIDL-EXT: V_3_0: setAmplitude 4000
+05-11 18:37:28.505  1415  1415 E SecVibrator-HAL-AIDL-CORE: HW_API: >> writeNode node:/timed_output/vibrator/intensity val:4000
+05-11 18:37:28.506  6209  6209 I HBD     : c [PF_KL] OTE none 1 14 37 23225154 (1, NONE) 
+05-11 18:37:28.506  1415  1415 E SecVibrator-HAL-AIDL-CORE: HW_API: << writeNode node OK : 5
+05-11 18:37:28.509  6209  6209 I VRI[InputMethod]@12430fa: onDisplayChanged oldDisplayState=2 newDisplayState=2
+05-11 18:37:28.509  1415  1415 E SecVibrator-HAL-AIDL-EXT: V_3_0: setFrequencyType0
+05-11 18:37:28.509  1415  1415 E SecVibrator-HAL-AIDL-CORE: HW_API: >> writeNode node:/timed_output/vibrator/multi_freq val:0
+05-11 18:37:28.510  1415  1415 E SecVibrator-HAL-AIDL-CORE: HW_API: << writeNode node OK : 2
+05-11 18:37:28.511  1733  2049 D VibrationThread: Running amplitude step with 0ms latency.
+05-11 18:37:28.511  1733  2049 D VibrationThread: Playing vibration id 1610 on vibrator 0 SetAmplitudeVibratorStep
+05-11 18:37:28.511  1733  2049 D VibrationThread: Running amplitude step with 0ms latency.
+05-11 18:37:28.511  1733  2049 D VibrationThread: Turning on vibrator 0 for 7ms
+05-11 18:37:28.511  6209  6209 I HBD     : b ous -  0 ,  0 ,  1 ,  1 ,  -1 ,  -1
+05-11 18:37:28.512  6209  6209 I HBD     : c IIFO[r:1e0beef42a][type:finish] 
+05-11 18:37:28.514  1415  1415 E SecVibrator-HAL-AIDL-CORE: V_1_0: Vibrator on for timeoutMs: 7
+05-11 18:37:28.514  1415  1415 E SecVibrator-HAL-AIDL-CORE: HW_API: do_on for timeoutMs: 7
+05-11 18:37:28.514  1415  1415 E SecVibrator-HAL-AIDL-CORE: HW_API: >> writeNode node:/timed_output/vibrator/enable val:7
+05-11 18:37:28.516  1415  1415 E SecVibrator-HAL-AIDL-CORE: HW_API: << writeNode node OK : 2
+05-11 18:37:28.518  6209  6209 I HBD     : C [EmojiCandidate] getEmoji from EmojiCore-[0]
+05-11 18:37:28.518  1733  2049 D VibrationThread: Playing vibration id 1610 on vibrator 0 CompleteEffectVibratorStep
+05-11 18:37:28.518  6209  6209 I HBD     : Z [SCV] (6) 1 1 1 1 1 1 
+05-11 18:37:28.519  6209 28751 I HBD     : b getET , flag: 1 , start: 1 , end: 1 , length: 1 , composingLength: 0 , isKCC: false
+05-11 18:37:28.519  1733  2049 D VibrationThread: Running complete vibration step on vibrator 0
+05-11 18:37:28.519  6209  6209 I HBD     : E EBD cm S 1 
+05-11 18:37:28.521  1447  1447 I Layer   : setBuffer InputMethod$_6209#40468 - 5
+05-11 18:37:28.522  1447  1447 I Layer   : frame 5 is latched - InputMethod$_6209#40468, visible=0 [1080 2320]
+05-11 18:37:28.522  1733  2049 D VibrationThread: Playing vibration id 1610 on vibrator 0 TurnOffVibratorStep
+05-11 18:37:28.524  1733  6013 D MotionRecognitionService: inject vibrator info = 1.0
+05-11 18:37:28.524  1733  2049 D VibrationThread: Turning off vibrator 0
+05-11 18:37:28.524  1415  1415 E SecVibrator-HAL-AIDL-CORE: V_1_0: Vibrator off
+05-11 18:37:28.525  1415  1415 E SecVibrator-HAL-AIDL-CORE: HW_API: >> writeNode node:/timed_output/vibrator/enable val:0
+05-11 18:37:28.525  1733  3917 D VibratorManagerService: Vibration 1610 on vibrator 0 complete, notifying thread
+05-11 18:37:28.525  1733  3917 D VibrationThread: Vibration complete reported by vibrator 0
+05-11 18:37:28.526  1415  1415 E SecVibrator-HAL-AIDL-CORE: HW_API: << writeNode node OK : 2
+05-11 18:37:28.527  1733  2049 D VibratorManagerService: Vibration 1610 finished with EndInfo{status=FINISHED, endedBy=null}
+05-11 18:37:28.527  1733  2049 D VibratorManagerService: Reporting vibration 1610 finished with EndInfo{status=FINISHED, endedBy=null}
+05-11 18:37:28.527  1733  2049 D VibratorManagerService: Vibration for uid=10196 and with attrs=VibrationAttributes{mUsage=TOUCH, mAudioUsage= USAGE_UNKNOWN, mCategory=UNKNOWN, mFlags=0, tags=} ended with status FINISHED
+05-11 18:37:28.527  1733  2049 D VibrationThread: Playing vibration id 1610 FinishSequentialEffectStep (cleanup)
+05-11 18:37:28.527  1733  2049 D VibrationThread: FinishSequentialEffectStep for effect #0
+05-11 18:37:28.528  1733  2049 D VibratorManagerService: VibrationThread released after finished vibration
+05-11 18:37:28.528  1733  2049 D VibratorManagerService: Processing VibrationThread released callback
+05-11 18:37:28.538  1447  1447 I Layer   : setBuffer InputMethod$_6209#40468 - 6
+05-11 18:37:28.538  1447  1447 I Layer   : frame 6 is latched - InputMethod$_6209#40468, visible=0 [1080 2320]
+05-11 18:37:28.727   672   672 D io_stats: !@   8,0 r 28521140 865081260 w 9437016 166009568 d 3092435 374152336 f 0 0 iot 18868332 0 th 0 0 0 pt 0 inp 0 0 1068121.699
+05-11 18:37:28.772  1733  1813 I GestureDetector: handleMessage TAP
+05-11 18:37:28.776  1733  1733 I GestureDetector: handleMessage TAP
+05-11 18:37:29.080  1733  3333 D FreecessController: com.sec.android.gallery3d(10120) is important[2]
+05-11 18:37:29.278  1733  6013 D MotionRecognitionService: inject vibrator info = 0.0
+05-11 18:37:29.372  8564  8564 I VRI[MainActivity]@cab8262: call setFrameRateCategory for touch hint category=no preference, reason=boost timeout, vri=VRI[MainActivity]@cab8262
+05-11 18:37:29.390  1447  1447 I SurfaceFlinger: [com.rnturboimagepicker.app/com.rnturboimagepicker.app.MainActivity$_8564#40462] setFrameRateCategory: NoPreference
+05-11 18:37:29.534  1447  2157 D NativeSemDvfsManager: acquire:: timeout = 2000 mIsAcquired = 1  mTagName : SurfaceFlinger 
+05-11 18:37:29.535  1447  2157 E NativeCustomFrequencyManager: [NativeCFMS] BpCustomFrequencyManager::acquire()
+05-11 18:37:29.535  1354  1381 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 2996128  [1447 / 1000]    HINT : SF_GPU_MINLOCK    list : [TIMEOUT / 2000] 
+05-11 18:37:29.632  1733  2241 D InetDiagMessage: Destroyed 0 sockets, proto=IPPROTO_TCP, family=AF_INET, states=14
+05-11 18:37:29.633  1733  2241 D InetDiagMessage: Destroyed 0 sockets, proto=IPPROTO_TCP, family=AF_INET6, states=14
+05-11 18:37:29.633  1733  2241 D InetDiagMessage: Destroyed live tcp sockets for uids={10110} in 5ms
+05-11 18:37:29.634  1733  2241 D InetDiagMessage: Destroyed 0 sockets, proto=IPPROTO_TCP, family=AF_INET, states=14
+05-11 18:37:29.635  1733  2241 D InetDiagMessage: Destroyed 0 sockets, proto=IPPROTO_TCP, family=AF_INET6, states=14
+05-11 18:37:29.635  1733  2241 D InetDiagMessage: Destroyed live tcp sockets for uids={20110} in 2ms
+05-11 18:37:29.649  1657 11891 D BufferPoolAccessor2.0: bufferpool2 0xb4000075f52e1e08 : 2(6000 size) total buffers - 1(3000 size) used buffers - 779951/779958 (recycle/alloc) - 31/779956 (fetch/transfer)
+05-11 18:37:29.672 11473  9198 D ImuFileWriter: File rolled & ready: 495_accel_1778491849812.csv → 495_accel_1778491849812.csv.gz (96KB)
+05-11 18:37:29.677 11473  9198 D ImuFileWriter: New accel file opened: 495_accel_1778492249672.csv (encrypted: true)
+05-11 18:37:30.207  1733  4244 D SemWifiUsabilityStatsMonitor: onWifiUsabilityStats - seqNum 54188, isSameBssidAndFreq true
+05-11 18:37:30.211  2492  2564 D Tile.WifiTile: handleUpdateState isTransient=false transientEnabling =false cb.isTransient=false state.state = 2 mStateBeforeClick.value =false enabled =true
+05-11 18:37:30.293 25404  8342 I NearbyPresence: (REDACTED) [NP_EVENT] %s
+05-11 18:37:30.590  1733  4422 D InputDispatcher: Inject motion (9216/2000): action=0x0, time=1068123562000000, f=0x0, d=0 dsdx=1.000000 dtdx=0.000000
+05-11 18:37:30.593  1733  2060 I InputDispatcher: Delivering touch to (2492): action: 0x4, f=0x0, d=0, 'b90dca4', t=1 
+05-11 18:37:30.593  1733  2060 I InputDispatcher: Delivering touch to (6209): action: 0x0, f=0x0, d=0, '80c82d5', t=1 +(0,-80)
+05-11 18:37:30.593  6209  6209 I VRI[InputMethod]@12430fa: ViewPostIme pointer 0
+05-11 18:37:30.593  1733  2060 D PowerManagerService: [api] userActivityFromNative : touch, IME displayId=0 eventTime=1068123562
+05-11 18:37:30.594  6209  6209 I GestureDetector: obtain mCurrentDownEvent. id: -1017685770 caller: Jp.c.onTouch:958 android.view.View.performOnTouchCallback:17037 android.view.View.dispatchTouchEvent:17004 
+05-11 18:37:30.594  1733  1813 I GestureDetector: obtain mCurrentDownEvent. id: -1017685770 caller: com.android.server.wm.SystemGesturesPointerEventListener.onPointerEvent:17 com.android.server.wm.PointerEventDispatcher.onInputEvent:51 android.view.InputEventReceiver.dispatchInputEvent:385 
+05-11 18:37:30.594  1733  1813 I GestureDetector: obtain mCurrentDownEvent. id: -1017685770 caller: com.android.server.wm.SystemPerformancePointerEventListener.onPointerEvent:13 com.android.server.wm.PointerEventDispatcher.onInputEvent:51 android.view.InputEventReceiver.dispatchInputEvent:385 
+05-11 18:37:30.594  6209  6209 I HBD     : d ATL SoundAndVibrationKeyA
+05-11 18:37:30.595  6209  6209 I HBD     : d sound is off 
+05-11 18:37:30.595  6209  6209 I HBD     : c [PF_KL] OTE none 0 3 5 1430770 (1, NONE) 
+05-11 18:37:30.595  6209  7008 I HBD     : e [VibrationFeedback] playVibrator - deviceId:0 
+05-11 18:37:30.595  1733  4422 D InputDispatcher: Inject motion (9216/2000): action=0x1, time=1068123562000000, f=0x0, d=0 dsdx=1.000000 dtdx=0.000000
+05-11 18:37:30.595  1733  2060 I InputDispatcher: Delivering touch to (6209): action: 0x1, f=0x0, d=0, '80c82d5', t=1 +(0,-80)
+05-11 18:37:30.595  6209  6209 I VRI[InputMethod]@12430fa: ViewPostIme pointer 1
+05-11 18:37:30.595  1733  2585 D VibratorManagerService: vibrate - uid: 10196, opPkg: com.samsung.android.honeyboard, effect: Mono{mEffect=Composed{segments=[SemHaptic{mType=50025, mMagnitude=-1}], repeat=-1, mMagnitudeType=TYPE_TOUCH}}, attrs: VibrationAttributes{mUsage=TOUCH, mAudioUsage= USAGE_ASSISTANCE_SONIFICATION, mCategory=UNKNOWN, mFlags=0, tags=}, reason: null, token: android.os.BinderProxy@b7fe180
+05-11 18:37:30.595  6209  6209 I GestureDetector: obtain mCurrentMotionEventRaw. action: 1 id: -216726521
+05-11 18:37:30.595  1733  2585 D VibratorManagerService: converted usage = TOUCH(18)
+05-11 18:37:30.596  1733  2585 D VibratorManagerService: This 50025 is not supported for engine.
+05-11 18:37:30.596  1733  2585 D VibratorManagerService: semPatternVibrate : EFFECT_CLICK(1), repeat: -1, usage: TOUCH(18), magnitude: 4000
+05-11 18:37:30.596  1733  2585 D VibratorManagerService: Starting vibrate for vibration 1611
+05-11 18:37:30.596  1733  1813 I GestureDetector: obtain mCurrentMotionEventRaw. action: 1 id: -216726521
+05-11 18:37:30.596  1733  1813 I GestureDetector: obtain mCurrentMotionEventRaw. action: 1 id: -216726521
+05-11 18:37:30.598  1733  2049 D VibrationThread: Playing vibration id 1611 StartSequentialEffectStep
+05-11 18:37:30.598  1733  2049 D VibrationThread: StartSequentialEffectStep for effect #0
+05-11 18:37:30.598  1733  2049 E VibratorController: vibratorSetIntensity setAmplitude successfully
+05-11 18:37:30.599  1415  1415 E SecVibrator-HAL-AIDL-EXT: V_3_0: setAmplitude 4000
+05-11 18:37:30.600  1415  1415 E SecVibrator-HAL-AIDL-CORE: HW_API: >> writeNode node:/timed_output/vibrator/intensity val:4000
+05-11 18:37:30.600  6209  6209 I HBD     : d ATL CharacterKeyA
+05-11 18:37:30.601  1415  1415 E SecVibrator-HAL-AIDL-CORE: HW_API: << writeNode node OK : 5
+05-11 18:37:30.602  1415  1415 E SecVibrator-HAL-AIDL-EXT: V_3_0: setFrequencyType0
+05-11 18:37:30.602  1415  1415 E SecVibrator-HAL-AIDL-CORE: HW_API: >> writeNode node:/timed_output/vibrator/multi_freq val:0
+05-11 18:37:30.603  1415  1415 E SecVibrator-HAL-AIDL-CORE: HW_API: << writeNode node OK : 2
+05-11 18:37:30.603  1733  2049 D VibrationThread: Running amplitude step with 0ms latency.
+05-11 18:37:30.603  1733  2049 D VibrationThread: Playing vibration id 1611 on vibrator 0 SetAmplitudeVibratorStep
+05-11 18:37:30.603  1733  2049 D VibrationThread: Running amplitude step with 0ms latency.
+05-11 18:37:30.604  1733  2049 D VibrationThread: Turning on vibrator 0 for 7ms
+05-11 18:37:30.604  1415  1415 E SecVibrator-HAL-AIDL-CORE: V_1_0: Vibrator on for timeoutMs: 7
+05-11 18:37:30.604  1415  1415 E SecVibrator-HAL-AIDL-CORE: HW_API: do_on for timeoutMs: 7
+05-11 18:37:30.604  1415  1415 E SecVibrator-HAL-AIDL-CORE: HW_API: >> writeNode node:/timed_output/vibrator/enable val:7
+05-11 18:37:30.604  6209  6209 I HBD     : o1 wordSeparator:OTH 
+05-11 18:37:30.605  1415  1415 E SecVibrator-HAL-AIDL-CORE: HW_API: << writeNode node OK : 2
+05-11 18:37:30.606  1733  6013 D MotionRecognitionService: inject vibrator info = 1.0
+05-11 18:37:30.611  1733  2049 D VibrationThread: Playing vibration id 1611 on vibrator 0 CompleteEffectVibratorStep
+05-11 18:37:30.611  1733  2049 D VibrationThread: Running complete vibration step on vibrator 0
+05-11 18:37:30.611  1733  2049 D VibrationThread: Playing vibration id 1611 on vibrator 0 TurnOffVibratorStep
+05-11 18:37:30.611  1733  2049 D VibrationThread: Turning off vibrator 0
+05-11 18:37:30.611  1415  1415 E SecVibrator-HAL-AIDL-CORE: V_1_0: Vibrator off
+05-11 18:37:30.611  1415  1415 E SecVibrator-HAL-AIDL-CORE: HW_API: >> writeNode node:/timed_output/vibrator/enable val:0
+05-11 18:37:30.613  1415  1415 E SecVibrator-HAL-AIDL-CORE: HW_API: << writeNode node OK : 2
+05-11 18:37:30.613  1733  3917 D VibratorManagerService: Vibration 1611 on vibrator 0 complete, notifying thread
+05-11 18:37:30.613  1733  3917 D VibrationThread: Vibration complete reported by vibrator 0
+05-11 18:37:30.613  1733  2049 D VibratorManagerService: Vibration 1611 finished with EndInfo{status=FINISHED, endedBy=null}
+05-11 18:37:30.613  1733  2049 D VibratorManagerService: Reporting vibration 1611 finished with EndInfo{status=FINISHED, endedBy=null}
+05-11 18:37:30.614  1733  2049 D VibratorManagerService: Vibration for uid=10196 and with attrs=VibrationAttributes{mUsage=TOUCH, mAudioUsage= USAGE_UNKNOWN, mCategory=UNKNOWN, mFlags=0, tags=} ended with status FINISHED
+05-11 18:37:30.614  1733  2049 D VibrationThread: Playing vibration id 1611 FinishSequentialEffectStep (cleanup)
+05-11 18:37:30.614  1733  2049 D VibrationThread: FinishSequentialEffectStep for effect #0
+05-11 18:37:30.615  1733  2049 D VibratorManagerService: VibrationThread released after finished vibration
+05-11 18:37:30.615  1733  2049 D VibratorManagerService: Processing VibrationThread released callback
+05-11 18:37:30.621  6209  6209 I HBD     : c IIFO[r:0ee18a678c][type:commit] 
+05-11 18:37:30.621  6209  6209 I HBD     : c IIFO[r:65f0e67330][type:finish] 
+05-11 18:37:30.622  6209  6209 I HBD     : o0 [PF_IM] onCharacterKey() t, 21 
+05-11 18:37:30.623  6209  6209 I HBD     : C [EmojiCandidate] getEmoji from EmojiCore-[0]
+05-11 18:37:30.623  6209  6209 I HBD     : Z [SCV] (6) 1 1 1 1 1 1 
+05-11 18:37:30.623  6209  6209 I HBD     : E EBD key S 1 
+05-11 18:37:30.623  6209  6209 I HBD     : c [PF_KL] OTE none 1 5 33 28098385 (1, NONE) 
+05-11 18:37:30.640  1447  1447 I Layer   : setBuffer InputMethod$_6209#40468 - 7
+05-11 18:37:30.640  1447  1447 I Layer   : frame 7 is latched - InputMethod$_6209#40468, visible=0 [1080 2320]
+05-11 18:37:30.728   672   672 D io_stats: !@   8,0 r 28521355 865084984 w 9437024 166009596 d 3092435 374152336 f 0 0 iot 18868364 0 th 0 0 0 pt 0 inp 0 0 1068123.700
+05-11 18:37:30.729   672   672 D io_stats: !@ Read_top(KB): ch_zygote(9149) 7680 roid.honeyboard(6209) 5252 oid.samsungpass(9095) 4264
+05-11 18:37:30.729   672   672 D io_stats: !@ Write_top(KB): id.diagmonagent(3729) 64 oid.samsungpass(9095) 16
+05-11 18:37:30.894  1733  1813 I GestureDetector: handleMessage TAP
+05-11 18:37:30.894  1733  1733 I GestureDetector: handleMessage TAP
+05-11 18:37:31.045  1733  2060 I InputDispatcher: Delivering touch to (8564): action: 0x9, f=0x0, d=0, '51d6c7d', t=3 
+05-11 18:37:31.048  1733  2072 D SemInputTaasTestCaseB: [sec_input] CASEB : tool type change pre(1) : cur(3) : Virtual TOOL_TYPE_MOUSE com.rnturboimagepicker.app.MainActivity
+05-11 18:37:31.048  1733  2072 D SemInputDeviceHqmData: increaseCount mCaseACount:50 mCaseBCount:50 tempStr:50 50 2026/0511/18:37:31 B com.rnturboimagepicker.app.MainActivity com.rnturboimagepicker.app && Virtual
+05-11 18:37:31.049  1733  2071 D SemInputDevice:TAAS: WriteTask: [05-11 18:37:31.048]
+05-11 18:37:31.049  8564  8564 I VRI[MainActivity]@cab8262: updatePointerIcon : PointerIcon{type=NOT_SPECIFIED, hotspotX=0.0, hotspotY=0.0}
+05-11 18:37:31.050  1408  1408 I sysinput:Taas: bypassCommand:44, start
+05-11 18:37:31.051  1733  4422 W PointerChoreographer: Invalid device id -1. Cannot set pointer icon.
+05-11 18:37:31.054  1447  2157 D NativeSemDvfsManager: acquire:: timeout = 2000 mIsAcquired = 1  mTagName : SurfaceFlinger 
+05-11 18:37:31.054  1447  1447 I LayerHistory: InputMethod$_6209#40468 Max (can't resolve refresh rate)
+05-11 18:37:31.054  1447  1447 I LayerHistory: StatusBar$_2492#101 Max (can't resolve refresh rate)
+05-11 18:37:31.054  1447  1447 I LayerHistory: com.rnturboimagepicker.app/com.rnturboimagepicker.app.MainActivity$_8564#40462 Max (can't resolve refresh rate)
+05-11 18:37:31.054  1447  1447 I SurfaceFlinger: Touch Boost - choose 120.00 Hz
+05-11 18:37:31.054  1447  1447 I HWComposer: [4633128672291735937] ActiveConfigToHWC, ID : 0
+05-11 18:37:31.054  1447  2157 E NativeCustomFrequencyManager: [NativeCFMS] BpCustomFrequencyManager::acquire()
+05-11 18:37:31.055  1333  1414 I display : Set Affinity config for fps(120) : 0, cpuIDs : 255
+05-11 18:37:31.055  1333  1414 I display : Set Affinity CPU ID : 0
+05-11 18:37:31.055  1333  1414 I display : Set Affinity CPU ID : 1
+05-11 18:37:31.055  1333  1414 I display : Set Affinity CPU ID : 2
+05-11 18:37:31.055  1333  1414 I display : Set Affinity CPU ID : 3
+05-11 18:37:31.055  1333  1414 I display : Set Affinity CPU ID : 4
+05-11 18:37:31.055  1354  1381 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 2996128  [1447 / 1000]    HINT : SF_GPU_MINLOCK    list : [TIMEOUT / 2000] 
+05-11 18:37:31.055  1333  1414 I display : Set Affinity CPU ID : 5
+05-11 18:37:31.055  1333  1414 I display : Set Affinity CPU ID : 6
+05-11 18:37:31.055  1333  1414 I display : Set Affinity CPU ID : 7
+05-11 18:37:31.055  1333  1414 I display : Set affinity HWC : 1333
+05-11 18:37:31.055  1333  1414 I display : CPU set : Cluster(0), min_clock(0)
+05-11 18:37:31.055  1333  1414 I display : CPU set : Cluster(1), min_clock(0)
+05-11 18:37:31.055  1333  1414 I display : CPU set : Cluster(2), min_clock(0)
+05-11 18:37:31.056  1733  2071 D SysinputHAL_V1_3(V1_2): writeTaas: ret=0
+05-11 18:37:31.056  1333  1407 I display : doDisplayConfigPostProcess needSetActiveConfig is true - mDesiredConfig: 0
+05-11 18:37:31.056  1333  1407 I display : setActiveConfig(config=0)
+05-11 18:37:31.056  1333  1407 I display : next config(0): width=1080 height=2400 period=8333333 Xdpi=422030 Ydpi=423333 groupId=0
+05-11 18:37:31.056  1333  1407 I display : Current VRR MODE is 1
+05-11 18:37:31.057  1447  1545 I VSyncReactor: Current= 60, Period= 120, hwcPeriod= 60
+05-11 18:37:31.065  1733  1816 D LocalDisplayAdapter: updateActiveModeLocked for d=4633128672291735937, mActiveModeId=1, mActiveSfDisplayMode=DisplayMode{id=0, width=1080, height=2400, xDpi=422.03, yDpi=423.333, peakRefreshRate=120.00001, vsyncRate=120.00001, appVsyncOffsetNanos=0, presentationDeadlineNanos=9333333, supportedHdrTypes=[2, 3, 4], group=0}
+05-11 18:37:31.066  1733  1816 I DisplayDeviceRepository: Display device changed render timings: "기본으로 제공되는 화면", renderFrameRate=120.00001, presentationDeadlineNanos=9333333, appVsyncOffsetNanos=0
+05-11 18:37:31.067  1733  1914 D BrightnessThermalClamper: Thermal status observer already started
+05-11 18:37:31.068  1733  1733 D SGM:GameManager: onDisplayChanged. displyId: 0, state: 2
+05-11 18:37:31.068  1733  2081 D SGM:FgCheckThread: onLooperPrepared(), msg: MSG_LCD_ON
+05-11 18:37:31.068  1435 23008 D AudioFlinger: setParameters: filtered dev setParameters keyvalue screen_state=on
+05-11 18:37:31.068  1733  1733 D MotionRecognitionService: [DisplayListener] getRefreshRate 120.00001
+05-11 18:37:31.069  1733  1733 D AODManagerService: requestReCalToTSP IsSingleTouchMode = falserequestedReCalToTSP = false / previousDisplayState = ON
+05-11 18:37:31.069  1733  2221 D MotionRecognitionService: Inject RefreshRate: 120
+05-11 18:37:31.069  1733  2221 D SensorService: setSContextDataLocked ints length 3 , byte length 8
+05-11 18:37:31.069  1733  2221 D SensorService: setSContextDataLocked 100048c1
+05-11 18:37:31.070  1733  5862 D LiftUpHandler: [LTW] Stopped already.
+05-11 18:37:31.070  1321  9568 D audio_hw_primary: device-adev_set_parameters: enter
+05-11 18:37:31.070  1321  9568 I audio_hw_primary: device-adev_set_parameters: Screen State = on)
+05-11 18:37:31.071  1321  9568 I audio_hw_proxy2: proxy-proxy_set_parameters: set Screen-state 1
+05-11 18:37:31.071  1321  9568 D audio_hw_primary: device-adev_set_parameters: param (screen_state=on)
+05-11 18:37:31.071  1348  1348 D Sensors : c1 48 00 10 78 00 00 00  
+05-11 18:37:31.071  1321  9568 I audio_hw_primary_odm: odm_adev_set_parameters: enter with key(screen_state=on)
+05-11 18:37:31.071  1348  1348 E Sensors : inject_scontext_data: New ssp_data_injection_fd(44)
+05-11 18:37:31.071  1321  9568 V audio_hw_primary: device-adev_set_parameters: exit (screen_state=on)
+05-11 18:37:31.071  1321  1362 I Audio_a2dpsink_hw: adev_set_parameters: kevpairs=[screen_state=on]
+05-11 18:37:31.072  6209  6209 I VRI[InputMethod]@12430fa: onDisplayChanged oldDisplayState=2 newDisplayState=2
+05-11 18:37:31.073  1733  1816 D RefreshRateModeManager: updateDefaultDisplayToken: android.os.BinderProxy@9c60ced, isChanged: false
+05-11 18:37:31.074  1447  1545 I VSyncReactor: Current= 60, Period= 120, hwcPeriod= 120
+05-11 18:37:31.075  1348  1348 D Sensors : SContext Data Injection return 8
+05-11 18:37:31.077  3035  3035 I VRI[LauncherActivity]@6bec86c: onDisplayChanged oldDisplayState=2 newDisplayState=2
+05-11 18:37:31.077  3035  3035 I VRI[RecentsTransitionOverlay]@39442e4: onDisplayChanged oldDisplayState=2 newDisplayState=2
+05-11 18:37:31.077  3035  3035 I VRI[CocktailBarService]@b501f02: onDisplayChanged oldDisplayState=2 newDisplayState=2
+05-11 18:37:31.077  3035 32449 I HoneySpace.Memory-Monitor: current state = 2, didTrim = false
+05-11 18:37:31.077  3035  3035 I VRI[RecentsActivity]@a5f5a58: onDisplayChanged oldDisplayState=2 newDisplayState=2
+05-11 18:37:31.077  3035 32449 I HoneySpace.RefreshRateSource: singleFrameMs 8
+05-11 18:37:31.078  8564  8564 I VRI[MainActivity]@cab8262: onDisplayChanged oldDisplayState=2 newDisplayState=2
+05-11 18:37:31.080  2492  2492 D DisplayLifecycle: updateDisplay id = 0
+05-11 18:37:31.080  2492  2564 D StackScroller: onDisplayChanged for predraw skip to 2
+05-11 18:37:31.080  2492  2547 I VRI[ShellDropTarget]@3c33d45: onDisplayChanged oldDisplayState=2 newDisplayState=2
+05-11 18:37:31.081  2492  2492 I VRI[LockscreenShortcutBlur]@2e72967: onDisplayChanged oldDisplayState=2 newDisplayState=2
+05-11 18:37:31.081  2492  2492 I VRI[NavigationBar0]@d2dc3c8: onDisplayChanged oldDisplayState=2 newDisplayState=2
+05-11 18:37:31.081  2492  2492 I VRI[NotificationShade]@e330e9c: onDisplayChanged oldDisplayState=2 newDisplayState=2
+05-11 18:37:31.081  2492  2492 I VRI[StatusBar]@e258f5d: onDisplayChanged oldDisplayState=2 newDisplayState=2
+05-11 18:37:31.081  2492  2492 I VRI[Bouncer]@c91d142: onDisplayChanged oldDisplayState=2 newDisplayState=2
+05-11 18:37:31.081  1733  2555 D WifiDisplayAdapter: isFitToActiveDisplayLocked : false
+05-11 18:37:31.364  1733  6013 D MotionRecognitionService: inject vibrator info = 0.0
+05-11 18:37:31.568  8564  8564 I VRI[MainActivity]@cab8262: call setFrameRateCategory for touch hint category=high hint, reason=touch, vri=VRI[MainActivity]@cab8262
+05-11 18:37:31.574  1447  1447 I SurfaceFlinger: [com.rnturboimagepicker.app/com.rnturboimagepicker.app.MainActivity$_8564#40462] setFrameRateCategory: HighHint
+05-11 18:37:31.692  1733  2060 D PowerManagerService: [api] userActivityFromNative : other, HOVER displayId=0 eventTime=1068124662
+05-11 18:37:31.765  1360 11912 D BufferPoolAccessor2.0: bufferpool2 0xb40000746cc06b28 : 6(23329536 size) total buffers - 5(19441280 size) used buffers - 55826/56193 (recycle/alloc) - 8097/56187 (fetch/transfer)
+05-11 18:37:31.847  9067  9067 I [PASS][SPAF]AutofillService: onDestroy: Cancelling service scope
+05-11 18:37:31.849  1435 23008 V APM_AudioPolicyManager: setAppState(portId:238, state:2)
+05-11 18:37:31.849  1435 23008 V APM_AudioPolicyManager: setAppState(portId:238, state:2)
+05-11 18:37:31.853  9095  9095 I [PASS][CMN]DrawableCache: Cache size initialized: 16384KB (maxMemory=256MB)
+05-11 18:37:31.854  9095  9095 I [PASS][CMN]DrawableCache: trimMemory: TRIM_MEMORY_BACKGROUND - trimming to 12288KB
+05-11 18:37:31.856  1733  2392 I ActivityManager: Killing 24894:com.skt.skaf.OA00018282/u0a99 (adj 995): empty #33
+05-11 18:37:31.857  1733  2392 I ActivityManager: Killing 24334:com.android.vending:instant_app_installer/u0a235 (adj 995): empty #34
+05-11 18:37:31.859  9149  9149 I [AUTHFW][PASS]AuthFwApp: otlv40
+05-11 18:37:31.860  9067  9067 I [PASS][CMN]DrawableCache: Cache size initialized: 16384KB (maxMemory=256MB)
+05-11 18:37:31.860  1435  5449 V APM_AudioPolicyManager: setAppState(portId:238, state:2)
+05-11 18:37:31.860  1435  5449 V APM_AudioPolicyManager: setAppState(portId:238, state:2)
+05-11 18:37:31.860  9067  9067 I [PASS][CMN]DrawableCache: clearData: clearing cache (current size=0KB)
+05-11 18:37:31.913  1308  1308 I Zygote  : Process 24334 exited due to signal 9 (Killed)
+05-11 18:37:31.913  1308  1308 I Zygote  : Process 24894 exited due to signal 9 (Killed)
+05-11 18:37:31.913  1733  1845 I libprocessgroup: Removed cgroup /sys/fs/cgroup/uid_10099/pid_24894
+05-11 18:37:31.914  1733  1845 I libprocessgroup: Removed cgroup /sys/fs/cgroup/uid_10235/pid_24334
+05-11 18:37:31.924  1733  1813 D DisplayManagerService: Drop pending events for gone uid 10099
+05-11 18:37:32.210 25404  8494 I .gms.persistent: Explicit concurrent copying GC freed 5774KB AllocSpace bytes, 0(0B) LOS objects, 66% free, 17MB/52MB, paused 261us,124us total 184.676ms
+05-11 18:37:32.214 25404 25411 W .gms.persistent: ApkAssets: Deleting an ApkAssets object '<empty> and /data/app/~~fwTLjGdNMgB8elyWVK-PiQ==/com.rnturboimagepicker.app-u5S4gp6y9jyDL3jUFyQ9Uw==/base.apk' with 1 weak references
+05-11 18:37:32.425  1424  1590 I EDEN    : [Exynos][EDEN][v1.6.23][SERVICE] processAliveMointorMain:253: Try to check pid=(1364)...
+05-11 18:37:32.556  1447  2157 D NativeSemDvfsManager: acquire:: timeout = 2000 mIsAcquired = 1  mTagName : SurfaceFlinger 
+05-11 18:37:32.556  1447  2157 E NativeCustomFrequencyManager: [NativeCFMS] BpCustomFrequencyManager::acquire()
+05-11 18:37:32.556  1354  1381 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 2996128  [1447 / 1000]    HINT : SF_GPU_MINLOCK    list : [TIMEOUT / 2000] 
+05-11 18:37:32.569 11844 11879 D BufferPoolAccessor2.0: bufferpool2 0xb4000075af8f0a38 : 5(19200 size) total buffers - 4(15360 size) used buffers - 780102/780107 (recycle/alloc) - 1428/1560205 (fetch/transfer)
+05-11 18:37:32.632  1733  2046 D ActivityManager: freezing 23483 com.samsung.android.lool
+05-11 18:37:32.633  1733  2046 D ActivityManager: freezing 23826 com.samsung.android.forest
+05-11 18:37:32.634  1733  2046 D ActivityManager: freezing 23651 com.samsung.android.provider.filterprovider
+05-11 18:37:32.635  1733  2046 D ActivityManager: freezing 23645 com.android.keychain
+05-11 18:37:32.636  1733  2046 D ActivityManager: freezing 9237 com.samsung.android.cameraxservice
+05-11 18:37:32.637  1733  2046 D ActivityManager: freezing 7154 com.samsung.android.smartface
+05-11 18:37:32.640  1733  1837 I ActivityManager: Changes in 10113 5 to 15, 16 to 0
+05-11 18:37:32.641  1733  2046 D ActivityManager: freezing 11384 com.samsung.android.svcagent
+05-11 18:37:32.641  1435 23008 V APM_AudioPolicyManager: setAppState(portId:238, state:2)
+05-11 18:37:32.642  1733  2046 D ActivityManager: freezing 14452 com.android.settings
+05-11 18:37:32.654  3751  5023 I SDHMS:x : SIOP:: AP:373 BAT:341 USB:-200 CHG:367 PA:363 CP:367 WIFI:370 CF:351 BLK:0 SUBBAT:0 SKIN:363 SKINF:277 SKINB:300 LRP:300 LRP2:363 LRF:277 LRB:300 LRF2:363 LRB2:348 AP2:340 CHG2:334 MEM2:345 WIFI2:363 RCV2:371 SPK2:-32 FCAM:-200 UPSPK:346 DNSPK:-200 AVGCUR:-42 AVGSYS:417 POWER:-180
+05-11 18:37:32.656  3751  4033 I SDHMS:N0: p2p-if:: false, , 

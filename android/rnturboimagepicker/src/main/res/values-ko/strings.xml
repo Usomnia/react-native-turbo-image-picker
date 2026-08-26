@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tab_all">전체</string>
+    <string name="tab_selected">선택됨</string>
+    <string name="button_done">완료</string>
+    <string name="selected_count">%1$d 선택됨</string>
+    <string name="selected_count_ko">%1$d개 선택됨</string>
+    <string name="album_recents">최근 항목</string>
+
+
+
+
+
+
+    <string name="delete_edits_message">편집을 삭제 하시겠습니까?</string>
+    <string name="yes">예</string>
+    <string name="no">아니오</string>
+    <string name="editor_apply">적용</string>
+</resources>

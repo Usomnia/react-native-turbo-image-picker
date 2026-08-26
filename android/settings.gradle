@@ -1,0 +1,5 @@
+rootProject.name = "RNTurboImagePicker"
+include ':app'
+include ':rnturboimagepicker'
+
+project(':rnturboimagepicker').projectDir = new File(rootProject.projectDir, './rnturboimagepicker')
