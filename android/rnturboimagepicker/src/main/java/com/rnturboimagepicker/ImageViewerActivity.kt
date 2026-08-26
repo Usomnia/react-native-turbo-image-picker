@@ -23,6 +23,19 @@ import com.bumptech.glide.request.transition.Transition
 import com.bumptech.glide.load.model.GlideUrl
 import android.net.Uri
 
+class SafeGlideUrl(private val originalUrl: String, private val safeCacheKey: String) : GlideUrl(originalUrl) {
+    override fun getCacheKey(): String = safeCacheKey
+    override fun equals(other: Any?): Boolean {
+        if (other is GlideUrl) {
+            return safeCacheKey == other.cacheKey
+        }
+        return false
+    }
+    override fun hashCode(): Int {
+        return safeCacheKey.hashCode()
+    }
+}
+
 fun getSafeGlideUrl(url: String): Any {
     if (!url.startsWith("http")) return url
     val cacheKey = try {
@@ -39,9 +52,7 @@ fun getSafeGlideUrl(url: String): Any {
     } catch (e: Exception) {
         url
     }
-    return object : GlideUrl(url) {
-        override fun getCacheKey(): String = cacheKey
-    }
+    return SafeGlideUrl(url, cacheKey)
 }
 class ImageViewerActivity : AppCompatActivity() {
 
@@ -548,14 +559,7 @@ class ImageViewerActivity : AppCompatActivity() {
                 .apply(RequestOptions()
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .skipMemoryCache(false))
-                .into(object : CustomTarget<Bitmap>() {
-                    override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
-                        holder.zoomableImageView.setImageBitmap(resource)
-                    }
-
-                    override fun onLoadCleared(placeholder: Drawable?) {
-                    }
-                })
+                .into(holder.zoomableImageView)
         }
 
         override fun getItemCount(): Int = items.size
