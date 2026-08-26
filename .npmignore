@@ -1,3 +1,7 @@
 android/.cxx
 android/build
 android/extracted-aar
+docs/
+*.tgz
+android/rnturboimagepicker-release.aar
+android/src/main/libs/react-native-turbo-image-picker.aar
