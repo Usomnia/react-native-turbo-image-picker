@@ -1,6 +1,6 @@
 package com.rnturboimagepicker
 
-import com.rnturboimagepicker.codegen.NativeTurboImagePickerSpec
+
 import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
@@ -41,8 +41,58 @@ class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
     private var maxHeight: Int = 1024
     private var outputFormat: String = "webp" // Default to webp
 
+    private val pageChangeReceiver = object : android.content.BroadcastReceiver() {
+        override fun onReceive(context: android.content.Context?, intent: android.content.Intent?) {
+            if (intent?.action == "com.rnturboimagepicker.PAGE_CHANGED") {
+                val index = intent.getIntExtra("index", 0)
+                val params = Arguments.createMap()
+                params.putInt("index", index)
+                reactApplicationContext
+                    .getJSModule(com.facebook.react.modules.core.DeviceEventManagerModule.RCTDeviceEventEmitter::class.java)
+                    .emit("onPageSelected", params)
+            }
+        }
+    }
+
     init {
         reactContext.addActivityEventListener(this)
+    }
+
+    override fun initialize() {
+        super.initialize()
+        androidx.localbroadcastmanager.content.LocalBroadcastManager.getInstance(reactApplicationContext)
+            .registerReceiver(pageChangeReceiver, android.content.IntentFilter("com.rnturboimagepicker.PAGE_CHANGED"))
+    }
+
+    override fun updateSourceRect(options: ReadableMap, promise: Promise) {
+        var startX = -1f
+        var startY = -1f
+        var startWidth = -1f
+        var startHeight = -1f
+
+        if (options.hasKey("x")) {
+            startX = com.facebook.react.uimanager.PixelUtil.toPixelFromDIP(options.getDouble("x").toFloat())
+        }
+        if (options.hasKey("y")) {
+            startY = com.facebook.react.uimanager.PixelUtil.toPixelFromDIP(options.getDouble("y").toFloat())
+        }
+        if (options.hasKey("width")) {
+            startWidth = com.facebook.react.uimanager.PixelUtil.toPixelFromDIP(options.getDouble("width").toFloat())
+        }
+        if (options.hasKey("height")) {
+            startHeight = com.facebook.react.uimanager.PixelUtil.toPixelFromDIP(options.getDouble("height").toFloat())
+        }
+
+        val intent = android.content.Intent("com.rnturboimagepicker.UPDATE_COORDINATES")
+        intent.putExtra("startX", startX)
+        intent.putExtra("startY", startY)
+        intent.putExtra("startWidth", startWidth)
+        intent.putExtra("startHeight", startHeight)
+        
+        androidx.localbroadcastmanager.content.LocalBroadcastManager.getInstance(reactApplicationContext)
+            .sendBroadcast(intent)
+            
+        promise.resolve(null)
     }
 
     override fun getName(): String = NAME
@@ -280,6 +330,22 @@ class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
         val initialIndex = if (options.hasKey("initialIndex")) options.getInt("initialIndex") else 0
         val themeColor = if (options.hasKey("themeColor")) options.getString("themeColor") else "#FF6B35"
         val title = if (options.hasKey("title")) options.getString("title") else null
+        val animationType = if (options.hasKey("animationType")) options.getString("animationType") else null
+
+        var startX = -1f
+        var startY = -1f
+        var startWidth = -1f
+        var startHeight = -1f
+
+        if (options.hasKey("sourceRect")) {
+            val sourceRect = options.getMap("sourceRect")
+            if (sourceRect != null) {
+                startX = if (sourceRect.hasKey("x")) com.facebook.react.uimanager.PixelUtil.toPixelFromDIP(sourceRect.getDouble("x").toFloat()) else -1f
+                startY = if (sourceRect.hasKey("y")) com.facebook.react.uimanager.PixelUtil.toPixelFromDIP(sourceRect.getDouble("y").toFloat()) else -1f
+                startWidth = if (sourceRect.hasKey("width")) com.facebook.react.uimanager.PixelUtil.toPixelFromDIP(sourceRect.getDouble("width").toFloat()) else -1f
+                startHeight = if (sourceRect.hasKey("height")) com.facebook.react.uimanager.PixelUtil.toPixelFromDIP(sourceRect.getDouble("height").toFloat()) else -1f
+            }
+        }
 
         try {
             val intent = Intent(activity, ImageViewerActivity::class.java).apply {
@@ -288,6 +354,15 @@ class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
                 putExtra("EXTRA_THEME_COLOR", themeColor)
                 if (title != null) {
                     putExtra(ImageViewerActivity.EXTRA_TITLE, title)
+                }
+                if (animationType != null) {
+                    putExtra("animationType", animationType)
+                }
+                if (startX != -1f) {
+                    putExtra("startX", startX)
+                    putExtra("startY", startY)
+                    putExtra("startWidth", startWidth)
+                    putExtra("startHeight", startHeight)
                 }
             }
             activity.startActivity(intent)
@@ -610,6 +685,8 @@ class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
     override fun invalidate() {
         super.invalidate()
         reactApplicationContext.removeActivityEventListener(this)
+        androidx.localbroadcastmanager.content.LocalBroadcastManager.getInstance(reactApplicationContext)
+            .unregisterReceiver(pageChangeReceiver)
     }
 }
 

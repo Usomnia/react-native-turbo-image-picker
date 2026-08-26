@@ -15,6 +15,8 @@ import Photos
 #endif
 
 class MainViewController: UIViewController {
+    
+    private var zoomAnimator = ZoomTransitionAnimator()
 
     // MARK: - UI
 
@@ -105,6 +107,11 @@ class MainViewController: UIViewController {
         color: UIColor(red: 0.35, green: 0.15, blue: 0.85, alpha: 1),
         action: #selector(profileOnTapped)
     )
+    private lazy var cacheTestBtn = makeButton(
+        title: "🌐 원격 캐시 테스트\n(20장)",
+        color: UIColor.systemTeal,
+        action: #selector(cacheTestTapped)
+    )
     // 결과 표시 라벨
     private lazy var resultLabel: UILabel = {
         let l = UILabel()
@@ -117,14 +124,26 @@ class MainViewController: UIViewController {
         return l
     }()
 
-    private lazy var imageScrollView: UIScrollView = {
+    private func makeResultLabel(_ text: String) -> UILabel {
+        let l = UILabel()
+        l.text = text
+        l.font = .systemFont(ofSize: 13, weight: .bold)
+        l.textColor = .darkGray
+        l.translatesAutoresizingMaskIntoConstraints = false
+        l.isHidden = true
+        return l
+    }
+    
+    private func makeResultScrollView() -> UIScrollView {
         let sv = UIScrollView()
         sv.showsHorizontalScrollIndicator = true
         sv.translatesAutoresizingMaskIntoConstraints = false
+        sv.isHidden = true
+        sv.heightAnchor.constraint(equalToConstant: 100).isActive = true
         return sv
-    }()
-
-    private lazy var imageStackView: UIStackView = {
+    }
+    
+    private func makeResultStackView() -> UIStackView {
         let s = UIStackView()
         s.axis = .horizontal
         s.spacing = 8
@@ -132,6 +151,31 @@ class MainViewController: UIViewController {
         s.distribution = .fill
         s.translatesAutoresizingMaskIntoConstraints = false
         return s
+    }
+
+    private lazy var labelZoom = makeResultLabel("결과 이미지 (Zoom)")
+    private lazy var scrollViewZoom = makeResultScrollView()
+    private lazy var stackZoom = makeResultStackView()
+
+    private lazy var labelFade = makeResultLabel("결과 이미지 (Fade)")
+    private lazy var scrollViewFade = makeResultScrollView()
+    private lazy var stackFade = makeResultStackView()
+
+    private lazy var labelSlide = makeResultLabel("결과 이미지 (Slide)")
+    private lazy var scrollViewSlide = makeResultScrollView()
+    private lazy var stackSlide = makeResultStackView()
+
+    private lazy var mainScrollView: UIScrollView = {
+        let sv = UIScrollView()
+        sv.translatesAutoresizingMaskIntoConstraints = false
+        sv.showsVerticalScrollIndicator = true
+        return sv
+    }()
+
+    private lazy var contentView: UIView = {
+        let v = UIView()
+        v.translatesAutoresizingMaskIntoConstraints = false
+        return v
     }()
 
     // MARK: - Lifecycle
@@ -153,35 +197,65 @@ class MainViewController: UIViewController {
         let multiLabel   = makeSectionLabel("── 멀티 선택 ──")
         let profileLabel = makeSectionLabel("── 프로필 모드 ──")
         let profileRow   = makeHStack([profileOffBtn, profileOnBtn])
+        
+        let cacheLabel = makeSectionLabel("── 성능 테스트 ──")
+        let cacheRow = makeHStack([cacheTestBtn])
 
         let vStack = UIStackView(arrangedSubviews: [
             singleLabel, topRow,
             multiLabel,  bottomRow,
-            profileLabel, profileRow
+            profileLabel, profileRow,
+            cacheLabel, cacheRow
         ])
         vStack.axis = .vertical
         vStack.spacing = 10
         vStack.translatesAutoresizingMaskIntoConstraints = false
 
-        view.addSubview(titleLabel)
-        view.addSubview(subtitleLabel)
-        view.addSubview(vStack)
-        view.addSubview(resultLabel)
-        view.addSubview(imageScrollView)
-        imageScrollView.addSubview(imageStackView)
+        let resultListsStack = UIStackView(arrangedSubviews: [
+            labelZoom, scrollViewZoom,
+            labelFade, scrollViewFade,
+            labelSlide, scrollViewSlide
+        ])
+        resultListsStack.axis = .vertical
+        resultListsStack.spacing = 8
+        resultListsStack.translatesAutoresizingMaskIntoConstraints = false
+        
+        scrollViewZoom.addSubview(stackZoom)
+        scrollViewFade.addSubview(stackFade)
+        scrollViewSlide.addSubview(stackSlide)
+        
+        view.addSubview(mainScrollView)
+        mainScrollView.addSubview(contentView)
+        
+        contentView.addSubview(titleLabel)
+        contentView.addSubview(subtitleLabel)
+        contentView.addSubview(vStack)
+        contentView.addSubview(resultLabel)
+        contentView.addSubview(resultListsStack)
 
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 36),
-            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            mainScrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            mainScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            mainScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            mainScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            contentView.topAnchor.constraint(equalTo: mainScrollView.contentLayoutGuide.topAnchor),
+            contentView.leadingAnchor.constraint(equalTo: mainScrollView.contentLayoutGuide.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: mainScrollView.contentLayoutGuide.trailingAnchor),
+            contentView.bottomAnchor.constraint(equalTo: mainScrollView.contentLayoutGuide.bottomAnchor),
+            contentView.widthAnchor.constraint(equalTo: mainScrollView.frameLayoutGuide.widthAnchor),
+
+            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 36),
+            titleLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
 
             subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
-            subtitleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            subtitleLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
 
-            vStack.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -60),
-            vStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            vStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            vStack.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 30),
+            vStack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            vStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
 
             singleOffBtn.heightAnchor.constraint(equalToConstant: 88),
             singleOnBtn.heightAnchor.constraint(equalToConstant: 88),
@@ -189,21 +263,34 @@ class MainViewController: UIViewController {
             multiOnBtn.heightAnchor.constraint(equalToConstant: 88),
             profileOffBtn.heightAnchor.constraint(equalToConstant: 88),
             profileOnBtn.heightAnchor.constraint(equalToConstant: 88),
+            cacheTestBtn.heightAnchor.constraint(equalToConstant: 88),
 
             resultLabel.topAnchor.constraint(equalTo: vStack.bottomAnchor, constant: 20),
-            resultLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            resultLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            resultLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
+            resultLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -24),
             
-            imageScrollView.topAnchor.constraint(equalTo: resultLabel.bottomAnchor, constant: 16),
-            imageScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            imageScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            imageScrollView.heightAnchor.constraint(equalToConstant: 120),
+            resultListsStack.topAnchor.constraint(equalTo: resultLabel.bottomAnchor, constant: 16),
+            resultListsStack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            resultListsStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            resultListsStack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -40),
             
-            imageStackView.topAnchor.constraint(equalTo: imageScrollView.contentLayoutGuide.topAnchor),
-            imageStackView.leadingAnchor.constraint(equalTo: imageScrollView.contentLayoutGuide.leadingAnchor),
-            imageStackView.trailingAnchor.constraint(equalTo: imageScrollView.contentLayoutGuide.trailingAnchor),
-            imageStackView.bottomAnchor.constraint(equalTo: imageScrollView.contentLayoutGuide.bottomAnchor),
-            imageStackView.heightAnchor.constraint(equalTo: imageScrollView.frameLayoutGuide.heightAnchor)
+            stackZoom.topAnchor.constraint(equalTo: scrollViewZoom.contentLayoutGuide.topAnchor),
+            stackZoom.leadingAnchor.constraint(equalTo: scrollViewZoom.contentLayoutGuide.leadingAnchor),
+            stackZoom.trailingAnchor.constraint(equalTo: scrollViewZoom.contentLayoutGuide.trailingAnchor),
+            stackZoom.bottomAnchor.constraint(equalTo: scrollViewZoom.contentLayoutGuide.bottomAnchor),
+            stackZoom.heightAnchor.constraint(equalTo: scrollViewZoom.frameLayoutGuide.heightAnchor),
+            
+            stackFade.topAnchor.constraint(equalTo: scrollViewFade.contentLayoutGuide.topAnchor),
+            stackFade.leadingAnchor.constraint(equalTo: scrollViewFade.contentLayoutGuide.leadingAnchor),
+            stackFade.trailingAnchor.constraint(equalTo: scrollViewFade.contentLayoutGuide.trailingAnchor),
+            stackFade.bottomAnchor.constraint(equalTo: scrollViewFade.contentLayoutGuide.bottomAnchor),
+            stackFade.heightAnchor.constraint(equalTo: scrollViewFade.frameLayoutGuide.heightAnchor),
+            
+            stackSlide.topAnchor.constraint(equalTo: scrollViewSlide.contentLayoutGuide.topAnchor),
+            stackSlide.leadingAnchor.constraint(equalTo: scrollViewSlide.contentLayoutGuide.leadingAnchor),
+            stackSlide.trailingAnchor.constraint(equalTo: scrollViewSlide.contentLayoutGuide.trailingAnchor),
+            stackSlide.bottomAnchor.constraint(equalTo: scrollViewSlide.contentLayoutGuide.bottomAnchor),
+            stackSlide.heightAnchor.constraint(equalTo: scrollViewSlide.frameLayoutGuide.heightAnchor)
         ])
     }
 
@@ -260,6 +347,20 @@ class MainViewController: UIViewController {
     /// 프로필 모드: 1:1 크롭 후 편집
     @objc private func profileOnTapped() {
         openProfilePicker(enableEditor: true)
+    }
+
+    /// 원격 캐시 테스트
+    @objc private func cacheTestTapped() {
+        // picsum random images with specific IDs for deterministic caching
+        let urls = (10...29).map { "https://picsum.photos/id/\($0)/800/1200" }
+        let viewerVC = RemoteImageViewerViewController(imageUrls: urls, initialIndex: 0)
+        
+        let rect = cacheTestBtn.convert(cacheTestBtn.bounds, to: nil)
+        self.zoomAnimator.sourceRect = rect
+        viewerVC.modalPresentationStyle = .custom
+        viewerVC.transitioningDelegate = self
+        
+        present(viewerVC, animated: true)
     }
 
     // MARK: - Core Picker
@@ -782,41 +883,134 @@ class MainViewController: UIViewController {
     private func updateImageViews(with images: [UIImage]) {
         self.currentDisplayImages = images
         
-        // 기존 뷰 제거
-        imageStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
+        [stackZoom, stackFade, stackSlide].forEach { stack in
+            stack.arrangedSubviews.forEach { $0.removeFromSuperview() }
+        }
         
-        // 새 이미지 추가
+        [labelZoom, scrollViewZoom, labelFade, scrollViewFade, labelSlide, scrollViewSlide].forEach { $0.isHidden = false }
+        
         for (index, img) in images.enumerated() {
-            let iv = UIImageView(image: img)
-            iv.contentMode = .scaleAspectFill
-            iv.clipsToBounds = true
-            iv.layer.cornerRadius = 8
-            iv.translatesAutoresizingMaskIntoConstraints = false
-            iv.widthAnchor.constraint(equalToConstant: 120).isActive = true
+            let ivZoom = createThumbnail(img: img, index: index, action: #selector(imageTappedZoom(_:)))
+            stackZoom.addArrangedSubview(ivZoom)
             
-            iv.isUserInteractionEnabled = true
-            let tap = UITapGestureRecognizer(target: self, action: #selector(imageTapped(_:)))
-            iv.addGestureRecognizer(tap)
-            iv.tag = index
+            let ivFade = createThumbnail(img: img, index: index, action: #selector(imageTappedFade(_:)))
+            stackFade.addArrangedSubview(ivFade)
             
-            imageStackView.addArrangedSubview(iv)
+            let ivSlide = createThumbnail(img: img, index: index, action: #selector(imageTappedSlide(_:)))
+            stackSlide.addArrangedSubview(ivSlide)
         }
     }
     
-    @objc private func imageTapped(_ sender: UITapGestureRecognizer) {
-        guard let view = sender.view else { return }
-        let index = view.tag
+    private func createThumbnail(img: UIImage, index: Int, action: Selector) -> UIImageView {
+        let iv = UIImageView(image: img)
+        iv.contentMode = .scaleAspectFill
+        iv.clipsToBounds = true
+        iv.layer.cornerRadius = 8
+        iv.translatesAutoresizingMaskIntoConstraints = false
+        iv.widthAnchor.constraint(equalToConstant: 100).isActive = true
         
+        iv.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: action)
+        iv.addGestureRecognizer(tap)
+        iv.tag = index
+        return iv
+    }
+    
+    private func createViewer(index: Int) -> RemoteImageViewerViewController {
         var imageUrls: [String] = []
         for (i, img) in currentDisplayImages.enumerated() {
             let fakeUrl = "memory_test_img_\(i)_\(Date().timeIntervalSince1970)"
             imageUrls.append(fakeUrl)
             ViewerImageCache.shared.saveImage(img, for: fakeUrl)
         }
-        
         let viewerVC = RemoteImageViewerViewController(imageUrls: imageUrls, initialIndex: index)
         viewerVC.languageCode = "ko"
+        return viewerVC
+    }
+    
+    @objc private func imageTappedZoom(_ sender: UITapGestureRecognizer) {
+        guard let view = sender.view as? UIImageView else { return }
+        let viewerVC = createViewer(index: view.tag)
+        let rect = view.convert(view.bounds, to: nil)
+        self.zoomAnimator.animationType = "zoom"
+        self.zoomAnimator.sourceRect = rect
+        self.zoomAnimator.sourceImage = view.image
+        
+        viewerVC.onPageChanged = { [weak self] index in
+            guard let self = self else { return }
+            if index >= 0 && index < self.stackZoom.arrangedSubviews.count {
+                if let targetView = self.stackZoom.arrangedSubviews[index] as? UIImageView {
+                    let targetRect = targetView.convert(targetView.bounds, to: nil)
+                    self.zoomAnimator.sourceRect = targetRect
+                    self.zoomAnimator.sourceImage = targetView.image
+                }
+            }
+        }
+        
+        viewerVC.modalPresentationStyle = .custom
+        viewerVC.transitioningDelegate = self
+        present(viewerVC, animated: true)
+    }
+    
+    @objc private func imageTappedFade(_ sender: UITapGestureRecognizer) {
+        guard let view = sender.view as? UIImageView else { return }
+        let viewerVC = createViewer(index: view.tag)
+        let rect = view.convert(view.bounds, to: nil)
+        self.zoomAnimator.animationType = "fade"
+        self.zoomAnimator.closeAnimationType = "zoom"
+        self.zoomAnimator.sourceRect = rect
+        self.zoomAnimator.sourceImage = view.image
+        
+        viewerVC.onPageChanged = { [weak self] index in
+            guard let self = self else { return }
+            if index >= 0 && index < self.stackFade.arrangedSubviews.count {
+                if let targetView = self.stackFade.arrangedSubviews[index] as? UIImageView {
+                    let targetRect = targetView.convert(targetView.bounds, to: nil)
+                    self.zoomAnimator.sourceRect = targetRect
+                    self.zoomAnimator.sourceImage = targetView.image
+                }
+            }
+        }
+        
+        viewerVC.modalPresentationStyle = .custom
+        viewerVC.transitioningDelegate = self
+        present(viewerVC, animated: true)
+    }
+    
+    @objc private func imageTappedSlide(_ sender: UITapGestureRecognizer) {
+        guard let view = sender.view as? UIImageView else { return }
+        let viewerVC = createViewer(index: view.tag)
+        let rect = view.convert(view.bounds, to: nil)
+        self.zoomAnimator.animationType = "slide"
+        self.zoomAnimator.closeAnimationType = "zoom"
+        self.zoomAnimator.sourceRect = rect
+        self.zoomAnimator.sourceImage = view.image
+        
+        viewerVC.onPageChanged = { [weak self] index in
+            guard let self = self else { return }
+            if index >= 0 && index < self.stackSlide.arrangedSubviews.count {
+                if let targetView = self.stackSlide.arrangedSubviews[index] as? UIImageView {
+                    let targetRect = targetView.convert(targetView.bounds, to: nil)
+                    self.zoomAnimator.sourceRect = targetRect
+                    self.zoomAnimator.sourceImage = targetView.image
+                }
+            }
+        }
+        
+        viewerVC.modalPresentationStyle = .custom
+        viewerVC.transitioningDelegate = self
         present(viewerVC, animated: true)
     }
 }
 
+extension MainViewController: UIViewControllerTransitioningDelegate {
+    public func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        zoomAnimator.isPresenting = true
+        return zoomAnimator
+    }
+    
+    public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        zoomAnimator.isPresenting = false
+        return zoomAnimator
+    }
+}

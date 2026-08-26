@@ -23,6 +23,16 @@ import SDWebImageWebPCoder
 @objc(RNTurboImagePicker)
 class RNTurboImagePicker: RCTEventEmitter {
     
+    public static var shared: RNTurboImagePicker?
+    
+    private var zoomAnimator = ZoomTransitionAnimator()
+    private weak var activeViewerVC: RemoteImageViewerViewController?
+    
+    override init() {
+        super.init()
+        RNTurboImagePicker.shared = self
+    }
+    
     // 현재 표시 중인 갤러리 참조
     private weak var currentGalleryVC: GalleryViewController?
     private var editorTransitionDelegate: ImageEditorTransitionDelegate?
@@ -41,7 +51,7 @@ class RNTurboImagePicker: RCTEventEmitter {
     
     @objc
     override func supportedEvents() -> [String]! {
-        return ["onSelectionChange", "onImageProcessed"]
+        return ["onSelectionChange", "onImageProcessed", "onPageSelected"]
     }
     
     // MARK: - Public Methods
@@ -55,6 +65,23 @@ class RNTurboImagePicker: RCTEventEmitter {
     }
     
     // MARK: - Public Methods
+    
+    @objc
+    func updateSourceRect(_ options: NSDictionary,
+                          resolve: @escaping RCTPromiseResolveBlock,
+                          reject: @escaping RCTPromiseRejectBlock) -> Void {
+        if let x = options["x"] as? CGFloat,
+           let y = options["y"] as? CGFloat,
+           let width = options["width"] as? CGFloat,
+           let height = options["height"] as? CGFloat {
+            DispatchQueue.main.async {
+                self.zoomAnimator.sourceRect = CGRect(x: x, y: y, width: width, height: height)
+                resolve(true)
+            }
+        } else {
+            reject("ERROR", "Invalid coordinates", nil)
+        }
+    }
     
     @objc
     func openViewer(_ options: NSDictionary,
@@ -82,7 +109,42 @@ class RNTurboImagePicker: RCTEventEmitter {
             if let hex = themeColorHex, let color = UIColor(hexString: hex) {
                 viewerVC.themeColor = color
             }
+            
+            let animationType = options["animationType"] as? String ?? (options["sourceRect"] != nil ? "zoom" : "slide")
+            self.zoomAnimator.animationType = animationType
+            self.zoomAnimator.closeAnimationType = options["closeAnimationType"] as? String
+            
+            if let sourceRectDict = options["sourceRect"] as? [String: CGFloat] {
+                let x = sourceRectDict["x"] ?? 0
+                let y = sourceRectDict["y"] ?? 0
+                let w = sourceRectDict["width"] ?? 0
+                let h = sourceRectDict["height"] ?? 0
+                self.zoomAnimator.sourceRect = CGRect(x: x, y: y, width: w, height: h)
+            }
+            
+            viewerVC.modalPresentationStyle = .custom
+            viewerVC.transitioningDelegate = self
+            
+            self.activeViewerVC = viewerVC
+            viewerVC.onPageChanged = { [weak self] index in
+                self?.sendEvent(withName: "onPageSelected", body: ["index": index])
+            }
+            
             rootViewController.present(viewerVC, animated: true, completion: nil)
+            resolve(nil)
+        }
+    }
+
+    @objc
+    func updateViewerSourceRect(_ rect: NSDictionary,
+                                resolve: @escaping RCTPromiseResolveBlock,
+                                reject: @escaping RCTPromiseRejectBlock) -> Void {
+        DispatchQueue.main.async {
+            let x = rect["x"] as? CGFloat ?? 0
+            let y = rect["y"] as? CGFloat ?? 0
+            let w = rect["width"] as? CGFloat ?? 0
+            let h = rect["height"] as? CGFloat ?? 0
+            self.zoomAnimator.sourceRect = CGRect(x: x, y: y, width: w, height: h)
             resolve(nil)
         }
     }
@@ -1271,5 +1333,17 @@ fileprivate extension RNTurboImagePicker {
                 }
             }
         }
+    }
+}
+
+extension RNTurboImagePicker: UIViewControllerTransitioningDelegate {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        zoomAnimator.isPresenting = true
+        return zoomAnimator
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        zoomAnimator.isPresenting = false
+        return zoomAnimator
     }
 }

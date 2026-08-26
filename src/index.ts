@@ -41,6 +41,7 @@ export interface RNTurboImagePicker {
   openGallery(options?: GalleryOptions): Promise<ImageResult[]>
   openEditor(options: EditorOptions): Promise<ImageResult>
   openViewer(options: ViewerOptions): Promise<void>
+  updateSourceRect(rect: import("./types").SourceRect): Promise<void>
   closeGallery(): Promise<boolean>
   addSelectionChangeListener(listener: (event: SelectionChangeEvent) => void): () => void
 }
@@ -114,12 +115,40 @@ const TurboImagePicker: RNTurboImagePicker = {
     if (!RNTurboImagePickerModule) {
       throw new Error(LINKING_ERROR)
     }
-    const mergedOptions = {
-      themeColor: _defaultThemeColor,
-      languageCode: _defaultLanguageCode,
-      ...options,
+
+    let subscriptionPageSelected: any = null
+    if (options.onPageSelected) {
+      subscriptionPageSelected = eventEmitter.addListener("onPageSelected", (event: any) => {
+        if (options.onPageSelected && event && typeof event.index === 'number') {
+          options.onPageSelected(event.index)
+        }
+      })
     }
-    return RNTurboImagePickerModule.openViewer(mergedOptions)
+
+    try {
+      const { onPageSelected, ...restOptions } = options
+      const mergedOptions = {
+        themeColor: _defaultThemeColor,
+        languageCode: _defaultLanguageCode,
+        ...restOptions,
+      }
+      return await RNTurboImagePickerModule.openViewer(mergedOptions)
+    } finally {
+      if (subscriptionPageSelected) {
+        // Wait for viewer to be fully closed or handle removal differently.
+        // Actually since openViewer returns immediately or when closed?
+        // Wait, openViewer resolves when opened or closed?
+        // Native methods usually resolve when closed if they return Promise.
+        subscriptionPageSelected.remove()
+      }
+    }
+  },
+
+  updateSourceRect: async (rect: import("./types").SourceRect): Promise<void> => {
+    if (!RNTurboImagePickerModule) {
+      throw new Error(LINKING_ERROR)
+    }
+    return RNTurboImagePickerModule.updateSourceRect(rect)
   },
 
   closeGallery: async (): Promise<boolean> => {

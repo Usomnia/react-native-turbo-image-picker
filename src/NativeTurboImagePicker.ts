@@ -11,6 +11,8 @@ export interface Spec extends TurboModule {
   // RCTEventEmitter 필수 규격 (Turbo Module에서 이벤트 방출 시 필수)
   addListener(eventName: string): void;
   removeListeners(count: number): void;
+  
+  updateSourceRect(options: Object): Promise<void>;
 }
 
 export default TurboModuleRegistry.getEnforcing<Spec>("RNTurboImagePicker");

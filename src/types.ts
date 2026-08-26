@@ -13,6 +13,13 @@ export interface ImageResult {
   fileSize?: number // 파일 크기 (bytes)
 }
 
+export interface SourceRect {
+  x: number
+  y: number
+  width: number
+  height: number
+}
+
 export interface GalleryOptions {
   maxSelection?: number
   maxWidth?: number // 최대 width
@@ -38,6 +45,10 @@ export interface ViewerOptions {
   initialIndex?: number
   themeColor?: string // Added themeColor for Android
   title?: string
+  animationType?: 'slide' | 'fade' | 'zoom'
+  closeAnimationType?: 'slide' | 'fade' | 'zoom'
+  sourceRect?: SourceRect
+  onPageSelected?: (index: number) => void
 }
 
 export interface SelectionChangeEvent {
@@ -58,6 +69,7 @@ export interface RNTurboImagePicker {
   openGallery(options?: GalleryOptions): Promise<ImageResult[]>
   openEditor(options: EditorOptions): Promise<ImageResult>
   openViewer(options: ViewerOptions): Promise<void>
+  updateViewerSourceRect(rect: SourceRect): Promise<void>
   closeGallery(): Promise<boolean>
   addSelectionChangeListener(listener: (event: SelectionChangeEvent) => void): () => void
 }

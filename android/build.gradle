@@ -81,7 +81,7 @@ android {
     sourceSets {
         main {
             java {
-                srcDirs = ["src/main/java"]
+                srcDirs += ["src/main/java"]
                 if (newArchEnabled) {
                     srcDirs += ["src/newarch/java"]
                 } else {

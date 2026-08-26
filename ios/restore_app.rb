@@ -1,5 +1,5 @@
 require 'xcodeproj'
-project_path = 'ios/RNTurboImagePicker.xcodeproj'
+project_path = 'RNTurboImagePicker.xcodeproj'
 project = Xcodeproj::Project.open(project_path)
 target = project.targets.first
 target.product_type = 'com.apple.product-type.application'
@@ -13,7 +13,7 @@ target.build_configurations.each do |config|
 end
 project.save
 
-app_delegate_path = 'ios/RNTurboImagePicker/AppDelegate.swift'
+app_delegate_path = 'RNTurboImagePicker/AppDelegate.swift'
 if File.exist?(app_delegate_path)
   content = File.read(app_delegate_path)
   content = content.gsub(/^\/\/ @main$/, '@main')

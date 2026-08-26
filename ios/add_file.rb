@@ -6,14 +6,14 @@ target = project.targets.first
 # RNTurboImagePicker group should exist
 group = project.main_group.find_subpath('RNTurboImagePicker', true)
 
-file_path = 'RNTurboImagePicker/CropViewController.swift'
+file_name = ARGV[0] || 'ZoomTransitionAnimator.swift'
 
 # Check if it's already added
-unless group.files.any? { |f| f.path == 'CropViewController.swift' }
-  file_ref = group.new_file('CropViewController.swift')
+unless group.files.any? { |f| f.path == file_name || f.name == file_name }
+  file_ref = group.new_file(file_name)
   target.add_file_references([file_ref])
   project.save
-  puts "Added CropViewController.swift to project"
+  puts "Added #{file_name} to project"
 else
-  puts "CropViewController.swift already in project"
+  puts "#{file_name} already in project"
 end

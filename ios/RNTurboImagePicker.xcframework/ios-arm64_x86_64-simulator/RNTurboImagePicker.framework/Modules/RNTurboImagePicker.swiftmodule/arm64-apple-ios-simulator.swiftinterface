@@ -229,6 +229,7 @@ extension RNTurboImagePicker.GalleryBaseViewController : UIKit.UIAdaptivePresent
   @objc deinit
 }
 @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency public class RemoteImageViewerViewController : UIKit.UIViewController {
+  @_Concurrency.MainActor @preconcurrency public var onPageChanged: ((Swift.Int) -> Swift.Void)?
   @_Concurrency.MainActor @preconcurrency public var themeColor: UIKit.UIColor
   @_Concurrency.MainActor @preconcurrency public var languageCode: Swift.String
   @_Concurrency.MainActor @preconcurrency public var viewerTitle: Swift.String?
@@ -271,4 +272,17 @@ public struct Localizer {
   @_Concurrency.MainActor @preconcurrency @objc public func animationController(forDismissed dismissed: UIKit.UIViewController) -> (any UIKit.UIViewControllerAnimatedTransitioning)?
   @objc deinit
 }
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency public class ZoomTransitionAnimator : ObjectiveC.NSObject, UIKit.UIViewControllerAnimatedTransitioning {
+  @_Concurrency.MainActor @preconcurrency public var isPresenting: Swift.Bool
+  @_Concurrency.MainActor @preconcurrency public var sourceRect: CoreFoundation.CGRect
+  @_Concurrency.MainActor @preconcurrency public var sourceImage: UIKit.UIImage?
+  @_Concurrency.MainActor @preconcurrency public var imageAspectRatio: CoreFoundation.CGFloat?
+  @_Concurrency.MainActor @preconcurrency public var animationType: Swift.String
+  @_Concurrency.MainActor @preconcurrency public var closeAnimationType: Swift.String?
+  @_Concurrency.MainActor @preconcurrency @objc public func transitionDuration(using transitionContext: (any UIKit.UIViewControllerContextTransitioning)?) -> Foundation.TimeInterval
+  @_Concurrency.MainActor @preconcurrency @objc public func animateTransition(using transitionContext: any UIKit.UIViewControllerContextTransitioning)
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public init()
+  @objc deinit
+}
 extension RNTurboImagePicker.ImageEditorTransitionDelegate : Swift.Sendable {}
+extension RNTurboImagePicker.ZoomTransitionAnimator : Swift.Sendable {}

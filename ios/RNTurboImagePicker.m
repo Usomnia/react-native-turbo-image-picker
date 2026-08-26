@@ -32,6 +32,10 @@ RCT_EXTERN_METHOD(openViewer:(NSDictionary *)options
 RCT_EXTERN_METHOD(closeGallery:(RCTPromiseResolveBlock)resolve
                   reject:(RCTPromiseRejectBlock)reject)
 
+RCT_EXTERN_METHOD(updateSourceRect:(NSDictionary *)options
+                  resolve:(RCTPromiseResolveBlock)resolve
+                  reject:(RCTPromiseRejectBlock)reject)
+
 RCT_EXTERN_METHOD(supportedEvents)
 
 + (BOOL)requiresMainQueueSetup
@@ -62,6 +66,10 @@ RCT_EXTERN_METHOD(openViewer:(NSDictionary *)options
                   reject:(RCTPromiseRejectBlock)reject)
 
 RCT_EXTERN_METHOD(closeGallery:(RCTPromiseResolveBlock)resolve
+                  reject:(RCTPromiseRejectBlock)reject)
+
+RCT_EXTERN_METHOD(updateSourceRect:(NSDictionary *)options
+                  resolve:(RCTPromiseResolveBlock)resolve
                   reject:(RCTPromiseRejectBlock)reject)
 
 RCT_EXTERN_METHOD(supportedEvents)

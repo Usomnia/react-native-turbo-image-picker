@@ -1,138 +1,213 @@
-# React Native Turbo Image Picker 🚀
+# RNTurboImagePicker
 
-A highly customizable, high-performance, and purely native image picker and editor for React Native.
+고성능 텔레그램 스타일 이미지 갤러리 피커 for React Native
 
-## ✨ Features
-- **Pure Native UI**: Built with native iOS and Android for the fastest and smoothest performance.
-- **Built-in Editor & Viewer**: Includes an integrated image editor (cropping, filtering) and a highly optimized image viewer.
-- **Smooth Animations**: Carefully crafted interactions for a premium user experience (e.g., iOS-like smooth thumbnail centering).
-- **Customizable**: Easily configure theme colors, maximum selection limits, and more.
-- **New Architecture Ready**: Fully supports React Native's New Architecture (Turbo Modules).
+## 🚀 주요 기능
 
----
+- ✅ **고성능**: 배치 로딩과 캐싱으로 빠른 성능
+- ✅ **다중 선택**: 여러 이미지 동시 선택 가능
+- ✅ **앨범 지원**: 스마트 앨범 및 사용자 앨범 지원
+- ✅ **품질 옵션**: low, medium, high 품질 선택
+- ✅ **TypeScript**: 완벽한 타입 정의
+- ✅ **iOS 15.1+**: 최신 iOS 지원
 
-## 🎥 Demo
+## 📦 설치
 
-### Android
-
-| Editor | Mosaic | Multi-Select |
-|:---:|:---:|:---:|
-| ![Android Editor](docs/aos_edit.gif) | ![Android Mosaic](docs/aos_mozaic.gif) | ![Android Multi](docs/aos_multi.gif) |
-
-### iOS
-
-| Editor | Mosaic | Multi-Select |
-|:---:|:---:|:---:|
-| ![iOS Editor](docs/ios_edit.gif) | ![iOS Mosaic](docs/ios_mozaic.gif) | ![iOS Multi](docs/ios_multi.gif) |
-
----
-
-## 📦 Installation
+### 1. 프로젝트에 모듈 추가
 
 ```bash
-# using yarn
-yarn add react-native-turbo-image-picker
+cd /path/to/your/react-native-project
 
-# or using npm
-npm install react-native-turbo-image-picker
+# package.json에 로컬 모듈 추가
+yarn add file:../NativeModules/RNTurboImagePicker/ios
+# 또는
+npm install file:../NativeModules/RNTurboImagePicker/ios
 ```
 
-If you are using iOS, run pod install:
+### 2. iOS Pod 설치
 
 ```bash
-cd ios && pod install
+cd ios
+pod install
+cd ..
 ```
 
-### iOS Permissions (Info.plist)
-You must add the following permissions to your `ios/YourAppName/Info.plist` file, otherwise your app will crash when trying to access the camera or photo library.
+### 3. iOS 권한 설정
+
+`ios/YourApp/Info.plist` 파일에 다음 권한 추가:
 
 ```xml
-<key>NSCameraUsageDescription</key>
-<string>We need access to your camera to take photos and videos.</string>
 <key>NSPhotoLibraryUsageDescription</key>
-<string>We need access to your photo library to select images.</string>
+<string>사진을 선택하기 위해 라이브러리 접근이 필요합니다.</string>
 <key>NSPhotoLibraryAddUsageDescription</key>
-<string>We need access to save edited photos to your library.</string>
+<string>사진을 저장하기 위해 라이브러리 접근이 필요합니다.</string>
 ```
 
----
+## 📱 사용법
 
-## 🛠 Usage Example
+### 기본 사용
 
-```javascript
-import RNTurboImagePicker from 'react-native-turbo-image-picker';
+```typescript
+import { RNTurboImagePicker } from 'react-native-turbo-image-picker';
 
-// Step 1: Initialize the module (usually in App.tsx or index.js)
-// Pass your license key (if you have one to remove the watermark) and default configurations
-RNTurboImagePicker.init("", { 
-  languageCode: 'en', 
-  themeColor: '#ff0000' 
-}).catch(console.error);
+// 1. 권한 체크
+const status = await RNTurboImagePicker.checkPermission();
 
-// Step 2: Open Image Picker
-const handleOpenPicker = async () => {
-  try {
-    const result = await RNTurboImagePicker.openGallery({
-      maxSelection: 10,
-      themeColor: '#FF6B35',
-      enableEditor: true,
-      profileMode: false,
-    });
-    console.log('Selected Images:', result);
-  } catch (error) {
-    console.error(error);
+if (status.status !== 'authorized') {
+  // 2. 권한 요청
+  const result = await RNTurboImagePicker.requestPermission();
+  if (result.status !== 'authorized') {
+    console.log('권한이 거부되었습니다.');
+    return;
   }
-};
+}
+
+// 3. 갤러리 열기
+try {
+  const result = await RNTurboImagePicker.openGallery({
+    maxSelection: 10,
+    quality: 'high',
+    includeBase64: false,
+  });
+  
+  console.log('선택된 이미지:', result.images);
+} catch (error) {
+  if (error.code === 'USER_CANCELLED') {
+    console.log('사용자가 취소했습니다.');
+  }
+}
 ```
 
----
+### 옵션
 
-## 📖 API Reference
+```typescript
+interface ImagePickerOptions {
+  maxSelection?: number;      // 최대 선택 가능 개수 (기본값: 10)
+  quality?: 'low' | 'medium' | 'high';  // 이미지 품질 (기본값: 'high')
+  includeBase64?: boolean;    // Base64 포함 여부 (기본값: false)
+}
+```
 
-### `RNTurboImagePicker.openGallery(options?: GalleryOptions): Promise<ImageResult[]>`
-Opens the native image gallery for selecting photos and videos.
+### 반환 타입
 
-**GalleryOptions (Key Properties):**
-- `maxSelection` (number): Maximum number of images a user can select.
-- `maxWidth` / `maxHeight` (number): Maximum dimensions to scale the image.
-- `mediaType` ("photo" | "video" | "all"): Type of media to show.
-- `quality` (number): Compression quality (0 to 1).
-- `enableEditor` (boolean): If `true`, opens the image editor after a single image selection.
-- `profileMode` (boolean): If `true`, enables a 1:1 circular crop mode for profile pictures.
-- `themeColor` (string): The primary hex color for the UI (e.g., `"#FFEB3B"`).
-- `autoCloseOnSelect` (boolean): Close picker automatically on single selection.
-- *Also includes various text overrides for localization (e.g., `doneButtonText`, `languageCode`).*
+```typescript
+interface ImageAsset {
+  uri: string;          // 파일 경로 (file://)
+  filename: string;     // 파일 이름
+  width: number;        // 이미지 너비
+  height: number;       // 이미지 높이
+  fileSize: number;     // 파일 크기 (bytes)
+  type: string;         // MIME 타입 (image/jpeg)
+  base64?: string;      // Base64 문자열 (옵션)
+}
 
-### `RNTurboImagePicker.openEditor(options: EditorOptions): Promise<ImageResult>`
-Directly opens the built-in image editor for a specific image.
+interface ImagePickerResult {
+  images: ImageAsset[];
+}
+```
 
-**EditorOptions:**
-- `uri` (string): The URI of the image to edit.
-- `editedFileUri` (string, optional): Path to a previously edited version.
-- `themeColor` (string): UI theme color.
-- `maxWidth` / `maxHeight` (number): Maximum bounds for the edited image.
+## 🎨 전체 예제
 
-### `RNTurboImagePicker.openViewer(options: ViewerOptions): Promise<void>`
-Opens a high-performance, full-screen image viewer with smooth swiping, thumbnail navigation, and pinch-to-zoom capabilities.
+전체 예제는 `/example/ImagePickerExample.tsx` 파일을 참고하세요.
 
-**ViewerOptions:**
-- `images` (string[]): Array of image URIs to view.
-- `initialIndex` (number): The starting index.
-- `themeColor` (string): UI theme color.
+## 🔧 개발
 
-### `ImageResult` (Returned Object)
-When an image is selected or edited, the promise resolves to an array of `ImageResult` objects containing:
-- `originalUri` / `uri`: The original and resized/edited file URIs.
-- `originalWidth` / `width`: Dimensions of the image.
-- `type`, `fileName`, `fileExtension`, `fileSize`: Meta information.
+### 프로젝트 구조
 
----
+```
+RNTurboImagePicker/
+├── ios/
+│   ├── RNTurboImagePicker/        # iOS 네이티브 코드
+│   │   ├── PhotoManager.swift     # 사진 관리자
+│   │   ├── GalleryViewController.swift
+│   │   └── ...
+│   ├── ios/                       # RN 브리지
+│   │   ├── RNTurboImagePickerModule.swift
+│   │   └── RNTurboImagePickerModule.m
+│   ├── src/                       # TypeScript 인터페이스
+│   │   └── index.ts
+│   ├── package.json
+│   └── RNTurboImagePicker.podspec
+└── android/                       # (향후 추가 예정)
+```
 
-## 📜 License & Contact
+### 로컬 개발
 
-This `RNTurboImagePicker` library is released under the **MIT License**.
-However, to remove the watermark from the image editor, a separate license purchase is required.
+```bash
+# 1. 네이티브 코드 수정 후
+cd /path/to/PaceLap.ReactNative/ios
+pod install
 
-🛒 **Purchase License**: [https://license.rnturboimagepicker.usomnia.co.kr](https://license.rnturboimagepicker.usomnia.co.kr)
+# 2. React Native 빌드
+cd ..
+yarn ios
+```
 
-📧 **Contact**: [contact@usomnia.co.kr](mailto:contact@usomnia.co.kr)
+## 📝 API 문서
+
+### `requestPermission()`
+
+포토 라이브러리 권한을 요청합니다.
+
+```typescript
+const result = await RNTurboImagePicker.requestPermission();
+// { status: 'authorized' | 'denied' | 'restricted' | 'notDetermined' }
+```
+
+### `checkPermission()`
+
+현재 권한 상태를 확인합니다.
+
+```typescript
+const result = await RNTurboImagePicker.checkPermission();
+// { status: 'authorized' | 'denied' | 'restricted' | 'notDetermined' }
+```
+
+### `openGallery(options)`
+
+이미지 갤러리를 엽니다.
+
+```typescript
+const result = await RNTurboImagePicker.openGallery({
+  maxSelection: 10,
+  quality: 'high',
+  includeBase64: false,
+});
+```
+
+## 🐛 트러블슈팅
+
+### Pod install 실패
+
+```bash
+cd ios
+rm -rf Pods Podfile.lock
+pod cache clean --all
+pod install
+```
+
+### 모듈을 찾을 수 없음
+
+```bash
+# node_modules 재설치
+rm -rf node_modules
+yarn install
+
+# iOS 클린 빌드
+cd ios
+xcodebuild clean
+cd ..
+yarn ios
+```
+
+### 권한이 작동하지 않음
+
+Info.plist에 `NSPhotoLibraryUsageDescription` 권한이 추가되었는지 확인하세요.
+
+## 📄 라이선스
+
+MIT
+
+## 👨‍💻 Author
+
+Mike

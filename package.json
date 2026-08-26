@@ -1,6 +1,6 @@
 {
   "name": "react-native-turbo-image-picker",
-  "version": "1.2.4",
+  "version": "1.2.9",
   "description": "High-performance Telegram-like image gallery picker for React Native with Turbo Module",
   "main": "src/index.ts",
   "types": "src/index.ts",
@@ -43,24 +43,21 @@
     "ios/RNTurboImagePicker.mm",
     "ios/RNTurboImagePicker.swift",
     "ios/RNTurboImagePickerAssets",
-    "android/build.gradle",
-    "android/CMakeLists.txt",
-    "android/proguard-rules.pro",
-    "android/src",
+    "android",
     "react-native-turbo-image-picker.podspec",
     "README.md",
     "react-native.config.js"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Usomnia/react-native-turbo-image-picker.git"
-  },
   "codegenConfig": {
     "name": "RNTurboImagePickerSpec",
     "type": "modules",
     "jsSrcsDir": "src",
     "android": {
-      "javaPackageName": "com.rnturboimagepicker.codegen"
+      "javaPackageName": "com.rnturboimagepicker"
     }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Usomnia/react-native-turbo-image-picker.git"
   }
 }

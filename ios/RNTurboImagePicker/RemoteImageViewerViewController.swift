@@ -3,14 +3,93 @@ import Photos
 
 class ViewerImageCache {
     static let shared = ViewerImageCache()
-    private let cache = NSCache<NSString, UIImage>()
+    private let memoryCache = NSCache<NSString, UIImage>()
+    private let fileManager = FileManager.default
+    private var diskCacheURL: URL?
     
-    func getImage(for url: String) -> UIImage? {
-        return cache.object(forKey: url as NSString)
+    init() {
+        if let cacheDir = fileManager.urls(for: .cachesDirectory, in: .userDomainMask).first {
+            diskCacheURL = cacheDir.appendingPathComponent("ViewerImageCache")
+            if let diskCacheURL = diskCacheURL, !fileManager.fileExists(atPath: diskCacheURL.path) {
+                try? fileManager.createDirectory(at: diskCacheURL, withIntermediateDirectories: true, attributes: nil)
+            }
+            cleanupOldCache()
+        }
+    }
+    
+    private func getSafeFilename(for url: String) -> String {
+        guard let data = url.data(using: .utf8) else { return "\(url.hashValue)" }
+        return data.base64EncodedString().replacingOccurrences(of: "/", with: "_").replacingOccurrences(of: "+", with: "-").replacingOccurrences(of: "=", with: "")
+    }
+    
+    func getMemoryImage(for url: String) -> UIImage? {
+        return memoryCache.object(forKey: url as NSString)
+    }
+    
+    func getDiskImage(for url: String, completion: @escaping (UIImage?) -> Void) {
+        guard let diskCacheURL = diskCacheURL else {
+            completion(nil)
+            return
+        }
+        
+        let fileURL = diskCacheURL.appendingPathComponent(getSafeFilename(for: url))
+        DispatchQueue.global(qos: .userInitiated).async {
+            if let data = try? Data(contentsOf: fileURL), let image = UIImage(data: data) {
+                if #available(iOS 15.0, *) {
+                    image.prepareForDisplay { preparedImage in
+                        DispatchQueue.main.async {
+                            completion(preparedImage ?? image)
+                        }
+                    }
+                } else {
+                    UIGraphicsBeginImageContextWithOptions(image.size, false, image.scale)
+                    image.draw(at: .zero)
+                    let decodedImage = UIGraphicsGetImageFromCurrentImageContext()
+                    UIGraphicsEndImageContext()
+                    DispatchQueue.main.async {
+                        completion(decodedImage ?? image)
+                    }
+                }
+            } else {
+                DispatchQueue.main.async {
+                    completion(nil)
+                }
+            }
+        }
+    }
+    
+    func saveImageToMemory(_ image: UIImage, for url: String) {
+        memoryCache.setObject(image, forKey: url as NSString)
     }
     
     func saveImage(_ image: UIImage, for url: String) {
-        cache.setObject(image, forKey: url as NSString)
+        saveImageToMemory(image, for: url)
+        
+        guard let diskCacheURL = diskCacheURL else { return }
+        let fileURL = diskCacheURL.appendingPathComponent(getSafeFilename(for: url))
+        
+        DispatchQueue.global(qos: .background).async {
+            if let data = image.jpegData(compressionQuality: 0.9) {
+                try? data.write(to: fileURL)
+            }
+        }
+    }
+    
+    private func cleanupOldCache() {
+        guard let diskCacheURL = diskCacheURL else { return }
+        DispatchQueue.global(qos: .background).async {
+            let expirationDate = Date().addingTimeInterval(-7 * 24 * 60 * 60) // 7 days
+            guard let enumerator = self.fileManager.enumerator(at: diskCacheURL, includingPropertiesForKeys: [.contentModificationDateKey], options: .skipsHiddenFiles) else { return }
+            
+            for case let fileURL as URL in enumerator {
+                if let attr = try? fileURL.resourceValues(forKeys: [.contentModificationDateKey]),
+                   let modificationDate = attr.contentModificationDate {
+                    if modificationDate < expirationDate {
+                        try? self.fileManager.removeItem(at: fileURL)
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -21,7 +100,7 @@ class ViewerImageDownloader {
     private let lock = NSLock()
     
     func downloadImage(from urlString: String, completion: @escaping (UIImage?) -> Void) {
-        if let cached = ViewerImageCache.shared.getImage(for: urlString) {
+        if let cached = ViewerImageCache.shared.getMemoryImage(for: urlString) {
             completion(cached)
             return
         }
@@ -35,19 +114,38 @@ class ViewerImageDownloader {
         callbacks[urlString] = [completion]
         lock.unlock()
         
-        guard let url = URL(string: urlString) else {
-            notify(urlString: urlString, image: nil)
-            return
-        }
-        
-        URLSession.shared.dataTask(with: url) { data, _, _ in
-            if let data = data, let image = UIImage(data: data) {
-                ViewerImageCache.shared.saveImage(image, for: urlString)
-                self.notify(urlString: urlString, image: image)
+        ViewerImageCache.shared.getDiskImage(for: urlString) { [weak self] diskImage in
+            if let diskImage = diskImage {
+                ViewerImageCache.shared.saveImageToMemory(diskImage, for: urlString)
+                self?.notify(urlString: urlString, image: diskImage)
             } else {
-                self.notify(urlString: urlString, image: nil)
+                guard let url = URL(string: urlString) else {
+                    self?.notify(urlString: urlString, image: nil)
+                    return
+                }
+                
+                URLSession.shared.dataTask(with: url) { data, _, _ in
+                    if let data = data, let image = UIImage(data: data) {
+                        if #available(iOS 15.0, *) {
+                            image.prepareForDisplay { preparedImage in
+                                let finalImage = preparedImage ?? image
+                                ViewerImageCache.shared.saveImage(finalImage, for: urlString)
+                                self?.notify(urlString: urlString, image: finalImage)
+                            }
+                        } else {
+                            UIGraphicsBeginImageContextWithOptions(image.size, false, image.scale)
+                            image.draw(at: .zero)
+                            let decodedImage = UIGraphicsGetImageFromCurrentImageContext() ?? image
+                            UIGraphicsEndImageContext()
+                            ViewerImageCache.shared.saveImage(decodedImage, for: urlString)
+                            self?.notify(urlString: urlString, image: decodedImage)
+                        }
+                    } else {
+                        self?.notify(urlString: urlString, image: nil)
+                    }
+                }.resume()
             }
-        }.resume()
+        }
     }
     
     private func notify(urlString: String, image: UIImage?) {
@@ -67,25 +165,30 @@ class ViewerImageDownloader {
 
 public class RemoteImageViewerViewController: UIViewController {
     
-    private let imageUrls: [String]
-    private var currentIndex: Int
+    let imageUrls: [String]
+    var currentIndex: Int
+    public var onPageChanged: ((Int) -> Void)?
     public var themeColor: UIColor = UIColor(red: 16/255.0, green: 185/255.0, blue: 129/255.0, alpha: 1.0)
     public var languageCode: String = "en"
     public var viewerTitle: String?
     
-    private let scrollView: UIScrollView = {
+    let scrollView: UIScrollView = {
         let sv = UIScrollView()
         sv.translatesAutoresizingMaskIntoConstraints = false
         sv.isPagingEnabled = true
         sv.showsHorizontalScrollIndicator = false
-        sv.backgroundColor = UIColor { t in t.userInterfaceStyle == .dark ? .black : .white }
+        sv.backgroundColor = .clear
         return sv
     }()
     
-    private let topBar: UIView = {
+    let topBar: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor { t in t.userInterfaceStyle == .dark ? UIColor.black.withAlphaComponent(0.5) : UIColor(white: 0.95, alpha: 0.9) }
+        if #available(iOS 13.0, *) {
+            view.backgroundColor = UIColor { t in t.userInterfaceStyle == .dark ? UIColor.black.withAlphaComponent(0.8) : UIColor.white.withAlphaComponent(0.8) }
+        } else {
+            view.backgroundColor = UIColor.white.withAlphaComponent(0.8)
+        }
         return view
     }()
     
@@ -107,10 +210,14 @@ public class RemoteImageViewerViewController: UIViewController {
     }()
     
     // Bottom Section
-    private let bottomContainer: UIView = {
+    let bottomContainer: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor { t in t.userInterfaceStyle == .dark ? UIColor.black.withAlphaComponent(0.8) : UIColor(white: 0.95, alpha: 0.9) }
+        if #available(iOS 13.0, *) {
+            view.backgroundColor = UIColor { t in t.userInterfaceStyle == .dark ? UIColor.black.withAlphaComponent(0.8) : UIColor.white.withAlphaComponent(0.8) }
+        } else {
+            view.backgroundColor = UIColor.white.withAlphaComponent(0.8)
+        }
         return view
     }()
     
@@ -172,7 +279,7 @@ public class RemoteImageViewerViewController: UIViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor { t in t.userInterfaceStyle == .dark ? .black : .white }
+        view.backgroundColor = .black
         setupUI()
         setupScrollView()
         updateCounterAndSelection()
@@ -365,15 +472,20 @@ public class RemoteImageViewerViewController: UIViewController {
         case .ended, .cancelled:
             let shouldDismiss = translation.y > 150 || velocity.y > 500
             if shouldDismiss {
-                UIView.animate(withDuration: 0.25, animations: {
-                    self.view.transform = CGAffineTransform(translationX: translation.x, y: self.view.bounds.height)
-                    self.view.alpha = 0.0
-                    self.view.layer.cornerRadius = 0
-                }) { _ in
-                    self.dismiss(animated: false)
+                if self.transitioningDelegate != nil {
+                    // 줌 트랜지션이 설정된 경우 애니메이터가 원래 위치로 돌려보내도록 위임
+                    self.dismiss(animated: true, completion: nil)
+                } else {
+                    UIView.animate(withDuration: 0.25, animations: {
+                        self.view.transform = CGAffineTransform(translationX: translation.x, y: self.view.bounds.height)
+                        self.view.alpha = 0.0
+                        self.view.layer.cornerRadius = 0
+                    }) { _ in
+                        self.dismiss(animated: false)
+                    }
                 }
             } else {
-                UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseOut) {
+                UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0, options: .curveEaseOut) {
                     self.view.transform = .identity
                     self.view.alpha = 1.0
                     self.view.layer.cornerRadius = 0
@@ -422,6 +534,7 @@ extension RemoteImageViewerViewController: UIScrollViewDelegate {
             let page = Int(scrollView.contentOffset.x / scrollView.bounds.width)
             if page != currentIndex {
                 currentIndex = page
+                onPageChanged?(currentIndex)
                 updateCounterAndSelection()
                 
                 // Reset zoom for all other pages
@@ -450,6 +563,7 @@ extension RemoteImageViewerViewController: UICollectionViewDataSource, UICollect
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if currentIndex != indexPath.item {
             currentIndex = indexPath.item
+            onPageChanged?(currentIndex)
             let offsetX = CGFloat(currentIndex) * scrollView.bounds.width
             scrollView.setContentOffset(CGPoint(x: offsetX, y: 0), animated: true)
             updateCounterAndSelection()
@@ -515,7 +629,7 @@ class ThumbnailCell: UICollectionViewCell {
     func loadImage(from urlString: String) {
         imageView.image = nil
         
-        if let cachedImage = ViewerImageCache.shared.getImage(for: urlString) {
+        if let cachedImage = ViewerImageCache.shared.getMemoryImage(for: urlString) {
             self.imageView.image = cachedImage
             self.activityIndicator.stopAnimating()
             return
@@ -677,7 +791,7 @@ class ZoomableImageItemView: UIScrollView, UIScrollViewDelegate {
         if isLoaded { return }
         isLoaded = true
         
-        if let cachedImage = ViewerImageCache.shared.getImage(for: urlString) {
+        if let cachedImage = ViewerImageCache.shared.getMemoryImage(for: urlString) {
             self.setImage(cachedImage)
             return
         }
