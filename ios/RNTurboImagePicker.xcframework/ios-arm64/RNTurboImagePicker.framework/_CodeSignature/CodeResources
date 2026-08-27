@@ -30,7 +30,7 @@
 		</data>
 		<key>Modules/RNTurboImagePicker.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
-		sjHtfGRSDcJJYhoJu6vvownkkjc=
+		x0WcSaC4cyXM83SfigzvCG4S8fk=
 		</data>
 		<key>Modules/RNTurboImagePicker.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<data>
@@ -46,7 +46,11 @@
 		</data>
 		<key>Modules/RNTurboImagePicker.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		FWYBqT4jWLwMKdY3dNGWSvH8l7Q=
+		3tLnay1vkRBW5QiArspSNtp+Mxc=
+		</data>
+		<key>Modules/module.modulemap</key>
+		<data>
+		bc5DUWczhj6t5FLbiS+UoTxESFc=
 		</data>
 		<key>Pretendard-SemiBold.otf</key>
 		<data>
@@ -190,7 +194,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			+PdmJjlrJ27U7LZZkQjXgvFmZe1o1m/KyGL5M6H2GKw=
+			KYb+adgLW06ql5UkOixbRtA3H2gH2wgqqXcDCYnBTIY=
 			</data>
 		</dict>
 		<key>Modules/RNTurboImagePicker.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
@@ -218,7 +222,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			xJAaz3kVXwu4Y5MTemEo5vOCed2OGhFS+xaHjov38pI=
+			3+dmL4xsvpBH0ZK2cqORA8eH6mLfhNQ+xaSRpPshKZQ=
+			</data>
+		</dict>
+		<key>Modules/module.modulemap</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			QNYfoQx6+YHKk2c8gFnDzK5EPSgjkH2zSaH3JsQipQ8=
 			</data>
 		</dict>
 		<key>Pretendard-SemiBold.otf</key>

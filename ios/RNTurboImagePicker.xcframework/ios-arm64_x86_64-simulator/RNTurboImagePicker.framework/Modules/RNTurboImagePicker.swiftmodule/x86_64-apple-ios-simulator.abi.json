@@ -13211,6 +13211,53 @@
       },
       {
         "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "RNTurboImagePicker",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "RNTurboImagePicker",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "RNTurboImagePicker",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Photos",
+        "printedName": "Photos",
+        "declKind": "Import",
+        "moduleName": "RNTurboImagePicker"
+      },
+      {
+        "kind": "Import",
+        "name": "SDWebImageWebPCoder",
+        "printedName": "SDWebImageWebPCoder",
+        "declKind": "Import",
+        "moduleName": "RNTurboImagePicker",
+        "declAttributes": [
+          "ImplementationOnly"
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
@@ -20975,6 +21022,356 @@
       "offset": 408,
       "length": 6,
       "value": "\"zoom\""
+    },
+    {
+      "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/MainViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 1038,
+      "length": 28,
+      "value": "\"이미지 피커 테스트\""
+    },
+    {
+      "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/MainViewController.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1104,
+      "length": 2,
+      "value": "26"
+    },
+    {
+      "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/MainViewController.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1211,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/MainViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 1334,
+      "length": 48,
+      "value": "\"4가지 케이스를 각각 테스트하세요\""
+    },
+    {
+      "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/MainViewController.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1420,
+      "length": 2,
+      "value": "14"
+    },
+    {
+      "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/MainViewController.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1568,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/MainViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 3196,
+      "length": 31,
+      "value": "\"📷  1개 선택\n편집 OFF\""
+    },
+    {
+      "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/MainViewController.swift",
+      "kind": "FloatLiteral",
+      "offset": 3257,
+      "length": 3,
+      "value": "0.2"
+    },
+    {
+      "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/MainViewController.swift",
+      "kind": "FloatLiteral",
+      "offset": 3269,
+      "length": 3,
+      "value": "0.6"
+    },
+    {
+      "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/MainViewController.swift",
+      "kind": "FloatLiteral",
+      "offset": 3280,
+      "length": 3,
+      "value": "1.0"
+    },
+    {
+      "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/MainViewController.swift",
+      "kind": "IntegerLiteral",
+      "offset": 3292,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/MainViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 3407,
+      "length": 32,
+      "value": "\"✏️  1개 선택\n편집 ON\""
+    },
+    {
+      "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/MainViewController.swift",
+      "kind": "FloatLiteral",
+      "offset": 3469,
+      "length": 3,
+      "value": "0.1"
+    },
+    {
+      "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/MainViewController.swift",
+      "kind": "FloatLiteral",
+      "offset": 3481,
+      "length": 4,
+      "value": "0.75"
+    },
+    {
+      "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/MainViewController.swift",
+      "kind": "FloatLiteral",
+      "offset": 3493,
+      "length": 4,
+      "value": "0.55"
+    },
+    {
+      "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/MainViewController.swift",
+      "kind": "IntegerLiteral",
+      "offset": 3506,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/MainViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 3620,
+      "length": 45,
+      "value": "\"📸  멀티 선택 (최대 10)\n편집 OFF\""
+    },
+    {
+      "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/MainViewController.swift",
+      "kind": "FloatLiteral",
+      "offset": 3695,
+      "length": 3,
+      "value": "0.6"
+    },
+    {
+      "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/MainViewController.swift",
+      "kind": "FloatLiteral",
+      "offset": 3707,
+      "length": 3,
+      "value": "0.4"
+    },
+    {
+      "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/MainViewController.swift",
+      "kind": "FloatLiteral",
+      "offset": 3718,
+      "length": 3,
+      "value": "1.0"
+    },
+    {
+      "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/MainViewController.swift",
+      "kind": "IntegerLiteral",
+      "offset": 3730,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/MainViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 3843,
+      "length": 44,
+      "value": "\"🎨  멀티 선택 (최대 10)\n편집 ON\""
+    },
+    {
+      "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/MainViewController.swift",
+      "kind": "FloatLiteral",
+      "offset": 3917,
+      "length": 4,
+      "value": "0.95"
+    },
+    {
+      "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/MainViewController.swift",
+      "kind": "FloatLiteral",
+      "offset": 3930,
+      "length": 4,
+      "value": "0.45"
+    },
+    {
+      "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/MainViewController.swift",
+      "kind": "FloatLiteral",
+      "offset": 3942,
+      "length": 4,
+      "value": "0.15"
+    },
+    {
+      "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/MainViewController.swift",
+      "kind": "IntegerLiteral",
+      "offset": 3955,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/MainViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 4070,
+      "length": 36,
+      "value": "\"👤  프로필 사진\n1:1 크롭\""
+    },
+    {
+      "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/MainViewController.swift",
+      "kind": "FloatLiteral",
+      "offset": 4136,
+      "length": 4,
+      "value": "0.47"
+    },
+    {
+      "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/MainViewController.swift",
+      "kind": "FloatLiteral",
+      "offset": 4149,
+      "length": 4,
+      "value": "0.27"
+    },
+    {
+      "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/MainViewController.swift",
+      "kind": "FloatLiteral",
+      "offset": 4161,
+      "length": 4,
+      "value": "0.96"
+    },
+    {
+      "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/MainViewController.swift",
+      "kind": "IntegerLiteral",
+      "offset": 4174,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/MainViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 4291,
+      "length": 41,
+      "value": "\"👤  프로필 사진\n크롭 + 편집\""
+    },
+    {
+      "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/MainViewController.swift",
+      "kind": "FloatLiteral",
+      "offset": 4362,
+      "length": 4,
+      "value": "0.35"
+    },
+    {
+      "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/MainViewController.swift",
+      "kind": "FloatLiteral",
+      "offset": 4375,
+      "length": 4,
+      "value": "0.15"
+    },
+    {
+      "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/MainViewController.swift",
+      "kind": "FloatLiteral",
+      "offset": 4387,
+      "length": 4,
+      "value": "0.85"
+    },
+    {
+      "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/MainViewController.swift",
+      "kind": "IntegerLiteral",
+      "offset": 4400,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/MainViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 4516,
+      "length": 39,
+      "value": "\"🌐 원격 캐시 테스트\n(20장)\""
+    },
+    {
+      "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/MainViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 4758,
+      "length": 34,
+      "value": "\"결과가 여기 표시됩니다\""
+    },
+    {
+      "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/MainViewController.swift",
+      "kind": "IntegerLiteral",
+      "offset": 4840,
+      "length": 2,
+      "value": "12"
+    },
+    {
+      "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/MainViewController.swift",
+      "kind": "IntegerLiteral",
+      "offset": 4960,
+      "length": 1,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/MainViewController.swift",
+      "kind": "BooleanLiteral",
+      "offset": 5016,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/MainViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 6018,
+      "length": 25,
+      "value": "\"결과 이미지 (Zoom)\""
+    },
+    {
+      "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/MainViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 6211,
+      "length": 25,
+      "value": "\"결과 이미지 (Fade)\""
+    },
+    {
+      "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/MainViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 6405,
+      "length": 26,
+      "value": "\"결과 이미지 (Slide)\""
+    },
+    {
+      "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/MainViewController.swift",
+      "kind": "BooleanLiteral",
+      "offset": 6693,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/MainViewController.swift",
+      "kind": "BooleanLiteral",
+      "offset": 6741,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/MainViewController.swift",
+      "kind": "BooleanLiteral",
+      "offset": 6897,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/MainViewController.swift",
+      "kind": "IntegerLiteral",
+      "offset": 37757,
+      "length": 4,
+      "value": "1024"
+    },
+    {
+      "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/MainViewController.swift",
+      "kind": "IntegerLiteral",
+      "offset": 42111,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/MainViewController.swift",
+      "kind": "Array",
+      "offset": 42241,
+      "length": 2,
+      "value": "[]"
     },
     {
       "filePath": "\/Users\/mike\/Library\/Developer\/Xcode\/DerivedData\/RNTurboImagePicker-eictpgaunlbekidejirpetanfueo\/Build\/Intermediates.noindex\/ArchiveIntermediates\/RNTurboImagePicker\/IntermediateBuildFilesPath\/RNTurboImagePicker.build\/Release-iphonesimulator\/RNTurboImagePicker.build\/DerivedSources\/GeneratedAssetSymbols.swift",
