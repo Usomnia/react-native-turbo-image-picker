@@ -18,12 +18,46 @@ class ViewerImageCache {
     }
     
     private func getSafeFilename(for url: String) -> String {
-        guard let data = url.data(using: .utf8) else { return "\(url.hashValue)" }
-        return data.base64EncodedString().replacingOccurrences(of: "/", with: "_").replacingOccurrences(of: "+", with: "-").replacingOccurrences(of: "=", with: "")
+        var cacheKey = url
+        
+        // URL 파싱을 통해 변동성이 있는 인증 토큰(쿼리 파라미터) 제거
+        if let urlComponents = URLComponents(string: url) {
+            var comps = urlComponents
+            
+            // 캐시 키에서 제외할 파라미터 키 목록
+            let ignoreParams = ["auth", "secret", "apikey"]
+            
+            let filteredQueryItems = comps.queryItems?.filter { !ignoreParams.contains($0.name) }
+            comps.queryItems = filteredQueryItems?.isEmpty == true ? nil : filteredQueryItems
+            
+            if let consistentString = comps.string {
+                cacheKey = consistentString
+            }
+        }
+        
+        // 일관된 cacheKey를 바탕으로 해시/Base64 파일명 생성
+        guard let data = cacheKey.data(using: .utf8) else { return "\(cacheKey.hashValue)" }
+        return data.base64EncodedString()
+            .replacingOccurrences(of: "/", with: "_")
+            .replacingOccurrences(of: "+", with: "-")
+            .replacingOccurrences(of: "=", with: "")
     }
     
     func getMemoryImage(for url: String) -> UIImage? {
         return memoryCache.object(forKey: url as NSString)
+    }
+    
+    func getDiskImageSynchronously(for url: String) -> UIImage? {
+        guard let diskCacheURL = diskCacheURL else { return nil }
+        let fileURL = diskCacheURL.appendingPathComponent(getSafeFilename(for: url))
+        if let data = try? Data(contentsOf: fileURL), let image = UIImage(data: data) {
+            return image
+        }
+        return nil
+    }
+    
+    func setMemoryImage(_ image: UIImage, for url: String) {
+        memoryCache.setObject(image, forKey: url as NSString)
     }
     
     func getDiskImage(for url: String, completion: @escaping (UIImage?) -> Void) {
@@ -171,6 +205,46 @@ public class RemoteImageViewerViewController: UIViewController {
     public var themeColor: UIColor = UIColor(red: 16/255.0, green: 185/255.0, blue: 129/255.0, alpha: 1.0)
     public var languageCode: String = "en"
     public var viewerTitle: String?
+    
+    public static func prefetchImage(from urlString: String, completion: @escaping (UIImage?) -> Void) {
+        if let cached = ViewerImageCache.shared.getMemoryImage(for: urlString) {
+            completion(cached)
+            return
+        }
+        
+        if urlString.hasPrefix("ph://") {
+            let localIdentifier = urlString.replacingOccurrences(of: "ph://", with: "")
+            let fetchResult = PHAsset.fetchAssets(withLocalIdentifiers: [localIdentifier], options: nil)
+            guard let asset = fetchResult.firstObject else { 
+                completion(nil)
+                return 
+            }
+            let options = PHImageRequestOptions()
+            options.deliveryMode = .highQualityFormat
+            options.isNetworkAccessAllowed = true
+            PHImageManager.default().requestImage(
+                for: asset,
+                targetSize: CGSize(width: 800, height: 800),
+                contentMode: .aspectFit,
+                options: options
+            ) { image, _ in
+                if let img = image {
+                    // Cache the thumbnail into memory so animator can grab it immediately
+                    ViewerImageCache.shared.setMemoryImage(img, for: urlString)
+                }
+                completion(image)
+            }
+        } else if urlString.hasPrefix("file://") {
+            ViewerImageCache.shared.getDiskImage(for: urlString) { image in
+                if let img = image {
+                    ViewerImageCache.shared.setMemoryImage(img, for: urlString)
+                }
+                completion(image)
+            }
+        } else {
+            completion(nil)
+        }
+    }
     
     let scrollView: UIScrollView = {
         let sv = UIScrollView()

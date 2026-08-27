@@ -1,20 +1,23 @@
 import UIKit
 
-class ZoomTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
-    var isPresenting: Bool = true
-    var sourceRect: CGRect = .zero
+public class ZoomTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+    public var isPresenting: Bool = true
+    public var sourceRect: CGRect = .zero
     
     // 이 정보들이 있으면 완벽한 crop -> aspectFit 전환이 가능합니다.
-    var sourceImage: UIImage? = nil
-    var imageAspectRatio: CGFloat? = nil
-    var animationType: String = "zoom"
-    var closeAnimationType: String? = nil
+    public var sourceImage: UIImage? = nil
+    public var imageAspectRatio: CGFloat? = nil
+    public var animationType: String = "zoom"
+    public var closeAnimationType: String? = nil
     
-    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 0.25
+    public var sourceBorderRadius: CGFloat = 0
+    public var sourceBorderCorners: CACornerMask = [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+    
+    public func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+        return 0.37
     }
     
-    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+    public func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         let containerView = transitionContext.containerView
         
         if isPresenting {
@@ -30,7 +33,7 @@ class ZoomTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             var targetImage = self.sourceImage
             if targetImage == nil, toVC.imageUrls.indices.contains(toVC.currentIndex) {
                 let urlString = toVC.imageUrls[toVC.currentIndex]
-                targetImage = ViewerImageCache.shared.getMemoryImage(for: urlString)
+                targetImage = ViewerImageCache.shared.getMemoryImage(for: urlString) ?? ViewerImageCache.shared.getDiskImageSynchronously(for: urlString)
             }
             
             let ratio = imageAspectRatio ?? (targetImage != nil ? (targetImage!.size.width / max(1, targetImage!.size.height)) : 1.0)
@@ -79,7 +82,8 @@ class ZoomTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             dummyView.clipsToBounds = true
             dummyView.image = targetImage
             dummyView.backgroundColor = UIColor(white: 0.9, alpha: 0.3)
-            dummyView.layer.cornerRadius = 8 // 썸네일 라운드 (옵션)
+            dummyView.layer.maskedCorners = sourceBorderCorners
+            dummyView.layer.cornerRadius = sourceBorderRadius // 썸네일 라운드 (옵션)
             
             toView.insertSubview(dummyView, belowSubview: toVC.topBar)
             
@@ -119,7 +123,7 @@ class ZoomTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             var targetImage = self.sourceImage
             if targetImage == nil, fromVC.imageUrls.indices.contains(fromVC.currentIndex) {
                 let urlString = fromVC.imageUrls[fromVC.currentIndex]
-                targetImage = ViewerImageCache.shared.getMemoryImage(for: urlString)
+                targetImage = ViewerImageCache.shared.getMemoryImage(for: urlString) ?? ViewerImageCache.shared.getDiskImageSynchronously(for: urlString)
             }
             let ratio = imageAspectRatio ?? (targetImage != nil ? (targetImage!.size.width / max(1, targetImage!.size.height)) : 1.0)
             
@@ -170,7 +174,10 @@ class ZoomTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             dummyView.contentMode = .scaleAspectFill
             dummyView.clipsToBounds = true
             dummyView.image = targetImage
-            dummyView.layer.cornerRadius = fromView.layer.cornerRadius
+            if #available(iOS 11.0, *) {
+                dummyView.layer.maskedCorners = sourceBorderCorners
+            }
+            dummyView.layer.cornerRadius = 0
             
             fromView.transform = .identity
             fromView.frame = containerView.bounds
@@ -186,7 +193,7 @@ class ZoomTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
                            options: [.curveEaseOut, .allowUserInteraction],
                            animations: {
                 dummyView.frame = self.sourceRect
-                dummyView.layer.cornerRadius = 8
+                dummyView.layer.cornerRadius = self.sourceBorderRadius
                 
                 fromVC.topBar.alpha = 0
                 fromVC.bottomContainer.alpha = 0
