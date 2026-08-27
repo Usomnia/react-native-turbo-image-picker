@@ -29,7 +29,6 @@ export interface RNTurboImagePicker {
   init(licenseKey: string): Promise<boolean>;
   openGallery(options?: GalleryOptions): Promise<ImageResult[]>;
   openEditor(options: EditorOptions): Promise<ImageResult>;
-  updateSourceRect(rect: import("./types").SourceRect): Promise<void>;
   closeGallery(): Promise<boolean>
   addSelectionChangeListener(listener: (event: SelectionChangeEvent) => void): () => void
 }

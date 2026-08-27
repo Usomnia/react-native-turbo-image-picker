@@ -188,7 +188,7 @@
 			);
 			productName = RNTurboImagePicker;
 			productReference = 1D0E9A862B8F4C3E00E5F123 /* RNTurboImagePicker.framework */;
-			productType = "com.apple.product-type.framework";
+			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 

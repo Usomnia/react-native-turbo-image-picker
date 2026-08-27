@@ -42,6 +42,7 @@ export interface GalleryOptions {
 
 export interface ViewerOptions {
   images: string[]
+  placeholderImages?: string[]
   initialIndex?: number
   themeColor?: string // Added themeColor for Android
   title?: string

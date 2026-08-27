@@ -279,6 +279,8 @@ public struct Localizer {
   @_Concurrency.MainActor @preconcurrency public var imageAspectRatio: CoreFoundation.CGFloat?
   @_Concurrency.MainActor @preconcurrency public var animationType: Swift.String
   @_Concurrency.MainActor @preconcurrency public var closeAnimationType: Swift.String?
+  @_Concurrency.MainActor @preconcurrency public var sourceBorderRadius: CoreFoundation.CGFloat
+  @_Concurrency.MainActor @preconcurrency public var sourceBorderCorners: QuartzCore.CACornerMask
   @_Concurrency.MainActor @preconcurrency @objc public func transitionDuration(using transitionContext: (any UIKit.UIViewControllerContextTransitioning)?) -> Foundation.TimeInterval
   @_Concurrency.MainActor @preconcurrency @objc public func animateTransition(using transitionContext: any UIKit.UIViewControllerContextTransitioning)
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public init()
