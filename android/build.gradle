@@ -11,6 +11,15 @@ buildscript {
     }
 }
 
+def moduleLibsDir = file("$projectDir/src/main/libs")
+rootProject.allprojects {
+    repositories {
+        flatDir {
+            dirs moduleLibsDir
+        }
+    }
+}
+
 if (project == rootProject) {
     allprojects {
         repositories {
@@ -79,7 +88,7 @@ if (project != rootProject) {
     }
 
     dependencies {
-        implementation files('src/main/libs/rnturboimagepicker-release.aar')
+        implementation(name: 'rnturboimagepicker-release', ext: 'aar')
         compileOnly "com.facebook.react:react-android:+"
         
         implementation "org.jetbrains.kotlin:kotlin-stdlib:1.9.0"

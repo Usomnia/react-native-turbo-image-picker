@@ -358,11 +358,28 @@ class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
                 if (animationType != null) {
                     putExtra("animationType", animationType)
                 }
+                if (options.hasKey("closeAnimationType")) {
+                    putExtra("closeAnimationType", options.getString("closeAnimationType"))
+                }
                 if (startX != -1f) {
                     putExtra("startX", startX)
                     putExtra("startY", startY)
                     putExtra("startWidth", startWidth)
                     putExtra("startHeight", startHeight)
+                }
+                
+                if (options.hasKey("sourceBorderRadius")) {
+                    putExtra("sourceBorderRadius", com.facebook.react.uimanager.PixelUtil.toPixelFromDIP(options.getDouble("sourceBorderRadius").toFloat()))
+                }
+                if (options.hasKey("sourceBorderCorners")) {
+                    val cornersArray = options.getArray("sourceBorderCorners")
+                    if (cornersArray != null) {
+                        val corners = ArrayList<String>()
+                        for (i in 0 until cornersArray.size()) {
+                            cornersArray.getString(i)?.let { corners.add(it) }
+                        }
+                        putStringArrayListExtra("sourceBorderCorners", corners)
+                    }
                 }
             }
             activity.startActivity(intent)

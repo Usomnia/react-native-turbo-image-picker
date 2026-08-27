@@ -282,6 +282,22 @@ class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
         val initialIndex = if (options.hasKey("initialIndex")) options.getInt("initialIndex") else 0
         val themeColor = if (options.hasKey("themeColor")) options.getString("themeColor") else "#FF6B35"
         val title = if (options.hasKey("title")) options.getString("title") else null
+        val animationType = if (options.hasKey("animationType")) options.getString("animationType") else null
+
+        var startX = -1f
+        var startY = -1f
+        var startWidth = -1f
+        var startHeight = -1f
+
+        if (options.hasKey("sourceRect")) {
+            val sourceRect = options.getMap("sourceRect")
+            if (sourceRect != null) {
+                startX = if (sourceRect.hasKey("x")) com.facebook.react.uimanager.PixelUtil.toPixelFromDIP(sourceRect.getDouble("x").toFloat()) else -1f
+                startY = if (sourceRect.hasKey("y")) com.facebook.react.uimanager.PixelUtil.toPixelFromDIP(sourceRect.getDouble("y").toFloat()) else -1f
+                startWidth = if (sourceRect.hasKey("width")) com.facebook.react.uimanager.PixelUtil.toPixelFromDIP(sourceRect.getDouble("width").toFloat()) else -1f
+                startHeight = if (sourceRect.hasKey("height")) com.facebook.react.uimanager.PixelUtil.toPixelFromDIP(sourceRect.getDouble("height").toFloat()) else -1f
+            }
+        }
 
         try {
             val intent = Intent(activity, ImageViewerActivity::class.java).apply {
@@ -290,6 +306,31 @@ class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
                 putExtra("EXTRA_THEME_COLOR", themeColor)
                 if (title != null) {
                     putExtra(ImageViewerActivity.EXTRA_TITLE, title)
+                }
+                if (animationType != null) {
+                    putExtra("animationType", animationType)
+                }
+                if (options.hasKey("closeAnimationType")) {
+                    putExtra("closeAnimationType", options.getString("closeAnimationType"))
+                }
+                if (startX != -1f) {
+                    putExtra("startX", startX)
+                    putExtra("startY", startY)
+                    putExtra("startWidth", startWidth)
+                    putExtra("startHeight", startHeight)
+                }
+                if (options.hasKey("sourceBorderRadius")) {
+                    putExtra("sourceBorderRadius", com.facebook.react.uimanager.PixelUtil.toPixelFromDIP(options.getDouble("sourceBorderRadius").toFloat()))
+                }
+                if (options.hasKey("sourceBorderCorners")) {
+                    val cornersArray = options.getArray("sourceBorderCorners")
+                    if (cornersArray != null) {
+                        val corners = java.util.ArrayList<String>()
+                        for (i in 0 until cornersArray.size()) {
+                            cornersArray.getString(i)?.let { corners.add(it) }
+                        }
+                        putStringArrayListExtra("sourceBorderCorners", corners)
+                    }
                 }
             }
             activity.startActivity(intent)

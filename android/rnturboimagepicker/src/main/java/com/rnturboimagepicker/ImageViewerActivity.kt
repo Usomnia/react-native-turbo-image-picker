@@ -83,6 +83,10 @@ class ImageViewerActivity : AppCompatActivity() {
 
     private var images: List<String> = emptyList()
     private var currentIndex: Int = 0
+    
+    private var sourceBorderRadius: Float = 0f
+    private var sourceBorderCorners: List<String> = emptyList()
+
     private var parsedThemeColor: Int = android.graphics.Color.parseColor("#FF6B35")
     private lateinit var thumbnailAdapter: ThumbnailAdapter
 
@@ -114,12 +118,14 @@ class ImageViewerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         currentInstance = java.lang.ref.WeakReference(this)
         
-        val animationType = intent.getStringExtra("animationType") ?: "slide"
-        
         startX = intent.getFloatExtra("startX", -1f)
         startY = intent.getFloatExtra("startY", -1f)
         startWidth = intent.getFloatExtra("startWidth", -1f)
         startHeight = intent.getFloatExtra("startHeight", -1f)
+        sourceBorderRadius = intent.getFloatExtra("sourceBorderRadius", 0f)
+        sourceBorderCorners = intent.getStringArrayListExtra("sourceBorderCorners") ?: listOf("topLeft", "topRight", "bottomLeft", "bottomRight")
+        
+        val animationType = intent.getStringExtra("animationType") ?: "slide"
         
         androidx.localbroadcastmanager.content.LocalBroadcastManager.getInstance(this)
             .registerReceiver(coordinateReceiver, android.content.IntentFilter("com.rnturboimagepicker.UPDATE_COORDINATES"))
@@ -156,20 +162,34 @@ class ImageViewerActivity : AppCompatActivity() {
             bottomBar.alpha = 0f
             viewPager.alpha = 0f
             
+            var currentRadius = 0f
             val dummyView = android.widget.ImageView(this@ImageViewerActivity)
-            dummyView.scaleType = android.widget.ImageView.ScaleType.MATRIX
-            dummyView.layoutParams = androidx.constraintlayout.widget.ConstraintLayout.LayoutParams(
-                androidx.constraintlayout.widget.ConstraintLayout.LayoutParams.MATCH_PARENT,
-                androidx.constraintlayout.widget.ConstraintLayout.LayoutParams.MATCH_PARENT
+            dummyView.scaleType = android.widget.ImageView.ScaleType.CENTER_CROP
+            dummyView.layoutParams = android.widget.FrameLayout.LayoutParams(
+                Math.round(startWidth),
+                Math.round(startHeight)
             )
+            dummyView.translationX = startX
+            dummyView.translationY = startY
+            
+            dummyView.outlineProvider = object : android.view.ViewOutlineProvider() {
+                override fun getOutline(view: View, outline: android.graphics.Outline) {
+                    val w = if (view.layoutParams.width > 0) view.layoutParams.width else view.width
+                    val h = if (view.layoutParams.height > 0) view.layoutParams.height else view.height
+                    outline.setRoundRect(0, 0, w, h, currentRadius)
+                }
+            }
+            dummyView.clipToOutline = true
+            
             dummyView.visibility = View.INVISIBLE
             (rootView as android.view.ViewGroup).addView(dummyView, 0)
             
             val initialIndex = intent.getIntExtra(EXTRA_INITIAL_INDEX, 0)
             Glide.with(this@ImageViewerActivity)
                 .load(getSafeGlideUrl(images[initialIndex]))
-                // Load at screen resolution to avoid downsampling to thumbnail size
-                .apply(RequestOptions().override(com.bumptech.glide.request.target.Target.SIZE_ORIGINAL))
+                .apply(RequestOptions()
+                    .override(com.bumptech.glide.request.target.Target.SIZE_ORIGINAL)
+                    .priority(com.bumptech.glide.Priority.IMMEDIATE))
                 .listener(object : com.bumptech.glide.request.RequestListener<android.graphics.drawable.Drawable> {
                     override fun onLoadFailed(e: com.bumptech.glide.load.engine.GlideException?, model: Any?, target: com.bumptech.glide.request.target.Target<android.graphics.drawable.Drawable>, isFirstResource: Boolean): Boolean {
                         dummyView.visibility = View.GONE
@@ -189,7 +209,6 @@ class ImageViewerActivity : AppCompatActivity() {
                             val screenHeight = viewPager.height.toFloat()
                             val screenRatio = if (screenHeight > 0) screenWidth / screenHeight else 1f
                             
-                            // Final frame: where the image rests after opening (aspect-fit inside screen)
                             val finalWidth: Float
                             val finalHeight: Float
                             val finalX: Float
@@ -206,23 +225,13 @@ class ImageViewerActivity : AppCompatActivity() {
                                 finalY = 0f
                             }
                             
-                            // Setup initial state (p=0) to prevent flicker before animator starts
-                            dummyView.clipBounds = android.graphics.Rect(
-                                startX.toInt(), startY.toInt(),
-                                (startX + startWidth).toInt(), (startY + startHeight).toInt()
-                            )
-                            val initialScale = Math.max(startWidth / imgW, startHeight / imgH)
-                            val initialTx = startX + (startWidth - imgW * initialScale) / 2f
-                            val initialTy = startY + (startHeight - imgH * initialScale) / 2f
-                            val initialMatrix = android.graphics.Matrix()
-                            initialMatrix.setScale(initialScale, initialScale)
-                            initialMatrix.postTranslate(initialTx, initialTy)
-                            dummyView.imageMatrix = initialMatrix
+                            currentRadius = sourceBorderRadius
+                            dummyView.invalidateOutline()
                             
                             dummyView.visibility = View.VISIBLE
                             
                             val animator = android.animation.ValueAnimator.ofFloat(0f, 1f)
-                            animator.duration = 150
+                            animator.duration = 250
                             animator.interpolator = android.view.animation.DecelerateInterpolator()
                             animator.addUpdateListener { anim ->
                                 val p = anim.animatedValue as Float
@@ -234,20 +243,14 @@ class ImageViewerActivity : AppCompatActivity() {
                                 val currentW = startWidth + (finalWidth - startWidth) * p
                                 val currentH = startHeight + (finalHeight - startHeight) * p
                                 
-                                dummyView.clipBounds = android.graphics.Rect(
-                                    currentX.toInt(), currentY.toInt(),
-                                    (currentX + currentW).toInt(), (currentY + currentH).toInt()
-                                )
+                                dummyView.layoutParams.width = Math.round(currentW)
+                                dummyView.layoutParams.height = Math.round(currentH)
+                                dummyView.translationX = currentX
+                                dummyView.translationY = currentY
+                                dummyView.requestLayout()
                                 
-                                // Calculate CENTER_CROP matrix for the current bounds
-                                val scale = Math.max(currentW / imgW, currentH / imgH)
-                                val tx = currentX + (currentW - imgW * scale) / 2f
-                                val ty = currentY + (currentH - imgH * scale) / 2f
-                                
-                                val matrix = android.graphics.Matrix()
-                                matrix.setScale(scale, scale)
-                                matrix.postTranslate(tx, ty)
-                                dummyView.imageMatrix = matrix
+                                currentRadius = sourceBorderRadius * (1f - p)
+                                dummyView.invalidateOutline()
                             }
                             animator.addListener(object: android.animation.AnimatorListenerAdapter() {
                                 override fun onAnimationEnd(animation: android.animation.Animator) {
@@ -256,8 +259,8 @@ class ImageViewerActivity : AppCompatActivity() {
                                 }
                             })
                             animator.start()
-                            topBar.animate().alpha(1f).setDuration(150).start()
-                            bottomBar.animate().alpha(1f).setDuration(150).start()
+                            topBar.animate().alpha(1f).setDuration(250).start()
+                            bottomBar.animate().alpha(1f).setDuration(250).start()
                         }
                         return false
                     }
@@ -558,6 +561,7 @@ class ImageViewerActivity : AppCompatActivity() {
                 .thumbnail(thumbnailRequest)
                 .apply(RequestOptions()
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .priority(if (position == currentIndex) com.bumptech.glide.Priority.IMMEDIATE else com.bumptech.glide.Priority.NORMAL)
                     .skipMemoryCache(false))
                 .into(holder.zoomableImageView)
         }
@@ -604,6 +608,7 @@ class ImageViewerActivity : AppCompatActivity() {
                     .load(getSafeGlideUrl(images[i]))
                     .apply(RequestOptions()
                         .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .priority(com.bumptech.glide.Priority.LOW)
                         .skipMemoryCache(false))
                     .preload()
             }
@@ -636,17 +641,31 @@ class ImageViewerActivity : AppCompatActivity() {
             val bgB = android.graphics.Color.blue(bgColor)
             rootView.setBackgroundColor(android.graphics.Color.TRANSPARENT)
             
+            var currentRadius = 0f
             val dummyView = android.widget.ImageView(this@ImageViewerActivity)
-            dummyView.scaleType = android.widget.ImageView.ScaleType.MATRIX
-            dummyView.layoutParams = androidx.constraintlayout.widget.ConstraintLayout.LayoutParams(
-                androidx.constraintlayout.widget.ConstraintLayout.LayoutParams.MATCH_PARENT,
-                androidx.constraintlayout.widget.ConstraintLayout.LayoutParams.MATCH_PARENT
+            dummyView.scaleType = android.widget.ImageView.ScaleType.CENTER_CROP
+            dummyView.layoutParams = android.widget.FrameLayout.LayoutParams(
+                android.widget.FrameLayout.LayoutParams.WRAP_CONTENT,
+                android.widget.FrameLayout.LayoutParams.WRAP_CONTENT
             )
-            (rootView as android.view.ViewGroup).addView(dummyView, 0)
+            
+            dummyView.outlineProvider = object : android.view.ViewOutlineProvider() {
+                override fun getOutline(view: View, outline: android.graphics.Outline) {
+                    val w = if (view.layoutParams.width > 0) view.layoutParams.width else view.width
+                    val h = if (view.layoutParams.height > 0) view.layoutParams.height else view.height
+                    outline.setRoundRect(0, 0, w, h, currentRadius)
+                }
+            }
+            dummyView.clipToOutline = true
+            
+            dummyView.visibility = View.INVISIBLE
+            activityRoot.addView(dummyView)
             
             Glide.with(this@ImageViewerActivity)
                 .load(getSafeGlideUrl(images[viewPager.currentItem]))
-                .apply(RequestOptions().override(com.bumptech.glide.request.target.Target.SIZE_ORIGINAL))
+                .apply(RequestOptions()
+                    .override(com.bumptech.glide.request.target.Target.SIZE_ORIGINAL)
+                    .priority(com.bumptech.glide.Priority.IMMEDIATE))
                 .listener(object : com.bumptech.glide.request.RequestListener<android.graphics.drawable.Drawable> {
                     override fun onLoadFailed(e: com.bumptech.glide.load.engine.GlideException?, model: Any?, target: com.bumptech.glide.request.target.Target<android.graphics.drawable.Drawable>, isFirstResource: Boolean): Boolean {
                         super@ImageViewerActivity.finish()
@@ -701,20 +720,26 @@ class ImageViewerActivity : AppCompatActivity() {
                                 
                                 val startProgress = (TY * 2f / pullToDismissLayout.height).coerceIn(0f, 1f)
                                 currentBgAlpha = ((1f - startProgress) * 255).toInt().coerceIn(0, 255)
-                                
-                                child.scaleX = 1f
-                                child.scaleY = 1f
-                                child.translationX = 0f
-                                child.translationY = 0f
-                                child.clipToOutline = false
                             }
                             
-                            viewPager.visibility = View.GONE
-                            topBar.animate().alpha(0f).setDuration(150).start()
-                            bottomBar.animate().alpha(0f).setDuration(150).start()
+                            dummyView.layoutParams.width = Math.round(startAnimW)
+                            dummyView.layoutParams.height = Math.round(startAnimH)
+                            dummyView.translationX = startAnimX
+                            dummyView.translationY = startAnimY
+                            dummyView.requestLayout()
+                            
+                            currentRadius = 0f
+                            dummyView.invalidateOutline()
+                            
+                            dummyView.setImageDrawable(resource)
+                            
+                            dummyView.visibility = View.VISIBLE
+                            viewPager.visibility = View.INVISIBLE
+                            topBar.animate().alpha(0f).setDuration(200).start()
+                            bottomBar.animate().alpha(0f).setDuration(200).start()
                             
                             val animator = android.animation.ValueAnimator.ofFloat(0f, 1f)
-                            animator.duration = 150
+                            animator.duration = 200
                             animator.interpolator = android.view.animation.DecelerateInterpolator()
                             animator.addUpdateListener { anim ->
                                 val p = anim.animatedValue as Float
@@ -727,19 +752,14 @@ class ImageViewerActivity : AppCompatActivity() {
                                 val currentW = startAnimW + (startWidth - startAnimW) * p
                                 val currentH = startAnimH + (startHeight - startAnimH) * p
                                 
-                                dummyView.clipBounds = android.graphics.Rect(
-                                    currentX.toInt(), currentY.toInt(),
-                                    (currentX + currentW).toInt(), (currentY + currentH).toInt()
-                                )
+                                dummyView.layoutParams.width = Math.round(currentW)
+                                dummyView.layoutParams.height = Math.round(currentH)
+                                dummyView.translationX = currentX
+                                dummyView.translationY = currentY
+                                dummyView.requestLayout()
                                 
-                                val scale = Math.max(currentW / imgW, currentH / imgH)
-                                val tx = currentX + (currentW - imgW * scale) / 2f
-                                val ty = currentY + (currentH - imgH * scale) / 2f
-                                
-                                val matrix = android.graphics.Matrix()
-                                matrix.setScale(scale, scale)
-                                matrix.postTranslate(tx, ty)
-                                dummyView.imageMatrix = matrix
+                                currentRadius = sourceBorderRadius * p
+                                dummyView.invalidateOutline()
                             }
                             animator.addListener(object: android.animation.AnimatorListenerAdapter() {
                                 override fun onAnimationEnd(animation: android.animation.Animator) {
