@@ -34,6 +34,9 @@ public class ZoomTransitionAnimator: NSObject, UIViewControllerAnimatedTransitio
             if targetImage == nil, toVC.imageUrls.indices.contains(toVC.currentIndex) {
                 let urlString = toVC.imageUrls[toVC.currentIndex]
                 targetImage = ViewerImageCache.shared.getMemoryImage(for: urlString) ?? ViewerImageCache.shared.getDiskImageSynchronously(for: urlString)
+                if targetImage == nil, urlString.hasPrefix("file://"), let url = URL(string: urlString) {
+                    targetImage = UIImage(contentsOfFile: url.path)
+                }
             }
             
             let ratio = imageAspectRatio ?? (targetImage != nil ? (targetImage!.size.width / max(1, targetImage!.size.height)) : 1.0)
@@ -81,7 +84,7 @@ public class ZoomTransitionAnimator: NSObject, UIViewControllerAnimatedTransitio
             dummyView.contentMode = .scaleAspectFill
             dummyView.clipsToBounds = true
             dummyView.image = targetImage
-            dummyView.backgroundColor = UIColor(white: 0.9, alpha: 0.3)
+            dummyView.backgroundColor = .clear
             dummyView.layer.maskedCorners = sourceBorderCorners
             dummyView.layer.cornerRadius = sourceBorderRadius // 썸네일 라운드 (옵션)
             
@@ -124,6 +127,9 @@ public class ZoomTransitionAnimator: NSObject, UIViewControllerAnimatedTransitio
             if targetImage == nil, fromVC.imageUrls.indices.contains(fromVC.currentIndex) {
                 let urlString = fromVC.imageUrls[fromVC.currentIndex]
                 targetImage = ViewerImageCache.shared.getMemoryImage(for: urlString) ?? ViewerImageCache.shared.getDiskImageSynchronously(for: urlString)
+                if targetImage == nil, urlString.hasPrefix("file://"), let url = URL(string: urlString) {
+                    targetImage = UIImage(contentsOfFile: url.path)
+                }
             }
             let ratio = imageAspectRatio ?? (targetImage != nil ? (targetImage!.size.width / max(1, targetImage!.size.height)) : 1.0)
             
@@ -185,6 +191,7 @@ public class ZoomTransitionAnimator: NSObject, UIViewControllerAnimatedTransitio
             fromView.insertSubview(dummyView, belowSubview: fromVC.topBar)
             fromVC.scrollView.alpha = 0
             fromView.backgroundColor = .clear
+            fromView.alpha = 1.0 // 팬 제스처로 인해 낮아진 투명도 복구
             
             UIView.animate(withDuration: transitionDuration(using: transitionContext),
                            delay: 0,

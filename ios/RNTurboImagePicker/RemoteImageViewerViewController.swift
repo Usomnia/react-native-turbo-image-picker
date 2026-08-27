@@ -235,11 +235,21 @@ public class RemoteImageViewerViewController: UIViewController {
                 completion(image)
             }
         } else if urlString.hasPrefix("file://") {
-            ViewerImageCache.shared.getDiskImage(for: urlString) { image in
-                if let img = image {
-                    ViewerImageCache.shared.setMemoryImage(img, for: urlString)
+            DispatchQueue.global(qos: .userInitiated).async {
+                if let url = URL(string: urlString), let image = UIImage(contentsOfFile: url.path) {
+                    if #available(iOS 15.0, *) {
+                        image.prepareForDisplay { preparedImage in
+                            let finalImage = preparedImage ?? image
+                            ViewerImageCache.shared.setMemoryImage(finalImage, for: urlString)
+                            DispatchQueue.main.async { completion(finalImage) }
+                        }
+                    } else {
+                        ViewerImageCache.shared.setMemoryImage(image, for: urlString)
+                        DispatchQueue.main.async { completion(image) }
+                    }
+                } else {
+                    DispatchQueue.main.async { completion(nil) }
                 }
-                completion(image)
             }
         } else {
             ViewerImageDownloader.shared.downloadImage(from: urlString) { image in
