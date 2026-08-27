@@ -233,6 +233,7 @@ extension RNTurboImagePicker.GalleryBaseViewController : UIKit.UIAdaptivePresent
   @_Concurrency.MainActor @preconcurrency public var themeColor: UIKit.UIColor
   @_Concurrency.MainActor @preconcurrency public var languageCode: Swift.String
   @_Concurrency.MainActor @preconcurrency public var viewerTitle: Swift.String?
+  @_Concurrency.MainActor @preconcurrency public static func prefetchImage(from urlString: Swift.String, completion: @escaping (UIKit.UIImage?) -> Swift.Void)
   @_Concurrency.MainActor @preconcurrency public init(imageUrls: [Swift.String], initialIndex: Swift.Int)
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func viewDidLoad()
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func viewDidLayoutSubviews()

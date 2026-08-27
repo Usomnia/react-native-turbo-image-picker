@@ -70,12 +70,15 @@ class RNTurboImagePicker: RCTEventEmitter {
     func updateSourceRect(_ options: NSDictionary,
                           resolve: @escaping RCTPromiseResolveBlock,
                           reject: @escaping RCTPromiseRejectBlock) -> Void {
-        if let x = options["x"] as? CGFloat,
-           let y = options["y"] as? CGFloat,
-           let width = options["width"] as? CGFloat,
-           let height = options["height"] as? CGFloat {
+        let optDict = options as? [String: Any] ?? [:]
+        let x = (optDict["x"] as? NSNumber).map { CGFloat(truncating: $0) } ?? (optDict["x"] as? Double).map { CGFloat($0) }
+        let y = (optDict["y"] as? NSNumber).map { CGFloat(truncating: $0) } ?? (optDict["y"] as? Double).map { CGFloat($0) }
+        let w = (optDict["width"] as? NSNumber).map { CGFloat(truncating: $0) } ?? (optDict["width"] as? Double).map { CGFloat($0) }
+        let h = (optDict["height"] as? NSNumber).map { CGFloat(truncating: $0) } ?? (optDict["height"] as? Double).map { CGFloat($0) }
+        
+        if let x = x, let y = y, let w = w, let h = h {
             DispatchQueue.main.async {
-                self.zoomAnimator.sourceRect = CGRect(x: x, y: y, width: width, height: height)
+                self.zoomAnimator.sourceRect = CGRect(x: x, y: y, width: w, height: h)
                 resolve(true)
             }
         } else {
@@ -93,6 +96,7 @@ class RNTurboImagePicker: RCTEventEmitter {
         }
         
         let initialIndex = options["initialIndex"] as? Int ?? 0
+        let placeholderImages = options["placeholderImages"] as? [String]
         let themeColorHex = options["themeColor"] as? String
         let languageCode = options["languageCode"] as? String ?? "en"
         let viewerTitle = options["title"] as? String
@@ -104,6 +108,7 @@ class RNTurboImagePicker: RCTEventEmitter {
             }
             
             let viewerVC = RemoteImageViewerViewController(imageUrls: images, initialIndex: initialIndex)
+            viewerVC.placeholderImageUrls = placeholderImages
             viewerVC.languageCode = languageCode
             viewerVC.viewerTitle = viewerTitle
             if let hex = themeColorHex, let color = UIColor(hexString: hex) {
@@ -114,12 +119,29 @@ class RNTurboImagePicker: RCTEventEmitter {
             self.zoomAnimator.animationType = animationType
             self.zoomAnimator.closeAnimationType = options["closeAnimationType"] as? String
             
-            if let sourceRectDict = options["sourceRect"] as? [String: CGFloat] {
-                let x = sourceRectDict["x"] ?? 0
-                let y = sourceRectDict["y"] ?? 0
-                let w = sourceRectDict["width"] ?? 0
-                let h = sourceRectDict["height"] ?? 0
+            if let sourceRectDict = options["sourceRect"] as? [String: Any] {
+                let x = (sourceRectDict["x"] as? NSNumber).map { CGFloat(truncating: $0) } ?? (sourceRectDict["x"] as? Double).map { CGFloat($0) } ?? 0
+                let y = (sourceRectDict["y"] as? NSNumber).map { CGFloat(truncating: $0) } ?? (sourceRectDict["y"] as? Double).map { CGFloat($0) } ?? 0
+                let w = (sourceRectDict["width"] as? NSNumber).map { CGFloat(truncating: $0) } ?? (sourceRectDict["width"] as? Double).map { CGFloat($0) } ?? 0
+                let h = (sourceRectDict["height"] as? NSNumber).map { CGFloat(truncating: $0) } ?? (sourceRectDict["height"] as? Double).map { CGFloat($0) } ?? 0
                 self.zoomAnimator.sourceRect = CGRect(x: x, y: y, width: w, height: h)
+            }
+            
+            if let radius = (options["sourceBorderRadius"] as? NSNumber).map({ CGFloat(truncating: $0) }) ?? (options["sourceBorderRadius"] as? Double).map({ CGFloat($0) }) {
+                self.zoomAnimator.sourceBorderRadius = radius
+            } else {
+                self.zoomAnimator.sourceBorderRadius = 0
+            }
+            
+            var mask: CACornerMask = []
+            if let corners = options["sourceBorderCorners"] as? [String] {
+                if corners.contains("topLeft") { mask.insert(.layerMinXMinYCorner) }
+                if corners.contains("topRight") { mask.insert(.layerMaxXMinYCorner) }
+                if corners.contains("bottomLeft") { mask.insert(.layerMinXMaxYCorner) }
+                if corners.contains("bottomRight") { mask.insert(.layerMaxXMaxYCorner) }
+                self.zoomAnimator.sourceBorderCorners = mask.isEmpty ? [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMaxYCorner] : mask
+            } else {
+                self.zoomAnimator.sourceBorderCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMaxYCorner]
             }
             
             viewerVC.modalPresentationStyle = .custom
@@ -140,10 +162,11 @@ class RNTurboImagePicker: RCTEventEmitter {
                                 resolve: @escaping RCTPromiseResolveBlock,
                                 reject: @escaping RCTPromiseRejectBlock) -> Void {
         DispatchQueue.main.async {
-            let x = rect["x"] as? CGFloat ?? 0
-            let y = rect["y"] as? CGFloat ?? 0
-            let w = rect["width"] as? CGFloat ?? 0
-            let h = rect["height"] as? CGFloat ?? 0
+            let rectDict = rect as? [String: Any] ?? [:]
+            let x = (rectDict["x"] as? NSNumber).map { CGFloat(truncating: $0) } ?? (rectDict["x"] as? Double).map { CGFloat($0) } ?? 0
+            let y = (rectDict["y"] as? NSNumber).map { CGFloat(truncating: $0) } ?? (rectDict["y"] as? Double).map { CGFloat($0) } ?? 0
+            let w = (rectDict["width"] as? NSNumber).map { CGFloat(truncating: $0) } ?? (rectDict["width"] as? Double).map { CGFloat($0) } ?? 0
+            let h = (rectDict["height"] as? NSNumber).map { CGFloat(truncating: $0) } ?? (rectDict["height"] as? Double).map { CGFloat($0) } ?? 0
             self.zoomAnimator.sourceRect = CGRect(x: x, y: y, width: w, height: h)
             resolve(nil)
         }
