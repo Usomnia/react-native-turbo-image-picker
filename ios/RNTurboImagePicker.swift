@@ -152,16 +152,6 @@ class RNTurboImagePicker: RCTEventEmitter {
             self.zoomAnimator.closeAnimationType = closeAnimationType
             if let rect = parsedRect {
                 self.zoomAnimator.sourceRect = rect
-                if let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) {
-                    let format = UIGraphicsImageRendererFormat()
-                    format.opaque = false
-                    format.scale = window.screen.scale
-                    let renderer = UIGraphicsImageRenderer(size: rect.size, format: format)
-                    let snapshotImage = renderer.image { context in
-                        window.drawHierarchy(in: CGRect(x: -rect.origin.x, y: -rect.origin.y, width: window.bounds.width, height: window.bounds.height), afterScreenUpdates: false)
-                    }
-                    self.zoomAnimator.sourceImage = snapshotImage
-                }
             }
             self.zoomAnimator.sourceBorderRadius = sourceBorderRadius
             self.zoomAnimator.sourceBorderCorners = mask

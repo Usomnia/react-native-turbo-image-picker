@@ -242,7 +242,12 @@ public class RemoteImageViewerViewController: UIViewController {
                 completion(image)
             }
         } else {
-            completion(nil)
+            ViewerImageDownloader.shared.downloadImage(from: urlString) { image in
+                if let img = image {
+                    ViewerImageCache.shared.setMemoryImage(img, for: urlString)
+                }
+                completion(image)
+            }
         }
     }
     
