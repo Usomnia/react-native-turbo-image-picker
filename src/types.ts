@@ -38,6 +38,8 @@ export interface GalleryOptions {
   asyncProcessing?: boolean // 완전 비동기 이벤트 리턴 여부
   onSelectionChange?: (event: SelectionChangeEvent) => void
   onImageProcessed?: (event: any) => void
+  openDuration?: number
+  closeDuration?: number
 }
 
 export interface ViewerOptions {
@@ -50,9 +52,12 @@ export interface ViewerOptions {
   closeAnimationType?: 'slide' | 'fade' | 'zoom'
   sourceRect?: SourceRect
   sourceBorderRadius?: number
+  sourceBackgroundColor?: string
   sourceBorderCorners?: ('topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight')[]
   onPageSelected?: (index: number) => void
   onViewerWillClose?: () => void
+  openDuration?: number
+  closeDuration?: number
 }
 
 export interface SelectionChangeEvent {
@@ -66,6 +71,8 @@ export interface EditorOptions {
   themeColor?: string // 편집기 테마 컬러
   maxWidth?: number // 최대 width
   maxHeight?: number // 최대 height
+  openDuration?: number
+  closeDuration?: number
 }
 
 export interface RNTurboImagePicker {
@@ -76,4 +83,5 @@ export interface RNTurboImagePicker {
   updateViewerSourceRect(rect: SourceRect): Promise<void>
   closeGallery(): Promise<boolean>
   addSelectionChangeListener(listener: (event: SelectionChangeEvent) => void): () => void
+  getDefaultAnimationConfig(): Promise<{ galleryOpen: number, galleryClose: number, editorOpen: number, editorClose: number, viewerOpen: number, viewerClose: number }>
 }

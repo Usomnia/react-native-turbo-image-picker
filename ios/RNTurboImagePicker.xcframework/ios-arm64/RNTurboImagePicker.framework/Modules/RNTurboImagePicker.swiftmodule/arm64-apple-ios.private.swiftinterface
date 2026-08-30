@@ -270,6 +270,8 @@ public struct Localizer {
   @_Concurrency.MainActor @preconcurrency public var asset: Photos.PHAsset?
   @_Concurrency.MainActor @preconcurrency public var frameProvider: ((Photos.PHAsset) -> CoreFoundation.CGRect?)?
   @_Concurrency.MainActor @preconcurrency public var disablePresentationAnimation: Swift.Bool
+  @_Concurrency.MainActor @preconcurrency public var openDuration: Swift.Double
+  @_Concurrency.MainActor @preconcurrency public var closeDuration: Swift.Double
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public init()
   @_Concurrency.MainActor @preconcurrency @objc public func animationController(forPresented presented: UIKit.UIViewController, presenting: UIKit.UIViewController, source: UIKit.UIViewController) -> (any UIKit.UIViewControllerAnimatedTransitioning)?
   @_Concurrency.MainActor @preconcurrency @objc public func animationController(forDismissed dismissed: UIKit.UIViewController) -> (any UIKit.UIViewControllerAnimatedTransitioning)?
@@ -284,6 +286,8 @@ public struct Localizer {
   @_Concurrency.MainActor @preconcurrency public var closeAnimationType: Swift.String?
   @_Concurrency.MainActor @preconcurrency public var sourceBorderRadius: CoreFoundation.CGFloat
   @_Concurrency.MainActor @preconcurrency public var sourceBorderCorners: QuartzCore.CACornerMask
+  @_Concurrency.MainActor @preconcurrency public var openDuration: Swift.Double
+  @_Concurrency.MainActor @preconcurrency public var closeDuration: Swift.Double
   @_Concurrency.MainActor @preconcurrency @objc public func transitionDuration(using transitionContext: (any UIKit.UIViewControllerContextTransitioning)?) -> Foundation.TimeInterval
   @_Concurrency.MainActor @preconcurrency @objc public func animateTransition(using transitionContext: any UIKit.UIViewControllerContextTransitioning)
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public init()

@@ -40,17 +40,28 @@ class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
     private var maxHeight: Int = 1024
     private var outputFormat: String = "webp" // Default to webp
 
+    @ReactMethod
+    fun addListener(eventName: String) {
+        // Keep: Required for RN built in Event Emitter Calls.
+    }
+
+    @ReactMethod
+    fun removeListeners(count: Int) {
+        // Keep: Required for RN built in Event Emitter Calls.
+    }
+
     private val viewerWillCloseReceiver = object : android.content.BroadcastReceiver() {
         override fun onReceive(context: android.content.Context?, intent: android.content.Intent?) {
             if (intent?.action == "com.rnturboimagepicker.VIEWER_WILL_CLOSE") {
                 reactApplicationContext
                     .getJSModule(com.facebook.react.modules.core.DeviceEventManagerModule.RCTDeviceEventEmitter::class.java)
-                    .emit("onViewerWillClose", null)
+                    .emit("onViewerWillClose", com.facebook.react.bridge.Arguments.createMap())
             }
         }
     }
 
     init {
+        com.rnturboimagepicker.EventEmitterHelper.reactContext = reactContext
         reactContext.addActivityEventListener(this)
         androidx.localbroadcastmanager.content.LocalBroadcastManager.getInstance(reactContext)
             .registerReceiver(viewerWillCloseReceiver, android.content.IntentFilter("com.rnturboimagepicker.VIEWER_WILL_CLOSE"))
@@ -58,10 +69,37 @@ class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
 
     override fun getName(): String = NAME
 
+    companion object {
+        const val NAME = "RNTurboImagePicker"
+        const val REQUEST_CODE_IMAGE_EDITOR = 1002
+        
+        val defaultAnimationConfig = mapOf(
+            "galleryOpen" to 300,
+            "galleryClose" to 250,
+            "editorOpen" to 250,
+            "editorClose" to 200,
+            "viewerOpen" to 250,
+            "viewerClose" to 200
+        )
+    }
+
     @ReactMethod
     override fun init(licenseKey: String, promise: Promise) {
         val result = LicenseManager.initialize(reactApplicationContext, licenseKey)
         promise.resolve(result)
+    }
+
+    @ReactMethod
+    fun getDefaultAnimationConfig(promise: Promise) {
+        val config = com.facebook.react.bridge.Arguments.createMap().apply {
+            putInt("galleryOpen", defaultAnimationConfig["galleryOpen"] ?: 300)
+            putInt("galleryClose", defaultAnimationConfig["galleryClose"] ?: 250)
+            putInt("editorOpen", defaultAnimationConfig["editorOpen"] ?: 250)
+            putInt("editorClose", defaultAnimationConfig["editorClose"] ?: 200)
+            putInt("viewerOpen", defaultAnimationConfig["viewerOpen"] ?: 250)
+            putInt("viewerClose", defaultAnimationConfig["viewerClose"] ?: 200)
+        }
+        promise.resolve(config)
     }
 
     @ReactMethod
@@ -295,12 +333,17 @@ class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
         val themeColor = if (options.hasKey("themeColor")) options.getString("themeColor") else "#FF6B35"
         val title = if (options.hasKey("title")) options.getString("title") else null
         val animationType = if (options.hasKey("animationType")) options.getString("animationType") else null
+        
+        val openDuration = if (options.hasKey("openDuration")) options.getInt("openDuration") else defaultAnimationConfig["viewerOpen"] ?: 250
+        val closeDuration = if (options.hasKey("closeDuration")) options.getInt("closeDuration") else defaultAnimationConfig["viewerClose"] ?: 200
 
         var startX = -1f
         var startY = -1f
         var startWidth = -1f
         var startHeight = -1f
 
+        
+                
         if (options.hasKey("sourceRect")) {
             val sourceRect = options.getMap("sourceRect")
             if (sourceRect != null) {
@@ -312,10 +355,16 @@ class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
         }
 
         try {
-            val intent = Intent(activity, ImageViewerActivity::class.java).apply {
+                        val intent = Intent(activity, ImageViewerActivity::class.java).apply {
                 putStringArrayListExtra(ImageViewerActivity.EXTRA_IMAGES, images)
                 putExtra(ImageViewerActivity.EXTRA_INITIAL_INDEX, initialIndex)
                 putExtra("EXTRA_THEME_COLOR", themeColor)
+if (options.hasKey("sourceBorderRadius")) {
+                    putExtra("sourceBorderRadius", options.getDouble("sourceBorderRadius").toFloat())
+                }
+                if (options.hasKey("sourceBackgroundColor")) {
+                    putExtra("sourceBackgroundColor", options.getString("sourceBackgroundColor"))
+                }
                 if (title != null) {
                     putExtra(ImageViewerActivity.EXTRA_TITLE, title)
                 }
@@ -325,6 +374,8 @@ class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
                 if (options.hasKey("closeAnimationType")) {
                     putExtra("closeAnimationType", options.getString("closeAnimationType"))
                 }
+                putExtra("openDuration", openDuration)
+                putExtra("closeDuration", closeDuration)
                 if (startX != -1f) {
                     putExtra("startX", startX)
                     putExtra("startY", startY)

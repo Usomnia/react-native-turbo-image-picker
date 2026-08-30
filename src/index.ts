@@ -44,6 +44,7 @@ export interface RNTurboImagePicker {
   updateSourceRect(rect: import("./types").SourceRect): Promise<void>
   closeGallery(): Promise<boolean>
   addSelectionChangeListener(listener: (event: SelectionChangeEvent) => void): () => void
+  getDefaultAnimationConfig(): Promise<{ galleryOpen: number, galleryClose: number, editorOpen: number, editorClose: number, viewerOpen: number, viewerClose: number }>
 }
 
 const TurboImagePicker: RNTurboImagePicker = {
@@ -126,12 +127,30 @@ const TurboImagePicker: RNTurboImagePicker = {
     }
 
     let subscriptionViewerWillClose: any = null
+    let deviceSubscriptionViewerWillClose: any = null
+    
     if (options.onViewerWillClose) {
-      subscriptionViewerWillClose = eventEmitter.addListener("onViewerWillClose", () => {
+      const closeHandler = () => {
         if (options.onViewerWillClose) {
           options.onViewerWillClose()
         }
-      })
+        if (subscriptionPageSelected) {
+          subscriptionPageSelected.remove()
+        }
+        if (subscriptionViewerWillClose) {
+          subscriptionViewerWillClose.remove()
+        }
+        if (deviceSubscriptionViewerWillClose) {
+          deviceSubscriptionViewerWillClose.remove()
+        }
+      };
+      
+      subscriptionViewerWillClose = eventEmitter.addListener("onViewerWillClose", closeHandler);
+      
+      if (Platform.OS === "android") {
+        const { DeviceEventEmitter } = require("react-native");
+        deviceSubscriptionViewerWillClose = DeviceEventEmitter.addListener("onViewerWillClose", closeHandler);
+      }
     }
 
     try {
@@ -143,12 +162,7 @@ const TurboImagePicker: RNTurboImagePicker = {
       }
       return await RNTurboImagePickerModule.openViewer(mergedOptions)
     } finally {
-      if (subscriptionPageSelected) {
-        subscriptionPageSelected.remove()
-      }
-      if (subscriptionViewerWillClose) {
-        subscriptionViewerWillClose.remove()
-      }
+      // Listeners are now removed inside the onViewerWillClose callback
     }
   },
 
@@ -174,6 +188,13 @@ const TurboImagePicker: RNTurboImagePicker = {
     return () => {
       subscription.remove()
     }
+  },
+
+  getDefaultAnimationConfig: async (): Promise<{ galleryOpen: number, galleryClose: number, editorOpen: number, editorClose: number, viewerOpen: number, viewerClose: number }> => {
+    if (!RNTurboImagePickerModule) {
+      throw new Error(LINKING_ERROR)
+    }
+    return RNTurboImagePickerModule.getDefaultAnimationConfig()
   },
 }
 

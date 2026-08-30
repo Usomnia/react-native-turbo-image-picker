@@ -55,6 +55,22 @@ class RNTurboImagePicker: RCTEventEmitter {
     }
     
     // MARK: - Public Methods
+
+    static let defaultAnimationConfig: [String: Double] = [
+        "galleryOpen": 300.0,
+        "galleryClose": 250.0,
+        "editorOpen": 350.0,
+        "editorClose": 350.0,
+        "viewerOpen": 370.0,
+        "viewerClose": 370.0
+    ]
+    
+    @objc
+    func getDefaultAnimationConfig(_ resolve: @escaping RCTPromiseResolveBlock,
+                                   reject: @escaping RCTPromiseRejectBlock) -> Void {
+        resolve(RNTurboImagePicker.defaultAnimationConfig)
+    }
+
     
     @objc
     func `init`(_ licenseKey: String,

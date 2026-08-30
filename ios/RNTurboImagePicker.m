@@ -36,6 +36,9 @@ RCT_EXTERN_METHOD(updateSourceRect:(NSDictionary *)options
                   resolve:(RCTPromiseResolveBlock)resolve
                   reject:(RCTPromiseRejectBlock)reject)
 
+RCT_EXTERN_METHOD(getDefaultAnimationConfig:(RCTPromiseResolveBlock)resolve
+                  reject:(RCTPromiseRejectBlock)reject)
+
 RCT_EXTERN_METHOD(supportedEvents)
 
 + (BOOL)requiresMainQueueSetup
@@ -70,6 +73,9 @@ RCT_EXTERN_METHOD(closeGallery:(RCTPromiseResolveBlock)resolve
 
 RCT_EXTERN_METHOD(updateSourceRect:(NSDictionary *)options
                   resolve:(RCTPromiseResolveBlock)resolve
+                  reject:(RCTPromiseRejectBlock)reject)
+
+RCT_EXTERN_METHOD(getDefaultAnimationConfig:(RCTPromiseResolveBlock)resolve
                   reject:(RCTPromiseRejectBlock)reject)
 
 RCT_EXTERN_METHOD(supportedEvents)
