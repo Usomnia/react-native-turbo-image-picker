@@ -1,6 +1,6 @@
 {
   "name": "react-native-turbo-image-picker",
-  "version": "1.2.38",
+  "version": "1.2.40",
   "description": "High-performance Telegram-like image gallery picker for React Native with Turbo Module",
   "main": "src/index.ts",
   "types": "src/index.ts",
@@ -31,8 +31,8 @@
   "devDependencies": {
     "@types/react": "^18.0.0",
     "@types/react-native": "^0.72.0",
-    "react": "^18.2.0",
-    "react-native": "^0.74.0",
+    "react": "19.2.3",
+    "react-native": "0.84.1",
     "typescript": "^5.0.0"
   },
   "files": [

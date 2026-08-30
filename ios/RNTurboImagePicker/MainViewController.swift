@@ -112,6 +112,11 @@ class MainViewController: UIViewController {
         color: UIColor.systemTeal,
         action: #selector(cacheTestTapped)
     )
+    private lazy var singleRemoteImageBtn = makeButton(
+        title: "🌌 단일 이미지 뷰어\n애니메이션 테스트",
+        color: UIColor.systemIndigo,
+        action: #selector(singleRemoteImageTapped)
+    )
     // 결과 표시 라벨
     private lazy var resultLabel: UILabel = {
         let l = UILabel()
@@ -139,7 +144,7 @@ class MainViewController: UIViewController {
         sv.showsHorizontalScrollIndicator = true
         sv.translatesAutoresizingMaskIntoConstraints = false
         sv.isHidden = true
-        sv.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        sv.heightAnchor.constraint(equalToConstant: 200).isActive = true
         return sv
     }
     
@@ -199,7 +204,7 @@ class MainViewController: UIViewController {
         let profileRow   = makeHStack([profileOffBtn, profileOnBtn])
         
         let cacheLabel = makeSectionLabel("── 성능 테스트 ──")
-        let cacheRow = makeHStack([cacheTestBtn])
+        let cacheRow = makeHStack([cacheTestBtn, singleRemoteImageBtn])
 
         let vStack = UIStackView(arrangedSubviews: [
             singleLabel, topRow,
@@ -264,6 +269,7 @@ class MainViewController: UIViewController {
             profileOffBtn.heightAnchor.constraint(equalToConstant: 88),
             profileOnBtn.heightAnchor.constraint(equalToConstant: 88),
             cacheTestBtn.heightAnchor.constraint(equalToConstant: 88),
+            singleRemoteImageBtn.heightAnchor.constraint(equalToConstant: 88),
 
             resultLabel.topAnchor.constraint(equalTo: vStack.bottomAnchor, constant: 20),
             resultLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
@@ -360,6 +366,20 @@ class MainViewController: UIViewController {
         viewerVC.modalPresentationStyle = .custom
         viewerVC.transitioningDelegate = self
         
+        present(viewerVC, animated: true)
+    }
+
+    /// 단일 이미지 뷰어 애니메이션 테스트
+    @objc private func singleRemoteImageTapped() {
+        let urls = ["https://picsum.photos/id/10/800/1200"]
+        let viewerVC = RemoteImageViewerViewController(imageUrls: urls, initialIndex: 0)
+        
+        let rect = singleRemoteImageBtn.convert(singleRemoteImageBtn.bounds, to: nil)
+        self.zoomAnimator.sourceRect = rect
+        viewerVC.modalPresentationStyle = .custom
+        viewerVC.transitioningDelegate = self
+        
+        // 의도적으로 prefetch 하지 않고 띄워봅니다 (회색 화면 재현 가능성)
         present(viewerVC, animated: true)
     }
 
@@ -905,9 +925,10 @@ class MainViewController: UIViewController {
         let iv = UIImageView(image: img)
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
-        iv.layer.cornerRadius = 8
+        iv.layer.cornerRadius = 20
         iv.translatesAutoresizingMaskIntoConstraints = false
-        iv.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        iv.widthAnchor.constraint(equalToConstant: 120).isActive = true
+        iv.heightAnchor.constraint(equalToConstant: 200).isActive = true
         
         iv.isUserInteractionEnabled = true
         let tap = UITapGestureRecognizer(target: self, action: action)
@@ -935,6 +956,7 @@ class MainViewController: UIViewController {
         self.zoomAnimator.animationType = "zoom"
         self.zoomAnimator.sourceRect = rect
         self.zoomAnimator.sourceImage = view.image
+        self.zoomAnimator.sourceBorderRadius = 20
         
         viewerVC.onPageChanged = { [weak self] index in
             guard let self = self else { return }
@@ -960,6 +982,7 @@ class MainViewController: UIViewController {
         self.zoomAnimator.closeAnimationType = "zoom"
         self.zoomAnimator.sourceRect = rect
         self.zoomAnimator.sourceImage = view.image
+        self.zoomAnimator.sourceBorderRadius = 20
         
         viewerVC.onPageChanged = { [weak self] index in
             guard let self = self else { return }
@@ -985,6 +1008,7 @@ class MainViewController: UIViewController {
         self.zoomAnimator.closeAnimationType = "zoom"
         self.zoomAnimator.sourceRect = rect
         self.zoomAnimator.sourceImage = view.image
+        self.zoomAnimator.sourceBorderRadius = 20
         
         viewerVC.onPageChanged = { [weak self] index in
             guard let self = self else { return }

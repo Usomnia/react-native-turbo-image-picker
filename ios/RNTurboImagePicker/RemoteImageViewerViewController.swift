@@ -202,10 +202,15 @@ public class RemoteImageViewerViewController: UIViewController {
     let imageUrls: [String]
     var currentIndex: Int
     public var onPageChanged: ((Int) -> Void)?
+    public var onViewerWillClose: (() -> Void)?
     public var themeColor: UIColor = UIColor(red: 16/255.0, green: 185/255.0, blue: 129/255.0, alpha: 1.0)
     public var languageCode: String = "en"
     public var viewerTitle: String?
     
+    public static func isImageCached(for urlString: String) -> Bool {
+        return ViewerImageCache.shared.getMemoryImage(for: urlString) != nil || ViewerImageCache.shared.getDiskImageSynchronously(for: urlString) != nil
+    }
+
     public static func prefetchImage(from urlString: String, completion: @escaping (UIImage?) -> Void) {
         if let cached = ViewerImageCache.shared.getMemoryImage(for: urlString) {
             completion(cached)
@@ -513,6 +518,7 @@ public class RemoteImageViewerViewController: UIViewController {
     }
     
     @objc private func handleClose() {
+        onViewerWillClose?()
         dismiss(animated: true, completion: nil)
     }
 
@@ -538,25 +544,31 @@ public class RemoteImageViewerViewController: UIViewController {
         let velocity = gesture.velocity(in: view)
 
         switch gesture.state {
-        case .began, .changed:
+        case .began:
+            if translation.y < 0 && view.transform == .identity {
+                return
+            }
+            onViewerWillClose?()
+            // 풀다운이 시작되는 순간 즉시 상하단 바가 슬라이드되며 사라지게 애니메이션 처리 (fade out 없이)
+            UIView.animate(withDuration: 0.4, delay: 0, options: .curveEaseOut, animations: {
+                self.topBar.transform = CGAffineTransform(translationX: 0, y: -250)
+                self.bottomContainer.transform = CGAffineTransform(translationX: 0, y: 250)
+            })
+            
+        case .changed:
             if translation.y < 0 && view.transform == .identity {
                 return
             }
             let scale = max(0.85, 1.0 - (translation.y / (view.bounds.height * 2)))
-            view.transform = CGAffineTransform(translationX: translation.x, y: translation.y).scaledBy(x: scale, y: scale)
+            scrollView.transform = CGAffineTransform(translationX: translation.x, y: translation.y).scaledBy(x: scale, y: scale)
             
-            // 투명도가 너무 빨리 떨어지지 않도록 조정 (최소 투명도 0.4 제한, 변화율 감소)
-            let alpha = max(0.4, 1.0 - (translation.y / (view.bounds.height * 1.5)))
-            view.alpha = alpha
+            // 배경색이 훨씬 빠르게 투명해지도록 조절 (150pt 당기면 완전 투명)
+            let bgAlpha = max(0.0, 1.0 - (translation.y / 150.0))
+            view.backgroundColor = UIColor.black.withAlphaComponent(bgAlpha)
             
             // 당긴 만큼 테두리 둥글게 처리
-            view.layer.masksToBounds = true
-            view.layer.cornerRadius = min(40, max(0, translation.y / 5.0))
-
-            // 바 UI들은 빠르게 투명해짐
-            let barAlpha = max(0.0, 1.0 - (translation.y / (view.bounds.height * 0.3)))
-            topBar.alpha = barAlpha
-            bottomContainer.alpha = barAlpha
+            scrollView.layer.masksToBounds = true
+            scrollView.layer.cornerRadius = min(40, max(0, translation.y / 5.0))
 
         case .ended, .cancelled:
             let shouldDismiss = translation.y > 150 || velocity.y > 500
@@ -566,20 +578,26 @@ public class RemoteImageViewerViewController: UIViewController {
                     self.dismiss(animated: true, completion: nil)
                 } else {
                     UIView.animate(withDuration: 0.25, animations: {
-                        self.view.transform = CGAffineTransform(translationX: translation.x, y: self.view.bounds.height)
-                        self.view.alpha = 0.0
-                        self.view.layer.cornerRadius = 0
+                        self.scrollView.transform = CGAffineTransform(translationX: translation.x, y: self.view.bounds.height)
+                        self.view.backgroundColor = .clear
+                        self.scrollView.layer.cornerRadius = 0
+                        self.topBar.transform = CGAffineTransform(translationX: 0, y: -100)
+                        self.bottomContainer.transform = CGAffineTransform(translationX: 0, y: 100)
                     }) { _ in
                         self.dismiss(animated: false)
                     }
                 }
             } else {
                 UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0, options: .curveEaseOut) {
-                    self.view.transform = .identity
-                    self.view.alpha = 1.0
-                    self.view.layer.cornerRadius = 0
+                    self.scrollView.transform = .identity
+                    self.view.backgroundColor = .black
+                    self.scrollView.layer.cornerRadius = 0
                     self.topBar.alpha = 1.0
                     self.bottomContainer.alpha = 1.0
+                    UIView.animate(withDuration: 0.4, animations: {
+                        self.topBar.transform = .identity
+                        self.bottomContainer.transform = .identity
+                    })
                 }
             }
         default:

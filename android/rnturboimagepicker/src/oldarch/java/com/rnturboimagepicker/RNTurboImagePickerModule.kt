@@ -7,6 +7,13 @@ import android.graphics.BitmapFactory
 import android.net.Uri
 import com.facebook.react.bridge.*
 import com.facebook.react.module.annotations.ReactModule
+import android.Manifest
+import android.content.pm.PackageManager
+import android.os.Build
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.FragmentActivity
+import com.facebook.react.modules.core.PermissionAwareActivity
+import com.facebook.react.modules.core.PermissionListener
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -15,7 +22,7 @@ import java.io.*
 
 @ReactModule(name = RNTurboImagePickerModule.NAME)
 class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
-    ReactContextBaseJavaModule(reactContext), ActivityEventListener {
+    NativeRNTurboImagePickerSpec(reactContext), ActivityEventListener {
 
     companion object {
         const val NAME = "RNTurboImagePicker"
@@ -32,22 +39,33 @@ class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
     private var maxWidth: Int = 1024
     private var maxHeight: Int = 1024
     private var outputFormat: String = "webp" // Default to webp
-    private var asyncProcessing: Boolean = false
+
+    private val viewerWillCloseReceiver = object : android.content.BroadcastReceiver() {
+        override fun onReceive(context: android.content.Context?, intent: android.content.Intent?) {
+            if (intent?.action == "com.rnturboimagepicker.VIEWER_WILL_CLOSE") {
+                reactApplicationContext
+                    .getJSModule(com.facebook.react.modules.core.DeviceEventManagerModule.RCTDeviceEventEmitter::class.java)
+                    .emit("onViewerWillClose", null)
+            }
+        }
+    }
 
     init {
         reactContext.addActivityEventListener(this)
+        androidx.localbroadcastmanager.content.LocalBroadcastManager.getInstance(reactContext)
+            .registerReceiver(viewerWillCloseReceiver, android.content.IntentFilter("com.rnturboimagepicker.VIEWER_WILL_CLOSE"))
     }
 
     override fun getName(): String = NAME
 
     @ReactMethod
-    fun init(licenseKey: String, promise: Promise) {
+    override fun init(licenseKey: String, promise: Promise) {
         val result = LicenseManager.initialize(reactApplicationContext, licenseKey)
         promise.resolve(result)
     }
 
     @ReactMethod
-    fun openEditor(options: ReadableMap, promise: Promise) {
+    override fun openEditor(options: ReadableMap, promise: Promise) {
         val activity = getCurrentActivity()
         if (activity == null) {
             promise.reject(E_NO_ACTIVITY, "Activity doesn't exist")
@@ -62,14 +80,6 @@ class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
 
         val themeColor = if (options.hasKey("themeColor")) options.getString("themeColor") else null
         
-          
-        val languageCode = if (options.hasKey("languageCode")) {
-            options.getString("languageCode") ?: "en"
-        } else {
-            "en"
-        }
-        TurboImagePickerConfig.applyLocale(languageCode)
-        
         if (options.hasKey("maxWidth")) maxWidth = options.getInt("maxWidth")
         if (options.hasKey("maxHeight")) maxHeight = options.getInt("maxHeight")
         
@@ -83,7 +93,9 @@ class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
                 themeColor = themeColor,
                 singlePhotoMode = true
             )
-            activity.startActivityForResult(intent, REQUEST_CODE_IMAGE_EDITOR)
+            android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
+                activity.startActivityForResult(intent, REQUEST_CODE_IMAGE_EDITOR)
+            }, 50)
         } catch (e: Exception) {
             promise.reject(E_FAILED_TO_PICK, "Failed to open image editor: ${e.message}", e)
             editImagePromise = null
@@ -91,8 +103,7 @@ class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
     }
 
     @ReactMethod
-    @ReactMethod
-    fun openGallery(options: ReadableMap, promise: Promise) {
+    override fun openGallery(options: ReadableMap, promise: Promise) {
         val activity = getCurrentActivity()
         
         if (activity == null) {
@@ -105,10 +116,6 @@ class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
             options.getBoolean("autoCloseOnSelect")
         } else false
 
-        asyncProcessing = if (options.hasKey("asyncProcessing")) {
-            options.getBoolean("asyncProcessing")
-        } else false
-
         val maxSelection = if (autoCloseOnSelect) {
             0
         } else if (options.hasKey("maxSelection")) {
@@ -117,13 +124,11 @@ class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
             1
         }
         
-          
         val languageCode = if (options.hasKey("languageCode")) {
             options.getString("languageCode") ?: "en"
         } else {
             "en"
         }
-        TurboImagePickerConfig.applyLocale(languageCode)
         
         val themeColor = if (options.hasKey("themeColor")) {
             options.getString("themeColor")
@@ -165,30 +170,102 @@ class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
             false
         }
 
+        val fragmentActivity = activity as? FragmentActivity
+        if (fragmentActivity == null) {
+            promise.reject(E_NO_ACTIVITY, "Activity is not a FragmentActivity")
+            return
+        }
+
         pickImagesPromise = promise
 
-        // Launch ImagePickerActivity
-        try {
-            val intent = Intent(activity, ImagePickerActivity::class.java).apply {
-                putExtra(ImagePickerActivity.EXTRA_MAX_SELECTION, maxSelection)
-                putExtra(ImagePickerActivity.EXTRA_LANGUAGE_CODE, languageCode)
-                putExtra(ImagePickerActivity.EXTRA_ENABLE_EDITOR, enableEditor)
-                putExtra(ImagePickerActivity.EXTRA_PROFILE_MODE, profileMode)
-                putExtra(ImagePickerActivity.EXTRA_MAX_WIDTH, maxWidth)
-                putExtra(ImagePickerActivity.EXTRA_MAX_HEIGHT, maxHeight)
-                if (themeColor != null) {
-                    putExtra(ImagePickerActivity.EXTRA_THEME_COLOR, themeColor)
+        val permission = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            Manifest.permission.READ_MEDIA_IMAGES
+        } else {
+            Manifest.permission.READ_EXTERNAL_STORAGE
+        }
+
+        val showSheet = {
+            fragmentActivity.runOnUiThread {
+                try {
+                    val bottomSheet = ImagePickerBottomSheet.newInstance(
+                        maxSelection, languageCode, enableEditor, profileMode, maxWidth, maxHeight, themeColor
+                    )
+                    bottomSheet.setOnImagesSelectedListener { uris ->
+                        val result = WritableNativeArray()
+                        for (uri in uris) {
+                            result.pushString(uri.toString())
+                        }
+                        handleSelectedImages(result, pickImagesPromise)
+                        pickImagesPromise = null
+                    }
+                    bottomSheet.setOnCancelledListener {
+                        pickImagesPromise?.reject(E_PICKER_CANCELLED, "User cancelled image picker")
+                        pickImagesPromise = null
+                    }
+                    
+                    val existingFragment = fragmentActivity.supportFragmentManager.findFragmentByTag("ImagePickerBottomSheet")
+                    existingFragment?.let {
+                        fragmentActivity.supportFragmentManager.beginTransaction().remove(it).commitAllowingStateLoss()
+                    }
+                    
+                    fragmentActivity.supportFragmentManager.beginTransaction()
+                        .add(bottomSheet, "ImagePickerBottomSheet")
+                        .commitAllowingStateLoss()
+                        
+                } catch (e: Exception) {
+                    pickImagesPromise?.reject(E_FAILED_TO_PICK, "Failed to open image picker: ${e.message}", e)
+                    pickImagesPromise = null
                 }
             }
-            activity.startActivityForResult(intent, REQUEST_CODE_IMAGE_PICKER)
-        } catch (e: Exception) {
-            promise.reject(E_FAILED_TO_PICK, "Failed to open image picker: ${e.message}", e)
-            pickImagesPromise = null
+        }
+
+        if (ContextCompat.checkSelfPermission(fragmentActivity, permission) == PackageManager.PERMISSION_GRANTED) {
+            showSheet()
+        } else {
+            val permissionAwareActivity = fragmentActivity as? PermissionAwareActivity
+            if (permissionAwareActivity == null) {
+                promise.reject(E_NO_ACTIVITY, "Activity is not PermissionAwareActivity")
+                pickImagesPromise = null
+                return
+            }
+
+            val permissionsToRequest = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE && permission == Manifest.permission.READ_MEDIA_IMAGES) {
+                if (ContextCompat.checkSelfPermission(fragmentActivity, Manifest.permission.READ_MEDIA_VISUAL_USER_SELECTED) == PackageManager.PERMISSION_GRANTED) {
+                    showSheet()
+                    return
+                }
+                arrayOf(Manifest.permission.READ_MEDIA_IMAGES, Manifest.permission.READ_MEDIA_VISUAL_USER_SELECTED)
+            } else {
+                arrayOf(permission)
+            }
+
+            permissionAwareActivity.requestPermissions(permissionsToRequest, 100, object : PermissionListener {
+                override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray): Boolean {
+                    if (requestCode == 100 && grantResults != null) {
+                        val isGranted = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+                            grantResults.isNotEmpty() && (
+                                grantResults[0] == PackageManager.PERMISSION_GRANTED || 
+                                (grantResults.size > 1 && grantResults[1] == PackageManager.PERMISSION_GRANTED)
+                            )
+                        } else {
+                            grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED
+                        }
+
+                        if (isGranted) {
+                            showSheet()
+                        } else {
+                            pickImagesPromise?.reject("E_PERMISSION_DENIED", "Permission denied")
+                            pickImagesPromise = null
+                        }
+                    }
+                    return true
+                }
+            })
         }
     }
 
     @ReactMethod
-    fun openViewer(options: ReadableMap, promise: Promise) {
+    override fun openViewer(options: ReadableMap, promise: Promise) {
         val activity = getCurrentActivity()
         if (activity == null) {
             promise.reject(E_NO_ACTIVITY, "Activity doesn't exist")
@@ -217,94 +294,62 @@ class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
         val initialIndex = if (options.hasKey("initialIndex")) options.getInt("initialIndex") else 0
         val themeColor = if (options.hasKey("themeColor")) options.getString("themeColor") else "#FF6B35"
         val title = if (options.hasKey("title")) options.getString("title") else null
+        val animationType = if (options.hasKey("animationType")) options.getString("animationType") else null
 
-        val languageCode = if (options.hasKey("languageCode")) {
-            options.getString("languageCode") ?: "en"
-        } else {
-            "en"
+        var startX = -1f
+        var startY = -1f
+        var startWidth = -1f
+        var startHeight = -1f
+
+        if (options.hasKey("sourceRect")) {
+            val sourceRect = options.getMap("sourceRect")
+            if (sourceRect != null) {
+                startX = if (sourceRect.hasKey("x")) com.facebook.react.uimanager.PixelUtil.toPixelFromDIP(sourceRect.getDouble("x").toFloat()) else -1f
+                startY = if (sourceRect.hasKey("y")) com.facebook.react.uimanager.PixelUtil.toPixelFromDIP(sourceRect.getDouble("y").toFloat()) else -1f
+                startWidth = if (sourceRect.hasKey("width")) com.facebook.react.uimanager.PixelUtil.toPixelFromDIP(sourceRect.getDouble("width").toFloat()) else -1f
+                startHeight = if (sourceRect.hasKey("height")) com.facebook.react.uimanager.PixelUtil.toPixelFromDIP(sourceRect.getDouble("height").toFloat()) else -1f
+            }
         }
-        TurboImagePickerConfig.applyLocale(languageCode)
 
         try {
-            val animationType = if (options.hasKey("animationType")) options.getString("animationType") else if (options.hasKey("sourceRect")) "zoom" else "slide"
             val intent = Intent(activity, ImageViewerActivity::class.java).apply {
                 putStringArrayListExtra(ImageViewerActivity.EXTRA_IMAGES, images)
                 putExtra(ImageViewerActivity.EXTRA_INITIAL_INDEX, initialIndex)
                 putExtra("EXTRA_THEME_COLOR", themeColor)
-                putExtra("animationType", animationType)
-                if (options.hasKey("closeAnimationType")) {
-                    putExtra("closeAnimationType", options.getString("closeAnimationType"))
-                }
                 if (title != null) {
                     putExtra(ImageViewerActivity.EXTRA_TITLE, title)
                 }
-                
-                if (options.hasKey("sourceRect")) {
-                    val rect = options.getMap("sourceRect")
-                    if (rect != null) {
-                        putExtra("startX", if (rect.hasKey("x")) rect.getDouble("x").toFloat() else 0f)
-                        putExtra("startY", if (rect.hasKey("y")) rect.getDouble("y").toFloat() else 0f)
-                        putExtra("startWidth", if (rect.hasKey("width")) rect.getDouble("width").toFloat() else 0f)
-                        putExtra("startHeight", if (rect.hasKey("height")) rect.getDouble("height").toFloat() else 0f)
+                if (animationType != null) {
+                    putExtra("animationType", animationType)
+                }
+                if (options.hasKey("closeAnimationType")) {
+                    putExtra("closeAnimationType", options.getString("closeAnimationType"))
+                }
+                if (startX != -1f) {
+                    putExtra("startX", startX)
+                    putExtra("startY", startY)
+                    putExtra("startWidth", startWidth)
+                    putExtra("startHeight", startHeight)
+                }
+                if (options.hasKey("sourceBorderRadius")) {
+                    putExtra("sourceBorderRadius", com.facebook.react.uimanager.PixelUtil.toPixelFromDIP(options.getDouble("sourceBorderRadius").toFloat()))
+                }
+                if (options.hasKey("sourceBorderCorners")) {
+                    val cornersArray = options.getArray("sourceBorderCorners")
+                    if (cornersArray != null) {
+                        val corners = java.util.ArrayList<String>()
+                        for (i in 0 until cornersArray.size()) {
+                            cornersArray.getString(i)?.let { corners.add(it) }
+                        }
+                        putStringArrayListExtra("sourceBorderCorners", corners)
                     }
                 }
             }
-            TransitionHelper.onViewerPageChanged = { index ->
-                val params = Arguments.createMap().apply { putInt("index", index) }
-                reactApplicationContext
-                    .getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter::class.java)
-                    .emit("onPageSelected", params)
-            }
             activity.startActivity(intent)
-            if (animationType == "zoom" && options.hasKey("sourceRect")) {
-                activity.overridePendingTransition(0, 0)
-            } else if (animationType == "fade") {
-                activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
-            } else if (animationType == "slide") {
-                activity.overridePendingTransition(R.anim.slide_in_bottom, R.anim.no_animation)
-            }
             promise.resolve(null)
         } catch (e: Exception) {
             promise.reject(E_FAILED_TO_PICK, "Failed to open image viewer: ${e.message}", e)
         }
-    }
-
-    @ReactMethod
-    override fun updateViewerSourceRect(rect: ReadableMap, promise: Promise) {
-        try {
-            val x = if (rect.hasKey("x")) rect.getDouble("x").toFloat() else 0f
-            val y = if (rect.hasKey("y")) rect.getDouble("y").toFloat() else 0f
-            val width = if (rect.hasKey("width")) rect.getDouble("width").toFloat() else 0f
-            val height = if (rect.hasKey("height")) rect.getDouble("height").toFloat() else 0f
-            
-            // active ImageViewerActivity에 전달
-            ImageViewerActivity.currentInstance?.get()?.updateSourceRect(x, y, width, height)
-            
-            promise.resolve(null)
-        } catch (e: Exception) {
-            promise.reject("ERROR", e.message, e)
-        }
-    }
-
-    @ReactMethod
-    override fun closeGallery(promise: Promise) {
-        val activity = getCurrentActivity()
-        if (activity == null) {
-            promise.reject(E_NO_ACTIVITY, "Activity doesn't exist")
-            return
-        }
-        activity.finishActivity(REQUEST_CODE_IMAGE_PICKER)
-        promise.resolve(true)
-    }
-
-    @ReactMethod
-    fun addListener(eventName: String) {
-        // Keep: Required for RN built-in Event Emitter Calls.
-    }
-
-    @ReactMethod
-    fun removeListeners(count: Double) {
-        // Keep: Required for RN built-in Event Emitter Calls.
     }
 
     override fun onActivityResult(
@@ -352,39 +397,31 @@ class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
             return
         }
 
-        if (requestCode != REQUEST_CODE_IMAGE_PICKER) {
-            return
-        }
 
-        val promise = pickImagesPromise ?: return
-        pickImagesPromise = null
+    }
 
-        if (resultCode != Activity.RESULT_OK || data == null) {
-            promise.reject(E_PICKER_CANCELLED, "User cancelled image picker")
-            return
-        }
+    override fun onNewIntent(intent: Intent) {
+        // Not needed for this module
+    }
 
-        val pickerResultCode = data.getIntExtra(ImagePickerActivity.EXTRA_RESULT_CODE, Activity.RESULT_CANCELED)
-        
-        val uriStrings = data.getStringArrayListExtra(ImagePickerActivity.EXTRA_URIS)
-        
-        // If empty array (cancelled), reject promise so it can be caught in RN (like iOS)
-        if (uriStrings == null || uriStrings.isEmpty()) {
-            promise.reject(E_PICKER_CANCELLED, "User cancelled image picker")
-            return
-        }
+    private fun handleSelectedImages(uriStrings: ReadableArray, promise: Promise?) {
+        val actualPromise = promise ?: return
 
         // Convert string URIs to Uri objects
-        val uris = uriStrings.mapNotNull { uriString ->
-            try {
-                Uri.parse(uriString)
-            } catch (e: Exception) {
-                null
+        val uris = mutableListOf<Uri>()
+        for (i in 0 until uriStrings.size()) {
+            val uriString = uriStrings.getString(i)
+            if (uriString != null) {
+                try {
+                    uris.add(Uri.parse(uriString))
+                } catch (e: Exception) {
+                    // Ignore
+                }
             }
         }
 
         if (uris.isEmpty()) {
-            promise.reject(E_FAILED_TO_PICK, "Failed to parse image URIs")
+            actualPromise.reject(E_FAILED_TO_PICK, "Failed to parse image URIs")
             return
         }
 
@@ -401,31 +438,21 @@ class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
 
         moduleScope.launch {
             try {
-                if (asyncProcessing) {
-                    val array = com.facebook.react.bridge.Arguments.createArray()
-                    promise.resolve(array)
-                    processImages(uris)
-                } else {
-                    val results = processImages(uris)
-                    val array = com.facebook.react.bridge.Arguments.createArray()
-                    results.forEach { array.pushMap(it) }
-                    promise.resolve(array)
-                }
+                val results = processImages(uris)
+                val array = com.facebook.react.bridge.Arguments.createArray()
+                results.forEach { array.pushMap(it) }
+                actualPromise.resolve(array)
             } catch (e: Exception) {
-                if (!asyncProcessing) {
-                    promise.reject(E_FAILED_TO_PICK, "Failed to process images: ${e.message}", e)
-                }
+                actualPromise.reject(E_FAILED_TO_PICK, "Failed to process images: ${e.message}", e)
             }
         }
-    }
-
-    override fun onNewIntent(intent: Intent) {
-        // Not needed for this module
     }
 
     private suspend fun processImages(uris: List<Uri>): List<com.facebook.react.bridge.WritableMap> = withContext(Dispatchers.IO) {
         val results = mutableListOf<com.facebook.react.bridge.WritableMap>()
         val contentResolver = reactApplicationContext.contentResolver
+        val totalCount = uris.size
+        var currentIndex = 0
 
         for (uri in uris) {
             try {
@@ -483,19 +510,13 @@ class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
                             }
 
                             // Precise resize if needed
-                            var finalBitmap = if (bitmap.width > maxWidth || bitmap.height > maxHeight) {
+                            val finalBitmap = if (bitmap.width > maxWidth || bitmap.height > maxHeight) {
                                 resizeBitmap(bitmap, maxWidth, maxHeight)
                             } else {
                                 bitmap
                             }
                             
-                            if (!LicenseManager.isValidLicense(reactApplicationContext)) {
-                                val watermarked = applyEvaluationWatermark(finalBitmap)
-                                if (finalBitmap != bitmap && finalBitmap != watermarked) {
-                                    finalBitmap.recycle()
-                                }
-                                finalBitmap = watermarked
-                            }
+                            val processedBitmap = ImageProcessor.applyWatermarkIfNeeded(reactApplicationContext, finalBitmap)
                             
                             // Determine format and extension
                             val compressFormat: Bitmap.CompressFormat
@@ -528,61 +549,53 @@ class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
                             // Save to temporary file
                             val tempFile = File.createTempFile("turbo_edited_${System.currentTimeMillis()}_", ".$extension", reactApplicationContext.cacheDir)
                             FileOutputStream(tempFile).use { out ->
-                                finalBitmap.compress(compressFormat, 85, out)
+                                processedBitmap.compress(compressFormat, 85, out)
                             }
                             
-                            val finalWidth = finalBitmap.width
-                            val finalHeight = finalBitmap.height
+                            val finalWidth = processedBitmap.width
+                            val finalHeight = processedBitmap.height
 
                             // Cleanup
-                            if (bitmap != finalBitmap) {
+                            if (bitmap != processedBitmap) {
                                 bitmap.recycle()
                             }
-                            finalBitmap.recycle()
-                            
-                            val imageInfo = WritableNativeMap().apply {
-                                putString("uri", Uri.fromFile(tempFile).toString())
-                                putInt("width", finalWidth)
-                                putInt("height", finalHeight)
-                                putString("type", mimeType)
-                                putString("fileName", tempFile.name)
-                                putString("fileExtension", extension)
-                                putDouble("fileSize", tempFile.length().toDouble())
-                                putString("originalUri", uri.toString())
-                                putInt("originalWidth", originalWidth)
-                                putInt("originalHeight", originalHeight)
+                            if (finalBitmap != processedBitmap && finalBitmap != bitmap) {
+                                finalBitmap.recycle()
                             }
-                            results.add(imageInfo)
+                            processedBitmap.recycle()
                             
-                            if (asyncProcessing) {
-                                try {
-                                    val eventMap = WritableNativeMap().apply {
-                                        putInt("index", results.size - 1)
-                                        putInt("total", uris.size)
-                                        // Need to create a copy for the event map since WritableMap cannot be reused easily if it's pushed to array, but here we can just create a new map or use copy
-                                        putMap("image", WritableNativeMap().apply {
-                                            putString("uri", Uri.fromFile(tempFile).toString())
-                                            putInt("width", finalWidth)
-                                            putInt("height", finalHeight)
-                                            putString("type", mimeType)
-                                            putString("fileName", tempFile.name)
-                                            putString("fileExtension", extension)
-                                            putDouble("fileSize", tempFile.length().toDouble())
-                                            putString("originalUri", uri.toString())
-                                            putInt("originalWidth", originalWidth)
-                                            putInt("originalHeight", originalHeight)
-                                        })
-                                    }
-                                    reactApplicationContext.getJSModule(com.facebook.react.modules.core.DeviceEventManagerModule.RCTDeviceEventEmitter::class.java)
-                                        .emit("onImageProcessed", eventMap)
-                                } catch (e: Exception) {
-                                    // Ignore
+                            val createImageInfo = {
+                                WritableNativeMap().apply {
+                                    putString("uri", Uri.fromFile(tempFile).toString())
+                                    putInt("width", finalWidth)
+                                    putInt("height", finalHeight)
+                                    putString("type", mimeType)
+                                    putString("fileName", tempFile.name)
+                                    putString("fileExtension", extension)
+                                    putDouble("fileSize", tempFile.length().toDouble())
+                                    putString("originalUri", uri.toString())
+                                    putInt("originalWidth", originalWidth)
+                                    putInt("originalHeight", originalHeight)
                                 }
                             }
+                            val imageInfo = createImageInfo()
+                            results.add(imageInfo)
+
+                            try {
+                                val eventMap = WritableNativeMap().apply {
+                                    putInt("total", totalCount)
+                                    putInt("index", currentIndex)
+                                    putMap("image", createImageInfo())
+                                }
+                                reactApplicationContext.getJSModule(com.facebook.react.modules.core.DeviceEventManagerModule.RCTDeviceEventEmitter::class.java)
+                                    .emit("onImageProcessed", eventMap)
+                            } catch (e: Exception) { }
                         }
                     }
                 }
+                currentIndex++
             } catch (e: Exception) {
+                currentIndex++
                 // Skip failed images
                 continue
             }
@@ -630,52 +643,10 @@ class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
         return Bitmap.createScaledBitmap(bitmap, finalWidth, finalHeight, true)
     }
 
-    private fun applyEvaluationWatermark(bitmap: Bitmap): Bitmap {
-        val mutableBitmap = bitmap.copy(Bitmap.Config.ARGB_8888, true)
-        val canvas = android.graphics.Canvas(mutableBitmap)
-        
-        val text = "TURBO IMAGE PICKER"
-        val textPaint = android.text.TextPaint(android.graphics.Paint.ANTI_ALIAS_FLAG).apply {
-            color = android.graphics.Color.WHITE
-            alpha = 64
-            textSize = Math.max(20f, Math.min(bitmap.width, bitmap.height) / 15f)
-            isFakeBoldText = true
-            setShadowLayer(3f, 1f, 1f, android.graphics.Color.argb(128, 0, 0, 0))
-        }
-        
-        val textWidth = textPaint.measureText(text)
-        val textHeight = textPaint.descent() - textPaint.ascent()
-        
-        val diagonal = Math.hypot(bitmap.width.toDouble(), bitmap.height.toDouble()).toFloat()
-        
-        canvas.save()
-        canvas.translate(bitmap.width / 2f, bitmap.height / 2f)
-        canvas.rotate(-35f)
-        canvas.translate(-diagonal / 2f, -diagonal / 2f)
-        
-        val stepX = textWidth * 1.5f
-        val stepY = textHeight * 3.5f
-        
-        var y = 0f
-        var row = 0
-        while (y < diagonal + stepY) {
-            var x = 0f
-            val offset = if (row % 2 == 0) 0f else stepX / 2f
-            while (x < diagonal + stepX) {
-                canvas.drawText(text, x + offset, y, textPaint)
-                x += stepX
-            }
-            y += stepY
-            row++
-        }
-        
-        canvas.restore()
-        return mutableBitmap
-    }
 
     override fun invalidate() {
         super.invalidate()
         reactApplicationContext.removeActivityEventListener(this)
     }
-}
 
+}

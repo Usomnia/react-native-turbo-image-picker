@@ -158,8 +158,9 @@ class ImageViewerActivity : AppCompatActivity() {
             val topBar = findViewById<View>(R.id.topBar)
             val bottomBar = findViewById<View>(R.id.bottomBar)
             
-            topBar.alpha = 0f
-            bottomBar.alpha = 0f
+            val density = resources.displayMetrics.density
+            topBar.translationY = -250f * density
+            bottomBar.translationY = 250f * density
             viewPager.alpha = 0f
             
             var currentRadius = 0f
@@ -185,6 +186,45 @@ class ImageViewerActivity : AppCompatActivity() {
             (rootView as android.view.ViewGroup).addView(dummyView, 0)
             
             val initialIndex = intent.getIntExtra(EXTRA_INITIAL_INDEX, 0)
+            val bgAnimator = android.animation.ValueAnimator.ofFloat(0f, 1f)
+            bgAnimator.duration = 250
+            bgAnimator.addUpdateListener { anim ->
+                val p = anim.animatedValue as Float
+                val alpha = (255 * p).toInt().coerceIn(0, 255)
+                activityRoot.setBackgroundColor(android.graphics.Color.argb(alpha, bgR, bgG, bgB))
+                findViewById<View>(R.id.rootView).setBackgroundColor(android.graphics.Color.argb(alpha, bgR, bgG, bgB))
+            }
+            bgAnimator.start()
+            
+            topBar.animate().translationY(0f).setDuration(250).setInterpolator(android.view.animation.DecelerateInterpolator()).start()
+            bottomBar.animate().translationY(0f).setDuration(250).setInterpolator(android.view.animation.DecelerateInterpolator()).start()
+
+            val progressBar = android.widget.ProgressBar(this, null, android.R.attr.progressBarStyleSmall)
+            val params = android.widget.FrameLayout.LayoutParams(
+                android.widget.FrameLayout.LayoutParams.WRAP_CONTENT,
+                android.widget.FrameLayout.LayoutParams.WRAP_CONTENT
+            )
+            params.gravity = android.view.Gravity.CENTER
+            progressBar.layoutParams = params
+            progressBar.visibility = View.GONE
+            
+            val isDarkMode = (resources.configuration.uiMode and android.content.res.Configuration.UI_MODE_NIGHT_MASK) == android.content.res.Configuration.UI_MODE_NIGHT_YES
+            if (isDarkMode) {
+                progressBar.indeterminateTintList = android.content.res.ColorStateList.valueOf(android.graphics.Color.parseColor("#666666"))
+            } else {
+                progressBar.indeterminateTintList = android.content.res.ColorStateList.valueOf(android.graphics.Color.parseColor("#666666"))
+            }
+            
+            (activityRoot as? android.view.ViewGroup)?.addView(progressBar)
+
+            var isInstantLoad = true
+            val handler = android.os.Handler(android.os.Looper.getMainLooper())
+            val indicatorRunnable = Runnable {
+                isInstantLoad = false
+                progressBar.visibility = View.VISIBLE
+            }
+            handler.postDelayed(indicatorRunnable, 50)
+
             Glide.with(this@ImageViewerActivity)
                 .load(getSafeGlideUrl(images[initialIndex]))
                 .apply(RequestOptions()
@@ -192,15 +232,22 @@ class ImageViewerActivity : AppCompatActivity() {
                     .priority(com.bumptech.glide.Priority.IMMEDIATE))
                 .listener(object : com.bumptech.glide.request.RequestListener<android.graphics.drawable.Drawable> {
                     override fun onLoadFailed(e: com.bumptech.glide.load.engine.GlideException?, model: Any?, target: com.bumptech.glide.request.target.Target<android.graphics.drawable.Drawable>, isFirstResource: Boolean): Boolean {
+                        handler.removeCallbacks(indicatorRunnable)
+                        progressBar.visibility = View.GONE
                         dummyView.visibility = View.GONE
                         viewPager.alpha = 1f
-                        topBar.alpha = 1f
-                        bottomBar.alpha = 1f
-                        activityRoot.setBackgroundColor(android.graphics.Color.argb(255, bgR, bgG, bgB))
-                        findViewById<View>(R.id.rootView).setBackgroundColor(android.graphics.Color.argb(255, bgR, bgG, bgB))
                         return false
                     }
                     override fun onResourceReady(resource: android.graphics.drawable.Drawable, model: Any, target: com.bumptech.glide.request.target.Target<android.graphics.drawable.Drawable>?, dataSource: com.bumptech.glide.load.DataSource, isFirstResource: Boolean): Boolean {
+                        handler.removeCallbacks(indicatorRunnable)
+                        progressBar.visibility = View.GONE
+                        
+                        if (!isInstantLoad) {
+                            dummyView.visibility = View.GONE
+                            viewPager.animate().alpha(1f).setDuration(200).start()
+                            return false
+                        }
+
                         activityRoot.post {
                             val imgW = resource.intrinsicWidth.toFloat()
                             val imgH = resource.intrinsicHeight.toFloat()
@@ -235,8 +282,6 @@ class ImageViewerActivity : AppCompatActivity() {
                             animator.interpolator = android.view.animation.DecelerateInterpolator()
                             animator.addUpdateListener { anim ->
                                 val p = anim.animatedValue as Float
-                                activityRoot.setBackgroundColor(android.graphics.Color.argb((255 * p).toInt().coerceIn(0, 255), bgR, bgG, bgB))
-                                findViewById<View>(R.id.rootView).setBackgroundColor(android.graphics.Color.argb((255 * p).toInt().coerceIn(0, 255), bgR, bgG, bgB))
                                 
                                 val currentX = startX + (finalX - startX) * p
                                 val currentY = startY + (finalY - startY) * p
@@ -259,8 +304,6 @@ class ImageViewerActivity : AppCompatActivity() {
                                 }
                             })
                             animator.start()
-                            topBar.animate().alpha(1f).setDuration(250).start()
-                            bottomBar.animate().alpha(1f).setDuration(250).start()
                         }
                         return false
                     }
@@ -282,7 +325,8 @@ class ImageViewerActivity : AppCompatActivity() {
                 val targetTy = pullToDismissLayout.height.toFloat()
                 val targetTx = startTx + (startTx * 0.5f)
                 
-                val startProgress = (startTy * 2f / pullToDismissLayout.height).coerceIn(0f, 1f)
+                val density = resources.displayMetrics.density
+                val startProgress = (startTy / (150f * density)).coerceIn(0f, 1f)
                 val currentBgAlpha = ((1f - startProgress) * 255).toInt().coerceIn(0, 255)
                 
                 val animator = android.animation.ValueAnimator.ofFloat(0f, 1f)
@@ -315,14 +359,32 @@ class ImageViewerActivity : AppCompatActivity() {
             tvTitle.visibility = View.GONE
         }
         
-        pullToDismissLayout.onDragProgress = { progress ->
-            activityRoot.setBackgroundColor(android.graphics.Color.argb(((1f - progress) * 255).toInt(), bgR, bgG, bgB))
-            findViewById<View>(R.id.rootView).setBackgroundColor(android.graphics.Color.argb(((1f - progress) * 255).toInt(), bgR, bgG, bgB))
+        pullToDismissLayout.onDragStarted = {
+            if (!hasSentWillClose) {
+                hasSentWillClose = true
+                androidx.localbroadcastmanager.content.LocalBroadcastManager.getInstance(this)
+                    .sendBroadcast(android.content.Intent("com.rnturboimagepicker.VIEWER_WILL_CLOSE"))
+            }
             val topBar = findViewById<View>(R.id.topBar)
             val bottomBar = findViewById<View>(R.id.bottomBar)
-            val barAlpha = (1f - progress * 2f).coerceIn(0f, 1f)
-            topBar.alpha = barAlpha
-            bottomBar.alpha = barAlpha
+            val density = resources.displayMetrics.density
+            topBar.animate().translationY(-250f * density).setDuration(400).setInterpolator(android.view.animation.DecelerateInterpolator()).start()
+            bottomBar.animate().translationY(250f * density).setDuration(400).setInterpolator(android.view.animation.DecelerateInterpolator()).start()
+        }
+        
+        pullToDismissLayout.onDragCancelled = {
+            val topBar = findViewById<View>(R.id.topBar)
+            val bottomBar = findViewById<View>(R.id.bottomBar)
+            topBar.animate().translationY(0f).setDuration(400).setInterpolator(android.view.animation.DecelerateInterpolator()).start()
+            bottomBar.animate().translationY(0f).setDuration(400).setInterpolator(android.view.animation.DecelerateInterpolator()).start()
+        }
+
+        pullToDismissLayout.onDragProgress = { progress, dy ->
+            val density = resources.displayMetrics.density
+            val bgProgress = (dy / (150f * density)).coerceIn(0f, 1f)
+            val bgAlpha = ((1f - bgProgress) * 255).toInt()
+            activityRoot.setBackgroundColor(android.graphics.Color.argb(bgAlpha, bgR, bgG, bgB))
+            findViewById<View>(R.id.rootView).setBackgroundColor(android.graphics.Color.argb(bgAlpha, bgR, bgG, bgB))
         }
 
         val themeColorStr = intent.getStringExtra("EXTRA_THEME_COLOR")
@@ -616,8 +678,15 @@ class ImageViewerActivity : AppCompatActivity() {
     }
 
     private var isFinishingAnimated = false
+    private var hasSentWillClose = false
 
     override fun finish() {
+        if (!hasSentWillClose) {
+            hasSentWillClose = true
+            androidx.localbroadcastmanager.content.LocalBroadcastManager.getInstance(this)
+                .sendBroadcast(android.content.Intent("com.rnturboimagepicker.VIEWER_WILL_CLOSE"))
+        }
+        
         if (isFinishingAnimated) return
         
         val animationType = intent.getStringExtra("animationType") ?: "slide"
@@ -718,7 +787,8 @@ class ImageViewerActivity : AppCompatActivity() {
                                 startAnimW = initialWidth * S
                                 startAnimH = initialHeight * S
                                 
-                                val startProgress = (TY * 2f / pullToDismissLayout.height).coerceIn(0f, 1f)
+                                val density = resources.displayMetrics.density
+                                val startProgress = (TY / (150f * density)).coerceIn(0f, 1f)
                                 currentBgAlpha = ((1f - startProgress) * 255).toInt().coerceIn(0, 255)
                             }
                             

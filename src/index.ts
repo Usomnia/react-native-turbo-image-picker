@@ -125,8 +125,17 @@ const TurboImagePicker: RNTurboImagePicker = {
       })
     }
 
+    let subscriptionViewerWillClose: any = null
+    if (options.onViewerWillClose) {
+      subscriptionViewerWillClose = eventEmitter.addListener("onViewerWillClose", () => {
+        if (options.onViewerWillClose) {
+          options.onViewerWillClose()
+        }
+      })
+    }
+
     try {
-      const { onPageSelected, ...restOptions } = options
+      const { onPageSelected, onViewerWillClose, ...restOptions } = options
       const mergedOptions = {
         themeColor: _defaultThemeColor,
         languageCode: _defaultLanguageCode,
@@ -135,11 +144,10 @@ const TurboImagePicker: RNTurboImagePicker = {
       return await RNTurboImagePickerModule.openViewer(mergedOptions)
     } finally {
       if (subscriptionPageSelected) {
-        // Wait for viewer to be fully closed or handle removal differently.
-        // Actually since openViewer returns immediately or when closed?
-        // Wait, openViewer resolves when opened or closed?
-        // Native methods usually resolve when closed if they return Promise.
         subscriptionPageSelected.remove()
+      }
+      if (subscriptionViewerWillClose) {
+        subscriptionViewerWillClose.remove()
       }
     }
   },

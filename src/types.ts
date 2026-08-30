@@ -49,7 +49,10 @@ export interface ViewerOptions {
   animationType?: 'slide' | 'fade' | 'zoom'
   closeAnimationType?: 'slide' | 'fade' | 'zoom'
   sourceRect?: SourceRect
+  sourceBorderRadius?: number
+  sourceBorderCorners?: ('topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight')[]
   onPageSelected?: (index: number) => void
+  onViewerWillClose?: () => void
 }
 
 export interface SelectionChangeEvent {

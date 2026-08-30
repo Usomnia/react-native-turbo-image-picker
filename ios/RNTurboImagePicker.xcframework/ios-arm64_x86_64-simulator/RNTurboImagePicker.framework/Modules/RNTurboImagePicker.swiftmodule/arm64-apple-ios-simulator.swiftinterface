@@ -230,9 +230,11 @@ extension RNTurboImagePicker.GalleryBaseViewController : UIKit.UIAdaptivePresent
 }
 @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency public class RemoteImageViewerViewController : UIKit.UIViewController {
   @_Concurrency.MainActor @preconcurrency public var onPageChanged: ((Swift.Int) -> Swift.Void)?
+  @_Concurrency.MainActor @preconcurrency public var onViewerWillClose: (() -> Swift.Void)?
   @_Concurrency.MainActor @preconcurrency public var themeColor: UIKit.UIColor
   @_Concurrency.MainActor @preconcurrency public var languageCode: Swift.String
   @_Concurrency.MainActor @preconcurrency public var viewerTitle: Swift.String?
+  @_Concurrency.MainActor @preconcurrency public static func isImageCached(for urlString: Swift.String) -> Swift.Bool
   @_Concurrency.MainActor @preconcurrency public static func prefetchImage(from urlString: Swift.String, completion: @escaping (UIKit.UIImage?) -> Swift.Void)
   @_Concurrency.MainActor @preconcurrency public init(imageUrls: [Swift.String], initialIndex: Swift.Int)
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func viewDidLoad()

@@ -51,7 +51,7 @@ class RNTurboImagePicker: RCTEventEmitter {
     
     @objc
     override func supportedEvents() -> [String]! {
-        return ["onSelectionChange", "onImageProcessed", "onPageSelected"]
+        return ["onSelectionChange", "onImageProcessed", "onPageSelected", "onViewerWillClose"]
     }
     
     // MARK: - Public Methods
@@ -156,6 +156,10 @@ class RNTurboImagePicker: RCTEventEmitter {
             self.zoomAnimator.sourceBorderRadius = sourceBorderRadius
             self.zoomAnimator.sourceBorderCorners = mask
             
+            viewerVC.onViewerWillClose = { [weak self] in
+                self?.sendEvent(withName: "onViewerWillClose", body: nil)
+            }
+            
             viewerVC.modalPresentationStyle = .custom
             viewerVC.transitioningDelegate = self
             
@@ -170,11 +174,26 @@ class RNTurboImagePicker: RCTEventEmitter {
             
             if images.indices.contains(initialIndex) {
                 let initialUrl = images[initialIndex]
-                RemoteImageViewerViewController.prefetchImage(from: initialUrl) { _ in
-                    DispatchQueue.main.async {
-                        rootViewController.present(viewerVC, animated: true, completion: {
-                            resolve(resolveResult)
-                        })
+                
+                let isRemote = initialUrl.hasPrefix("http://") || initialUrl.hasPrefix("https://")
+                let hasCache = RemoteImageViewerViewController.isImageCached(for: initialUrl)
+                
+                if isRemote && !hasCache {
+                    // 원격 URL이면서 캐시가 없는 경우:
+                    // 사용자 경험을 위해 프리패치를 기다리지 않고 즉시 뷰어를 엽니다.
+                    // (미리 만들어둔 ZoomTransitionAnimator의 캡처 풀백이 작동하여 빠르게 애니메이션 진행)
+                    rootViewController.present(viewerVC, animated: true, completion: {
+                        resolve(resolveResult)
+                    })
+                } else {
+                    // 로컬이거나 이미 캐시된 경우:
+                    // 정확히 로딩(렌더링)을 완료한 후 애니메이션을 부드럽게 시작합니다.
+                    RemoteImageViewerViewController.prefetchImage(from: initialUrl) { _ in
+                        DispatchQueue.main.async {
+                            rootViewController.present(viewerVC, animated: true, completion: {
+                                resolve(resolveResult)
+                            })
+                        }
                     }
                 }
             } else {

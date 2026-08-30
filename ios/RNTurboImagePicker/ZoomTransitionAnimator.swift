@@ -39,6 +39,17 @@ public class ZoomTransitionAnimator: NSObject, UIViewControllerAnimatedTransitio
                 }
             }
             
+            // Fallback: If targetImage is still nil, capture a snapshot from the screen
+            if targetImage == nil, let fromView = transitionContext.view(forKey: .from), sourceRect.width > 0, sourceRect.height > 0 {
+                UIGraphicsBeginImageContextWithOptions(sourceRect.size, false, 0.0)
+                if let context = UIGraphicsGetCurrentContext() {
+                    context.translateBy(x: -sourceRect.origin.x, y: -sourceRect.origin.y)
+                    fromView.layer.render(in: context)
+                    targetImage = UIGraphicsGetImageFromCurrentImageContext()
+                }
+                UIGraphicsEndImageContext()
+            }
+            
             let ratio = imageAspectRatio ?? (targetImage != nil ? (targetImage!.size.width / max(1, targetImage!.size.height)) : 1.0)
             
             let finalScreenFrame = transitionContext.finalFrame(for: toVC)
@@ -172,8 +183,8 @@ public class ZoomTransitionAnimator: NSObject, UIViewControllerAnimatedTransitio
             }
             
             // 줌 트랜지션 로직
-            // 팬 제스처로 인해 fromView가 이동/축소(transform) 되었을 수 있으므로 containerView 좌표계로 변환합니다.
-            let startingFrame = fromView.convert(finalImageFrame, to: containerView)
+            // 팬 제스처로 인해 scrollView가 이동/축소(transform) 되었을 수 있으므로 containerView 좌표계로 변환합니다.
+            let startingFrame = fromVC.scrollView.convert(finalImageFrame, to: containerView)
             
             // 현재 스크롤 뷰가 확대되어 있다면 반영 (옵션)
             let dummyView = UIImageView(frame: startingFrame)
@@ -186,6 +197,7 @@ public class ZoomTransitionAnimator: NSObject, UIViewControllerAnimatedTransitio
             dummyView.layer.cornerRadius = 0
             
             fromView.transform = .identity
+            fromVC.scrollView.transform = .identity
             fromView.frame = containerView.bounds
             
             fromView.insertSubview(dummyView, belowSubview: fromVC.topBar)
