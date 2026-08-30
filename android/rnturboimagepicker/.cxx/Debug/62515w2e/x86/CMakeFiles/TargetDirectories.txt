@@ -1,3 +1,0 @@
-/Users/mike/source/PaidModules/RNTurboImagePicker/RNTurboImagePicker/android/rnturboimagepicker/.cxx/Debug/62515w2e/x86/CMakeFiles/react_codegen_RNTurboImagePickerSpec.dir
-/Users/mike/source/PaidModules/RNTurboImagePicker/RNTurboImagePicker/android/rnturboimagepicker/.cxx/Debug/62515w2e/x86/CMakeFiles/edit_cache.dir
-/Users/mike/source/PaidModules/RNTurboImagePicker/RNTurboImagePicker/android/rnturboimagepicker/.cxx/Debug/62515w2e/x86/CMakeFiles/rebuild_cache.dir

@@ -1,1 +1,0 @@
-/Users/mike/source/PaidModules/RNTurboImagePicker/RNTurboImagePicker/android/rnturboimagepicker/build/intermediates/cxx/Debug/62515w2e/obj/x86_64

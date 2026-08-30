@@ -369,7 +369,16 @@ class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
                 }
                 
                 if (options.hasKey("sourceBorderRadius")) {
-                    putExtra("sourceBorderRadius", com.facebook.react.uimanager.PixelUtil.toPixelFromDIP(options.getDouble("sourceBorderRadius").toFloat()))
+                    putExtra("sourceBorderRadius", options.getDouble("sourceBorderRadius").toFloat())
+                }
+                if (options.hasKey("hideSourceImage")) {
+                    putExtra("hideSourceImage", options.getBoolean("hideSourceImage"))
+                }
+                if (options.hasKey("sourceBackgroundColor")) {
+                    val color = options.getString("sourceBackgroundColor")
+                    if (color != null) {
+                        putExtra("sourceBackgroundColor", color)
+                    }
                 }
                 if (options.hasKey("sourceBorderCorners")) {
                     val cornersArray = options.getArray("sourceBorderCorners")

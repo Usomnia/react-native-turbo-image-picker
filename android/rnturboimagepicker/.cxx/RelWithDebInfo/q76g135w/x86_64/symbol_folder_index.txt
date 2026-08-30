@@ -1,1 +1,0 @@
-/Users/mike/source/PaidModules/RNTurboImagePicker/RNTurboImagePicker/android/rnturboimagepicker/build/intermediates/cxx/RelWithDebInfo/q76g135w/obj/x86_64

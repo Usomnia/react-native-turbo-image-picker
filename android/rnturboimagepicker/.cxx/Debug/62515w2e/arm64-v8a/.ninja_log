@@ -1,6 +1,0 @@
-# ninja log v5
-0	25	1787287548512083469	CMakeFiles/react_codegen_RNTurboImagePickerSpec.dir/dummy.cpp.o	772b6c5dfb92e904
-26	66	1787287548551797758	../../../../build/intermediates/cxx/Debug/62515w2e/obj/arm64-v8a/libreact_codegen_RNTurboImagePickerSpec.so	310e2911f9ac15c9
-0	7	0	clean	406732813f79a33d
-0	133	1787287863321740114	CMakeFiles/react_codegen_RNTurboImagePickerSpec.dir/dummy.cpp.o	772b6c5dfb92e904
-134	249	1787287863438761586	../../../../build/intermediates/cxx/Debug/62515w2e/obj/arm64-v8a/libreact_codegen_RNTurboImagePickerSpec.so	310e2911f9ac15c9

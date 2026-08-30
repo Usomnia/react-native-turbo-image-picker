@@ -1,7 +1,0 @@
-[
-{
-  "directory": "/Users/mike/source/PaidModules/RNTurboImagePicker/RNTurboImagePicker/android/rnturboimagepicker/.cxx/Debug/62515w2e/arm64-v8a",
-  "command": "/Users/mike/Library/Android/sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++ --target=aarch64-none-linux-android24 --sysroot=/Users/mike/Library/Android/sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -Dreact_codegen_RNTurboImagePickerSpec_EXPORTS -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -O2 -frtti -fexceptions -Wall -fstack-protector-all -fno-limit-debug-info  -fPIC -o CMakeFiles/react_codegen_RNTurboImagePickerSpec.dir/dummy.cpp.o -c /Users/mike/source/PaidModules/RNTurboImagePicker/RNTurboImagePicker/android/rnturboimagepicker/.cxx/Debug/62515w2e/arm64-v8a/dummy.cpp",
-  "file": "/Users/mike/source/PaidModules/RNTurboImagePicker/RNTurboImagePicker/android/rnturboimagepicker/.cxx/Debug/62515w2e/arm64-v8a/dummy.cpp"
-}
-]
