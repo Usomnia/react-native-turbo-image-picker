@@ -228,6 +228,14 @@ extension RNTurboImagePicker.GalleryBaseViewController : UIKit.UIAdaptivePresent
   public func isValidLicense() -> Swift.Bool
   @objc deinit
 }
+@_hasMissingDesignatedInitializers public class ViewerImageCache {
+  public static let shared: RNTurboImagePicker.ViewerImageCache
+  public func hasCache(for url: Swift.String) -> Swift.Bool
+  public func getMemoryImage(for url: Swift.String) -> UIKit.UIImage?
+  public func setMemoryImage(_ image: UIKit.UIImage, for url: Swift.String)
+  public func saveImage(_ image: UIKit.UIImage, for url: Swift.String)
+  @objc deinit
+}
 @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency public class RemoteImageViewerViewController : UIKit.UIViewController {
   @_Concurrency.MainActor @preconcurrency public var onPageChanged: ((Swift.Int) -> Swift.Void)?
   @_Concurrency.MainActor @preconcurrency public var onViewerWillClose: (() -> Swift.Void)?
@@ -286,6 +294,8 @@ public struct Localizer {
   @_Concurrency.MainActor @preconcurrency public var closeAnimationType: Swift.String?
   @_Concurrency.MainActor @preconcurrency public var sourceBorderRadius: CoreFoundation.CGFloat
   @_Concurrency.MainActor @preconcurrency public var sourceBorderCorners: QuartzCore.CACornerMask
+  @_Concurrency.MainActor @preconcurrency public var sourceBackgroundColor: UIKit.UIColor
+  @_Concurrency.MainActor @preconcurrency public func updateMaskView()
   @_Concurrency.MainActor @preconcurrency public var openDuration: Swift.Double
   @_Concurrency.MainActor @preconcurrency public var closeDuration: Swift.Double
   @_Concurrency.MainActor @preconcurrency @objc public func transitionDuration(using transitionContext: (any UIKit.UIViewControllerContextTransitioning)?) -> Foundation.TimeInterval

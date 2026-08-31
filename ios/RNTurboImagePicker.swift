@@ -83,6 +83,41 @@ class RNTurboImagePicker: RCTEventEmitter {
     // MARK: - Public Methods
     
     @objc
+    func injectImageCache(_ urlString: String, localPath: String,
+                          resolve: @escaping RCTPromiseResolveBlock,
+                          reject: @escaping RCTPromiseRejectBlock) -> Void {
+        if ViewerImageCache.shared.hasCache(for: urlString) {
+            resolve(true)
+            return
+        }
+        
+        DispatchQueue.global(qos: .userInitiated).async {
+            var path = localPath
+            if path.hasPrefix("file://") {
+                path = path.replacingOccurrences(of: "file://", with: "")
+            }
+            if let image = UIImage(contentsOfFile: path) {
+                if #available(iOS 15.0, *) {
+                    image.prepareForDisplay { preparedImage in
+                        let finalImage = preparedImage ?? image
+                        ViewerImageCache.shared.saveImage(finalImage, for: urlString)
+                        resolve(true)
+                    }
+                } else {
+                    UIGraphicsBeginImageContextWithOptions(image.size, false, image.scale)
+                    image.draw(at: .zero)
+                    let decodedImage = UIGraphicsGetImageFromCurrentImageContext() ?? image
+                    UIGraphicsEndImageContext()
+                    ViewerImageCache.shared.saveImage(decodedImage, for: urlString)
+                    resolve(true)
+                }
+            } else {
+                reject("ERROR", "Failed to load image from local path", nil)
+            }
+        }
+    }
+
+    @objc
     func updateSourceRect(_ options: NSDictionary,
                           resolve: @escaping RCTPromiseResolveBlock,
                           reject: @escaping RCTPromiseRejectBlock) -> Void {
@@ -95,6 +130,19 @@ class RNTurboImagePicker: RCTEventEmitter {
         if let x = x, let y = y, let w = w, let h = h {
             DispatchQueue.main.async {
                 self.zoomAnimator.sourceRect = CGRect(x: x, y: y, width: w, height: h)
+                
+                var mask: CACornerMask = []
+                if let corners = optDict["sourceBorderCorners"] as? [String] {
+                    if corners.contains("topLeft") { mask.insert(.layerMinXMinYCorner) }
+                    if corners.contains("topRight") { mask.insert(.layerMaxXMinYCorner) }
+                    if corners.contains("bottomLeft") { mask.insert(.layerMinXMaxYCorner) }
+                    if corners.contains("bottomRight") { mask.insert(.layerMaxXMaxYCorner) }
+                } else {
+                    mask = [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+                }
+                self.zoomAnimator.sourceBorderCorners = mask
+                self.zoomAnimator.updateMaskView()
+                
                 resolve(true)
             }
         } else {
@@ -145,7 +193,7 @@ class RNTurboImagePicker: RCTEventEmitter {
             if corners.contains("topRight") { mask.insert(.layerMaxXMinYCorner) }
             if corners.contains("bottomLeft") { mask.insert(.layerMinXMaxYCorner) }
             if corners.contains("bottomRight") { mask.insert(.layerMaxXMaxYCorner) }
-            if mask.isEmpty { mask = [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMaxYCorner] }
+            // Empty array means no rounded corners (e.g. interior group image cell)
         } else {
             mask = [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         }
@@ -172,6 +220,21 @@ class RNTurboImagePicker: RCTEventEmitter {
             self.zoomAnimator.sourceBorderRadius = sourceBorderRadius
             self.zoomAnimator.sourceBorderCorners = mask
             
+            // Parse background color from JS (passed as "R,G,B" string)
+            var sourceBackgroundColor: UIColor = .clear
+            if let bgString = options["sourceBackgroundColorString"] as? String {
+                let comps = bgString.split(separator: ",")
+                if comps.count >= 3,
+                   let r = Double(comps[0].trimmingCharacters(in: .whitespaces)),
+                   let g = Double(comps[1].trimmingCharacters(in: .whitespaces)),
+                   let b = Double(comps[2].trimmingCharacters(in: .whitespaces)) {
+                    sourceBackgroundColor = UIColor(red: CGFloat(r/255.0), green: CGFloat(g/255.0), blue: CGFloat(b/255.0), alpha: 1.0)
+                }
+            } else if let bgHex = options["sourceBackgroundColor"] as? String, let color = UIColor(hexString: bgHex) {
+                sourceBackgroundColor = color
+            }
+            self.zoomAnimator.sourceBackgroundColor = sourceBackgroundColor
+
             viewerVC.onViewerWillClose = { [weak self] in
                 self?.sendEvent(withName: "onViewerWillClose", body: nil)
             }

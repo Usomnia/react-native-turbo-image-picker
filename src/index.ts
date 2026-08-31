@@ -45,6 +45,7 @@ export interface RNTurboImagePicker {
   closeGallery(): Promise<boolean>
   addSelectionChangeListener(listener: (event: SelectionChangeEvent) => void): () => void
   getDefaultAnimationConfig(): Promise<{ galleryOpen: number, galleryClose: number, editorOpen: number, editorClose: number, viewerOpen: number, viewerClose: number }>
+  injectImageCache(urlString: string, localPath: string): Promise<boolean>
 }
 
 const TurboImagePicker: RNTurboImagePicker = {
@@ -195,6 +196,16 @@ const TurboImagePicker: RNTurboImagePicker = {
       throw new Error(LINKING_ERROR)
     }
     return RNTurboImagePickerModule.getDefaultAnimationConfig()
+  },
+
+  injectImageCache: async (urlString: string, localPath: string): Promise<boolean> => {
+    if (!RNTurboImagePickerModule) {
+      throw new Error(LINKING_ERROR)
+    }
+    if (RNTurboImagePickerModule.injectImageCache) {
+      return RNTurboImagePickerModule.injectImageCache(urlString, localPath)
+    }
+    return false;
   },
 }
 

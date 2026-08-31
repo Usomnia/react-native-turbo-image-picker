@@ -89,6 +89,24 @@ class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
         intent.putExtra("startWidth", startWidth)
         intent.putExtra("startHeight", startHeight)
         
+        if (options.hasKey("sourceBorderRadius")) {
+            intent.putExtra("sourceBorderRadius", options.getDouble("sourceBorderRadius").toFloat())
+        }
+        
+        if (options.hasKey("sourceBorderCorners")) {
+            val arr = options.getArray("sourceBorderCorners")
+            if (arr != null) {
+                val corners = ArrayList<String>()
+                for (i in 0 until arr.size()) {
+                    val str = arr.getString(i)
+                    if (str != null) {
+                        corners.add(str)
+                    }
+                }
+                intent.putStringArrayListExtra("sourceBorderCorners", corners)
+            }
+        }
+        
         androidx.localbroadcastmanager.content.LocalBroadcastManager.getInstance(reactApplicationContext)
             .sendBroadcast(intent)
             

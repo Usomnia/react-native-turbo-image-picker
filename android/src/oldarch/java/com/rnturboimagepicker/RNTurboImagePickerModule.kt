@@ -40,8 +40,27 @@ class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
     private var maxHeight: Int = 1024
     private var outputFormat: String = "webp" // Default to webp
 
+    private val pageChangeReceiver = object : android.content.BroadcastReceiver() {
+        override fun onReceive(context: android.content.Context?, intent: android.content.Intent?) {
+            if (intent?.action == "com.rnturboimagepicker.PAGE_CHANGED") {
+                val index = intent.getIntExtra("index", 0)
+                val params = com.facebook.react.bridge.Arguments.createMap()
+                params.putInt("index", index)
+                reactApplicationContext
+                    .getJSModule(com.facebook.react.modules.core.DeviceEventManagerModule.RCTDeviceEventEmitter::class.java)
+                    .emit("onPageSelected", params)
+            }
+        }
+    }
+
     init {
         reactContext.addActivityEventListener(this)
+    }
+
+    override fun initialize() {
+        super.initialize()
+        androidx.localbroadcastmanager.content.LocalBroadcastManager.getInstance(reactApplicationContext)
+            .registerReceiver(pageChangeReceiver, android.content.IntentFilter("com.rnturboimagepicker.PAGE_CHANGED"))
     }
 
     override fun getName(): String = NAME
@@ -644,6 +663,76 @@ class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
     override fun invalidate() {
         super.invalidate()
         reactApplicationContext.removeActivityEventListener(this)
+        try {
+            androidx.localbroadcastmanager.content.LocalBroadcastManager.getInstance(reactApplicationContext)
+                .unregisterReceiver(pageChangeReceiver)
+        } catch (e: Exception) { }
+    }
+
+    @ReactMethod
+    override fun updateViewerSourceRect(rect: ReadableMap, promise: Promise) {
+        updateSourceRect(rect, promise)
+    }
+    
+    @ReactMethod
+    override fun closeGallery(promise: Promise) {
+        promise.resolve(null)
+    }
+    
+    @ReactMethod
+    fun injectImageCache(urlString: String, localPath: String, promise: Promise) {
+        // Android dummy implementation
+        promise.resolve(true)
+    }
+
+    @ReactMethod
+    fun updateSourceRect(options: ReadableMap, promise: Promise) {
+        var startX = -1f
+        var startY = -1f
+        var startWidth = -1f
+        var startHeight = -1f
+
+        if (options.hasKey("x")) {
+            startX = com.facebook.react.uimanager.PixelUtil.toPixelFromDIP(options.getDouble("x").toFloat())
+        }
+        if (options.hasKey("y")) {
+            startY = com.facebook.react.uimanager.PixelUtil.toPixelFromDIP(options.getDouble("y").toFloat())
+        }
+        if (options.hasKey("width")) {
+            startWidth = com.facebook.react.uimanager.PixelUtil.toPixelFromDIP(options.getDouble("width").toFloat())
+        }
+        if (options.hasKey("height")) {
+            startHeight = com.facebook.react.uimanager.PixelUtil.toPixelFromDIP(options.getDouble("height").toFloat())
+        }
+
+        val intent = android.content.Intent("com.rnturboimagepicker.UPDATE_COORDINATES")
+        intent.putExtra("startX", startX)
+        intent.putExtra("startY", startY)
+        intent.putExtra("startWidth", startWidth)
+        intent.putExtra("startHeight", startHeight)
+        
+        if (options.hasKey("sourceBorderRadius")) {
+            intent.putExtra("sourceBorderRadius", options.getDouble("sourceBorderRadius").toFloat())
+        }
+        
+        if (options.hasKey("sourceBorderCorners")) {
+            val arr = options.getArray("sourceBorderCorners")
+            if (arr != null) {
+                val corners = ArrayList<String>()
+                for (i in 0 until arr.size()) {
+                    val str = arr.getString(i)
+                    if (str != null) {
+                        corners.add(str)
+                    }
+                }
+                intent.putStringArrayListExtra("sourceBorderCorners", corners)
+            }
+        }
+        
+        androidx.localbroadcastmanager.content.LocalBroadcastManager.getInstance(reactApplicationContext)
+            .sendBroadcast(intent)
+            
+        promise.resolve(null)
     }
 
 }

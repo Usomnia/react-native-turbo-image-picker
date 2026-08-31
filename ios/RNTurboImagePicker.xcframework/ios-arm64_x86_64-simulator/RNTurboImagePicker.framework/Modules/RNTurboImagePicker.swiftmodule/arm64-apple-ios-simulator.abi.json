@@ -10252,6 +10252,214 @@
       },
       {
         "kind": "TypeDecl",
+        "name": "ViewerImageCache",
+        "printedName": "ViewerImageCache",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "shared",
+            "printedName": "shared",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ViewerImageCache",
+                "printedName": "RNTurboImagePicker.ViewerImageCache",
+                "usr": "s:18RNTurboImagePicker06ViewerB5CacheC"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:18RNTurboImagePicker06ViewerB5CacheC6sharedACvpZ",
+            "mangledName": "$s18RNTurboImagePicker06ViewerB5CacheC6sharedACvpZ",
+            "moduleName": "RNTurboImagePicker",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ViewerImageCache",
+                    "printedName": "RNTurboImagePicker.ViewerImageCache",
+                    "usr": "s:18RNTurboImagePicker06ViewerB5CacheC"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:18RNTurboImagePicker06ViewerB5CacheC6sharedACvgZ",
+                "mangledName": "$s18RNTurboImagePicker06ViewerB5CacheC6sharedACvgZ",
+                "moduleName": "RNTurboImagePicker",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "hasCache",
+            "printedName": "hasCache(for:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:18RNTurboImagePicker06ViewerB5CacheC03hasE03forSbSS_tF",
+            "mangledName": "$s18RNTurboImagePicker06ViewerB5CacheC03hasE03forSbSS_tF",
+            "moduleName": "RNTurboImagePicker",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getMemoryImage",
+            "printedName": "getMemoryImage(for:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "UIKit.UIImage?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UIImage",
+                    "printedName": "UIKit.UIImage",
+                    "usr": "c:objc(cs)UIImage"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:18RNTurboImagePicker06ViewerB5CacheC09getMemoryB03forSo7UIImageCSgSS_tF",
+            "mangledName": "$s18RNTurboImagePicker06ViewerB5CacheC09getMemoryB03forSo7UIImageCSgSS_tF",
+            "moduleName": "RNTurboImagePicker",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setMemoryImage",
+            "printedName": "setMemoryImage(_:for:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UIImage",
+                "printedName": "UIKit.UIImage",
+                "usr": "c:objc(cs)UIImage"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:18RNTurboImagePicker06ViewerB5CacheC09setMemoryB0_3forySo7UIImageC_SStF",
+            "mangledName": "$s18RNTurboImagePicker06ViewerB5CacheC09setMemoryB0_3forySo7UIImageC_SStF",
+            "moduleName": "RNTurboImagePicker",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "saveImage",
+            "printedName": "saveImage(_:for:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UIImage",
+                "printedName": "UIKit.UIImage",
+                "usr": "c:objc(cs)UIImage"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:18RNTurboImagePicker06ViewerB5CacheC04saveB0_3forySo7UIImageC_SStF",
+            "mangledName": "$s18RNTurboImagePicker06ViewerB5CacheC04saveB0_3forySo7UIImageC_SStF",
+            "moduleName": "RNTurboImagePicker",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:18RNTurboImagePicker06ViewerB5CacheC",
+        "mangledName": "$s18RNTurboImagePicker06ViewerB5CacheC",
+        "moduleName": "RNTurboImagePicker",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "hasMissingDesignatedInitializers": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
         "name": "RemoteImageViewerViewController",
         "printedName": "RemoteImageViewerViewController",
         "children": [
@@ -13606,6 +13814,116 @@
                 "accessorKind": "_modify"
               }
             ]
+          },
+          {
+            "kind": "Var",
+            "name": "sourceBackgroundColor",
+            "printedName": "sourceBackgroundColor",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UIColor",
+                "printedName": "UIKit.UIColor",
+                "usr": "c:objc(cs)UIColor"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:18RNTurboImagePicker22ZoomTransitionAnimatorC21sourceBackgroundColorSo7UIColorCvp",
+            "mangledName": "$s18RNTurboImagePicker22ZoomTransitionAnimatorC21sourceBackgroundColorSo7UIColorCvp",
+            "moduleName": "RNTurboImagePicker",
+            "declAttributes": [
+              "HasInitialValue",
+              "Preconcurrency",
+              "Custom",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UIColor",
+                    "printedName": "UIKit.UIColor",
+                    "usr": "c:objc(cs)UIColor"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:18RNTurboImagePicker22ZoomTransitionAnimatorC21sourceBackgroundColorSo7UIColorCvg",
+                "mangledName": "$s18RNTurboImagePicker22ZoomTransitionAnimatorC21sourceBackgroundColorSo7UIColorCvg",
+                "moduleName": "RNTurboImagePicker",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UIColor",
+                    "printedName": "UIKit.UIColor",
+                    "usr": "c:objc(cs)UIColor"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:18RNTurboImagePicker22ZoomTransitionAnimatorC21sourceBackgroundColorSo7UIColorCvs",
+                "mangledName": "$s18RNTurboImagePicker22ZoomTransitionAnimatorC21sourceBackgroundColorSo7UIColorCvs",
+                "moduleName": "RNTurboImagePicker",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:18RNTurboImagePicker22ZoomTransitionAnimatorC21sourceBackgroundColorSo7UIColorCvM",
+                "mangledName": "$s18RNTurboImagePicker22ZoomTransitionAnimatorC21sourceBackgroundColorSo7UIColorCvM",
+                "moduleName": "RNTurboImagePicker",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "updateMaskView",
+            "printedName": "updateMaskView()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:18RNTurboImagePicker22ZoomTransitionAnimatorC14updateMaskViewyyF",
+            "mangledName": "$s18RNTurboImagePicker22ZoomTransitionAnimatorC14updateMaskViewyyF",
+            "moduleName": "RNTurboImagePicker",
+            "declAttributes": [
+              "Preconcurrency",
+              "Custom",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
           },
           {
             "kind": "Var",
@@ -21226,511 +21544,511 @@
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "Dictionary",
-      "offset": 5417,
+      "offset": 5822,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 8325,
+      "offset": 8730,
       "length": 2,
       "value": "16"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "FloatLiteral",
-      "offset": 8328,
+      "offset": 8733,
       "length": 5,
       "value": "255.0"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 8342,
+      "offset": 8747,
       "length": 3,
       "value": "185"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "FloatLiteral",
-      "offset": 8346,
+      "offset": 8751,
       "length": 5,
       "value": "255.0"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 8359,
+      "offset": 8764,
       "length": 3,
       "value": "129"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "FloatLiteral",
-      "offset": 8363,
+      "offset": 8768,
       "length": 5,
       "value": "255.0"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "FloatLiteral",
-      "offset": 8377,
+      "offset": 8782,
       "length": 3,
       "value": "1.0"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "StringLiteral",
-      "offset": 8420,
+      "offset": 8825,
       "length": 4,
       "value": "\"en\""
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 11345,
+      "offset": 11750,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 11380,
+      "offset": 11785,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 11429,
+      "offset": 11834,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 11614,
+      "offset": 12019,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "FloatLiteral",
-      "offset": 11772,
+      "offset": 12177,
       "length": 3,
       "value": "0.8"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "FloatLiteral",
-      "offset": 11812,
+      "offset": 12217,
       "length": 3,
       "value": "0.8"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "FloatLiteral",
-      "offset": 11904,
+      "offset": 12309,
       "length": 3,
       "value": "0.8"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 12092,
+      "offset": 12497,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "StringLiteral",
-      "offset": 12139,
+      "offset": 12544,
       "length": 7,
       "value": "\"xmark\""
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 12412,
+      "offset": 12817,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 12550,
+      "offset": 12955,
       "length": 2,
       "value": "15"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 12784,
+      "offset": 13189,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "FloatLiteral",
-      "offset": 12942,
+      "offset": 13347,
       "length": 3,
       "value": "0.8"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "FloatLiteral",
-      "offset": 12982,
+      "offset": 13387,
       "length": 3,
       "value": "0.8"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "FloatLiteral",
-      "offset": 13074,
+      "offset": 13479,
       "length": 3,
       "value": "0.8"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 13315,
+      "offset": 13720,
       "length": 2,
       "value": "50"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 13327,
+      "offset": 13732,
       "length": 2,
       "value": "65"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 13372,
+      "offset": 13777,
       "length": 1,
       "value": "8"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 13410,
+      "offset": 13815,
       "length": 1,
       "value": "8"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 13460,
+      "offset": 13865,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 13469,
+      "offset": 13874,
       "length": 2,
       "value": "16"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 13481,
+      "offset": 13886,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 13491,
+      "offset": 13896,
       "length": 2,
       "value": "16"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 13637,
+      "offset": 14042,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 13723,
+      "offset": 14128,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "StringLiteral",
-      "offset": 13853,
+      "offset": 14258,
       "length": 15,
       "value": "\"ThumbnailCell\""
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 14037,
+      "offset": 14442,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 14094,
+      "offset": 14499,
       "length": 1,
       "value": "6"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "StringLiteral",
-      "offset": 14259,
+      "offset": 14664,
       "length": 20,
       "value": "\"photo.on.rectangle\""
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 14466,
+      "offset": 14871,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 14707,
+      "offset": 15112,
       "length": 2,
       "value": "14"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 15204,
+      "offset": 15609,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 29644,
+      "offset": 30049,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 29733,
+      "offset": 30138,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 29777,
+      "offset": 30182,
       "length": 1,
       "value": "4"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "FloatLiteral",
-      "offset": 30096,
+      "offset": 30501,
       "length": 4,
       "value": "0.08"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "FloatLiteral",
-      "offset": 30109,
+      "offset": 30514,
       "length": 3,
       "value": "1.0"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "FloatLiteral",
-      "offset": 30131,
+      "offset": 30536,
       "length": 3,
       "value": "0.9"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "FloatLiteral",
-      "offset": 30143,
+      "offset": 30548,
       "length": 3,
       "value": "1.0"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 30271,
+      "offset": 30676,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 30322,
+      "offset": 30727,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 30556,
+      "offset": 30961,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 30606,
+      "offset": 31011,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 30665,
+      "offset": 31070,
       "length": 2,
       "value": "16"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "FloatLiteral",
-      "offset": 30668,
+      "offset": 31073,
       "length": 5,
       "value": "255.0"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 30682,
+      "offset": 31087,
       "length": 3,
       "value": "185"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "FloatLiteral",
-      "offset": 30686,
+      "offset": 31091,
       "length": 5,
       "value": "255.0"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 30699,
+      "offset": 31104,
       "length": 3,
       "value": "129"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "FloatLiteral",
-      "offset": 30703,
+      "offset": 31108,
       "length": 5,
       "value": "255.0"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "FloatLiteral",
-      "offset": 30717,
+      "offset": 31122,
       "length": 3,
       "value": "1.0"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 30775,
+      "offset": 31180,
       "length": 1,
       "value": "6"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 30812,
+      "offset": 31217,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 30997,
+      "offset": 31402,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 31094,
+      "offset": 31499,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 31193,
+      "offset": 31598,
       "length": 2,
       "value": "-2"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 31289,
+      "offset": 31694,
       "length": 2,
       "value": "-2"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 34690,
+      "offset": 35146,
       "length": 2,
       "value": "16"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "FloatLiteral",
-      "offset": 34693,
+      "offset": 35149,
       "length": 5,
       "value": "255.0"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 34707,
+      "offset": 35163,
       "length": 3,
       "value": "185"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "FloatLiteral",
-      "offset": 34711,
+      "offset": 35167,
       "length": 5,
       "value": "255.0"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 34724,
+      "offset": 35180,
       "length": 3,
       "value": "129"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "FloatLiteral",
-      "offset": 34728,
+      "offset": 35184,
       "length": 5,
       "value": "255.0"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "FloatLiteral",
-      "offset": 34742,
+      "offset": 35198,
       "length": 3,
       "value": "1.0"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/RemoteImageViewerViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 35103,
+      "offset": 35559,
       "length": 5,
       "value": "false"
     },
@@ -21849,14 +22167,14 @@
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/ZoomTransitionAnimator.swift",
       "kind": "FloatLiteral",
-      "offset": 705,
+      "offset": 1096,
       "length": 4,
       "value": "0.37"
     },
     {
       "filePath": "\/Users\/mike\/source\/PaidModules\/RNTurboImagePicker\/RNTurboImagePicker\/ios\/RNTurboImagePicker\/ZoomTransitionAnimator.swift",
       "kind": "FloatLiteral",
-      "offset": 755,
+      "offset": 1146,
       "length": 4,
       "value": "0.37"
     },

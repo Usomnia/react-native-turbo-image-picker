@@ -32,6 +32,11 @@ RCT_EXTERN_METHOD(openViewer:(NSDictionary *)options
 RCT_EXTERN_METHOD(closeGallery:(RCTPromiseResolveBlock)resolve
                   reject:(RCTPromiseRejectBlock)reject)
 
+RCT_EXTERN_METHOD(injectImageCache:(NSString *)urlString
+                  localPath:(NSString *)localPath
+                  resolve:(RCTPromiseResolveBlock)resolve
+                  reject:(RCTPromiseRejectBlock)reject)
+
 RCT_EXTERN_METHOD(updateSourceRect:(NSDictionary *)options
                   resolve:(RCTPromiseResolveBlock)resolve
                   reject:(RCTPromiseRejectBlock)reject)
