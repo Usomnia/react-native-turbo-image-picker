@@ -131,8 +131,5 @@ When an image is selected or edited, the promise resolves to an array of `ImageR
 ## 📜 License & Contact
 
 This `RNTurboImagePicker` library is released under the **MIT License**.
-However, to remove the watermark from the image editor, a separate license purchase is required.
-
-🛒 **Purchase License**: [https://license.rnturboimagepicker.usomnia.co.kr](https://license.rnturboimagepicker.usomnia.co.kr)
 
 📧 **Contact**: [contact@usomnia.co.kr](mailto:contact@usomnia.co.kr)
