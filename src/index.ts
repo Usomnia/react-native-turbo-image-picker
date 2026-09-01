@@ -127,9 +127,29 @@ const TurboImagePicker: RNTurboImagePicker = {
       })
     }
 
+    let subscriptionViewerOpened: any = null
+    // iOS 네이티브 쪽에는 "onViewerOpened" 이벤트가 구현되어 있지 않습니다(Android 전용 —
+    // 오버레이 뷰어의 열기 애니메이션 완료 시점을 알려주는 이벤트). iOS에서 무조건 구독을
+    // 시도하면 RCTEventEmitter가 "onViewerOpened is not a supported event type" 경고를 던지므로,
+    // Android에서만 등록합니다.
+    if (options.onViewerOpened && Platform.OS === "android") {
+      subscriptionViewerOpened = eventEmitter.addListener("onViewerOpened", () => {
+        try {
+          if (options.onViewerOpened) {
+            options.onViewerOpened()
+          }
+        } catch (e) {
+          console.error("[RNTurboImagePicker] options.onViewerOpened() threw:", e)
+        }
+        if (subscriptionViewerOpened) {
+          subscriptionViewerOpened.remove()
+        }
+      })
+    }
+
     let subscriptionViewerWillClose: any = null
     let deviceSubscriptionViewerWillClose: any = null
-    
+
     if (options.onViewerWillClose) {
       const closeHandler = () => {
         if (options.onViewerWillClose) {
@@ -138,6 +158,9 @@ const TurboImagePicker: RNTurboImagePicker = {
         if (subscriptionPageSelected) {
           subscriptionPageSelected.remove()
         }
+        if (subscriptionViewerOpened) {
+          subscriptionViewerOpened.remove()
+        }
         if (subscriptionViewerWillClose) {
           subscriptionViewerWillClose.remove()
         }
@@ -145,9 +168,9 @@ const TurboImagePicker: RNTurboImagePicker = {
           deviceSubscriptionViewerWillClose.remove()
         }
       };
-      
+
       subscriptionViewerWillClose = eventEmitter.addListener("onViewerWillClose", closeHandler);
-      
+
       if (Platform.OS === "android") {
         const { DeviceEventEmitter } = require("react-native");
         deviceSubscriptionViewerWillClose = DeviceEventEmitter.addListener("onViewerWillClose", closeHandler);
@@ -155,7 +178,7 @@ const TurboImagePicker: RNTurboImagePicker = {
     }
 
     try {
-      const { onPageSelected, onViewerWillClose, ...restOptions } = options
+      const { onPageSelected, onViewerWillClose, onViewerOpened, ...restOptions } = options
       const mergedOptions = {
         themeColor: _defaultThemeColor,
         languageCode: _defaultLanguageCode,

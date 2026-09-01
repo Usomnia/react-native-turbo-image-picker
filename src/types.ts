@@ -54,10 +54,46 @@ export interface ViewerOptions {
   sourceBorderRadius?: number
   sourceBackgroundColor?: string
   sourceBorderCorners?: ('topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight')[]
+  hideSourceImage?: boolean
   onPageSelected?: (index: number) => void
   onViewerWillClose?: () => void
+  /**
+   * Android only. 열기 애니메이션이 완전히 끝난 시점에 한 번 호출됩니다.
+   * 배경(호스트 화면) 스크롤 보정을 이 콜백 안에서 실행하면, 애니메이션 도중에 보정이
+   * 끼어들어 보이지 않고 뷰어가 화면을 완전히 가린 상태에서 안전하게 적용할 수 있습니다.
+   */
+  onViewerOpened?: () => void
   openDuration?: number
   closeDuration?: number
+  /**
+   * Android only. When true, opens the viewer as a full-screen DialogFragment
+   * instead of a separate Activity. Avoids RN host Activity pausing (onPause),
+   * which otherwise makes AppState briefly report background and the underlying
+   * RN UI temporarily uncontrollable while the viewer is open.
+   *
+   * Known limitation: the DialogFragment is still a separate Android Window on
+   * top of the host Activity's Window. While it's fully shown, the host Window
+   * can be treated as not-visible by the system and its own render traversals
+   * (layout/draw) can be skipped, so background RN view changes (e.g. list
+   * scroll correction) may not actually take effect on screen until the
+   * DialogFragment closes. See useOverlayViewer for a fix.
+   * Default: false (existing Activity-based viewer).
+   */
+  useDialogViewer?: boolean
+  /**
+   * Android only. When true, opens the viewer as a View added directly on top
+   * of the host Activity's existing Window (no separate Activity or Dialog
+   * Window at all). This fixes the DialogFragment limitation above: since
+   * there's only one Window, background RN view changes made while the viewer
+   * is open are reflected immediately (same render tree, same frame).
+   * Also avoids any window-focus-change AppState blips entirely.
+   * Trade-off: back-press handling, touch blocking, and system-bar insets are
+   * managed manually rather than via Activity/DialogFragment lifecycle, so
+   * this needs extra QA (rotation, back gesture, other overlays like keyboard).
+   * If both useDialogViewer and useOverlayViewer are true, useOverlayViewer wins.
+   * Default: false.
+   */
+  useOverlayViewer?: boolean
 }
 
 export interface SelectionChangeEvent {

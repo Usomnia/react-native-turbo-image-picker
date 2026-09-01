@@ -13,6 +13,8 @@ export interface Spec extends TurboModule {
   removeListeners(count: number): void;
   
   updateSourceRect(options: Object): Promise<void>;
+  
+  getDefaultAnimationConfig(): Promise<Object>;
 }
 
 export default TurboModuleRegistry.getEnforcing<Spec>("RNTurboImagePicker");

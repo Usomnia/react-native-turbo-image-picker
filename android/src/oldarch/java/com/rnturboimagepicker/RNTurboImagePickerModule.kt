@@ -40,35 +40,79 @@ class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
     private var maxHeight: Int = 1024
     private var outputFormat: String = "webp" // Default to webp
 
-    private val pageChangeReceiver = object : android.content.BroadcastReceiver() {
+    @ReactMethod
+    fun addListener(eventName: String) {
+        // Keep: Required for RN built in Event Emitter Calls.
+    }
+
+    @ReactMethod
+    fun removeListeners(count: Int) {
+        // Keep: Required for RN built in Event Emitter Calls.
+    }
+
+    private val viewerWillCloseReceiver = object : android.content.BroadcastReceiver() {
         override fun onReceive(context: android.content.Context?, intent: android.content.Intent?) {
-            if (intent?.action == "com.rnturboimagepicker.PAGE_CHANGED") {
-                val index = intent.getIntExtra("index", 0)
-                val params = com.facebook.react.bridge.Arguments.createMap()
-                params.putInt("index", index)
+            if (intent?.action == "com.rnturboimagepicker.VIEWER_WILL_CLOSE") {
                 reactApplicationContext
                     .getJSModule(com.facebook.react.modules.core.DeviceEventManagerModule.RCTDeviceEventEmitter::class.java)
-                    .emit("onPageSelected", params)
+                    .emit("onViewerWillClose", com.facebook.react.bridge.Arguments.createMap())
+            }
+        }
+    }
+
+    // 열기 애니메이션이 끝난 시점을 JS에 알리는 이벤트 (배경 스크롤 보정 타이밍용).
+    private val viewerOpenedReceiver = object : android.content.BroadcastReceiver() {
+        override fun onReceive(context: android.content.Context?, intent: android.content.Intent?) {
+            if (intent?.action == "com.rnturboimagepicker.VIEWER_OPENED") {
+                reactApplicationContext
+                    .getJSModule(com.facebook.react.modules.core.DeviceEventManagerModule.RCTDeviceEventEmitter::class.java)
+                    .emit("onViewerOpened", com.facebook.react.bridge.Arguments.createMap())
             }
         }
     }
 
     init {
+        com.rnturboimagepicker.EventEmitterHelper.reactContext = reactContext
         reactContext.addActivityEventListener(this)
-    }
-
-    override fun initialize() {
-        super.initialize()
-        androidx.localbroadcastmanager.content.LocalBroadcastManager.getInstance(reactApplicationContext)
-            .registerReceiver(pageChangeReceiver, android.content.IntentFilter("com.rnturboimagepicker.PAGE_CHANGED"))
+        androidx.localbroadcastmanager.content.LocalBroadcastManager.getInstance(reactContext)
+            .registerReceiver(viewerWillCloseReceiver, android.content.IntentFilter("com.rnturboimagepicker.VIEWER_WILL_CLOSE"))
+        androidx.localbroadcastmanager.content.LocalBroadcastManager.getInstance(reactContext)
+            .registerReceiver(viewerOpenedReceiver, android.content.IntentFilter("com.rnturboimagepicker.VIEWER_OPENED"))
     }
 
     override fun getName(): String = NAME
+
+    companion object {
+        const val NAME = "RNTurboImagePicker"
+        const val REQUEST_CODE_IMAGE_EDITOR = 1002
+        
+        val defaultAnimationConfig = mapOf(
+            "galleryOpen" to 300,
+            "galleryClose" to 250,
+            "editorOpen" to 250,
+            "editorClose" to 200,
+            "viewerOpen" to 250,
+            "viewerClose" to 200
+        )
+    }
 
     @ReactMethod
     override fun init(licenseKey: String, promise: Promise) {
         val result = LicenseManager.initialize(reactApplicationContext, licenseKey)
         promise.resolve(result)
+    }
+
+    @ReactMethod
+    fun getDefaultAnimationConfig(promise: Promise) {
+        val config = com.facebook.react.bridge.Arguments.createMap().apply {
+            putInt("galleryOpen", defaultAnimationConfig["galleryOpen"] ?: 300)
+            putInt("galleryClose", defaultAnimationConfig["galleryClose"] ?: 250)
+            putInt("editorOpen", defaultAnimationConfig["editorOpen"] ?: 250)
+            putInt("editorClose", defaultAnimationConfig["editorClose"] ?: 200)
+            putInt("viewerOpen", defaultAnimationConfig["viewerOpen"] ?: 250)
+            putInt("viewerClose", defaultAnimationConfig["viewerClose"] ?: 200)
+        }
+        promise.resolve(config)
     }
 
     @ReactMethod
@@ -272,6 +316,66 @@ class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
     }
 
     @ReactMethod
+    override fun updateSourceRect(options: ReadableMap, promise: Promise) {
+        var startX = -1f
+        var startY = -1f
+        var startWidth = -1f
+        var startHeight = -1f
+
+        if (options.hasKey("x")) {
+            startX = com.facebook.react.uimanager.PixelUtil.toPixelFromDIP(options.getDouble("x").toFloat())
+        }
+        if (options.hasKey("y")) {
+            startY = com.facebook.react.uimanager.PixelUtil.toPixelFromDIP(options.getDouble("y").toFloat())
+        }
+        if (options.hasKey("width")) {
+            startWidth = com.facebook.react.uimanager.PixelUtil.toPixelFromDIP(options.getDouble("width").toFloat())
+        }
+        if (options.hasKey("height")) {
+            startHeight = com.facebook.react.uimanager.PixelUtil.toPixelFromDIP(options.getDouble("height").toFloat())
+        }
+
+        // 브로드캐스트가 유실되는 타이밍(Fragment의 onViewCreated 전) 대비, sticky 값도 함께 저장.
+        // (useDialogViewer/useOverlayViewer 중 실제 사용 중인 쪽만 값을 읽으므로 둘 다 갱신해도 무해함)
+        ImageViewerDialogFragment.updatePendingCoordinates(startX, startY, startWidth, startHeight)
+        ImageViewerOverlayView.updatePendingCoordinates(startX, startY, startWidth, startHeight)
+
+        val intent = android.content.Intent("com.rnturboimagepicker.UPDATE_COORDINATES")
+        intent.putExtra("startX", startX)
+        intent.putExtra("startY", startY)
+        intent.putExtra("startWidth", startWidth)
+        intent.putExtra("startHeight", startHeight)
+        // 그동안 sourceBorderCorners(어느 모서리를 둥글릴지)가 여기서 전달되지 않아서, 그룹 이미지에서
+        // 스와이프로 다른 셀(예: 오른쪽 위 모서리 이미지)로 이동해도 마스크의 라운드 코너 패턴이
+        // 처음 열었던 이미지의 것으로 고정된 채 안 바뀌는 문제가 있었습니다. JS가 onPageSelected에서
+        // 매번 새로 계산해서 보내주는 sourceBorderCorners를 브로드캐스트에 실어 보내도록 수정합니다.
+        if (options.hasKey("sourceBorderCorners")) {
+            val cornersArray = options.getArray("sourceBorderCorners")
+            if (cornersArray != null) {
+                val corners = java.util.ArrayList<String>()
+                for (i in 0 until cornersArray.size()) {
+                    cornersArray.getString(i)?.let { corners.add(it) }
+                }
+                intent.putStringArrayListExtra("sourceBorderCorners", corners)
+            }
+        }
+        androidx.localbroadcastmanager.content.LocalBroadcastManager.getInstance(reactApplicationContext).sendBroadcast(intent)
+        promise.resolve(null)
+    }
+
+    @ReactMethod
+    override fun closeGallery(promise: Promise) {
+        val currentActivity = currentActivity
+        if (currentActivity != null) {
+            val intent = android.content.Intent("com.rnturboimagepicker.CLOSE_GALLERY")
+            androidx.localbroadcastmanager.content.LocalBroadcastManager.getInstance(currentActivity).sendBroadcast(intent)
+            promise.resolve(true)
+        } else {
+            promise.resolve(false)
+        }
+    }
+
+    @ReactMethod
     override fun openViewer(options: ReadableMap, promise: Promise) {
         val activity = getCurrentActivity()
         if (activity == null) {
@@ -302,6 +406,9 @@ class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
         val themeColor = if (options.hasKey("themeColor")) options.getString("themeColor") else "#FF6B35"
         val title = if (options.hasKey("title")) options.getString("title") else null
         val animationType = if (options.hasKey("animationType")) options.getString("animationType") else null
+        
+        val openDuration = if (options.hasKey("openDuration")) options.getInt("openDuration") else defaultAnimationConfig["viewerOpen"] ?: 250
+        val closeDuration = if (options.hasKey("closeDuration")) options.getInt("closeDuration") else defaultAnimationConfig["viewerClose"] ?: 200
 
         var startX = -1f
         var startY = -1f
@@ -318,7 +425,135 @@ class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
             }
         }
 
+        val useDialogViewer = options.hasKey("useDialogViewer") && options.getBoolean("useDialogViewer")
+        val useOverlayViewer = options.hasKey("useOverlayViewer") && options.getBoolean("useOverlayViewer")
+
         try {
+            if (useOverlayViewer) {
+                val args = android.os.Bundle().apply {
+                    putStringArrayList(ImageViewerActivity.EXTRA_IMAGES, images)
+                    putInt(ImageViewerActivity.EXTRA_INITIAL_INDEX, initialIndex)
+                    putString("EXTRA_THEME_COLOR", themeColor)
+                    if (title != null) {
+                        putString(ImageViewerActivity.EXTRA_TITLE, title)
+                    }
+                    if (animationType != null) {
+                        putString("animationType", animationType)
+                    }
+                    if (options.hasKey("closeAnimationType")) {
+                        putString("closeAnimationType", options.getString("closeAnimationType"))
+                    }
+                    if (startX != -1f) {
+                        putFloat("startX", startX)
+                        putFloat("startY", startY)
+                        putFloat("startWidth", startWidth)
+                        putFloat("startHeight", startHeight)
+                    }
+                    if (options.hasKey("sourceBorderRadius")) {
+                        putFloat("sourceBorderRadius", com.facebook.react.uimanager.PixelUtil.toPixelFromDIP(options.getDouble("sourceBorderRadius").toFloat()))
+                    }
+                    if (options.hasKey("sourceBorderCorners")) {
+                        val cornersArray = options.getArray("sourceBorderCorners")
+                        if (cornersArray != null) {
+                            val corners = ArrayList<String>()
+                            for (i in 0 until cornersArray.size()) {
+                                cornersArray.getString(i)?.let { corners.add(it) }
+                            }
+                            putStringArrayList("sourceBorderCorners", corners)
+                        }
+                    }
+                    // sourceBackgroundColor가 그동안 어느 뷰어 분기에서도 전달되지 않아
+                    // mMaskView(닫기/열기 애니메이션 중 원본 썸네일을 가리는 마스크)가 항상 생성되지
+                    // 않던 문제를 수정: JS의 sourceBackgroundColor(hex 문자열)를 그대로 전달합니다.
+                    if (options.hasKey("sourceBackgroundColor")) {
+                        putString("sourceBackgroundColor", options.getString("sourceBackgroundColor"))
+                    }
+                    // placeholderImages: 타입/뷰어 코드에는 있었지만 브릿지에서 한 번도 전달되지 않았던
+                    // 필드. 네이티브 뷰어가 onlyRetrieveFromCache(true)로 첫 프레임을 즉시 그리려 할 때
+                    // 쓰는 저해상도 대체 이미지 목록입니다(원본 다운로드 전 임시 표시용).
+                    if (options.hasKey("placeholderImages")) {
+                        val placeholderArray = options.getArray("placeholderImages")
+                        if (placeholderArray != null) {
+                            val placeholders = ArrayList<String>()
+                            for (i in 0 until placeholderArray.size()) {
+                                placeholders.add(placeholderArray.getString(i) ?: "")
+                            }
+                            putStringArrayList("placeholderImages", placeholders)
+                        }
+                    }
+                }
+                // 이전 세션에서 남은 sticky 좌표가 이번 오픈에 잘못 적용되지 않도록 초기화.
+                ImageViewerOverlayView.clearPendingCoordinates()
+                activity.runOnUiThread {
+                    ImageViewerOverlayView.present(activity, args)
+                }
+                promise.resolve(null)
+                return
+            }
+
+            if (useDialogViewer && activity is androidx.fragment.app.FragmentActivity) {
+                val args = android.os.Bundle().apply {
+                    putStringArrayList(ImageViewerActivity.EXTRA_IMAGES, images)
+                    putInt(ImageViewerActivity.EXTRA_INITIAL_INDEX, initialIndex)
+                    putString("EXTRA_THEME_COLOR", themeColor)
+                    if (title != null) {
+                        putString(ImageViewerActivity.EXTRA_TITLE, title)
+                    }
+                    if (animationType != null) {
+                        putString("animationType", animationType)
+                    }
+                    if (options.hasKey("closeAnimationType")) {
+                        putString("closeAnimationType", options.getString("closeAnimationType"))
+                    }
+                    if (startX != -1f) {
+                        putFloat("startX", startX)
+                        putFloat("startY", startY)
+                        putFloat("startWidth", startWidth)
+                        putFloat("startHeight", startHeight)
+                    }
+                    if (options.hasKey("sourceBorderRadius")) {
+                        putFloat("sourceBorderRadius", com.facebook.react.uimanager.PixelUtil.toPixelFromDIP(options.getDouble("sourceBorderRadius").toFloat()))
+                    }
+                    if (options.hasKey("sourceBorderCorners")) {
+                        val cornersArray = options.getArray("sourceBorderCorners")
+                        if (cornersArray != null) {
+                            val corners = ArrayList<String>()
+                            for (i in 0 until cornersArray.size()) {
+                                cornersArray.getString(i)?.let { corners.add(it) }
+                            }
+                            putStringArrayList("sourceBorderCorners", corners)
+                        }
+                    }
+                    // sourceBackgroundColor가 그동안 어느 뷰어 분기에서도 전달되지 않아
+                    // mMaskView(닫기/열기 애니메이션 중 원본 썸네일을 가리는 마스크)가 항상 생성되지
+                    // 않던 문제를 수정: JS의 sourceBackgroundColor(hex 문자열)를 그대로 전달합니다.
+                    if (options.hasKey("sourceBackgroundColor")) {
+                        putString("sourceBackgroundColor", options.getString("sourceBackgroundColor"))
+                    }
+                    // placeholderImages: 타입/뷰어 코드에는 있었지만 브릿지에서 한 번도 전달되지 않았던
+                    // 필드. 네이티브 뷰어가 onlyRetrieveFromCache(true)로 첫 프레임을 즉시 그리려 할 때
+                    // 쓰는 저해상도 대체 이미지 목록입니다(원본 다운로드 전 임시 표시용).
+                    if (options.hasKey("placeholderImages")) {
+                        val placeholderArray = options.getArray("placeholderImages")
+                        if (placeholderArray != null) {
+                            val placeholders = ArrayList<String>()
+                            for (i in 0 until placeholderArray.size()) {
+                                placeholders.add(placeholderArray.getString(i) ?: "")
+                            }
+                            putStringArrayList("placeholderImages", placeholders)
+                        }
+                    }
+                }
+                // 이전 세션에서 남은 sticky 좌표가 이번 오픈에 잘못 적용되지 않도록 초기화.
+                ImageViewerDialogFragment.clearPendingCoordinates()
+                activity.runOnUiThread {
+                    ImageViewerDialogFragment.newInstance(args)
+                        .show(activity.supportFragmentManager, "image_viewer_dialog")
+                }
+                promise.resolve(null)
+                return
+            }
+
             val intent = Intent(activity, ImageViewerActivity::class.java).apply {
                 putStringArrayListExtra(ImageViewerActivity.EXTRA_IMAGES, images)
                 putExtra(ImageViewerActivity.EXTRA_INITIAL_INDEX, initialIndex)
@@ -332,6 +567,8 @@ class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
                 if (options.hasKey("closeAnimationType")) {
                     putExtra("closeAnimationType", options.getString("closeAnimationType"))
                 }
+                putExtra("openDuration", openDuration)
+                putExtra("closeDuration", closeDuration)
                 if (startX != -1f) {
                     putExtra("startX", startX)
                     putExtra("startY", startY)
@@ -339,16 +576,7 @@ class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
                     putExtra("startHeight", startHeight)
                 }
                 if (options.hasKey("sourceBorderRadius")) {
-                    putExtra("sourceBorderRadius", options.getDouble("sourceBorderRadius").toFloat())
-                }
-                if (options.hasKey("hideSourceImage")) {
-                    putExtra("hideSourceImage", options.getBoolean("hideSourceImage"))
-                }
-                if (options.hasKey("sourceBackgroundColor")) {
-                    val color = options.getString("sourceBackgroundColor")
-                    if (color != null) {
-                        putExtra("sourceBackgroundColor", color)
-                    }
+                    putExtra("sourceBorderRadius", com.facebook.react.uimanager.PixelUtil.toPixelFromDIP(options.getDouble("sourceBorderRadius").toFloat()))
                 }
                 if (options.hasKey("sourceBorderCorners")) {
                     val cornersArray = options.getArray("sourceBorderCorners")
@@ -358,6 +586,19 @@ class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
                             cornersArray.getString(i)?.let { corners.add(it) }
                         }
                         putStringArrayListExtra("sourceBorderCorners", corners)
+                    }
+                }
+                if (options.hasKey("sourceBackgroundColor")) {
+                    putExtra("sourceBackgroundColor", options.getString("sourceBackgroundColor"))
+                }
+                if (options.hasKey("placeholderImages")) {
+                    val placeholderArray = options.getArray("placeholderImages")
+                    if (placeholderArray != null) {
+                        val placeholders = ArrayList<String>()
+                        for (i in 0 until placeholderArray.size()) {
+                            placeholders.add(placeholderArray.getString(i) ?: "")
+                        }
+                        putStringArrayListExtra("placeholderImages", placeholders)
                     }
                 }
             }
@@ -663,76 +904,8 @@ class RNTurboImagePickerModule(reactContext: ReactApplicationContext) :
     override fun invalidate() {
         super.invalidate()
         reactApplicationContext.removeActivityEventListener(this)
-        try {
-            androidx.localbroadcastmanager.content.LocalBroadcastManager.getInstance(reactApplicationContext)
-                .unregisterReceiver(pageChangeReceiver)
-        } catch (e: Exception) { }
-    }
-
-    @ReactMethod
-    override fun updateViewerSourceRect(rect: ReadableMap, promise: Promise) {
-        updateSourceRect(rect, promise)
-    }
-    
-    @ReactMethod
-    override fun closeGallery(promise: Promise) {
-        promise.resolve(null)
-    }
-    
-    @ReactMethod
-    fun injectImageCache(urlString: String, localPath: String, promise: Promise) {
-        // Android dummy implementation
-        promise.resolve(true)
-    }
-
-    @ReactMethod
-    fun updateSourceRect(options: ReadableMap, promise: Promise) {
-        var startX = -1f
-        var startY = -1f
-        var startWidth = -1f
-        var startHeight = -1f
-
-        if (options.hasKey("x")) {
-            startX = com.facebook.react.uimanager.PixelUtil.toPixelFromDIP(options.getDouble("x").toFloat())
-        }
-        if (options.hasKey("y")) {
-            startY = com.facebook.react.uimanager.PixelUtil.toPixelFromDIP(options.getDouble("y").toFloat())
-        }
-        if (options.hasKey("width")) {
-            startWidth = com.facebook.react.uimanager.PixelUtil.toPixelFromDIP(options.getDouble("width").toFloat())
-        }
-        if (options.hasKey("height")) {
-            startHeight = com.facebook.react.uimanager.PixelUtil.toPixelFromDIP(options.getDouble("height").toFloat())
-        }
-
-        val intent = android.content.Intent("com.rnturboimagepicker.UPDATE_COORDINATES")
-        intent.putExtra("startX", startX)
-        intent.putExtra("startY", startY)
-        intent.putExtra("startWidth", startWidth)
-        intent.putExtra("startHeight", startHeight)
-        
-        if (options.hasKey("sourceBorderRadius")) {
-            intent.putExtra("sourceBorderRadius", options.getDouble("sourceBorderRadius").toFloat())
-        }
-        
-        if (options.hasKey("sourceBorderCorners")) {
-            val arr = options.getArray("sourceBorderCorners")
-            if (arr != null) {
-                val corners = ArrayList<String>()
-                for (i in 0 until arr.size()) {
-                    val str = arr.getString(i)
-                    if (str != null) {
-                        corners.add(str)
-                    }
-                }
-                intent.putStringArrayListExtra("sourceBorderCorners", corners)
-            }
-        }
-        
         androidx.localbroadcastmanager.content.LocalBroadcastManager.getInstance(reactApplicationContext)
-            .sendBroadcast(intent)
-            
-        promise.resolve(null)
+            .unregisterReceiver(viewerOpenedReceiver)
     }
 
 }
