@@ -1,4 +1,28 @@
-# React Native Turbo Image Picker 🚀
+# React Native Turbo Image Picker 🚀 (Deprecated)
+
+> [!IMPORTANT]
+> ## ⚠️ This package is deprecated — moved to **[React Native Attachment Kit](https://github.com/Usomnia/react-native-attachment-kit)**
+>
+> `react-native-turbo-image-picker` is no longer maintained. All of its features (photo picker, editor, sticky image viewer) now live in **`react-native-attachment-kit`**, which also adds an attach menu (Location / File), location messages (map thumbnails, reverse geocoding, map viewer) and a media gallery.
+>
+> **👉 [Go to react-native-attachment-kit](https://github.com/Usomnia/react-native-attachment-kit)**
+>
+> **Migrating takes two steps** — the API names (`init`, `openGallery`, `openEditor`, `openViewer`, `updateSourceRect`, …) are the same:
+>
+> ```bash
+> yarn remove react-native-turbo-image-picker
+> yarn add react-native-attachment-kit
+> cd ios && pod install
+> ```
+>
+> ```diff
+> - import RNTurboImagePicker from 'react-native-turbo-image-picker';
+> + import AttachmentKit from 'react-native-attachment-kit';
+> ```
+>
+> 🇰🇷 이 패키지는 더 이상 업데이트되지 않습니다. 모든 기능이 **[react-native-attachment-kit](https://github.com/Usomnia/react-native-attachment-kit)** 으로 이전되었으니 그쪽을 사용해 주세요.
+
+---
 
 A highly customizable, high-performance, and purely native image picker and editor for React Native.
 
